@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AIED Case Hub | AI教育案例库</title>
+    <meta
+      name="description"
+      content="AIED Case Hub 收集全球 AI 教育、AI辅助教学与AI素养教学实践案例，支持按学科、学段、语言、地区和来源筛选。"
+    >
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#cases">跳到案例列表</a>
+
+    <header class="site-header">
+      <div class="header-inner">
+        <div>
+          <p class="eyebrow">AI Education Case Library</p>
+          <h1>AIED Case Hub</h1>
+          <p class="subtitle">全球 AI 教育与 AI 辅助教学实践案例库</p>
+        </div>
+        <div class="header-actions" aria-label="数据操作">
+          <a class="button button-secondary" href="data/cases.csv" download>下载 CSV</a>
+          <a class="button button-primary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="dashboard" aria-label="案例库概览">
+        <div class="dashboard-stat">
+          <span class="stat-value" id="totalCases">0</span>
+          <span class="stat-label">已收录案例</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="stat-value" id="hongKongCases">0</span>
+          <span class="stat-label">香港优先案例</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="stat-value" id="categoryCount">10</span>
+          <span class="stat-label">一级栏目</span>
+        </div>
+        <div class="dashboard-stat">
+          <span class="stat-value" id="lastAccessed">--</span>
+          <span class="stat-label">最近访问日期</span>
+        </div>
+      </section>
+
+      <section class="toolbar" aria-label="检索和筛选">
+        <nav class="tabs" id="categoryTabs" aria-label="案例栏目"></nav>
+
+        <div class="controls">
+          <label class="field field-wide" for="searchInput">
+            <span>关键词</span>
+            <input id="searchInput" type="search" placeholder="搜索标题、摘要、地区、工具或来源">
+          </label>
+
+          <label class="field" for="levelFilter">
+            <span>学段</span>
+            <select id="levelFilter"></select>
+          </label>
+
+          <label class="field" for="languageFilter">
+            <span>语言</span>
+            <select id="languageFilter"></select>
+          </label>
+
+          <label class="field" for="regionFilter">
+            <span>地区</span>
+            <select id="regionFilter"></select>
+          </label>
+
+          <label class="field" for="sourceFilter">
+            <span>来源</span>
+            <select id="sourceFilter"></select>
+          </label>
+
+          <label class="field" for="methodFilter">
+            <span>AI类型</span>
+            <select id="methodFilter"></select>
+          </label>
+
+          <label class="field" for="sortSelect">
+            <span>排序</span>
+            <select id="sortSelect">
+              <option value="date-desc">发布日期：新到旧</option>
+              <option value="date-asc">发布日期：旧到新</option>
+              <option value="title-asc">标题：A-Z</option>
+              <option value="region-asc">地区：A-Z</option>
+            </select>
+          </label>
+
+          <button class="button button-secondary" id="resetFilters" type="button">重置</button>
+        </div>
+      </section>
+
+      <section class="results-header" aria-live="polite">
+        <div>
+          <h2 id="resultsTitle">全部案例</h2>
+          <p id="resultsMeta">正在读取案例数据...</p>
+        </div>
+      </section>
+
+      <section class="case-grid" id="cases" aria-label="案例列表"></section>
+      <section class="empty-state" id="emptyState" hidden>
+        <h2>没有找到匹配案例</h2>
+        <p>试试减少筛选条件，或换一个关键词。</p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>数据维护：编辑 <code>data/cases.csv</code> 后提交到 GitHub Pages 即可更新。</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
