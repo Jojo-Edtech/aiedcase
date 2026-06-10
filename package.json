@@ -1,0 +1,13 @@
+{
+  "name": "aied-case-hub",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "update:candidates": "node scripts/collect-candidate-cases.mjs",
+    "validate:data": "node scripts/validate-data.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

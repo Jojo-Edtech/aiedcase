@@ -1,0 +1,84 @@
+name: Daily AIED Candidate Update
+
+on:
+  schedule:
+    # 22:00 UTC = 06:00 Hong Kong time.
+    - cron: '0 22 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collect-candidates:
+    name: Collect candidate teaching cases
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Hong_Kong
+      SUMMARY_FILE: .tmp/candidate_update_summary.md
+      MAX_NEW_CANDIDATES: '12'
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Prepare candidate branch
+        run: |
+          set -euo pipefail
+          branch="auto/daily-case-candidates"
+          git fetch origin main
+          if git ls-remote --exit-code --heads origin "$branch" >/dev/null 2>&1; then
+            git fetch origin "$branch:$branch"
+            git checkout "$branch"
+            git merge --no-edit origin/main
+          else
+            git checkout -b "$branch"
+          fi
+
+      - name: Collect candidate cases
+        run: npm run update:candidates
+
+      - name: Validate case data
+        run: npm run validate:data
+
+      - name: Commit candidate changes
+        id: changes
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- data/candidate_cases.csv; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/candidate_cases.csv
+          git commit -m "Add daily AIED candidate cases"
+          git push --set-upstream origin auto/daily-case-candidates
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update pull request
+        if: steps.changes.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          branch="auto/daily-case-candidates"
+          existing_pr="$(gh pr list --head "$branch" --state open --json number --jq '.[0].number // empty')"
+
+          if [ -z "$existing_pr" ]; then
+            gh pr create \
+              --base main \
+              --head "$branch" \
+              --title "Daily AIED candidate case update" \
+              --body-file "$SUMMARY_FILE"
+          else
+            gh pr comment "$existing_pr" --body-file "$SUMMARY_FILE"
+          fi

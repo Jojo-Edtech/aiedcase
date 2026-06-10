@@ -1,0 +1,35 @@
+[
+  {
+    "name": "EdSurge",
+    "url": "https://www.edsurge.com/articles_rss",
+    "language": "英文",
+    "region": "美国",
+    "source_type": "媒体报道",
+    "credibility": "媒体报道"
+  },
+  {
+    "name": "The Keyword - Education",
+    "url": "https://blog.google/outreach-initiatives/education/rss/",
+    "language": "英文",
+    "region": "全球",
+    "source_type": "学校案例",
+    "credibility": "官方/学校"
+  },
+  {
+    "name": "Microsoft Education Blog",
+    "url": "https://educationblog.microsoft.com/en-us/feed",
+    "language": "英文",
+    "region": "全球",
+    "source_type": "学校案例",
+    "credibility": "官方/学校"
+  },
+  {
+    "name": "AI4K12",
+    "url": "https://ai4k12.org/feed/",
+    "language": "英文",
+    "region": "美国",
+    "source_type": "课程资源",
+    "credibility": "官方/学校",
+    "ai_focused": true
+  }
+]

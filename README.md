@@ -26,6 +26,27 @@ id,title_original,title_cn,category,subject,education_level,language,region,ai_t
 
 新增案例时请保留来源链接和访问日期。英文或繁体来源保留原题，并补充简体中文摘要。
 
+## 每日自动更新
+
+仓库已配置 GitHub Actions：每天香港时间 06:00 自动运行一次候选案例收集任务，也可以在 GitHub 的 `Actions -> Daily AIED Candidate Update -> Run workflow` 手动触发。
+
+自动任务采用审核优先流程：
+
+1. 从 `data/source_feeds.json` 中列出的教育与 AI 信息源抓取最新内容。
+2. 用保守关键词规则筛出可能属于课堂、课程、活动或学习任务的 AI 教育案例。
+3. 把新增候选写入 `data/candidate_cases.csv`。
+4. 自动创建或更新 `Daily AIED candidate case update` Pull Request。
+5. 人工审核候选后，把通过的行移动到 `data/cases.csv`，再合并 PR。
+
+合并到 `main` 后，GitHub Pages 会自动刷新正式网页。这样前端页面和数据源都会保持同步，但不会让未经审核的候选案例直接上线。
+
+本地运行：
+
+```bash
+npm run update:candidates
+npm run validate:data
+```
+
 ## GitHub Pages
 
 推荐设置：
