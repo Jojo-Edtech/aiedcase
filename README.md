@@ -32,12 +32,12 @@ id,title_original,title_cn,category,subject,education_level,language,region,ai_t
 
 - Repository name: `aied-case-hub`
 - Pages source: `main` branch, root folder
-- URL: `https://<GitHub用户名>.github.io/aied-case-hub/`
+- URL: `https://jojo-edtech.github.io/aied-case-hub/`
 
 如果 GitHub 上已经创建好空仓库，可以在本地运行：
 
 ```bash
-git remote add origin https://github.com/<GitHub用户名>/aied-case-hub.git
+git remote add origin git@github.com:Jojo-Edtech/aied-case-hub.git
 git push -u origin main
 ```
 
