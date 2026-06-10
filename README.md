@@ -33,3 +33,12 @@ id,title_original,title_cn,category,subject,education_level,language,region,ai_t
 - Repository name: `aied-case-hub`
 - Pages source: `main` branch, root folder
 - URL: `https://<GitHub用户名>.github.io/aied-case-hub/`
+
+如果 GitHub 上已经创建好空仓库，可以在本地运行：
+
+```bash
+git remote add origin https://github.com/<GitHub用户名>/aied-case-hub.git
+git push -u origin main
+```
+
+然后进入 GitHub 仓库的 `Settings -> Pages`，选择 `Deploy from a branch`，分支选择 `main`，目录选择 `/root`。
