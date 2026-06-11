@@ -3,19 +3,15 @@ const DATA_URL = "data/cases.csv";
 const CATEGORIES = [
   "AI Literacy",
   "AI+STEM",
-  "AI+Math",
-  "AI+Science",
-  "AI+Coding / CS",
-  "AI+Language",
-  "AI+Humanities & Social Studies",
-  "AI+Arts & Design",
-  "AI+Business / Economics",
+  "AI+Humanities",
+  "AI+Social Sciences",
   "AI for Teaching & Assessment",
 ];
 
 const state = {
   cases: [],
   category: "全部",
+  subcategory: "全部",
   search: "",
   level: "全部",
   language: "全部",
@@ -30,6 +26,7 @@ const elements = {
   cases: document.querySelector("#cases"),
   empty: document.querySelector("#emptyState"),
   search: document.querySelector("#searchInput"),
+  subcategory: document.querySelector("#subcategoryFilter"),
   level: document.querySelector("#levelFilter"),
   language: document.querySelector("#languageFilter"),
   region: document.querySelector("#regionFilter"),
@@ -121,12 +118,14 @@ function getSearchText(item) {
     item.title_original,
     item.title_cn,
     item.category,
+    item.subcategory,
     item.subject,
     item.education_level,
     item.language,
     item.region,
     item.ai_tool_or_method,
     item.summary_cn,
+    item.workflow_cn,
     item.source_type,
     item.credibility,
   ]
@@ -140,9 +139,12 @@ function getFilteredCases() {
   return state.cases
     .filter((item) => {
       const categoryMatch = state.category === "全部" || item.category === state.category;
+      const subcategoryMatch =
+        state.subcategory === "全部" || item.subcategory === state.subcategory;
       const queryMatch = !query || getSearchText(item).includes(query);
       return (
         categoryMatch &&
+        subcategoryMatch &&
         queryMatch &&
         matchesField(item.education_level, state.level) &&
         matchesField(item.language, state.language) &&
@@ -157,6 +159,14 @@ function getFilteredCases() {
       if (state.sort === "region-asc") return a.region.localeCompare(b.region, "zh-Hans-CN");
       return dateValue(b.published_date) - dateValue(a.published_date);
     });
+}
+
+function getSubcategoryValues() {
+  const source =
+    state.category === "全部"
+      ? state.cases
+      : state.cases.filter((item) => item.category === state.category);
+  return uniqueValues(source, "subcategory");
 }
 
 function createTag(text, extraClass = "") {
@@ -174,6 +184,38 @@ function createMeta(label, value) {
   description.textContent = value || "未标注";
   wrapper.append(term, description);
   return wrapper;
+}
+
+function workflowText(item) {
+  if (item.workflow_cn) return item.workflow_cn;
+  return [
+    `案例：${item.title_cn || item.title_original}`,
+    `目标：围绕${item.subject || item.subcategory || item.category}设计一节AI辅助学习活动。`,
+    `流程：1. 给学生一个真实问题；2. 用${item.ai_tool_or_method || "AI工具"}生成、比较或反馈；3. 让学生记录判断依据；4. 分享作品并反思AI的帮助和局限。`,
+    `产出：一份学习作品、一段反思或一张评价表。`,
+  ].join("\n");
+}
+
+function createCopyButton(text) {
+  const button = document.createElement("button");
+  button.className = "copy-button";
+  button.type = "button";
+  button.textContent = "复制工作流";
+  button.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+      button.textContent = "已复制";
+      window.setTimeout(() => {
+        button.textContent = "复制工作流";
+      }, 1600);
+    } catch {
+      button.textContent = "复制失败";
+      window.setTimeout(() => {
+        button.textContent = "复制工作流";
+      }, 1600);
+    }
+  });
+  return button;
 }
 
 function renderCards(items) {
@@ -206,11 +248,24 @@ function renderCards(items) {
     const meta = document.createElement("dl");
     meta.className = "meta-list";
     meta.append(
+      createMeta("细分", item.subcategory),
       createMeta("学段", item.education_level),
       createMeta("语言", item.language),
       createMeta("地区", item.region),
       createMeta("AI类型", item.ai_tool_or_method)
     );
+
+    const workflow = workflowText(item);
+    const workflowBlock = document.createElement("div");
+    workflowBlock.className = "workflow-block";
+    const workflowHeader = document.createElement("div");
+    workflowHeader.className = "workflow-header";
+    const workflowTitle = document.createElement("h4");
+    workflowTitle.textContent = "可复制工作流";
+    workflowHeader.append(workflowTitle, createCopyButton(workflow));
+    const workflowContent = document.createElement("pre");
+    workflowContent.textContent = workflow;
+    workflowBlock.append(workflowHeader, workflowContent);
 
     const footer = document.createElement("div");
     footer.className = "card-footer";
@@ -226,7 +281,7 @@ function renderCards(items) {
     link.textContent = "查看来源";
 
     footer.append(date, link);
-    card.append(topline, title, original, summary, meta, footer);
+    card.append(topline, title, original, summary, meta, workflowBlock, footer);
     elements.cases.append(card);
   });
 }
@@ -241,6 +296,8 @@ function renderTabs() {
     button.textContent = category;
     button.addEventListener("click", () => {
       state.category = category;
+      state.subcategory = "全部";
+      fillSelect(elements.subcategory, getSubcategoryValues());
       render();
     });
     elements.tabs.append(button);
@@ -265,6 +322,7 @@ function render() {
 }
 
 function setupControls() {
+  fillSelect(elements.subcategory, getSubcategoryValues());
   fillSelect(elements.level, uniqueValues(state.cases, "education_level"));
   fillSelect(elements.language, uniqueValues(state.cases, "language"));
   fillSelect(elements.region, uniqueValues(state.cases, "region"));
@@ -273,6 +331,11 @@ function setupControls() {
 
   elements.search.addEventListener("input", (event) => {
     state.search = event.target.value;
+    render();
+  });
+
+  elements.subcategory.addEventListener("change", (event) => {
+    state.subcategory = event.target.value;
     render();
   });
 
@@ -308,6 +371,7 @@ function setupControls() {
 
   elements.reset.addEventListener("click", () => {
     state.category = "全部";
+    state.subcategory = "全部";
     state.search = "";
     state.level = "全部";
     state.language = "全部";
@@ -316,6 +380,8 @@ function setupControls() {
     state.method = "全部";
     state.sort = "date-desc";
     elements.search.value = "";
+    fillSelect(elements.subcategory, getSubcategoryValues());
+    elements.subcategory.value = "全部";
     elements.level.value = "全部";
     elements.language.value = "全部";
     elements.region.value = "全部";

@@ -9,14 +9,16 @@
 | `id` | 稳定编号，例如 `case-001` |
 | `title_original` | 原始标题，保留英文或繁体 |
 | `title_cn` | 简体中文标题 |
-| `category` | 10 个一级栏目之一 |
+| `category` | 5 个一级栏目之一：AI Literacy、AI+STEM、AI+Humanities、AI+Social Sciences、AI for Teaching & Assessment |
+| `subcategory` | 一级栏目下的细分方向，例如 Math、Science、Coding / CS、Language、Arts & Design、Business / Economics |
 | `subject` | 更具体的学科或主题 |
 | `education_level` | 小学、初中、高中、大学、教师教育、中小学、高等教育等 |
 | `language` | 来源主要语言 |
 | `region` | 案例地区 |
 | `ai_tool_or_method` | AI 类型或方法 |
 | `summary_cn` | 简体中文摘要 |
-| `source_type` | 课程资源、研究论文、学校案例、教师实践、媒体报道 |
+| `workflow_cn` | 可复制的课堂 skill / 工作流 |
+| `source_type` | 课程资源、研究论文、学校案例、教师实践、媒体报道、视频案例 |
 | `credibility` | 官方/学校、论文/研究、教师实践、媒体报道 |
 | `source_url` | 原始来源链接 |
 | `published_date` | 来源发布日期，未知时尽量填年份 |

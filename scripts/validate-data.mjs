@@ -6,13 +6,8 @@ const files = ['data/cases.csv', 'data/candidate_cases.csv'];
 const categories = new Set([
   'AI Literacy',
   'AI+STEM',
-  'AI+Math',
-  'AI+Science',
-  'AI+Coding / CS',
-  'AI+Language',
-  'AI+Humanities & Social Studies',
-  'AI+Arts & Design',
-  'AI+Business / Economics',
+  'AI+Humanities',
+  'AI+Social Sciences',
   'AI for Teaching & Assessment',
 ]);
 const credibilityLabels = new Set(['官方/学校', '论文/研究', '教师实践', '媒体报道']);

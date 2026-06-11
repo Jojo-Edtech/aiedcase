@@ -1,6 +1,6 @@
 # AIED Case Hub
 
-AIED Case Hub 是一个可部署到 GitHub Pages 的静态 AI 教育案例库。页面读取 `data/cases.csv`，支持按栏目、学段、语言、地区、来源和 AI 类型筛选。
+AIED Case Hub 是一个可部署到 GitHub Pages 的静态 AI 教育案例库。页面读取 `data/cases.csv`，支持按一级栏目、细分方向、学段、语言、地区、来源和 AI 类型筛选。
 
 ## 本地预览
 
@@ -21,10 +21,12 @@ http://localhost:4173
 案例数据在 `data/cases.csv`。字段固定为：
 
 ```text
-id,title_original,title_cn,category,subject,education_level,language,region,ai_tool_or_method,summary_cn,source_type,credibility,source_url,published_date,accessed_date
+id,title_original,title_cn,category,subcategory,subject,education_level,language,region,ai_tool_or_method,summary_cn,workflow_cn,source_type,credibility,source_url,published_date,accessed_date
 ```
 
-新增案例时请保留来源链接和访问日期。英文或繁体来源保留原题，并补充简体中文摘要。
+一级栏目当前为：`AI Literacy`、`AI+STEM`、`AI+Humanities`、`AI+Social Sciences`、`AI for Teaching & Assessment`。
+
+新增案例时请保留来源链接和访问日期。英文或繁体来源保留原题，并补充简体中文摘要。`workflow_cn` 用来保存可复制的课堂 skill / 工作流，方便读者直接改写使用。
 
 ## 每日自动更新
 
@@ -33,7 +35,7 @@ id,title_original,title_cn,category,subject,education_level,language,region,ai_t
 自动任务采用审核优先流程：
 
 1. 从 `data/source_feeds.json` 中列出的教育与 AI 信息源抓取最新内容。
-2. 用保守关键词规则筛出可能属于课堂、课程、活动或学习任务的 AI 教育案例。
+2. 用保守关键词规则筛出可能属于课堂、课程、活动或学习任务的 AI 教育案例，新闻报道、官方博客、研究论文和视频来源都可以进入候选池。
 3. 把新增候选写入 `data/candidate_cases.csv`。
 4. 自动创建或更新 `Daily AIED candidate case update` Pull Request。
 5. 人工审核候选后，把通过的行移动到 `data/cases.csv`，再合并 PR。

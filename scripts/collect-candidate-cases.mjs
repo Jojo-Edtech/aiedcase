@@ -12,13 +12,8 @@ const MAX_NEW_CANDIDATES = Number(process.env.MAX_NEW_CANDIDATES || 30);
 const categories = [
   'AI Literacy',
   'AI+STEM',
-  'AI+Math',
-  'AI+Science',
-  'AI+Coding / CS',
-  'AI+Language',
-  'AI+Humanities & Social Studies',
-  'AI+Arts & Design',
-  'AI+Business / Economics',
+  'AI+Humanities',
+  'AI+Social Sciences',
   'AI for Teaching & Assessment',
 ];
 
@@ -290,42 +285,72 @@ function escapeRegExp(value) {
 function buildCandidateRecord({ id, item, feed, sourceUrl }) {
   const text = `${item.title} ${item.description}`;
   const category = inferCategory(text);
+  const subcategory = inferSubcategory(text, category);
   const summarySource = item.description || item.title;
+  const subject = inferSubject(text, category, subcategory);
 
-  return {
+  const record = {
     id,
     title_original: item.title,
     title_cn: `待审核：${item.title}`,
     category,
-    subject: inferSubject(text, category),
+    subcategory,
+    subject,
     education_level: inferEducationLevel(text),
     language: feed.language || '英文',
     region: inferRegion(text, feed.region || '全球'),
     ai_tool_or_method: inferMethod(text),
     summary_cn: `自动候选：${truncate(summarySource, 140)}。请审核是否为真实教学实践案例，并补充正式简体中文摘要。`,
+    workflow_cn: '',
     source_type: feed.source_type || '媒体报道',
     credibility: feed.credibility || '媒体报道',
     source_url: sourceUrl,
     published_date: item.publishedDate,
     accessed_date: todayInHongKong(),
   };
+  record.workflow_cn = workflowFor(record);
+  return record;
 }
 
 function inferCategory(text) {
   const lower = text.toLowerCase();
-  if (/(math|mathematics|algebra|geometry|calculus|数学|數學)/i.test(lower)) return 'AI+Math';
-  if (/(coding|computer science|programming|python|scratch|code|编程|程式|資訊科技|信息技术)/i.test(lower)) return 'AI+Coding / CS';
-  if (/(science|biology|chemistry|physics|laboratory|stem|科学|科學|物理|化学|化學|生物)/i.test(lower)) return 'AI+Science';
-  if (/(writing|reading|language|english|literacy|作文|阅读|閱讀|語文|语文|语言|語言)/i.test(lower)) return 'AI+Language';
-  if (/(^|[^a-z])(art|arts|design|music|media|creative|visual)([^a-z]|$)|艺术|藝術|设计|設計|音乐|音樂/i.test(lower)) return 'AI+Arts & Design';
-  if (/(business|economics|entrepreneur|finance|marketing|商業|商业|经济|經濟|金融)/i.test(lower)) return 'AI+Business / Economics';
-  if (/(history|humanities|social studies|civics|geography|历史|歷史|人文|社会|社會|地理)/i.test(lower)) return 'AI+Humanities & Social Studies';
   if (/(assessment|grading|feedback|teacher|lesson plan|rubric|评估|評估|评分|評分|反馈|回饋|教师|教師)/i.test(lower)) return 'AI for Teaching & Assessment';
-  if (/(stem|engineering|robot|robotics|maker|工程|机器人|機器人)/i.test(lower)) return 'AI+STEM';
+  if (/(math|mathematics|algebra|geometry|calculus|science|biology|chemistry|physics|laboratory|stem|coding|computer science|programming|python|scratch|code|engineering|robot|robotics|maker|数学|數學|科学|科學|物理|化学|化學|生物|编程|程式|資訊科技|信息技术|工程|机器人|機器人)/i.test(lower)) return 'AI+STEM';
+  if (/(business|economics|entrepreneur|finance|marketing|social studies|civics|geography|商業|商业|经济|經濟|金融|社会|社會|公民|地理)/i.test(lower)) return 'AI+Social Sciences';
+  if (/(writing|reading|language|english|literacy|history|humanities|作文|阅读|閱讀|語文|语文|语言|語言|历史|歷史|人文)/i.test(lower)) return 'AI+Humanities';
+  if (/(^|[^a-z])(art|arts|design|music|media|creative|visual)([^a-z]|$)|艺术|藝術|设计|設計|音乐|音樂/i.test(lower)) return 'AI+Humanities';
   return categories[0];
 }
 
-function inferSubject(text, category) {
+function inferSubcategory(text, category) {
+  const lower = text.toLowerCase();
+  if (category === 'AI+STEM') {
+    if (/(math|mathematics|algebra|geometry|calculus|数学|數學)/i.test(lower)) return 'Math';
+    if (/(coding|computer science|programming|python|scratch|code|编程|程式|資訊科技|信息技术)/i.test(lower)) return 'Coding / CS';
+    if (/(robot|robotics|engineering|maker|机器人|機器人|工程)/i.test(lower)) return 'Engineering / Robotics';
+    if (/(science|biology|chemistry|physics|laboratory|科学|科學|物理|化学|化學|生物)/i.test(lower)) return 'Science';
+    return 'Integrated STEM';
+  }
+  if (category === 'AI+Humanities') {
+    if (/(writing|reading|language|english|literacy|作文|写作|寫作|阅读|閱讀|語文|语文|语言|語言)/i.test(lower)) return 'Language';
+    if (/(^|[^a-z])(art|arts|design|music|media|creative|visual)([^a-z]|$)|艺术|藝術|设计|設計|音乐|音樂/i.test(lower)) return 'Arts & Design';
+    return 'Humanities';
+  }
+  if (category === 'AI+Social Sciences') {
+    if (/(business|economics|entrepreneur|finance|marketing|商業|商业|经济|經濟|金融)/i.test(lower)) return 'Business / Economics';
+    return 'Social Studies';
+  }
+  if (category === 'AI for Teaching & Assessment') {
+    if (/(assessment|grading|rubric|feedback|评估|評估|评分|評分|反馈|回饋)/i.test(lower)) return 'Assessment / Feedback';
+    if (/(teacher|professional development|lesson plan|教师|教師|备课|備課)/i.test(lower)) return 'Teacher Workflow';
+    return 'Teaching Support';
+  }
+  if (/(ethic|bias|responsible|安全|伦理|倫理|偏见|偏誤)/i.test(lower)) return 'Responsible AI';
+  if (/(prompt|chatgpt|generative|生成式|大模型)/i.test(lower)) return 'Generative AI Literacy';
+  return 'AI Literacy Basics';
+}
+
+function inferSubject(text, category, subcategory) {
   const lower = text.toLowerCase();
   if (/(writing|作文|写作|寫作)/i.test(lower)) return '写作';
   if (/(reading|阅读|閱讀)/i.test(lower)) return '阅读';
@@ -333,7 +358,19 @@ function inferSubject(text, category) {
   if (/(assessment|grading|rubric|评估|評估|评分|評分)/i.test(lower)) return '评估';
   if (/(teacher|professional development|教师|教師)/i.test(lower)) return '教师专业发展';
   if (category === 'AI Literacy') return 'AI素养';
-  return category.replace('AI+', '').replace('AI for ', '');
+  return subcategory;
+}
+
+function workflowFor(record) {
+  return [
+    `【案例】${record.title_cn || record.title_original}`,
+    `【适用】${record.education_level || '学生'}；方向：${record.subcategory || record.category}`,
+    `【目标】用${record.ai_tool_or_method || 'AI工具'}完成一个可检查的学习任务，并让学习者说明AI帮助和人工判断。`,
+    '【流程】1. 用真实问题导入；2. 教师示范提示、生成或反馈；3. 学生完成任务并记录AI对话；4. 核查事实与偏差；5. 修改作品并反思。',
+    '【产出】学习作品、AI使用记录和简短反思。',
+    '【评价】看任务完成度、证据质量、修改过程、AI透明度和反思深度。',
+    '【注意】候选案例需人工审核来源与课堂场景后再上线。',
+  ].join('\\n');
 }
 
 function inferEducationLevel(text) {

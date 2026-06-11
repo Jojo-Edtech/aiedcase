@@ -1,121 +1,988 @@
-"id","title_original","title_cn","category","subject","education_level","language","region","ai_tool_or_method","summary_cn","source_type","credibility","source_url","published_date","accessed_date"
-"case-001","What is AI?","Day of AI：什么是人工智能","AI Literacy","AI基础概念","小学","英文","全球","Curriculum","MIT RAISE 的 Day of AI 入门活动帮助学生通过生活化例子理解人工智能是什么，以及它和普通软件的区别。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-002","Chatbots and Language Models","Day of AI：聊天机器人与语言模型","AI Literacy","生成式AI素养","小学","英文","全球","Chatbot","学生通过对话式活动认识聊天机器人如何生成回答，并讨论准确性、提示词和人类判断的重要性。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-003","Creative AI","Day of AI：创意人工智能","AI Literacy","创意AI","小学","英文","全球","Image Generation","课程引导学生体验 AI 生成文本或图像的创意用途，同时讨论作品归属、偏见和负责任使用。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-004","Computer Vision","Day of AI：计算机视觉","AI Literacy","视觉识别","小学","英文","全球","Machine Learning","学生通过图像识别活动理解 AI 如何从图片中提取特征，并反思识别错误可能带来的影响。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-005","Data Activism","Day of AI：数据行动主义","AI Literacy","数据素养","初中","英文","全球","Data Science","活动把数据收集、可视化和社会议题连接起来，让学生理解数据如何影响公共决策。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-006","Generative AI","Day of AI：生成式人工智能","AI Literacy","生成式AI素养","初中","英文","全球","Generative AI","课程帮助学生了解生成式 AI 的输出机制、可能的幻觉，以及在学习任务中如何进行核验。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-007","Algorithmic Bias","Day of AI：算法偏见","AI Literacy","AI伦理","初中","英文","全球","Machine Learning","学生通过案例比较不同训练数据造成的偏差，理解公平性、代表性和模型评估。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-008","AI and Climate","Day of AI：AI与气候问题","AI Literacy","AI社会应用","初中","英文","全球","Data Science","学习活动把气候数据、预测和 AI 应用结合起来，引导学生判断技术能解决什么、不能解决什么。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-009","AI in My Community","Day of AI：社区中的AI","AI Literacy","公民与科技","高中","英文","全球","Curriculum","学生调查身边的 AI 应用并制作社区影响分析，适合作为 AI 素养和公民教育跨学科任务。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-010","Responsible AI","Day of AI：负责任人工智能","AI Literacy","AI伦理","高中","英文","全球","Generative AI","课程让学生围绕隐私、偏见、透明度和责任归属设计 AI 使用准则。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-011","AI and Careers","Day of AI：AI与未来职业","AI Literacy","生涯规划","高中","英文","全球","Curriculum","学生分析不同职业如何被 AI 改变，并讨论需要培养的技能与伦理意识。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-012","Prompt Engineering","Day of AI：提示词工程入门","AI Literacy","提示词素养","高中","英文","全球","Generative AI","活动让学生比较不同提示词对输出质量的影响，并建立可复用的提示词检查清单。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-013","Google AI Quests: Flood Forecasting","Google AI Quests：洪水预测任务","AI Literacy","AI社会应用","初中","英文","美国","Data Science","学生扮演数据研究者，收集并评估洪水预测相关数据，理解数据质量和人类判断在 AI 应用中的作用。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
-"case-014","ActiveAI: Introducing AI Literacy for Middle School Learners","ActiveAI：面向初中生的情境化AI素养学习","AI Literacy","AI素养","初中","英文","美国","AI Tutor","ActiveAI 以目标情境学习方式让学生在社交媒体情绪分析等任务中学习 AI 系统评估与输出判断。","研究论文","论文/研究","https://arxiv.org/abs/2309.12337","2023-08-21","2026-06-11"
-"case-015","AI Literacy for All","AI Literacy for All：跨学科AI素养课程","AI Literacy","AI素养","混合","英文","美国","Curriculum","该课程把技术理解、生成式 AI 互动、伦理责任和社会影响整合成可调整的跨学科 AI 素养路径。","研究论文","论文/研究","https://arxiv.org/abs/2409.10552","2024-09-02","2026-06-11"
-"case-016","Generative AI Literacy: Twelve Defining Competencies","生成式AI素养十二项能力","AI Literacy","生成式AI素养","大学","英文","瑞士","Generative AI","论文提出生成式 AI 素养能力模型，可被教师转化为提示词、工具选择、风险判断与伦理使用活动。","研究论文","论文/研究","https://arxiv.org/abs/2412.12107","2024-11-29","2026-06-11"
-"case-017","AI Quests: Diabetic Retinopathy","Google AI Quests：糖尿病视网膜病变识别","AI+STEM","医学与数据","初中","英文","美国","Machine Learning","规划中的 AI Quest 让学生以医学影像和诊断场景理解 AI 在健康领域的应用边界。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
-"case-018","AI Quests: Understanding the Human Brain","Google AI Quests：理解人脑","AI+STEM","神经科学","初中","英文","美国","Data Science","学生在任务情境中探索 AI 如何帮助处理复杂科学数据，并理解研究者如何解释模型输出。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
-"case-019","Breadth-First Search Curriculum for Middle School Students","初中科学课堂中的广度优先搜索AI课程","AI+STEM","科学与算法","初中","英文","美国","Machine Learning","课程把 BFS 算法嵌入病毒传播和接触追踪等科学情境，让学生在模拟中理解 AI 问题求解。","研究论文","论文/研究","https://arxiv.org/abs/2604.01396","2026-04-01","2026-06-11"
-"case-020","Project-based Learning Toolkit in K-12 Education","K-12跨学科AI项目制学习工具包","AI+STEM","项目制学习","中小学","英文","美国","Generative AI","教师把 AI Art Lab、AI Music Studio 和 AI Chatbot 等工具改造成多学科项目任务，支持创造力和批判性思维。","研究论文","论文/研究","https://arxiv.org/abs/2412.17243","2024-12-23","2026-06-11"
-"case-021","Hour of Code AI Activities Review","Hour of Code中的AI与机器学习活动","AI+STEM","计算思维","中小学","英文","全球","Machine Learning","研究梳理 Hour of Code 活动如何覆盖 AI4K12 五大概念，可作为短时 AI 入门活动选型参考。","研究论文","论文/研究","https://arxiv.org/abs/2412.11911","2024-12-16","2026-06-11"
-"case-022","LiveBo: AI-Driven Cantonese Scenarios","LiveBo：面向非华语学生的AI粤语情境学习","AI+STEM","语言与机器人","中小学","英文","香港","Robotics","香港研究以互动社交机器人和真实生活场景支持非华语学生学习粤语，提升参与度和动机。","研究论文","论文/研究","https://arxiv.org/abs/2601.01227","2026-01-03","2026-06-11"
-"case-023","Boon Boon Robot for Newly-Arrived Children","Boon Boon机器人：新来港儿童粤语情境学习","AI+STEM","机器人与语言","小学","英文","香港","Robotics","四天学习项目让新来港儿童通过机器人互动练习粤语词汇和生活场景表达。","研究论文","论文/研究","https://arxiv.org/abs/2601.01234","2026-01-03","2026-06-11"
-"case-024","Hong Kong secondary school AI education open lesson","香港中学AI教育公开课与校长交流案例","AI+STEM","校本AI课程","高中","繁体中文","香港","Curriculum","香港学校向内地、澳门及香港教育领袖展示人工智能教育实践，并以设计与科技公开课呈现学生多媒体创作。","学校案例","官方/学校","https://zh.wikipedia.org/wiki/%E4%BC%AF%E7%89%B9%E5%88%A9%E4%B8%AD%E5%AD%B8","2026-04-01","2026-06-11"
-"case-025","Buddhist Yip Kei Nam Memorial College AI Curriculum","佛教叶纪南纪念中学：引入中大智为未来AI课程","AI+STEM","校本AI课程","高中","繁体中文","香港","Curriculum","学校作为中大赛马会智为未来计划成员，引入人工智能课程，让学生把科技知识用于真实任务。","媒体报道","媒体报道","https://zh.wikipedia.org/wiki/%E4%BD%9B%E6%95%99%E8%91%89%E7%B4%80%E5%8D%97%E7%B4%80%E5%BF%B5%E4%B8%AD%E5%AD%B8","2024-10","2026-06-11"
-"case-026","HKUST Library Digital Scholarship CoLab Chinese NER Tool","港科大图书馆CoLab：中国命名实体识别工具学生项目","AI+STEM","数字学术","大学","英文","香港","Data Science","学生在一个学期内从需求调研到实现中文 NER 工具，体现图书馆场景中的真实 AI 项目学习。","研究论文","论文/研究","https://arxiv.org/abs/2503.22967","2025-03-29","2026-06-11"
-"case-027","MediSafe Student AI Prescription Monitoring","香港学生AI药物处方监测原型","AI+STEM","医学AI","高中","繁体中文","香港","Generative AI","中学生围绕药物处方错误设计 AI 监测系统原型，连接医学数据、伦理与创新比赛学习。","媒体报道","媒体报道","https://zh.wikipedia.org/wiki/%E8%97%A5%E5%80%8D%E5%AE%89%E5%BF%83%E7%88%AD%E8%AD%B0","2025-08-18","2026-06-11"
-"case-028","AI Health Studio-linked Student Innovation Debate","学生AI健康创新项目的原创性与数据伦理讨论","AI+STEM","科技伦理","高中","繁体中文","香港","Generative AI","围绕学生 AI 医疗项目的调查与争议，可用于 STEM 课堂讨论原创性、数据使用和评审证据。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/MediSafe_controversy","2025","2026-06-11"
-"case-029","Generative AI-powered Teachable Agent in Middle School Math","初中数学课堂中的生成式AI可教代理","AI+Math","数学学习","初中","英文","美国","AI Tutor","108名六年级学生在真实数学课堂中使用生成式 AI 可教代理，并反馈其作为学习伙伴和协作解题者的作用。","研究论文","论文/研究","https://arxiv.org/abs/2409.06721","2024-08-26","2026-06-11"
-"case-030","GenAI Tutors and Math Exam Preparation","高中数学备考中的生成式AI导师实验","AI+Math","数学备考","高中","英文","美国","AI Tutor","近千名9至11年级学生参与数学备考研究，结果提示 AI 可提升练习表现但也可能削弱无AI考试表现。","媒体报道","媒体报道","https://www.axios.com/2024/08/15/ai-tutors-learning-education-khan-academy-wharton","2024-08-15","2026-06-11"
-"case-031","Bay Area Classrooms and AI Tutor Study","湾区课堂参考的AI数学导师研究","AI+Math","数学学习","高中","英文","美国","AI Tutor","报道强调学生可能复制 AI 答案而非真正理解，为数学课堂设计 AI 使用规则提供反面案例。","媒体报道","媒体报道","https://www.axios.com/local/san-francisco/2024/08/22/ai-tutor-bay-area-classrooms","2024-08-22","2026-06-11"
-"case-032","Educator Preferences for AI-generated Math Lesson Plans","K-12数学教师对AI生成教案的偏好研究","AI+Math","数学教案","中小学","英文","美国","Teacher Copilot","研究比较人工撰写与 AI 生成数学教案，发现教师更看重差异化、真实情境和学生讨论设计。","研究论文","论文/研究","https://arxiv.org/abs/2504.05449","2025-04-07","2026-06-11"
-"case-033","QANDA MathGPT and AI Math Tutoring","QANDA与MathGPT：拍题和数学AI辅导","AI+Math","数学辅导","中小学","英文","韩国","AI Tutor","QANDA 通过 OCR、解题步骤和 AI Tutor 支持学生数学学习，可作为讨论拍题工具与学习责任的案例。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/QANDA","2024-03","2026-06-11"
-"case-034","Gauth AI Math Homework App","Gauth：生成式AI数学作业助手","AI+Math","数学作业","高中","英文","美国","AI Tutor","学生使用手机拍摄数学题获取分步解答，引发教师重新思考课外作业和课堂练习的设计。","媒体报道","媒体报道","https://www.wired.com/story/gauth-ai-math-homework-app","2024-08-28","2026-06-11"
-"case-035","Squirrel AI Adaptive Math Learning","松鼠AI：知识图谱驱动的数学自适应学习","AI+Math","自适应学习","中小学","英文","中国内地","Adaptive Learning","平台把数学知识拆分为细粒度知识点，利用诊断和推荐帮助学生补缺，适合讨论个性化学习边界。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Squirrel_AI","2024","2026-06-11"
-"case-036","LearningRO Maths Foundation with RoTutor","LearningRO：RoTutor辅助数学复习","AI+Math","数学复习","高中","英文","英国","AI Tutor","学生创业项目 LearningRO 提供数学、科学和商业复习内容，并用 AI 助手支持个性化学习。","媒体报道","媒体报道","https://www.learningro.com","2025-05-19","2026-06-11"
-"case-037","The Invisible Hand of Gen-AI","大学经济学AI导师与学习小组实验","AI+Math","经济数学","大学","英文","美国","AI Tutor","课程专属 AI 导师使用讲义材料提供苏格拉底式提示，并与个人学习和小组学习进行比较。","研究论文","论文/研究","https://en.wikipedia.org/wiki/Artificial_intelligence_in_education","2025","2026-06-11"
-"case-038","AI-generated High-school Physics Lesson Plans","高中物理电磁波AI教案评估","AI+Math","物理建模","高中","英文","全球","Generative AI","研究用多种模型和提示框架生成高中物理教案，并分析可读性、事实准确性和认知要求。","研究论文","论文/研究","https://arxiv.org/abs/2510.19866","2025-10-22","2026-06-11"
-"case-039","Adaptive Decimal Arithmetic Tutor","小数运算智能导师案例","AI+Math","小数运算","小学","英文","全球","Adaptive Learning","智能导师通过错误例子和即时反馈帮助学生理解小数运算，可作为传统 AIED 与现代 AI 工具比较案例。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Intelligent_tutoring_system","2024","2026-06-11"
-"case-040","Cognitive Tutor Algebra Classroom Model","认知导师代数课堂模型","AI+Math","代数","高中","英文","美国","Adaptive Learning","Cognitive Tutor 将教材与软件活动结合，通过认知模型给出即时反馈，是数学 AI 辅导系统的经典课堂实施案例。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Cognitive_tutor","2024","2026-06-11"
-"case-041","Generative AI as a Lab Partner","生成式AI作为高中物理实验伙伴","AI+Science","物理实验","高中","英文","瑞典","Chatbot","19名高中生在声悬浮和声速实验中使用 ChatGPT，研究显示 AI 可辅助实验提问，但教师引导仍关键。","研究论文","论文/研究","https://arxiv.org/abs/2412.11300","2024-12-15","2026-06-11"
-"case-042","Using Generative AI Creatively in Atmospheric Science","大气科学课堂中的生成式AI创意活动","AI+Science","大气科学","大学","英文","美国","Generative AI","教师设计主动学习模块、游戏和提示词任务，帮助学生负责任地使用生成式 AI 学习大气科学。","研究论文","论文/研究","https://arxiv.org/abs/2409.05176","2024-09-08","2026-06-11"
-"case-043","Science Literacy with Generative AI","生成式AI支持科学素养的教学、学习与评估","AI+Science","科学素养","中小学","英文","美国","Generative AI","章节讨论 AI 如何连接科学知识、推理和评估，为科学课堂中的 AI 支持架构提供案例。","研究论文","论文/研究","https://arxiv.org/abs/2603.06659","2026-03-01","2026-06-11"
-"case-044","AI in Science Education Research Workshop","科学教育研究中的AI工作坊案例","AI+Science","科学教育研究","教师教育","英文","全球","Data Science","国际工作坊总结 AI 对科学课堂、教师发展和研究方法的影响，可转化为教师研修案例。","研究论文","论文/研究","https://arxiv.org/abs/2511.14318","2025-11-18","2026-06-11"
-"case-045","AI in Data Science Education at Wageningen University","瓦赫宁根大学数据科学课程中的AI使用经验","AI+Science","数据科学","大学","英文","荷兰","Generative AI","课程协调人访谈揭示 ChatGPT 等工具如何支持数据科学学习，同时暴露过度依赖和评价调整问题。","研究论文","论文/研究","https://arxiv.org/abs/2510.00793","2025-10-01","2026-06-11"
-"case-046","Iris AI Teacher Robot in Udupi Government School","印度Udupi公立小学AI教师机器人Iris","AI+Science","科学与机器人","小学","英文","印度","Robotics","乡村公立学校引入 AI 语音机器人，结合互动模块和课堂设施升级，作为科学节与日常教学支持工具。","媒体报道","媒体报道","https://timesofindia.indiatimes.com/city/mangaluru/ai-teacher-robot-rolls-into-udupi-govt-school/articleshow/130197051.cms","2026-05","2026-06-11"
-"case-047","AI-generated Physics Lesson Plan Usability","高中物理AI生成教案可用性比较","AI+Science","物理教学","高中","英文","全球","Teacher Copilot","研究比较 GPT、Claude、Gemini、DeepSeek 等模型生成同一物理主题教案的教学可靠性。","研究论文","论文/研究","https://arxiv.org/abs/2510.19866","2025-10-22","2026-06-11"
-"case-048","Day of AI: AI and Climate","Day of AI：气候数据与AI预测","AI+Science","地理与气候","初中","英文","全球","Data Science","学生使用气候相关数据讨论预测、模型限制和环境决策，适合科学与地理融合课堂。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
-"case-049","AI Quest Flood Forecasting Researcher Role-play","AI洪水预测研究者角色扮演","AI+Science","地理与水文","初中","英文","美国","Data Science","学生通过游戏化任务体验研究者如何选择数据、测试模型并向公众解释洪水预警。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
-"case-050","AI-driven Medication Safety Prototype","AI药物安全原型中的科学探究","AI+Science","生物医学","高中","繁体中文","香港","Generative AI","学生围绕处方错误监测设计原型，课堂可延伸到医学数据、验证、伦理和专利意识。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/MediSafe_controversy","2025","2026-06-11"
-"case-051","Squirrel AI Knowledge Graph for Science Concepts","松鼠AI知识图谱用于科学知识补缺","AI+Science","自适应学习","中小学","英文","中国内地","Adaptive Learning","知识图谱和诊断机制可迁移到科学概念学习，帮助教师讨论个性化补救教学。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Squirrel_AI","2024","2026-06-11"
-"case-052","Experience-like AI Literacy for Real-world Challenges","真实世界挑战中的AI科学素养任务","AI+Science","科学探究","初中","英文","全球","Machine Learning","学生围绕洪水、医疗影像和脑科学任务学习数据质量、模型测试和科学解释。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
-"case-053","ChatScratch","ChatScratch：面向6至12岁儿童的AI增强Scratch学习","AI+Coding / CS","Scratch编程","小学","英文","中国内地","Coding Assistant","系统用结构化故事板、生成式图像和 Scratch 专用大模型，支持儿童自主规划和完成编程项目。","研究论文","论文/研究","https://arxiv.org/abs/2402.04975","2024-02-07","2026-06-11"
-"case-054","Rapid Mobile App Development for Generative AI Agents on MIT App Inventor","MIT App Inventor：生成式AI智能体手机应用开发","AI+Coding / CS","App开发","大学","英文","美国","Coding Assistant","学生使用 App Inventor 快速开发包含 OpenAI API 的移动智能体应用，覆盖社区安全、协作和可持续主题。","研究论文","论文/研究","https://arxiv.org/abs/2405.01561","2024-04-01","2026-06-11"
-"case-055","TMIC App Inventor Extension for Teachable Machine","TMIC：把Teachable Machine模型部署到App Inventor","AI+Coding / CS","机器学习编程","中小学","英文","巴西","Machine Learning","扩展让学生把 Teachable Machine 图像分类模型嵌入 App Inventor 应用，适合 K-12 AI 编程入门。","研究论文","论文/研究","https://arxiv.org/abs/2208.12637","2022-08-24","2026-06-11"
-"case-056","Three Years with Classroom AI in Introductory Programming","三年AI支持的Python入门编程课堂","AI+Coding / CS","Python编程","大学","英文","日本","Coding Assistant","研究追踪2023至2025三届学生在 Python 课中使用生成式 AI 的意识、互动方式和学习结果变化。","研究论文","论文/研究","https://arxiv.org/abs/2603.22672","2026-03-24","2026-06-11"
-"case-057","Generative AI in Computing Education","计算教育中学生与教师的生成式AI观点","AI+Coding / CS","计算教育","大学","英文","美国","Generative AI","通过学生与教师访谈总结生成式 AI 在代码解释、练习生成和编程支持中的机会与风险。","研究论文","论文/研究","https://arxiv.org/abs/2308.04309","2023-08-08","2026-06-11"
-"case-058","Tutor CoPilot","Tutor CoPilot：实时辅导中的人机协作","AI+Coding / CS","在线辅导","中小学","英文","美国","Teacher Copilot","900名导师和1800名K-12学生参与随机对照试验，AI 为导师提供引导式教学建议以提升学生掌握率。","研究论文","论文/研究","https://arxiv.org/abs/2410.03017","2024-10-03","2026-06-11"
-"case-059","Codio Coach","Codio Coach：计算机课程中的苏格拉底式AI教练","AI+Coding / CS","计算机科学","大学","英文","英国","Coding Assistant","Codio Coach 用 Claude 提供不直接给答案的调试提示和错误解释，主要用于计算机科学课程。","媒体报道","媒体报道","https://www.techradar.com/pro/this-ai-tool-claims-to-boost-student-grades-by-15-using-a-2400-year-old-technique-but-i-am-not-convinced","2025","2026-06-11"
-"case-060","Teaching AI Interactively","互动式教授AI：大学AI导论课程重设计","AI+Coding / CS","AI导论","大学","英文","美国","Curriculum","课程用无插电模拟、协作编程实验和反思替代部分讲授，提升 AI 概念学习的参与度。","研究论文","论文/研究","https://arxiv.org/abs/2603.28679","2026-03-30","2026-06-11"
-"case-061","Beyond the Hype: GenAI in Computing Classrooms","计算课堂中的生成式AI教学实践综述","AI+Coding / CS","计算教育","大学","英文","全球","Generative AI","综述、调查和访谈总结编程课堂中的 AI 助教、反馈工具和提示词教学实践。","研究论文","论文/研究","https://arxiv.org/abs/2412.14732","2024-12-19","2026-06-11"
-"case-062","GitHub Copilot-style Classroom Programming Support","类Copilot编程支持在课堂中的教学议题","AI+Coding / CS","软件工程","大学","英文","全球","Coding Assistant","案例用于讨论代码生成、解释错误、生成练习与保留学生编程能力之间的平衡。","研究论文","论文/研究","https://arxiv.org/abs/2308.04309","2023-08-08","2026-06-11"
-"case-063","Expanding Computational Thinking in AI for K-12","K-12计算思维扩展到人工智能学习","AI+Coding / CS","计算思维","中小学","英文","美国","Curriculum","论文讨论生成式 AI 时代学生应学习哪些 AI 与机器学习内容，以及这些内容如何扩展传统计算思维课程。","研究论文","论文/研究","https://arxiv.org/abs/2602.16890","2026-02-18","2026-06-11"
-"case-064","AI Fundamentals Elective in Houston ISD","休斯顿学区人工智能基础选修课","AI+Coding / CS","AI基础课程","中小学","英文","美国","Curriculum","学区在使用 AI 生成阅读材料的同时推出 AI 使用指南和人工智能基础选修课。","媒体报道","媒体报道","https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/hisd-ai-prof-jim-inc-19958093.php","2024-12","2026-06-11"
-"case-065","LiveBo Cantonese for Non-Chinese Speaking Students","LiveBo：非华语学生粤语学习AI情境模拟","AI+Language","粤语学习","中小学","英文","香港","Robotics","社交机器人与真实情境对话帮助非华语学生练习粤语词汇、表达和互动。","研究论文","论文/研究","https://arxiv.org/abs/2601.01227","2026-01-03","2026-06-11"
-"case-066","Boon Boon Cantonese for Newly-Arrived Children","Boon Boon：新来港儿童粤语学习机器人","AI+Language","粤语学习","小学","英文","香港","Robotics","14名儿童参与四天机器人辅助粤语学习项目，研究关注学习动机、投入和语言水平变化。","研究论文","论文/研究","https://arxiv.org/abs/2601.01234","2026-01-03","2026-06-11"
-"case-067","CyberScholar Writing Feedback","CyberScholar：基于教师量规的AI写作反馈","AI+Language","英语写作","中学","英文","美国","Writing Feedback","143名7至11年级学生使用 RAG 反馈工具进行多轮写作修改，教师提供量规和材料校准。","研究论文","论文/研究","https://arxiv.org/abs/2605.17055","2026-05-16","2026-06-11"
-"case-068","Can AI teach students to write better?","美国英语课堂中的ChatGPT写作反馈","AI+Language","英语写作","高中","英文","美国","Writing Feedback","教师让学生用 ChatGPT 评价自己的文本，再要求学生判断哪些建议可采纳，强调 AI 作为写作伙伴而非代写者。","媒体报道","媒体报道","https://www.washingtonpost.com/nation/2026/02/22/ai-chatbots-teach-writing/","2026-02-22","2026-06-11"
-"case-069","Teacher lets students use ChatGPT to write essays responsibly","俄勒冈教师引导学生负责任使用ChatGPT写作文","AI+Language","英语写作","高中","英文","美国","Generative AI","教师让学生分析和改进 AI 生成文章，以此训练批判性阅读、修订和学术诚信意识。","教师实践","教师实践","https://www.businessinsider.com/teacher-ai-chatgpt-classroom-cheating-essays-2024-11","2024-11-01","2026-06-11"
-"case-070","Talkpal AI Language Tutor","Talkpal AI：多语言会话练习","AI+Language","外语口语","混合","英文","全球","Voice/Conversation","平台以文本和语音 AI Tutor 模拟自然对话，适合讨论个性化口语练习与教师反馈的关系。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Talkpal_AI","2025","2026-06-11"
-"case-071","Xeropan Speakbot","Xeropan：AI speakbot真实生活口语任务","AI+Language","英语学习","混合","英文","匈牙利","Voice/Conversation","学习者通过情景视频、词汇练习和 AI speakbot 进行口语与发音训练。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Xeropan","2022","2026-06-11"
-"case-072","ChatGPT in Education: ESL and Writing Support","ChatGPT支持英语学习者写作和词汇学习","AI+Language","ESL写作","大学","英文","全球","Generative AI","综述指出 ChatGPT 可提供写作反馈、构思、语法和词汇支持，但需处理准确性与隐私问题。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/ChatGPT_in_education","2024","2026-06-11"
-"case-073","Prof Jim Reading Passages in Houston ISD","休斯顿学区AI生成阅读材料","AI+Language","阅读教学","中小学","英文","美国","Generative AI","AI 公司为学区生成2200多篇阅读材料，教师团队负责审查和融入课程。","媒体报道","媒体报道","https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/hisd-ai-prof-jim-inc-19958093.php","2024-12","2026-06-11"
-"case-074","Sydney Students Use ChatGPT as Study Teammate","悉尼大学生把ChatGPT作为学习队友","AI+Language","学术表达","大学","英文","澳大利亚","Generative AI","学生用 ChatGPT 预测采访问题、准备表达和整理思路，案例可用于学术沟通中的 AI 使用讨论。","媒体报道","媒体报道","https://www.theguardian.com/technology/2024/oct/05/chatgpt-has-become-the-best-teammate-to-these-sydney-university-students-but-is-there-a-limit","2024-10-04","2026-06-11"
-"case-075","Pre-service Teachers Use GenAI as Learning Buddy","职前教师把生成式AI作为学习伙伴与教学助手","AI+Language","教师教育","大学","英文","加纳","Generative AI","167名职前教师使用 GenAI 获取阅读材料、解释、例子、评估策略和教案设计支持。","研究论文","论文/研究","https://arxiv.org/abs/2407.11983","2024-06-03","2026-06-11"
-"case-076","AI Writing Feedback Across Disciplines","跨学科写作中的AI量规反馈","AI+Language","跨学科写作","中学","英文","美国","Writing Feedback","CyberScholar 多案例研究显示，学生重视即时、量规化反馈，教师则可把时间转向更高阶写作指导。","研究论文","论文/研究","https://arxiv.org/abs/2605.17055","2026-05-16","2026-06-11"
-"case-077","From Prohibition to Adoption in Hong Kong Universities","香港高校从禁止到采纳ChatGPT的教学政策转变","AI+Humanities & Social Studies","高等教育政策","大学","英文","香港","Generative AI","研究比较香港高校从早期限制到建设 AI 素养和责任政策的变化，可用于大学通识讨论。","研究论文","论文/研究","https://arxiv.org/abs/2410.01695","2024-10-02","2026-06-11"
-"case-078","AI Revolution in Education: Assist Teachers in Higher Education","香港高校师生对AI辅助教学的看法","AI+Humanities & Social Studies","教育社会学","大学","英文","香港","Generative AI","研究通过问卷与文献分析讨论 AI 是否替代教师，强调人类教师的情感、创造力和批判性思维。","研究论文","论文/研究","https://arxiv.org/abs/2305.01185","2023-05-02","2026-06-11"
-"case-079","Teacher v Chatbot","AI时代英语教师实习案例","AI+Humanities & Social Studies","写作与伦理","高中","英文","美国","Generative AI","一名教师实习生记录 AI 对阅读、写作和课堂关系的影响，可用于教师教育和媒体素养讨论。","媒体报道","媒体报道","https://www.theguardian.com/education/ng-interactive/2026/mar/03/cheating-machine-or-powerful-assistant-the-ai-anxieties-of-a-trainee-teacher","2026-03-03","2026-06-11"
-"case-080","University AI Cheating Crisis","大学AI作弊危机中的评价改革案例","AI+Humanities & Social Studies","学术诚信","大学","英文","英国","Generative AI","报道呈现学生使用 AI 写作、误判和教师评价改革压力，可作为学术诚信课堂讨论材料。","媒体报道","媒体报道","https://www.theguardian.com/technology/2024/dec/15/i-received-a-first-but-it-felt-tainted-and-undeserved-inside-the-university-ai-cheating-crisis","2024-12-15","2026-06-11"
-"case-081","Common Sense Media Teen GenAI Survey","青少年生成式AI使用与家长认知差距","AI+Humanities & Social Studies","媒体素养","中学","英文","美国","Generative AI","调查显示多数青少年已将生成式 AI 用于学校任务，但家长和学校规则常未同步。","媒体报道","媒体报道","https://www.wired.com/story/teens-generative-ai-use-schools-parents","2024-09","2026-06-11"
-"case-082","AI-positive Policies at Universities","大学AI积极政策与真实性评价","AI+Humanities & Social Studies","评价改革","大学","英文","英国","Generative AI","报道讨论大学如何界定 AI 可接受使用，并推动口试、一对一指导等更真实的评价方式。","媒体报道","媒体报道","https://www.theguardian.com/technology/2024/dec/15/i-received-a-first-but-it-felt-tainted-and-undeserved-inside-the-university-ai-cheating-crisis","2024-12-15","2026-06-11"
-"case-083","Human-centered AI Curriculum at Kenyon College","Kenyon College人文中心AI课程","AI+Humanities & Social Studies","数字人文","大学","英文","美国","Curriculum","人文课程把 AI、文学、数字人文和社会影响结合，强调解释性、可复现性和人类判断。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Katherine_Elkins","2025","2026-06-11"
-"case-084","Generative AI and Teachers: A Swedish Case Study","瑞典大学教师使用生成式AI的教学案例","AI+Humanities & Social Studies","教师实践","大学","英文","瑞典","Generative AI","调查显示教师主要把 ChatGPT 用于备课，并讨论其对教学、法律和作弊治理的影响。","研究论文","论文/研究","https://arxiv.org/abs/2404.03486","2024-04-04","2026-06-11"
-"case-085","AI Literacy in K-12 and Higher Education Review","生成式AI后AI素养教育综述","AI+Humanities & Social Studies","AI素养","混合","英文","全球","Curriculum","综述把 AI 素养分为功能性、批判性和间接收益视角，可用于人文社科课程设计。","研究论文","论文/研究","https://arxiv.org/abs/2503.00079","2025-02-27","2026-06-11"
-"case-086","AI Across the Curriculum in Higher Education","高校跨课程AI素养模式","AI+Humanities & Social Studies","通识教育","大学","英文","美国","Curriculum","高校把 AI 素养嵌入多学科课程，强调数字素养、伦理和职业准备。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/AI_literacy","2024","2026-06-11"
-"case-087","Tuning Music Education","AI个性化音乐教育：和弦识别与钢琴教材","AI+Arts & Design","音乐教育","混合","英文","美国","Machine Learning","两个案例分别用自动和弦识别生成听辨练习、用自动音乐转录改编钢琴练习。","研究论文","论文/研究","https://arxiv.org/abs/2412.13514","2024-12-18","2026-06-11"
-"case-088","Automatic Chord Recognition Exercises","自动和弦识别生成个性化听辨练习","AI+Arts & Design","音乐听辨","混合","英文","美国","Machine Learning","学生从真实音频曲目生成练习，把传统听辨训练和个人音乐兴趣连接起来。","研究论文","论文/研究","https://arxiv.org/abs/2412.13514","2024-12-18","2026-06-11"
-"case-089","Adaptive Piano Method Books","自适应钢琴教材原型","AI+Arts & Design","音乐演奏","混合","英文","美国","Adaptive Learning","AI 根据自动音乐转录生成不同难度练习，让学生在保持音乐兴趣的同时逐级训练。","研究论文","论文/研究","https://arxiv.org/abs/2412.13514","2024-12-18","2026-06-11"
-"case-090","Flynn: AI Goes to Art School","Flynn：进入艺术学院的AI学生","AI+Arts & Design","数字艺术","大学","英文","奥地利","Generative AI","学生创作者让 AI 作为艺术学生参加面试、课堂和作品提交，激发关于艺术主体和学习边界的讨论。","媒体报道","媒体报道","https://www.washingtonpost.com/technology/2025/04/16/ai-art-school-vienna/","2025-04-16","2026-06-11"
-"case-091","UNSW Generative AI for Artists","UNSW生成式AI艺术课程","AI+Arts & Design","艺术教育","大学","英文","澳大利亚","Image Generation","课程教学生使用常见生成式 AI 工具进行创作实践，同时讨论版权、道德权利和环境影响。","媒体报道","媒体报道","https://www.theguardian.com/australia-news/2025/aug/29/university-nsw-generative-ai-art-course-students-push-to-abolish-rejected","2025-08-29","2026-06-11"
-"case-092","Musical Futures AI Artist Coach","Musical Futures：AI Artist Coach音乐教育资源","AI+Arts & Design","音乐创作","中小学","英文","英国","Generative AI","音乐教育平台探索 AI Artist Coach 工具，支持学生中心的电子音乐创作和课堂工作坊。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Musical_Futures","2024","2026-06-11"
-"case-093","GenAI-integrated Creative Media Course","生成式AI融入创意媒体课程的长期案例","AI+Arts & Design","创意媒体","大学","英文","美国","Generative AI","研究追踪学生在创意媒体课程中从学习 AI 技能到面对伦理、依赖和职业焦虑的复杂变化。","研究论文","论文/研究","https://arxiv.org/abs/2507.17230","2025-07-23","2026-06-11"
-"case-094","AI Art Lab in K-12 PBL Toolkit","K-12项目制学习中的AI Art Lab","AI+Arts & Design","视觉艺术","中小学","英文","美国","Image Generation","教师把 AI Art Lab 改造成视觉创作和批判讨论活动，让学生在创作中理解偏见、版权和表达。","研究论文","论文/研究","https://arxiv.org/abs/2412.17243","2024-12-23","2026-06-11"
-"case-095","Bethel High School AI Multimedia Storyboarding","伯特利中学：AI多媒体故事板公开课","AI+Arts & Design","设计与科技","高中","繁体中文","香港","Generative AI","学校公开课展示学生从传统手绘故事板转向多媒体创作，体现 AI 对学习体验的提升。","学校案例","官方/学校","https://zh.wikipedia.org/wiki/%E4%BC%AF%E7%89%B9%E5%88%A9%E4%B8%AD%E5%AD%B8","2026-04-01","2026-06-11"
-"case-096","Bauhinia Cup AI Short Video Competition","中华文化进课堂AI短片创作比赛","AI+Arts & Design","短片创作","中学","繁体中文","香港","Generative AI","学生通过 AI 短片创作表达中华文化主题，适合收录为艺术、文化与 AI 创作结合案例。","媒体报道","媒体报道","https://zh.wikipedia.org/wiki/%E4%BC%AF%E7%89%B9%E5%88%A9%E4%B8%AD%E5%AD%B8","2024","2026-06-11"
-"case-097","Caisey AI Debate App at Columbia Business School","Columbia Business School：Caisey商业案例辩论AI","AI+Business / Economics","商业案例教学","大学","英文","美国","Chatbot","教师开发 AI 应用让学生在课前围绕商业案例进行论证和反驳，避免只让 ChatGPT 总结案例。","媒体报道","媒体报道","https://www.washingtonpost.com/education/2026/04/01/professors-design-ai-apps/","2026-04-01","2026-06-11"
-"case-098","Kellogg AI-powered MBA Case Study","Kellogg MBA：AI角色驱动的案例学习","AI+Business / Economics","MBA案例教学","大学","英文","美国","Chatbot","学生不再只阅读案例材料，而是与多名 AI 角色对话获取事实并提出策略，训练主动询问和决策。","媒体报道","媒体报道","https://www.wsj.com/tech/ai/ai-is-teaching-the-next-generation-of-m-b-a-s-the-classic-case-study-a4eb4227","2025-11-01","2026-06-11"
-"case-099","Scaffolding Creativity in Business Education","商业教育中的生成式AI与真实体验支架","AI+Business / Economics","商业创新","大学","英文","美国","Generative AI","本科商业课程把 AI 辅助创意和真实世界观察结合，帮助学生突破创意障碍并反思 AI 输出。","研究论文","论文/研究","https://arxiv.org/abs/2501.06527","2025-01-11","2026-06-11"
-"case-100","American University Applied AI Institute","American University商学院应用AI学院","AI+Business / Economics","商业AI技能","大学","英文","美国","Curriculum","商学院把 AI 融入消费者研究、营销、金融分析和投资承销等课程任务，强调工作场景能力。","媒体报道","媒体报道","https://www.axios.com/2025/04/03/generative-ai-business-school-students","2025-04-03","2026-06-11"
-"case-101","Part-time Students Navigate Education and Business with GenAI","在职大学生跨学习与商业场景使用生成式AI","AI+Business / Economics","商业学习","大学","英文","德国","Generative AI","研究访谈在职学习者，分析他们如何在课程和工作业务任务之间使用生成式 AI。","研究论文","论文/研究","https://arxiv.org/abs/2602.16307","2026-02-18","2026-06-11"
-"case-102","Alpha School AI-powered Two-hour Learning Model","Alpha School：两小时AI个性化核心学习","AI+Business / Economics","教育创业","中小学","英文","美国","Adaptive Learning","学校以 AI 学习应用完成核心学科学习，其余时间用于创业、公共演讲和生活技能等项目。","媒体报道","媒体报道","https://nypost.com/2026/01/30/business/new-65k-private-school-uses-ai-to-teach-students-in-just-two-hours-a-day-in-silicon-valley-bid-to-shake-up-us-education/","2026-01-30","2026-06-11"
-"case-103","Alpha School San Francisco AI Model","旧金山Alpha School：AI驱动的K-8学校案例","AI+Business / Economics","学校创新","中小学","英文","美国","Adaptive Learning","新校区以两小时 AI 个性化学术学习和项目化生活技能训练为核心，引发教育商业模式讨论。","媒体报道","媒体报道","https://www.theguardian.com/technology/2025/oct/18/san-francisco-ai-alpha-school-tech","2025-10-18","2026-06-11"
-"case-104","LearningRO Business Revision","LearningRO：商业学科AI复习平台","AI+Business / Economics","商业复习","高中","英文","英国","AI Tutor","平台从课堂作业创意发展为学习工具，提供商业等科目的复习内容和 AI 助手支持。","媒体报道","媒体报道","https://www.learningro.com","2025-05-19","2026-06-11"
-"case-105","AI Case Study Simulation for School Transportation Deficit","AI商业案例模拟：学校交通预算缺口","AI+Business / Economics","公共管理与商业","大学","英文","美国","Chatbot","Kellogg 案例让学生与 AI 角色互动调查学校交通预算问题，训练咨询式访谈和策略制定。","媒体报道","媒体报道","https://www.wsj.com/tech/ai/ai-is-teaching-the-next-generation-of-m-b-a-s-the-classic-case-study-a4eb4227","2025-11-01","2026-06-11"
-"case-106","AI Dependency and Big Tech in Business Education","商业教育中的AI依赖与知识控制讨论","AI+Business / Economics","商业伦理","大学","英文","英国","Generative AI","商业教授提醒学生不要把综合、验证和判断完全外包给商业 AI 平台，适合商业伦理课堂。","媒体报道","媒体报道","https://www.businessinsider.com/ai-is-handing-control-of-knowledge-to-big-tech-professor-2025-10","2025-10","2026-06-11"
-"case-107","Teacher-AI Collaboration for Low-resource Schools","Shiksha Copilot：低资源学校中的教师AI共创教案","AI for Teaching & Assessment","备课","教师教育","英文","印度","Teacher Copilot","印度 Karnataka 政府学校教师和策划者使用 AI 共同生成并本地化英文、Kannada 教案。","研究论文","论文/研究","https://arxiv.org/abs/2507.00456","2025-07-01","2026-06-11"
-"case-108","Tutor CoPilot for Live Tutoring","Tutor CoPilot：实时辅导中的教师支持","AI for Teaching & Assessment","辅导反馈","中小学","英文","美国","Teacher Copilot","AI 为导师提供专家式引导问题和教学策略，帮助导师少直接给答案，多促进学生理解。","研究论文","论文/研究","https://arxiv.org/abs/2410.03017","2024-10-03","2026-06-11"
-"case-109","Edthena AI Coach","Edthena AI Coach：教师自我反思和视频教练","AI for Teaching & Assessment","教师专业发展","教师教育","英文","美国","Teacher Copilot","AI Coach 用开放式问题引导教师围绕课堂视频进行自我教练和反思。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Edthena","2024","2026-06-11"
-"case-110","Teachers Are Going All In on Generative AI","教师使用MagicSchool等工具减轻备课负担","AI for Teaching & Assessment","教师工作流","教师教育","英文","美国","Teacher Copilot","教师用生成式 AI 制作课堂材料、活动和评估任务，同时需要人工审查偏见和事实准确性。","媒体报道","媒体报道","https://www.wired.com/story/teachers-are-going-all-in-on-generative-ai","2023","2026-06-11"
-"case-111","UK DfE AI Tools to Reduce Teacher Workloads","英国教育部推动AI减轻教师工作量","AI for Teaching & Assessment","作业反馈","教师教育","英文","英国","Teacher Copilot","政府投入资金建设教育内容库和 AI 工具竞赛，目标是支持教师批改、反馈和备课。","媒体报道","媒体报道","https://www.theguardian.com/education/article/2024/aug/28/make-ai-tools-to-reduce-teacher-workloads-tech-companies-urged","2024-08-28","2026-06-11"
-"case-112","ChatGPT for Teachers in Virginia Districts","弗吉尼亚学区教师版ChatGPT试点","AI for Teaching & Assessment","教师工具","教师教育","英文","美国","Teacher Copilot","OpenAI 为部分学区提供面向教师和校领导的受保护 ChatGPT，用于教案、材料改写和基础事务。","媒体报道","媒体报道","https://www.washingtonpost.com/education/2025/11/21/chatgpt-for-teachers-virginia-schools/","2025-11-21","2026-06-11"
-"case-113","Generative AI and Teachers: Preparation Use","瑞典教师用GenAI备课案例","AI for Teaching & Assessment","备课","大学","英文","瑞典","Generative AI","调查显示教师最常把生成式 AI 用于教学准备，同时担忧错误、作弊和监管。","研究论文","论文/研究","https://arxiv.org/abs/2404.03486","2024-04-04","2026-06-11"
-"case-114","CyberScholar Teacher Rubrics","教师量规驱动的AI写作反馈系统","AI for Teaching & Assessment","形成性评价","中学","英文","美国","Writing Feedback","教师上传量规、材料和范文，让 AI 生成与标准相关的反馈，帮助教师聚焦高阶指导。","研究论文","论文/研究","https://arxiv.org/abs/2605.17055","2026-05-16","2026-06-11"
-"case-115","LAUSD Ed AI Student Advisor","LAUSD Ed：学生与家长AI个人助理","AI for Teaching & Assessment","学习管理","中小学","英文","美国","Chatbot","学区推出 AI 助理整合成绩、出勤、校车和作业信息，后续因承包商问题停运，适合讨论治理风险。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Ed_%28chatbot%29","2024-03-20","2026-06-11"
-"case-116","Prof Jim AI Reading Content for HISD","Prof Jim为HISD生成阅读课程材料","AI for Teaching & Assessment","课程材料","中小学","英文","美国","Generative AI","AI 公司为学区生成阅读材料，学区用更大的课程团队审查内容，体现人机协作内容生产。","媒体报道","媒体报道","https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/hisd-ai-prof-jim-inc-19958093.php","2024-12","2026-06-11"
-"case-117","HKUST AI Lecturers","香港科技大学AI讲师课堂试验","AI for Teaching & Assessment","虚拟教师","大学","英文","香港","Virtual Lecturer","港科大在研究生课程中使用10名 AI 讲师，研究学生对虚拟教师自然度、可信度和互动性的反馈。","研究论文","论文/研究","https://arxiv.org/abs/2410.03525","2024-10-04","2026-06-11"
-"case-118","HKGAI V1 Education Innovation Trial","港产大模型HKGAI V1推动教育创新","AI for Teaching & Assessment","本地化大模型","大学","繁体中文","香港","Generative AI","香港本地化大模型支持粤语、普通话和英语，可作为本地教育应用、数据安全和价值对齐讨论案例。","媒体报道","媒体报道","https://zh.wikipedia.org/wiki/HKGAI_V1","2025","2026-06-11"
-"case-119","AI Coach and Science of Reading Content","Edthena与Digital Promise科学阅读AI教练内容","AI for Teaching & Assessment","教师专业发展","教师教育","英文","美国","Teacher Copilot","AI Coach 引入科学阅读内容，帮助教师在视频反思和专业发展中对齐证据化教学策略。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Edthena","2024","2026-06-11"
-"case-120","Virginia ChatGPT Teacher Templates","教师版ChatGPT提示模板和隐私保护","AI for Teaching & Assessment","备课与改写","教师教育","英文","美国","Teacher Copilot","教师版工具提供面向教学的提示模板和隐私保护，用于材料改写、差异化支持和日常行政任务。","媒体报道","媒体报道","https://www.washingtonpost.com/education/2025/11/21/chatgpt-for-teachers-virginia-schools/","2025-11-21","2026-06-11"
+"id","title_original","title_cn","category","subcategory","subject","education_level","language","region","ai_tool_or_method","summary_cn","workflow_cn","source_type","credibility","source_url","published_date","accessed_date"
+"case-001","What is AI?","Day of AI：什么是人工智能","AI Literacy","AI Literacy Basics","AI基础概念","小学","英文","全球","Curriculum","MIT RAISE 的 Day of AI 入门活动帮助学生通过生活化例子理解人工智能是什么，以及它和普通软件的区别。","【案例】Day of AI：什么是人工智能
+【适用】小学；方向：AI Literacy Basics
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-002","Chatbots and Language Models","Day of AI：聊天机器人与语言模型","AI Literacy","Generative AI Literacy","生成式AI素养","小学","英文","全球","Chatbot","学生通过对话式活动认识聊天机器人如何生成回答，并讨论准确性、提示词和人类判断的重要性。","【案例】Day of AI：聊天机器人与语言模型
+【适用】小学；方向：Generative AI Literacy
+【目标】让学习者用Chatbot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-003","Creative AI","Day of AI：创意人工智能","AI Literacy","Responsible AI","创意AI","小学","英文","全球","Image Generation","课程引导学生体验 AI 生成文本或图像的创意用途，同时讨论作品归属、偏见和负责任使用。","【案例】Day of AI：创意人工智能
+【适用】小学；方向：Responsible AI
+【目标】让学习者用Image Generation完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-004","Computer Vision","Day of AI：计算机视觉","AI Literacy","AI Concepts","视觉识别","小学","英文","全球","Machine Learning","学生通过图像识别活动理解 AI 如何从图片中提取特征，并反思识别错误可能带来的影响。","【案例】Day of AI：计算机视觉
+【适用】小学；方向：AI Concepts
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-005","Data Activism","Day of AI：数据行动主义","AI Literacy","AI Literacy Basics","数据素养","初中","英文","全球","Data Science","活动把数据收集、可视化和社会议题连接起来，让学生理解数据如何影响公共决策。","【案例】Day of AI：数据行动主义
+【适用】初中；方向：AI Literacy Basics
+【目标】让学习者用Data Science完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-006","Generative AI","Day of AI：生成式人工智能","AI Literacy","Generative AI Literacy","生成式AI素养","初中","英文","全球","Generative AI","课程帮助学生了解生成式 AI 的输出机制、可能的幻觉，以及在学习任务中如何进行核验。","【案例】Day of AI：生成式人工智能
+【适用】初中；方向：Generative AI Literacy
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-007","Algorithmic Bias","Day of AI：算法偏见","AI Literacy","Responsible AI","AI伦理","初中","英文","全球","Machine Learning","学生通过案例比较不同训练数据造成的偏差，理解公平性、代表性和模型评估。","【案例】Day of AI：算法偏见
+【适用】初中；方向：Responsible AI
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-008","AI and Climate","Day of AI：AI与气候问题","AI Literacy","AI Literacy Basics","AI社会应用","初中","英文","全球","Data Science","学习活动把气候数据、预测和 AI 应用结合起来，引导学生判断技术能解决什么、不能解决什么。","【案例】Day of AI：AI与气候问题
+【适用】初中；方向：AI Literacy Basics
+【目标】让学习者用Data Science完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-009","AI in My Community","Day of AI：社区中的AI","AI Literacy","AI Literacy Basics","公民与科技","高中","英文","全球","Curriculum","学生调查身边的 AI 应用并制作社区影响分析，适合作为 AI 素养和公民教育跨学科任务。","【案例】Day of AI：社区中的AI
+【适用】高中；方向：AI Literacy Basics
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-010","Responsible AI","Day of AI：负责任人工智能","AI Literacy","Responsible AI","AI伦理","高中","英文","全球","Generative AI","课程让学生围绕隐私、偏见、透明度和责任归属设计 AI 使用准则。","【案例】Day of AI：负责任人工智能
+【适用】高中；方向：Responsible AI
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-011","AI and Careers","Day of AI：AI与未来职业","AI Literacy","Responsible AI","生涯规划","高中","英文","全球","Curriculum","学生分析不同职业如何被 AI 改变，并讨论需要培养的技能与伦理意识。","【案例】Day of AI：AI与未来职业
+【适用】高中；方向：Responsible AI
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-012","Prompt Engineering","Day of AI：提示词工程入门","AI Literacy","Generative AI Literacy","提示词素养","高中","英文","全球","Generative AI","活动让学生比较不同提示词对输出质量的影响，并建立可复用的提示词检查清单。","【案例】Day of AI：提示词工程入门
+【适用】高中；方向：Generative AI Literacy
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-013","Google AI Quests: Flood Forecasting","Google AI Quests：洪水预测任务","AI Literacy","AI Literacy Basics","AI社会应用","初中","英文","美国","Data Science","学生扮演数据研究者，收集并评估洪水预测相关数据，理解数据质量和人类判断在 AI 应用中的作用。","【案例】Google AI Quests：洪水预测任务
+【适用】初中；方向：AI Literacy Basics
+【目标】让学习者用Data Science完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
+"case-014","ActiveAI: Introducing AI Literacy for Middle School Learners","ActiveAI：面向初中生的情境化AI素养学习","AI Literacy","AI Literacy Basics","AI素养","初中","英文","美国","AI Tutor","ActiveAI 以目标情境学习方式让学生在社交媒体情绪分析等任务中学习 AI 系统评估与输出判断。","【案例】ActiveAI：面向初中生的情境化AI素养学习
+【适用】初中；方向：AI Literacy Basics
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2309.12337","2023-08-21","2026-06-11"
+"case-015","AI Literacy for All","AI Literacy for All：跨学科AI素养课程","AI Literacy","Responsible AI","AI素养","混合","英文","美国","Curriculum","该课程把技术理解、生成式 AI 互动、伦理责任和社会影响整合成可调整的跨学科 AI 素养路径。","【案例】AI Literacy for All：跨学科AI素养课程
+【适用】混合；方向：Responsible AI
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2409.10552","2024-09-02","2026-06-11"
+"case-016","Generative AI Literacy: Twelve Defining Competencies","生成式AI素养十二项能力","AI Literacy","Responsible AI","生成式AI素养","大学","英文","瑞士","Generative AI","论文提出生成式 AI 素养能力模型，可被教师转化为提示词、工具选择、风险判断与伦理使用活动。","【案例】生成式AI素养十二项能力
+【适用】大学；方向：Responsible AI
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.12107","2024-11-29","2026-06-11"
+"case-017","AI Quests: Diabetic Retinopathy","Google AI Quests：糖尿病视网膜病变识别","AI+STEM","Integrated STEM","医学与数据","初中","英文","美国","Machine Learning","规划中的 AI Quest 让学生以医学影像和诊断场景理解 AI 在健康领域的应用边界。","【案例】Google AI Quests：糖尿病视网膜病变识别
+【适用】初中；方向：Integrated STEM
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
+"case-018","AI Quests: Understanding the Human Brain","Google AI Quests：理解人脑","AI+STEM","Science","神经科学","初中","英文","美国","Data Science","学生在任务情境中探索 AI 如何帮助处理复杂科学数据，并理解研究者如何解释模型输出。","【案例】Google AI Quests：理解人脑
+【适用】初中；方向：Science
+【目标】让学习者用Data Science完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
+"case-019","Breadth-First Search Curriculum for Middle School Students","初中科学课堂中的广度优先搜索AI课程","AI+STEM","Science","科学与算法","初中","英文","美国","Machine Learning","课程把 BFS 算法嵌入病毒传播和接触追踪等科学情境，让学生在模拟中理解 AI 问题求解。","【案例】初中科学课堂中的广度优先搜索AI课程
+【适用】初中；方向：Science
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2604.01396","2026-04-01","2026-06-11"
+"case-020","Project-based Learning Toolkit in K-12 Education","K-12跨学科AI项目制学习工具包","AI+STEM","Integrated STEM","项目制学习","中小学","英文","美国","Generative AI","教师把 AI Art Lab、AI Music Studio 和 AI Chatbot 等工具改造成多学科项目任务，支持创造力和批判性思维。","【案例】K-12跨学科AI项目制学习工具包
+【适用】中小学；方向：Integrated STEM
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.17243","2024-12-23","2026-06-11"
+"case-021","Hour of Code AI Activities Review","Hour of Code中的AI与机器学习活动","AI+STEM","Coding / CS","计算思维","中小学","英文","全球","Machine Learning","研究梳理 Hour of Code 活动如何覆盖 AI4K12 五大概念，可作为短时 AI 入门活动选型参考。","【案例】Hour of Code中的AI与机器学习活动
+【适用】中小学；方向：Coding / CS
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.11911","2024-12-16","2026-06-11"
+"case-022","LiveBo: AI-Driven Cantonese Scenarios","LiveBo：面向非华语学生的AI粤语情境学习","AI+STEM","Engineering / Robotics","语言与机器人","中小学","英文","香港","Robotics","香港研究以互动社交机器人和真实生活场景支持非华语学生学习粤语，提升参与度和动机。","【案例】LiveBo：面向非华语学生的AI粤语情境学习
+【适用】中小学；方向：Engineering / Robotics
+【目标】让学习者用Robotics完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2601.01227","2026-01-03","2026-06-11"
+"case-023","Boon Boon Robot for Newly-Arrived Children","Boon Boon机器人：新来港儿童粤语情境学习","AI+STEM","Engineering / Robotics","机器人与语言","小学","英文","香港","Robotics","四天学习项目让新来港儿童通过机器人互动练习粤语词汇和生活场景表达。","【案例】Boon Boon机器人：新来港儿童粤语情境学习
+【适用】小学；方向：Engineering / Robotics
+【目标】让学习者用Robotics完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2601.01234","2026-01-03","2026-06-11"
+"case-024","Hong Kong secondary school AI education open lesson","香港中学AI教育公开课与校长交流案例","AI+STEM","Integrated STEM","校本AI课程","高中","繁体中文","香港","Curriculum","香港学校向内地、澳门及香港教育领袖展示人工智能教育实践，并以设计与科技公开课呈现学生多媒体创作。","【案例】香港中学AI教育公开课与校长交流案例
+【适用】高中；方向：Integrated STEM
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","学校案例","官方/学校","https://zh.wikipedia.org/wiki/%E4%BC%AF%E7%89%B9%E5%88%A9%E4%B8%AD%E5%AD%B8","2026-04-01","2026-06-11"
+"case-025","Buddhist Yip Kei Nam Memorial College AI Curriculum","佛教叶纪南纪念中学：引入中大智为未来AI课程","AI+STEM","Integrated STEM","校本AI课程","高中","繁体中文","香港","Curriculum","学校作为中大赛马会智为未来计划成员，引入人工智能课程，让学生把科技知识用于真实任务。","【案例】佛教叶纪南纪念中学：引入中大智为未来AI课程
+【适用】高中；方向：Integrated STEM
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://zh.wikipedia.org/wiki/%E4%BD%9B%E6%95%99%E8%91%89%E7%B4%80%E5%8D%97%E7%B4%80%E5%BF%B5%E4%B8%AD%E5%AD%B8","2024-10","2026-06-11"
+"case-026","HKUST Library Digital Scholarship CoLab Chinese NER Tool","港科大图书馆CoLab：中国命名实体识别工具学生项目","AI+STEM","Integrated STEM","数字学术","大学","英文","香港","Data Science","学生在一个学期内从需求调研到实现中文 NER 工具，体现图书馆场景中的真实 AI 项目学习。","【案例】港科大图书馆CoLab：中国命名实体识别工具学生项目
+【适用】大学；方向：Integrated STEM
+【目标】让学习者用Data Science完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2503.22967","2025-03-29","2026-06-11"
+"case-027","MediSafe Student AI Prescription Monitoring","香港学生AI药物处方监测原型","AI+STEM","Integrated STEM","医学AI","高中","繁体中文","香港","Generative AI","中学生围绕药物处方错误设计 AI 监测系统原型，连接医学数据、伦理与创新比赛学习。","【案例】香港学生AI药物处方监测原型
+【适用】高中；方向：Integrated STEM
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://zh.wikipedia.org/wiki/%E8%97%A5%E5%80%8D%E5%AE%89%E5%BF%83%E7%88%AD%E8%AD%B0","2025-08-18","2026-06-11"
+"case-028","AI Health Studio-linked Student Innovation Debate","学生AI健康创新项目的原创性与数据伦理讨论","AI+STEM","Integrated STEM","科技伦理","高中","繁体中文","香港","Generative AI","围绕学生 AI 医疗项目的调查与争议，可用于 STEM 课堂讨论原创性、数据使用和评审证据。","【案例】学生AI健康创新项目的原创性与数据伦理讨论
+【适用】高中；方向：Integrated STEM
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份学习作品、AI对话记录和简短反思。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/MediSafe_controversy","2025","2026-06-11"
+"case-029","Generative AI-powered Teachable Agent in Middle School Math","初中数学课堂中的生成式AI可教代理","AI+STEM","Math","数学学习","初中","英文","美国","AI Tutor","108名六年级学生在真实数学课堂中使用生成式 AI 可教代理，并反馈其作为学习伙伴和协作解题者的作用。","【案例】初中数学课堂中的生成式AI可教代理
+【适用】初中；方向：Math
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2409.06721","2024-08-26","2026-06-11"
+"case-030","GenAI Tutors and Math Exam Preparation","高中数学备考中的生成式AI导师实验","AI+STEM","Math","数学备考","高中","英文","美国","AI Tutor","近千名9至11年级学生参与数学备考研究，结果提示 AI 可提升练习表现但也可能削弱无AI考试表现。","【案例】高中数学备考中的生成式AI导师实验
+【适用】高中；方向：Math
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.axios.com/2024/08/15/ai-tutors-learning-education-khan-academy-wharton","2024-08-15","2026-06-11"
+"case-031","Bay Area Classrooms and AI Tutor Study","湾区课堂参考的AI数学导师研究","AI+STEM","Math","数学学习","高中","英文","美国","AI Tutor","报道强调学生可能复制 AI 答案而非真正理解，为数学课堂设计 AI 使用规则提供反面案例。","【案例】湾区课堂参考的AI数学导师研究
+【适用】高中；方向：Math
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.axios.com/local/san-francisco/2024/08/22/ai-tutor-bay-area-classrooms","2024-08-22","2026-06-11"
+"case-032","Educator Preferences for AI-generated Math Lesson Plans","K-12数学教师对AI生成教案的偏好研究","AI+STEM","Math","数学教案","中小学","英文","美国","Teacher Copilot","研究比较人工撰写与 AI 生成数学教案，发现教师更看重差异化、真实情境和学生讨论设计。","【案例】K-12数学教师对AI生成教案的偏好研究
+【适用】中小学；方向：Math
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2504.05449","2025-04-07","2026-06-11"
+"case-033","QANDA MathGPT and AI Math Tutoring","QANDA与MathGPT：拍题和数学AI辅导","AI+STEM","Math","数学辅导","中小学","英文","韩国","AI Tutor","QANDA 通过 OCR、解题步骤和 AI Tutor 支持学生数学学习，可作为讨论拍题工具与学习责任的案例。","【案例】QANDA与MathGPT：拍题和数学AI辅导
+【适用】中小学；方向：Math
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/QANDA","2024-03","2026-06-11"
+"case-034","Gauth AI Math Homework App","Gauth：生成式AI数学作业助手","AI+STEM","Math","数学作业","高中","英文","美国","AI Tutor","学生使用手机拍摄数学题获取分步解答，引发教师重新思考课外作业和课堂练习的设计。","【案例】Gauth：生成式AI数学作业助手
+【适用】高中；方向：Math
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.wired.com/story/gauth-ai-math-homework-app","2024-08-28","2026-06-11"
+"case-035","Squirrel AI Adaptive Math Learning","松鼠AI：知识图谱驱动的数学自适应学习","AI+STEM","Math","自适应学习","中小学","英文","中国内地","Adaptive Learning","平台把数学知识拆分为细粒度知识点，利用诊断和推荐帮助学生补缺，适合讨论个性化学习边界。","【案例】松鼠AI：知识图谱驱动的数学自适应学习
+【适用】中小学；方向：Math
+【目标】让学习者用Adaptive Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Squirrel_AI","2024","2026-06-11"
+"case-036","LearningRO Maths Foundation with RoTutor","LearningRO：RoTutor辅助数学复习","AI+STEM","Math","数学复习","高中","英文","英国","AI Tutor","学生创业项目 LearningRO 提供数学、科学和商业复习内容，并用 AI 助手支持个性化学习。","【案例】LearningRO：RoTutor辅助数学复习
+【适用】高中；方向：Math
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.learningro.com","2025-05-19","2026-06-11"
+"case-037","The Invisible Hand of Gen-AI","大学经济学AI导师与学习小组实验","AI+STEM","Math","经济数学","大学","英文","美国","AI Tutor","课程专属 AI 导师使用讲义材料提供苏格拉底式提示，并与个人学习和小组学习进行比较。","【案例】大学经济学AI导师与学习小组实验
+【适用】大学；方向：Math
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://en.wikipedia.org/wiki/Artificial_intelligence_in_education","2025","2026-06-11"
+"case-038","AI-generated High-school Physics Lesson Plans","高中物理电磁波AI教案评估","AI+STEM","Math","物理建模","高中","英文","全球","Generative AI","研究用多种模型和提示框架生成高中物理教案，并分析可读性、事实准确性和认知要求。","【案例】高中物理电磁波AI教案评估
+【适用】高中；方向：Math
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2510.19866","2025-10-22","2026-06-11"
+"case-039","Adaptive Decimal Arithmetic Tutor","小数运算智能导师案例","AI+STEM","Math","小数运算","小学","英文","全球","Adaptive Learning","智能导师通过错误例子和即时反馈帮助学生理解小数运算，可作为传统 AIED 与现代 AI 工具比较案例。","【案例】小数运算智能导师案例
+【适用】小学；方向：Math
+【目标】让学习者用Adaptive Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Intelligent_tutoring_system","2024","2026-06-11"
+"case-040","Cognitive Tutor Algebra Classroom Model","认知导师代数课堂模型","AI+STEM","Math","代数","高中","英文","美国","Adaptive Learning","Cognitive Tutor 将教材与软件活动结合，通过认知模型给出即时反馈，是数学 AI 辅导系统的经典课堂实施案例。","【案例】认知导师代数课堂模型
+【适用】高中；方向：Math
+【目标】让学习者用Adaptive Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份解题过程、错因说明和最终订正稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Cognitive_tutor","2024","2026-06-11"
+"case-041","Generative AI as a Lab Partner","生成式AI作为高中物理实验伙伴","AI+STEM","Science","物理实验","高中","英文","瑞典","Chatbot","19名高中生在声悬浮和声速实验中使用 ChatGPT，研究显示 AI 可辅助实验提问，但教师引导仍关键。","【案例】生成式AI作为高中物理实验伙伴
+【适用】高中；方向：Science
+【目标】让学习者用Chatbot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.11300","2024-12-15","2026-06-11"
+"case-042","Using Generative AI Creatively in Atmospheric Science","大气科学课堂中的生成式AI创意活动","AI+STEM","Science","大气科学","大学","英文","美国","Generative AI","教师设计主动学习模块、游戏和提示词任务，帮助学生负责任地使用生成式 AI 学习大气科学。","【案例】大气科学课堂中的生成式AI创意活动
+【适用】大学；方向：Science
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2409.05176","2024-09-08","2026-06-11"
+"case-043","Science Literacy with Generative AI","生成式AI支持科学素养的教学、学习与评估","AI+STEM","Science","科学素养","中小学","英文","美国","Generative AI","章节讨论 AI 如何连接科学知识、推理和评估，为科学课堂中的 AI 支持架构提供案例。","【案例】生成式AI支持科学素养的教学、学习与评估
+【适用】中小学；方向：Science
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2603.06659","2026-03-01","2026-06-11"
+"case-044","AI in Science Education Research Workshop","科学教育研究中的AI工作坊案例","AI+STEM","Science","科学教育研究","教师教育","英文","全球","Data Science","国际工作坊总结 AI 对科学课堂、教师发展和研究方法的影响，可转化为教师研修案例。","【案例】科学教育研究中的AI工作坊案例
+【适用】教师教育；方向：Science
+【目标】让学习者用Data Science完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2511.14318","2025-11-18","2026-06-11"
+"case-045","AI in Data Science Education at Wageningen University","瓦赫宁根大学数据科学课程中的AI使用经验","AI+STEM","Science","数据科学","大学","英文","荷兰","Generative AI","课程协调人访谈揭示 ChatGPT 等工具如何支持数据科学学习，同时暴露过度依赖和评价调整问题。","【案例】瓦赫宁根大学数据科学课程中的AI使用经验
+【适用】大学；方向：Science
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2510.00793","2025-10-01","2026-06-11"
+"case-046","Iris AI Teacher Robot in Udupi Government School","印度Udupi公立小学AI教师机器人Iris","AI+STEM","Science","科学与机器人","小学","英文","印度","Robotics","乡村公立学校引入 AI 语音机器人，结合互动模块和课堂设施升级，作为科学节与日常教学支持工具。","【案例】印度Udupi公立小学AI教师机器人Iris
+【适用】小学；方向：Science
+【目标】让学习者用Robotics完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://timesofindia.indiatimes.com/city/mangaluru/ai-teacher-robot-rolls-into-udupi-govt-school/articleshow/130197051.cms","2026-05","2026-06-11"
+"case-047","AI-generated Physics Lesson Plan Usability","高中物理AI生成教案可用性比较","AI+STEM","Science","物理教学","高中","英文","全球","Teacher Copilot","研究比较 GPT、Claude、Gemini、DeepSeek 等模型生成同一物理主题教案的教学可靠性。","【案例】高中物理AI生成教案可用性比较
+【适用】高中；方向：Science
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2510.19866","2025-10-22","2026-06-11"
+"case-048","Day of AI: AI and Climate","Day of AI：气候数据与AI预测","AI+STEM","Science","地理与气候","初中","英文","全球","Data Science","学生使用气候相关数据讨论预测、模型限制和环境决策，适合科学与地理融合课堂。","【案例】Day of AI：气候数据与AI预测
+【适用】初中；方向：Science
+【目标】让学习者用Data Science完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","课程资源","官方/学校","https://www.dayofai.org/curriculum","2024","2026-06-11"
+"case-049","AI Quest Flood Forecasting Researcher Role-play","AI洪水预测研究者角色扮演","AI+STEM","Science","地理与水文","初中","英文","美国","Data Science","学生通过游戏化任务体验研究者如何选择数据、测试模型并向公众解释洪水预警。","【案例】AI洪水预测研究者角色扮演
+【适用】初中；方向：Science
+【目标】让学习者用Data Science完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
+"case-050","AI-driven Medication Safety Prototype","AI药物安全原型中的科学探究","AI+STEM","Science","生物医学","高中","繁体中文","香港","Generative AI","学生围绕处方错误监测设计原型，课堂可延伸到医学数据、验证、伦理和专利意识。","【案例】AI药物安全原型中的科学探究
+【适用】高中；方向：Science
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/MediSafe_controversy","2025","2026-06-11"
+"case-051","Squirrel AI Knowledge Graph for Science Concepts","松鼠AI知识图谱用于科学知识补缺","AI+STEM","Science","自适应学习","中小学","英文","中国内地","Adaptive Learning","知识图谱和诊断机制可迁移到科学概念学习，帮助教师讨论个性化补救教学。","【案例】松鼠AI知识图谱用于科学知识补缺
+【适用】中小学；方向：Science
+【目标】让学习者用Adaptive Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Squirrel_AI","2024","2026-06-11"
+"case-052","Experience-like AI Literacy for Real-world Challenges","真实世界挑战中的AI科学素养任务","AI+STEM","Science","科学探究","初中","英文","全球","Machine Learning","学生围绕洪水、医疗影像和脑科学任务学习数据质量、模型测试和科学解释。","【案例】真实世界挑战中的AI科学素养任务
+【适用】初中；方向：Science
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.androidcentral.com/apps-software/ai/google-ai-quests-treks-a-literacy-path-students-and-educators","2025-09-10","2026-06-11"
+"case-053","ChatScratch","ChatScratch：面向6至12岁儿童的AI增强Scratch学习","AI+STEM","Coding / CS","Scratch编程","小学","英文","中国内地","Coding Assistant","系统用结构化故事板、生成式图像和 Scratch 专用大模型，支持儿童自主规划和完成编程项目。","【案例】ChatScratch：面向6至12岁儿童的AI增强Scratch学习
+【适用】小学；方向：Coding / CS
+【目标】让学习者用Coding Assistant完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2402.04975","2024-02-07","2026-06-11"
+"case-054","Rapid Mobile App Development for Generative AI Agents on MIT App Inventor","MIT App Inventor：生成式AI智能体手机应用开发","AI+STEM","Coding / CS","App开发","大学","英文","美国","Coding Assistant","学生使用 App Inventor 快速开发包含 OpenAI API 的移动智能体应用，覆盖社区安全、协作和可持续主题。","【案例】MIT App Inventor：生成式AI智能体手机应用开发
+【适用】大学；方向：Coding / CS
+【目标】让学习者用Coding Assistant完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2405.01561","2024-04-01","2026-06-11"
+"case-055","TMIC App Inventor Extension for Teachable Machine","TMIC：把Teachable Machine模型部署到App Inventor","AI+STEM","Coding / CS","机器学习编程","中小学","英文","巴西","Machine Learning","扩展让学生把 Teachable Machine 图像分类模型嵌入 App Inventor 应用，适合 K-12 AI 编程入门。","【案例】TMIC：把Teachable Machine模型部署到App Inventor
+【适用】中小学；方向：Coding / CS
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2208.12637","2022-08-24","2026-06-11"
+"case-056","Three Years with Classroom AI in Introductory Programming","三年AI支持的Python入门编程课堂","AI+STEM","Coding / CS","Python编程","大学","英文","日本","Coding Assistant","研究追踪2023至2025三届学生在 Python 课中使用生成式 AI 的意识、互动方式和学习结果变化。","【案例】三年AI支持的Python入门编程课堂
+【适用】大学；方向：Coding / CS
+【目标】让学习者用Coding Assistant完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2603.22672","2026-03-24","2026-06-11"
+"case-057","Generative AI in Computing Education","计算教育中学生与教师的生成式AI观点","AI+STEM","Coding / CS","计算教育","大学","英文","美国","Generative AI","通过学生与教师访谈总结生成式 AI 在代码解释、练习生成和编程支持中的机会与风险。","【案例】计算教育中学生与教师的生成式AI观点
+【适用】大学；方向：Coding / CS
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2308.04309","2023-08-08","2026-06-11"
+"case-058","Tutor CoPilot","Tutor CoPilot：实时辅导中的人机协作","AI+STEM","Coding / CS","在线辅导","中小学","英文","美国","Teacher Copilot","900名导师和1800名K-12学生参与随机对照试验，AI 为导师提供引导式教学建议以提升学生掌握率。","【案例】Tutor CoPilot：实时辅导中的人机协作
+【适用】中小学；方向：Coding / CS
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2410.03017","2024-10-03","2026-06-11"
+"case-059","Codio Coach","Codio Coach：计算机课程中的苏格拉底式AI教练","AI+STEM","Coding / CS","计算机科学","大学","英文","英国","Coding Assistant","Codio Coach 用 Claude 提供不直接给答案的调试提示和错误解释，主要用于计算机科学课程。","【案例】Codio Coach：计算机课程中的苏格拉底式AI教练
+【适用】大学；方向：Coding / CS
+【目标】让学习者用Coding Assistant完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.techradar.com/pro/this-ai-tool-claims-to-boost-student-grades-by-15-using-a-2400-year-old-technique-but-i-am-not-convinced","2025","2026-06-11"
+"case-060","Teaching AI Interactively","互动式教授AI：大学AI导论课程重设计","AI+STEM","Coding / CS","AI导论","大学","英文","美国","Curriculum","课程用无插电模拟、协作编程实验和反思替代部分讲授，提升 AI 概念学习的参与度。","【案例】互动式教授AI：大学AI导论课程重设计
+【适用】大学；方向：Coding / CS
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2603.28679","2026-03-30","2026-06-11"
+"case-061","Beyond the Hype: GenAI in Computing Classrooms","计算课堂中的生成式AI教学实践综述","AI+STEM","Coding / CS","计算教育","大学","英文","全球","Generative AI","综述、调查和访谈总结编程课堂中的 AI 助教、反馈工具和提示词教学实践。","【案例】计算课堂中的生成式AI教学实践综述
+【适用】大学；方向：Coding / CS
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.14732","2024-12-19","2026-06-11"
+"case-062","GitHub Copilot-style Classroom Programming Support","类Copilot编程支持在课堂中的教学议题","AI+STEM","Coding / CS","软件工程","大学","英文","全球","Coding Assistant","案例用于讨论代码生成、解释错误、生成练习与保留学生编程能力之间的平衡。","【案例】类Copilot编程支持在课堂中的教学议题
+【适用】大学；方向：Coding / CS
+【目标】让学习者用Coding Assistant完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2308.04309","2023-08-08","2026-06-11"
+"case-063","Expanding Computational Thinking in AI for K-12","K-12计算思维扩展到人工智能学习","AI+STEM","Coding / CS","计算思维","中小学","英文","美国","Curriculum","论文讨论生成式 AI 时代学生应学习哪些 AI 与机器学习内容，以及这些内容如何扩展传统计算思维课程。","【案例】K-12计算思维扩展到人工智能学习
+【适用】中小学；方向：Coding / CS
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2602.16890","2026-02-18","2026-06-11"
+"case-064","AI Fundamentals Elective in Houston ISD","休斯顿学区人工智能基础选修课","AI+STEM","Coding / CS","AI基础课程","中小学","英文","美国","Curriculum","学区在使用 AI 生成阅读材料的同时推出 AI 使用指南和人工智能基础选修课。","【案例】休斯顿学区人工智能基础选修课
+【适用】中小学；方向：Coding / CS
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一段可运行代码、调试记录和代码说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/hisd-ai-prof-jim-inc-19958093.php","2024-12","2026-06-11"
+"case-065","LiveBo Cantonese for Non-Chinese Speaking Students","LiveBo：非华语学生粤语学习AI情境模拟","AI+Humanities","Language","粤语学习","中小学","英文","香港","Robotics","社交机器人与真实情境对话帮助非华语学生练习粤语词汇、表达和互动。","【案例】LiveBo：非华语学生粤语学习AI情境模拟
+【适用】中小学；方向：Language
+【目标】让学习者用Robotics完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2601.01227","2026-01-03","2026-06-11"
+"case-066","Boon Boon Cantonese for Newly-Arrived Children","Boon Boon：新来港儿童粤语学习机器人","AI+Humanities","Language","粤语学习","小学","英文","香港","Robotics","14名儿童参与四天机器人辅助粤语学习项目，研究关注学习动机、投入和语言水平变化。","【案例】Boon Boon：新来港儿童粤语学习机器人
+【适用】小学；方向：Language
+【目标】让学习者用Robotics完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2601.01234","2026-01-03","2026-06-11"
+"case-067","CyberScholar Writing Feedback","CyberScholar：基于教师量规的AI写作反馈","AI+Humanities","Language","英语写作","中学","英文","美国","Writing Feedback","143名7至11年级学生使用 RAG 反馈工具进行多轮写作修改，教师提供量规和材料校准。","【案例】CyberScholar：基于教师量规的AI写作反馈
+【适用】中学；方向：Language
+【目标】让学习者用Writing Feedback完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2605.17055","2026-05-16","2026-06-11"
+"case-068","Can AI teach students to write better?","美国英语课堂中的ChatGPT写作反馈","AI+Humanities","Language","英语写作","高中","英文","美国","Writing Feedback","教师让学生用 ChatGPT 评价自己的文本，再要求学生判断哪些建议可采纳，强调 AI 作为写作伙伴而非代写者。","【案例】美国英语课堂中的ChatGPT写作反馈
+【适用】高中；方向：Language
+【目标】让学习者用Writing Feedback完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.washingtonpost.com/nation/2026/02/22/ai-chatbots-teach-writing/","2026-02-22","2026-06-11"
+"case-069","Teacher lets students use ChatGPT to write essays responsibly","俄勒冈教师引导学生负责任使用ChatGPT写作文","AI+Humanities","Language","英语写作","高中","英文","美国","Generative AI","教师让学生分析和改进 AI 生成文章，以此训练批判性阅读、修订和学术诚信意识。","【案例】俄勒冈教师引导学生负责任使用ChatGPT写作文
+【适用】高中；方向：Language
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","教师实践","教师实践","https://www.businessinsider.com/teacher-ai-chatgpt-classroom-cheating-essays-2024-11","2024-11-01","2026-06-11"
+"case-070","Talkpal AI Language Tutor","Talkpal AI：多语言会话练习","AI+Humanities","Language","外语口语","混合","英文","全球","Voice/Conversation","平台以文本和语音 AI Tutor 模拟自然对话，适合讨论个性化口语练习与教师反馈的关系。","【案例】Talkpal AI：多语言会话练习
+【适用】混合；方向：Language
+【目标】让学习者用Voice/Conversation完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Talkpal_AI","2025","2026-06-11"
+"case-071","Xeropan Speakbot","Xeropan：AI speakbot真实生活口语任务","AI+Humanities","Language","英语学习","混合","英文","匈牙利","Voice/Conversation","学习者通过情景视频、词汇练习和 AI speakbot 进行口语与发音训练。","【案例】Xeropan：AI speakbot真实生活口语任务
+【适用】混合；方向：Language
+【目标】让学习者用Voice/Conversation完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Xeropan","2022","2026-06-11"
+"case-072","ChatGPT in Education: ESL and Writing Support","ChatGPT支持英语学习者写作和词汇学习","AI+Humanities","Language","ESL写作","大学","英文","全球","Generative AI","综述指出 ChatGPT 可提供写作反馈、构思、语法和词汇支持，但需处理准确性与隐私问题。","【案例】ChatGPT支持英语学习者写作和词汇学习
+【适用】大学；方向：Language
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/ChatGPT_in_education","2024","2026-06-11"
+"case-073","Prof Jim Reading Passages in Houston ISD","休斯顿学区AI生成阅读材料","AI+Humanities","Language","阅读教学","中小学","英文","美国","Generative AI","AI 公司为学区生成2200多篇阅读材料，教师团队负责审查和融入课程。","【案例】休斯顿学区AI生成阅读材料
+【适用】中小学；方向：Language
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/hisd-ai-prof-jim-inc-19958093.php","2024-12","2026-06-11"
+"case-074","Sydney Students Use ChatGPT as Study Teammate","悉尼大学生把ChatGPT作为学习队友","AI+Humanities","Language","学术表达","大学","英文","澳大利亚","Generative AI","学生用 ChatGPT 预测采访问题、准备表达和整理思路，案例可用于学术沟通中的 AI 使用讨论。","【案例】悉尼大学生把ChatGPT作为学习队友
+【适用】大学；方向：Language
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.theguardian.com/technology/2024/oct/05/chatgpt-has-become-the-best-teammate-to-these-sydney-university-students-but-is-there-a-limit","2024-10-04","2026-06-11"
+"case-075","Pre-service Teachers Use GenAI as Learning Buddy","职前教师把生成式AI作为学习伙伴与教学助手","AI+Humanities","Language","教师教育","大学","英文","加纳","Generative AI","167名职前教师使用 GenAI 获取阅读材料、解释、例子、评估策略和教案设计支持。","【案例】职前教师把生成式AI作为学习伙伴与教学助手
+【适用】大学；方向：Language
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2407.11983","2024-06-03","2026-06-11"
+"case-076","AI Writing Feedback Across Disciplines","跨学科写作中的AI量规反馈","AI+Humanities","Language","跨学科写作","中学","英文","美国","Writing Feedback","CyberScholar 多案例研究显示，学生重视即时、量规化反馈，教师则可把时间转向更高阶写作指导。","【案例】跨学科写作中的AI量规反馈
+【适用】中学；方向：Language
+【目标】让学习者用Writing Feedback完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2605.17055","2026-05-16","2026-06-11"
+"case-077","From Prohibition to Adoption in Hong Kong Universities","香港高校从禁止到采纳ChatGPT的教学政策转变","AI+Social Sciences","Social Studies","高等教育政策","大学","英文","香港","Generative AI","研究比较香港高校从早期限制到建设 AI 素养和责任政策的变化，可用于大学通识讨论。","【案例】香港高校从禁止到采纳ChatGPT的教学政策转变
+【适用】大学；方向：Social Studies
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2410.01695","2024-10-02","2026-06-11"
+"case-078","AI Revolution in Education: Assist Teachers in Higher Education","香港高校师生对AI辅助教学的看法","AI+Social Sciences","Social Studies","教育社会学","大学","英文","香港","Generative AI","研究通过问卷与文献分析讨论 AI 是否替代教师，强调人类教师的情感、创造力和批判性思维。","【案例】香港高校师生对AI辅助教学的看法
+【适用】大学；方向：Social Studies
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2305.01185","2023-05-02","2026-06-11"
+"case-079","Teacher v Chatbot","AI时代英语教师实习案例","AI+Social Sciences","Social Studies","写作与伦理","高中","英文","美国","Generative AI","一名教师实习生记录 AI 对阅读、写作和课堂关系的影响，可用于教师教育和媒体素养讨论。","【案例】AI时代英语教师实习案例
+【适用】高中；方向：Social Studies
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.theguardian.com/education/ng-interactive/2026/mar/03/cheating-machine-or-powerful-assistant-the-ai-anxieties-of-a-trainee-teacher","2026-03-03","2026-06-11"
+"case-080","University AI Cheating Crisis","大学AI作弊危机中的评价改革案例","AI+Social Sciences","Social Studies","学术诚信","大学","英文","英国","Generative AI","报道呈现学生使用 AI 写作、误判和教师评价改革压力，可作为学术诚信课堂讨论材料。","【案例】大学AI作弊危机中的评价改革案例
+【适用】大学；方向：Social Studies
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.theguardian.com/technology/2024/dec/15/i-received-a-first-but-it-felt-tainted-and-undeserved-inside-the-university-ai-cheating-crisis","2024-12-15","2026-06-11"
+"case-081","Common Sense Media Teen GenAI Survey","青少年生成式AI使用与家长认知差距","AI+Social Sciences","Social Studies","媒体素养","中学","英文","美国","Generative AI","调查显示多数青少年已将生成式 AI 用于学校任务，但家长和学校规则常未同步。","【案例】青少年生成式AI使用与家长认知差距
+【适用】中学；方向：Social Studies
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.wired.com/story/teens-generative-ai-use-schools-parents","2024-09","2026-06-11"
+"case-082","AI-positive Policies at Universities","大学AI积极政策与真实性评价","AI+Social Sciences","Social Studies","评价改革","大学","英文","英国","Generative AI","报道讨论大学如何界定 AI 可接受使用，并推动口试、一对一指导等更真实的评价方式。","【案例】大学AI积极政策与真实性评价
+【适用】大学；方向：Social Studies
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.theguardian.com/technology/2024/dec/15/i-received-a-first-but-it-felt-tainted-and-undeserved-inside-the-university-ai-cheating-crisis","2024-12-15","2026-06-11"
+"case-083","Human-centered AI Curriculum at Kenyon College","Kenyon College人文中心AI课程","AI+Social Sciences","Social Studies","数字人文","大学","英文","美国","Curriculum","人文课程把 AI、文学、数字人文和社会影响结合，强调解释性、可复现性和人类判断。","【案例】Kenyon College人文中心AI课程
+【适用】大学；方向：Social Studies
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Katherine_Elkins","2025","2026-06-11"
+"case-084","Generative AI and Teachers: A Swedish Case Study","瑞典大学教师使用生成式AI的教学案例","AI+Social Sciences","Social Studies","教师实践","大学","英文","瑞典","Generative AI","调查显示教师主要把 ChatGPT 用于备课，并讨论其对教学、法律和作弊治理的影响。","【案例】瑞典大学教师使用生成式AI的教学案例
+【适用】大学；方向：Social Studies
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2404.03486","2024-04-04","2026-06-11"
+"case-085","AI Literacy in K-12 and Higher Education Review","生成式AI后AI素养教育综述","AI+Social Sciences","Social Studies","AI素养","混合","英文","全球","Curriculum","综述把 AI 素养分为功能性、批判性和间接收益视角，可用于人文社科课程设计。","【案例】生成式AI后AI素养教育综述
+【适用】混合；方向：Social Studies
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2503.00079","2025-02-27","2026-06-11"
+"case-086","AI Across the Curriculum in Higher Education","高校跨课程AI素养模式","AI+Social Sciences","Social Studies","通识教育","大学","英文","美国","Curriculum","高校把 AI 素养嵌入多学科课程，强调数字素养、伦理和职业准备。","【案例】高校跨课程AI素养模式
+【适用】大学；方向：Social Studies
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/AI_literacy","2024","2026-06-11"
+"case-087","Tuning Music Education","AI个性化音乐教育：和弦识别与钢琴教材","AI+Humanities","Arts & Design","音乐教育","混合","英文","美国","Machine Learning","两个案例分别用自动和弦识别生成听辨练习、用自动音乐转录改编钢琴练习。","【案例】AI个性化音乐教育：和弦识别与钢琴教材
+【适用】混合；方向：Arts & Design
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.13514","2024-12-18","2026-06-11"
+"case-088","Automatic Chord Recognition Exercises","自动和弦识别生成个性化听辨练习","AI+Humanities","Arts & Design","音乐听辨","混合","英文","美国","Machine Learning","学生从真实音频曲目生成练习，把传统听辨训练和个人音乐兴趣连接起来。","【案例】自动和弦识别生成个性化听辨练习
+【适用】混合；方向：Arts & Design
+【目标】让学习者用Machine Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.13514","2024-12-18","2026-06-11"
+"case-089","Adaptive Piano Method Books","自适应钢琴教材原型","AI+Humanities","Arts & Design","音乐演奏","混合","英文","美国","Adaptive Learning","AI 根据自动音乐转录生成不同难度练习，让学生在保持音乐兴趣的同时逐级训练。","【案例】自适应钢琴教材原型
+【适用】混合；方向：Arts & Design
+【目标】让学习者用Adaptive Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.13514","2024-12-18","2026-06-11"
+"case-090","Flynn: AI Goes to Art School","Flynn：进入艺术学院的AI学生","AI+Humanities","Arts & Design","数字艺术","大学","英文","奥地利","Generative AI","学生创作者让 AI 作为艺术学生参加面试、课堂和作品提交，激发关于艺术主体和学习边界的讨论。","【案例】Flynn：进入艺术学院的AI学生
+【适用】大学；方向：Arts & Design
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.washingtonpost.com/technology/2025/04/16/ai-art-school-vienna/","2025-04-16","2026-06-11"
+"case-091","UNSW Generative AI for Artists","UNSW生成式AI艺术课程","AI+Humanities","Arts & Design","艺术教育","大学","英文","澳大利亚","Image Generation","课程教学生使用常见生成式 AI 工具进行创作实践，同时讨论版权、道德权利和环境影响。","【案例】UNSW生成式AI艺术课程
+【适用】大学；方向：Arts & Design
+【目标】让学习者用Image Generation完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.theguardian.com/australia-news/2025/aug/29/university-nsw-generative-ai-art-course-students-push-to-abolish-rejected","2025-08-29","2026-06-11"
+"case-092","Musical Futures AI Artist Coach","Musical Futures：AI Artist Coach音乐教育资源","AI+Humanities","Arts & Design","音乐创作","中小学","英文","英国","Generative AI","音乐教育平台探索 AI Artist Coach 工具，支持学生中心的电子音乐创作和课堂工作坊。","【案例】Musical Futures：AI Artist Coach音乐教育资源
+【适用】中小学；方向：Arts & Design
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Musical_Futures","2024","2026-06-11"
+"case-093","GenAI-integrated Creative Media Course","生成式AI融入创意媒体课程的长期案例","AI+Humanities","Arts & Design","创意媒体","大学","英文","美国","Generative AI","研究追踪学生在创意媒体课程中从学习 AI 技能到面对伦理、依赖和职业焦虑的复杂变化。","【案例】生成式AI融入创意媒体课程的长期案例
+【适用】大学；方向：Arts & Design
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2507.17230","2025-07-23","2026-06-11"
+"case-094","AI Art Lab in K-12 PBL Toolkit","K-12项目制学习中的AI Art Lab","AI+Humanities","Arts & Design","视觉艺术","中小学","英文","美国","Image Generation","教师把 AI Art Lab 改造成视觉创作和批判讨论活动，让学生在创作中理解偏见、版权和表达。","【案例】K-12项目制学习中的AI Art Lab
+【适用】中小学；方向：Arts & Design
+【目标】让学习者用Image Generation完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2412.17243","2024-12-23","2026-06-11"
+"case-095","Bethel High School AI Multimedia Storyboarding","伯特利中学：AI多媒体故事板公开课","AI+Humanities","Arts & Design","设计与科技","高中","繁体中文","香港","Generative AI","学校公开课展示学生从传统手绘故事板转向多媒体创作，体现 AI 对学习体验的提升。","【案例】伯特利中学：AI多媒体故事板公开课
+【适用】高中；方向：Arts & Design
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】学生需标注使用了哪些AI帮助，并保留人工核查证据。","学校案例","官方/学校","https://zh.wikipedia.org/wiki/%E4%BC%AF%E7%89%B9%E5%88%A9%E4%B8%AD%E5%AD%B8","2026-04-01","2026-06-11"
+"case-096","Bauhinia Cup AI Short Video Competition","中华文化进课堂AI短片创作比赛","AI+Humanities","Arts & Design","短片创作","中学","繁体中文","香港","Generative AI","学生通过 AI 短片创作表达中华文化主题，适合收录为艺术、文化与 AI 创作结合案例。","【案例】中华文化进课堂AI短片创作比赛
+【适用】中学；方向：Arts & Design
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一个创意原型、提示词记录和设计说明。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://zh.wikipedia.org/wiki/%E4%BC%AF%E7%89%B9%E5%88%A9%E4%B8%AD%E5%AD%B8","2024","2026-06-11"
+"case-097","Caisey AI Debate App at Columbia Business School","Columbia Business School：Caisey商业案例辩论AI","AI+Social Sciences","Business / Economics","商业案例教学","大学","英文","美国","Chatbot","教师开发 AI 应用让学生在课前围绕商业案例进行论证和反驳，避免只让 ChatGPT 总结案例。","【案例】Columbia Business School：Caisey商业案例辩论AI
+【适用】大学；方向：Business / Economics
+【目标】让学习者用Chatbot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.washingtonpost.com/education/2026/04/01/professors-design-ai-apps/","2026-04-01","2026-06-11"
+"case-098","Kellogg AI-powered MBA Case Study","Kellogg MBA：AI角色驱动的案例学习","AI+Social Sciences","Business / Economics","MBA案例教学","大学","英文","美国","Chatbot","学生不再只阅读案例材料，而是与多名 AI 角色对话获取事实并提出策略，训练主动询问和决策。","【案例】Kellogg MBA：AI角色驱动的案例学习
+【适用】大学；方向：Business / Economics
+【目标】让学习者用Chatbot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.wsj.com/tech/ai/ai-is-teaching-the-next-generation-of-m-b-a-s-the-classic-case-study-a4eb4227","2025-11-01","2026-06-11"
+"case-099","Scaffolding Creativity in Business Education","商业教育中的生成式AI与真实体验支架","AI+Social Sciences","Business / Economics","商业创新","大学","英文","美国","Generative AI","本科商业课程把 AI 辅助创意和真实世界观察结合，帮助学生突破创意障碍并反思 AI 输出。","【案例】商业教育中的生成式AI与真实体验支架
+【适用】大学；方向：Business / Economics
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2501.06527","2025-01-11","2026-06-11"
+"case-100","American University Applied AI Institute","American University商学院应用AI学院","AI+Social Sciences","Business / Economics","商业AI技能","大学","英文","美国","Curriculum","商学院把 AI 融入消费者研究、营销、金融分析和投资承销等课程任务，强调工作场景能力。","【案例】American University商学院应用AI学院
+【适用】大学；方向：Business / Economics
+【目标】让学习者用Curriculum完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.axios.com/2025/04/03/generative-ai-business-school-students","2025-04-03","2026-06-11"
+"case-101","Part-time Students Navigate Education and Business with GenAI","在职大学生跨学习与商业场景使用生成式AI","AI+Social Sciences","Business / Economics","商业学习","大学","英文","德国","Generative AI","研究访谈在职学习者，分析他们如何在课程和工作业务任务之间使用生成式 AI。","【案例】在职大学生跨学习与商业场景使用生成式AI
+【适用】大学；方向：Business / Economics
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2602.16307","2026-02-18","2026-06-11"
+"case-102","Alpha School AI-powered Two-hour Learning Model","Alpha School：两小时AI个性化核心学习","AI+Social Sciences","Business / Economics","教育创业","中小学","英文","美国","Adaptive Learning","学校以 AI 学习应用完成核心学科学习，其余时间用于创业、公共演讲和生活技能等项目。","【案例】Alpha School：两小时AI个性化核心学习
+【适用】中小学；方向：Business / Economics
+【目标】让学习者用Adaptive Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://nypost.com/2026/01/30/business/new-65k-private-school-uses-ai-to-teach-students-in-just-two-hours-a-day-in-silicon-valley-bid-to-shake-up-us-education/","2026-01-30","2026-06-11"
+"case-103","Alpha School San Francisco AI Model","旧金山Alpha School：AI驱动的K-8学校案例","AI+Social Sciences","Business / Economics","学校创新","中小学","英文","美国","Adaptive Learning","新校区以两小时 AI 个性化学术学习和项目化生活技能训练为核心，引发教育商业模式讨论。","【案例】旧金山Alpha School：AI驱动的K-8学校案例
+【适用】中小学；方向：Business / Economics
+【目标】让学习者用Adaptive Learning完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.theguardian.com/technology/2025/oct/18/san-francisco-ai-alpha-school-tech","2025-10-18","2026-06-11"
+"case-104","LearningRO Business Revision","LearningRO：商业学科AI复习平台","AI+Social Sciences","Business / Economics","商业复习","高中","英文","英国","AI Tutor","平台从课堂作业创意发展为学习工具，提供商业等科目的复习内容和 AI 助手支持。","【案例】LearningRO：商业学科AI复习平台
+【适用】高中；方向：Business / Economics
+【目标】让学习者用AI Tutor完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.learningro.com","2025-05-19","2026-06-11"
+"case-105","AI Case Study Simulation for School Transportation Deficit","AI商业案例模拟：学校交通预算缺口","AI+Social Sciences","Business / Economics","公共管理与商业","大学","英文","美国","Chatbot","Kellogg 案例让学生与 AI 角色互动调查学校交通预算问题，训练咨询式访谈和策略制定。","【案例】AI商业案例模拟：学校交通预算缺口
+【适用】大学；方向：Business / Economics
+【目标】让学习者用Chatbot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.wsj.com/tech/ai/ai-is-teaching-the-next-generation-of-m-b-a-s-the-classic-case-study-a4eb4227","2025-11-01","2026-06-11"
+"case-106","AI Dependency and Big Tech in Business Education","商业教育中的AI依赖与知识控制讨论","AI+Social Sciences","Business / Economics","商业伦理","大学","英文","英国","Generative AI","商业教授提醒学生不要把综合、验证和判断完全外包给商业 AI 平台，适合商业伦理课堂。","【案例】商业教育中的AI依赖与知识控制讨论
+【适用】大学；方向：Business / Economics
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.businessinsider.com/ai-is-handing-control-of-knowledge-to-big-tech-professor-2025-10","2025-10","2026-06-11"
+"case-107","Teacher-AI Collaboration for Low-resource Schools","Shiksha Copilot：低资源学校中的教师AI共创教案","AI for Teaching & Assessment","Assessment / Feedback","备课","教师教育","英文","印度","Teacher Copilot","印度 Karnataka 政府学校教师和策划者使用 AI 共同生成并本地化英文、Kannada 教案。","【案例】Shiksha Copilot：低资源学校中的教师AI共创教案
+【适用】教师教育；方向：Assessment / Feedback
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2507.00456","2025-07-01","2026-06-11"
+"case-108","Tutor CoPilot for Live Tutoring","Tutor CoPilot：实时辅导中的教师支持","AI for Teaching & Assessment","Assessment / Feedback","辅导反馈","中小学","英文","美国","Teacher Copilot","AI 为导师提供专家式引导问题和教学策略，帮助导师少直接给答案，多促进学生理解。","【案例】Tutor CoPilot：实时辅导中的教师支持
+【适用】中小学；方向：Assessment / Feedback
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2410.03017","2024-10-03","2026-06-11"
+"case-109","Edthena AI Coach","Edthena AI Coach：教师自我反思和视频教练","AI for Teaching & Assessment","Assessment / Feedback","教师专业发展","教师教育","英文","美国","Teacher Copilot","AI Coach 用开放式问题引导教师围绕课堂视频进行自我教练和反思。","【案例】Edthena AI Coach：教师自我反思和视频教练
+【适用】教师教育；方向：Assessment / Feedback
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Edthena","2024","2026-06-11"
+"case-110","Teachers Are Going All In on Generative AI","教师使用MagicSchool等工具减轻备课负担","AI for Teaching & Assessment","Assessment / Feedback","教师工作流","教师教育","英文","美国","Teacher Copilot","教师用生成式 AI 制作课堂材料、活动和评估任务，同时需要人工审查偏见和事实准确性。","【案例】教师使用MagicSchool等工具减轻备课负担
+【适用】教师教育；方向：Assessment / Feedback
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.wired.com/story/teachers-are-going-all-in-on-generative-ai","2023","2026-06-11"
+"case-111","UK DfE AI Tools to Reduce Teacher Workloads","英国教育部推动AI减轻教师工作量","AI for Teaching & Assessment","Assessment / Feedback","作业反馈","教师教育","英文","英国","Teacher Copilot","政府投入资金建设教育内容库和 AI 工具竞赛，目标是支持教师批改、反馈和备课。","【案例】英国教育部推动AI减轻教师工作量
+【适用】教师教育；方向：Assessment / Feedback
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.theguardian.com/education/article/2024/aug/28/make-ai-tools-to-reduce-teacher-workloads-tech-companies-urged","2024-08-28","2026-06-11"
+"case-112","ChatGPT for Teachers in Virginia Districts","弗吉尼亚学区教师版ChatGPT试点","AI for Teaching & Assessment","Assessment / Feedback","教师工具","教师教育","英文","美国","Teacher Copilot","OpenAI 为部分学区提供面向教师和校领导的受保护 ChatGPT，用于教案、材料改写和基础事务。","【案例】弗吉尼亚学区教师版ChatGPT试点
+【适用】教师教育；方向：Assessment / Feedback
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.washingtonpost.com/education/2025/11/21/chatgpt-for-teachers-virginia-schools/","2025-11-21","2026-06-11"
+"case-113","Generative AI and Teachers: Preparation Use","瑞典教师用GenAI备课案例","AI for Teaching & Assessment","Assessment / Feedback","备课","大学","英文","瑞典","Generative AI","调查显示教师最常把生成式 AI 用于教学准备，同时担忧错误、作弊和监管。","【案例】瑞典教师用GenAI备课案例
+【适用】大学；方向：Assessment / Feedback
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2404.03486","2024-04-04","2026-06-11"
+"case-114","CyberScholar Teacher Rubrics","教师量规驱动的AI写作反馈系统","AI for Teaching & Assessment","Assessment / Feedback","形成性评价","中学","英文","美国","Writing Feedback","教师上传量规、材料和范文，让 AI 生成与标准相关的反馈，帮助教师聚焦高阶指导。","【案例】教师量规驱动的AI写作反馈系统
+【适用】中学；方向：Assessment / Feedback
+【目标】让学习者用Writing Feedback完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2605.17055","2026-05-16","2026-06-11"
+"case-115","LAUSD Ed AI Student Advisor","LAUSD Ed：学生与家长AI个人助理","AI for Teaching & Assessment","Assessment / Feedback","学习管理","中小学","英文","美国","Chatbot","学区推出 AI 助理整合成绩、出勤、校车和作业信息，后续因承包商问题停运，适合讨论治理风险。","【案例】LAUSD Ed：学生与家长AI个人助理
+【适用】中小学；方向：Assessment / Feedback
+【目标】让学习者用Chatbot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Ed_%28chatbot%29","2024-03-20","2026-06-11"
+"case-116","Prof Jim AI Reading Content for HISD","Prof Jim为HISD生成阅读课程材料","AI for Teaching & Assessment","Assessment / Feedback","课程材料","中小学","英文","美国","Generative AI","AI 公司为学区生成阅读材料，学区用更大的课程团队审查内容，体现人机协作内容生产。","【案例】Prof Jim为HISD生成阅读课程材料
+【适用】中小学；方向：Assessment / Feedback
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一篇草稿、AI反馈记录和修订稿。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.houstonchronicle.com/news/houston-texas/education/hisd/article/hisd-ai-prof-jim-inc-19958093.php","2024-12","2026-06-11"
+"case-117","HKUST AI Lecturers","香港科技大学AI讲师课堂试验","AI for Teaching & Assessment","Assessment / Feedback","虚拟教师","大学","英文","香港","Virtual Lecturer","港科大在研究生课程中使用10名 AI 讲师，研究学生对虚拟教师自然度、可信度和互动性的反馈。","【案例】香港科技大学AI讲师课堂试验
+【适用】大学；方向：Assessment / Feedback
+【目标】让学习者用Virtual Lecturer完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】论文案例可复制研究任务设计，但需按本校年龄、隐私和评价要求调整。","研究论文","论文/研究","https://arxiv.org/abs/2410.03525","2024-10-04","2026-06-11"
+"case-118","HKGAI V1 Education Innovation Trial","港产大模型HKGAI V1推动教育创新","AI for Teaching & Assessment","Assessment / Feedback","本地化大模型","大学","繁体中文","香港","Generative AI","香港本地化大模型支持粤语、普通话和英语，可作为本地教育应用、数据安全和价值对齐讨论案例。","【案例】港产大模型HKGAI V1推动教育创新
+【适用】大学；方向：Assessment / Feedback
+【目标】让学习者用Generative AI完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://zh.wikipedia.org/wiki/HKGAI_V1","2025","2026-06-11"
+"case-119","AI Coach and Science of Reading Content","Edthena与Digital Promise科学阅读AI教练内容","AI for Teaching & Assessment","Assessment / Feedback","教师专业发展","教师教育","英文","美国","Teacher Copilot","AI Coach 引入科学阅读内容，帮助教师在视频反思和专业发展中对齐证据化教学策略。","【案例】Edthena与Digital Promise科学阅读AI教练内容
+【适用】教师教育；方向：Assessment / Feedback
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份科学解释、实验设计或概念图。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://en.wikipedia.org/wiki/Edthena","2024","2026-06-11"
+"case-120","Virginia ChatGPT Teacher Templates","教师版ChatGPT提示模板和隐私保护","AI for Teaching & Assessment","Assessment / Feedback","备课与改写","教师教育","英文","美国","Teacher Copilot","教师版工具提供面向教学的提示模板和隐私保护，用于材料改写、差异化支持和日常行政任务。","【案例】教师版ChatGPT提示模板和隐私保护
+【适用】教师教育；方向：Assessment / Feedback
+【目标】让学习者用Teacher Copilot完成一个可检查的学习任务，并说明AI在哪些地方有帮助、哪些地方需要人工判断。
+【流程】1. 用真实问题或样例导入；2. 教师示范一次提示、生成、追问或反馈；3. 学生独立或小组完成任务；4. 对AI结果做事实核查、同伴互评和教师追问；5. 修改作品并写下反思。
+【产出】一份教师审阅后的反馈表、量规或改写材料。
+【评价】看任务完成度、证据质量、修改过程、AI使用透明度和反思深度。
+【注意】媒体案例需回到原文确认课堂场景；不要把AI输出当成唯一答案。","媒体报道","媒体报道","https://www.washingtonpost.com/education/2025/11/21/chatgpt-for-teachers-virginia-schools/","2025-11-21","2026-06-11"
+"case-121","AI Can’t Replace Teaching, but It Can Make It Better","Ron Clark Academy：语音AI助教Origin辅助六年级科学课","AI+STEM","Science","科学课堂互动","初中","英文","美国","Teacher Copilot","Wired 报道亚特兰大 Ron Clark Academy 六年级科学教师在水和天气单元中使用语音AI Origin调取计时器、图示和教学视频，让教师继续在教室中走动、追问和观察学生。","【案例】语音AI助教辅助科学课
+【适用】小学高年级至初中科学
+【目标】让教师用语音AI快速调取图示、计时器和短视频，同时保持课堂巡视与追问。
+【流程】1. 先提出复习问题；2. 用语音AI展示相关图示或短片；3. 暂停材料并要求学生解释概念；4. 故意设置一个可纠正的说法，让学生用证据反驳；5. 学生完成出口条。
+【产出】概念解释、证据句和一张修正后的概念图。
+【评价】看学生是否能说明证据来源，而不是只复述AI展示内容。
+【注意】AI只负责调取材料，教师保留节奏、追问和纠错权。","媒体报道","媒体报道","https://www.wired.com/story/what-aspects-of-teaching-should-remain-human","2024-07-10","2026-06-11"
+"case-122","Saga Education AI feedback for tutors","Saga Education：用AI分析数学辅导对话并反馈导师提问","AI for Teaching & Assessment","Assessment / Feedback","导师专业反馈","教师教育","英文","美国","Teacher Copilot","Wired 同篇报道提到 Saga Education 自2021年起实验用AI分析数学辅导文字记录，识别导师是否促使学生解释推理、修正答案并展开更深讨论。","【案例】AI分析数学辅导对话
+【适用】课后辅导、导师培训、数学支持课程
+【目标】用AI帮助导师发现自己是否经常让学生解释推理。
+【流程】1. 录入或整理一段辅导对话；2. 让AI标记导师提问类型；3. 找出“直接给答案”和“促使解释”的比例；4. 导师重写3个追问句；5. 下一次辅导后复盘变化。
+【产出】一张提问类型表和一组改写后的追问句。
+【评价】看导师是否增加解释型、证据型和反思型提问。
+【注意】学生记录要脱敏，AI反馈需由人类教练确认。","媒体报道","媒体报道","https://www.wired.com/story/what-aspects-of-teaching-should-remain-human","2024-07-10","2026-06-11"
+"case-123","Some Ankeny teachers are bringing AI into classrooms","Ankeny教师：用MagicSchool和ChatGPT做ESOL沟通与阅读材料","AI for Teaching & Assessment","Teacher Workflow","差异化材料与家校沟通","中学","英文","美国","Teacher Copilot","Axios 报道爱荷华 Ankeny 教师使用 MagicSchool AI 与 ChatGPT 辅助少见语种沟通、定制阅读材料，并明确不让学生独立使用AI。","【案例】AI辅助ESOL沟通和阅读材料
+【适用】语言支持、阅读干预、家校沟通
+【目标】让教师快速生成分层阅读材料和家校沟通草稿。
+【流程】1. 输入学生语言背景、阅读目标和限制条件；2. 生成短文或家长通知草稿；3. 教师检查文化适切性和事实；4. 学生完成阅读任务；5. 教师根据表现调整下一篇材料。
+【产出】一篇分层阅读文本、一份词汇表和一封家校沟通草稿。
+【评价】看材料是否匹配学生水平，并由教师最终确认。
+【注意】不输入学生隐私，少见语种内容需请懂语言者或家长复核。","媒体报道","媒体报道","https://www.axios.com/local/des-moines/2024/08/23/ai-classrooms-ankeny-des-moines-schools","2024-08-23","2026-06-11"
+"case-124","Online classes aim to prepare teachers for AI's realities","AI 101 for Teachers：教师生成式AI入门课程","AI for Teaching & Assessment","Teacher Workflow","教师AI素养培训","教师教育","英文","全球","Curriculum","Axios 报道 Khan Academy、Code.org、ETS 和 ISTE 合作推出 AI 101 for Teachers，帮助教师理解生成式AI对作业、个性化学习和课堂规范的影响。","【案例】教师AI 101研修
+【适用】教师培训、校本教研
+【目标】让教师形成一套本校可执行的AI课堂使用边界。
+【流程】1. 教师先完成一个AI入门模块；2. 小组列出本学科3个机会和3个风险；3. 设计一条学生AI使用规则；4. 用一个真实作业测试规则是否清楚；5. 形成共同模板。
+【产出】AI使用规范、作业说明模板和课堂示范活动。
+【评价】看规则是否可执行、可解释、能保护学生学习过程。
+【注意】培训重点不是追工具，而是建立共同语言和边界。","媒体报道","媒体报道","https://www.axios.com/2023/08/15/online-classes-aim-to-prepare-teachers-for-ais-realities","2023-08-15","2026-06-11"
+"case-125","Code.org leads TeachAI push","TeachAI：面向学校的AI教学与使用指导倡议","AI Literacy","Responsible AI","学校AI政策与素养","中小学","英文","全球","Curriculum","Axios 报道 Code.org 牵头 TeachAI，联合教育与科技组织帮助教师在课堂中解释AI能力、限制，并制定AI使用指导。","【案例】TeachAI学校工作坊
+【适用】学校AI政策、AI素养课、教师会议
+【目标】让教师和学生共同理解AI的能力、限制和负责任使用。
+【流程】1. 展示一个AI生成错误案例；2. 学生分组判断风险；3. 教师介绍学校AI使用边界；4. 小组改写一份作业说明；5. 班级共同生成AI使用承诺。
+【产出】一页AI使用承诺和一份改写后的作业说明。
+【评价】看学生能否说明何时可以用AI、何时必须独立完成。
+【注意】政策活动要连接真实作业，而不是停留在口号。","媒体报道","媒体报道","https://www.axios.com/2023/05/02/codeorg-leads-push-to-teach-ai","2023-05-02","2026-06-11"
+"case-126","Khanmigo classroom pilot","Khanmigo：美国学校AI导师试点","AI+STEM","Math","AI数学导师","中小学","英文","美国","AI Tutor","Wired 报道 Khan Academy 的 Khanmigo 在全美学校试点，帮助学生在独立练习时通过追问和提示卡住的地方，而不是直接给答案。","【案例】AI数学导师不直接给答案
+【适用】数学练习、课后辅导、自主学习
+【目标】让AI用提示和追问帮助学生完成解题，而不是替学生作答。
+【流程】1. 学生先独立写第一步；2. 向AI说明卡住处；3. AI只能给提示、提问或指出下一步策略；4. 学生补全解题过程；5. 教师抽查AI对话和订正稿。
+【产出】解题稿、AI提示记录和错因反思。
+【评价】看学生是否保留自己的推理链，而不是复制答案。
+【注意】提示词中明确“不要直接给最终答案”。","媒体报道","媒体报道","https://www.wired.com/story/what-aspects-of-teaching-should-remain-human","2024-07-10","2026-06-11"
+"case-127","How 400+ campuses are putting AI to work","Google AI Accelerator：400多所高校的AI应用案例","AI+Social Sciences","Social Studies","高校AI应用与治理","大学","英文","全球","Generative AI","Google 教育博客介绍 AI Accelerator 支持400多所高校探索AI在学习支持、研究、校园服务和教师效率中的应用。","【案例】高校AI应用扫描
+【适用】大学通识课、教育技术研讨、学生事务创新
+【目标】让学生分析一个校园AI应用是否真正改善学习或服务。
+【流程】1. 选择一个校园场景；2. 列出使用者、数据和风险；3. 用AI生成流程草图；4. 用伦理和可行性清单审查；5. 汇报最小可行试点。
+【产出】一页AI应用画布和风险控制清单。
+【评价】看问题定义、用户证据、数据边界和人工监督设计。
+【注意】不要把效率提升等同于教育价值。","学校案例","官方/学校","https://blog.google/products-and-platforms/products/education/google-ai-accelerator/","2026-06-02","2026-06-11"
+"case-128","Expanding AI literacy to Catholic-school classrooms nationwide","美国天主教学校AI素养课堂推广","AI Literacy","Responsible AI","AI素养课程推广","中小学","英文","美国","Curriculum","Google 教育博客介绍将AI素养扩展到美国天主教学校课堂，重点帮助教师和学生理解AI工具、责任边界与学习用途。","【案例】AI素养课堂推广
+【适用】中小学AI素养、宗教或价值教育融合课程
+【目标】让学生把AI使用和价值判断连接起来。
+【流程】1. 展示一个AI回答；2. 学生判断其中的帮助、遗漏和偏见；3. 小组制定“可用/慎用/不可用”场景表；4. 用一个学科任务试用AI；5. 写一段责任声明。
+【产出】AI使用场景表和个人责任声明。
+【评价】看学生是否能解释自己的使用边界。
+【注意】课程应尊重学校价值框架，并保留教师审核。","学校案例","官方/学校","https://blog.google/products-and-platforms/products/education/catholic-school-ai-literacy/","2026-05-29","2026-06-11"
+"case-129","Unlock AI learning with Hour of AI for Computer Science Education Week","Hour of AI：计算机科学教育周AI学习活动","AI+STEM","Coding / CS","AI编程与计算思维","中小学","英文","全球","Curriculum","Microsoft Education 推出 Hour of AI 活动，让学生在计算机科学教育周通过短时任务理解AI概念、创作和负责任使用。","【案例】Hour of AI短课
+【适用】信息科技、社团、计算机科学教育周
+【目标】用一节课让学生完成一个AI小任务并解释背后的概念。
+【流程】1. 用5分钟说明AI任务目标；2. 学生完成一个生成、分类或提示挑战；3. 记录失败案例；4. 小组优化提示或规则；5. 分享“AI做得好/不好”的证据。
+【产出】一个AI小作品和一张失败-改进记录。
+【评价】看学生是否能解释AI输出与输入之间的关系。
+【注意】活动短，但仍要加入反思和风险讨论。","课程资源","官方/学校","https://www.microsoft.com/en-us/education/blog/2025/12/unlock-ai-learning-with-hour-of-ai-for-computer-science-education-week/","2025-12","2026-06-11"
+"case-130","Study and Learn: AI built for your student","Microsoft Study and Learn：面向学生的AI学习支持","AI+STEM","Integrated STEM","AI学习伙伴","中小学","英文","全球","AI Tutor","Microsoft Education 介绍面向学生学习的AI功能，可用于整理学习材料、生成练习、解释概念并支持个性化复习。","【案例】AI学习伙伴复习课
+【适用】单元复习、自主学习、学习支持
+【目标】让学生把AI作为复习伙伴，而不是答案机器。
+【流程】1. 学生上传或输入本单元要点；2. 让AI生成5个练习题；3. 学生先独立作答；4. AI给提示并解释错因；5. 学生整理一张个人复习清单。
+【产出】练习题、错因说明和个人复习清单。
+【评价】看学生是否能用自己的话解释订正依据。
+【注意】教师需确认题目难度和答案质量。","学校案例","官方/学校","https://www.microsoft.com/en-us/education/blog/2026/05/study-and-learn-ai-built-for-your-student/","2026-05","2026-06-11"
+"case-131","Experience AI lessons","Experience AI：Google DeepMind与Raspberry Pi的AI课程","AI+STEM","Science","AI概念与机器学习","中学","英文","全球","Curriculum","Experience AI 为教师提供可直接使用的AI和机器学习课程资源，帮助中学生通过活动理解模型、数据、训练和社会影响。","【案例】Experience AI机器学习活动
+【适用】中学科学、信息科技、STEAM
+【目标】让学生用数据和模型活动理解机器学习不是魔法。
+【流程】1. 展示一个分类任务；2. 学生讨论训练数据需要什么；3. 小组测试模型输出；4. 找出偏差或错误；5. 改进数据或规则并复测。
+【产出】模型测试记录和一段关于数据偏差的解释。
+【评价】看学生是否能连接数据质量和模型表现。
+【注意】用低风险样例，避免采集学生敏感数据。","课程资源","官方/学校","https://experience-ai.org/en/","2023","2026-06-11"
+"case-132","Code.org Artificial Intelligence resources","Code.org：面向学生的AI学习资源","AI+STEM","Coding / CS","AI与计算机科学","中小学","英文","全球","Curriculum","Code.org 的人工智能资源把AI概念、生成式AI讨论和编程学习连接起来，可作为计算机科学或AI素养课堂入口。","【案例】AI与计算机科学入门
+【适用】信息科技、计算机科学、AI素养
+【目标】让学生理解AI系统如何基于数据和规则产生结果。
+【流程】1. 选择一个Code.org AI活动；2. 学生完成互动任务；3. 记录系统输入和输出；4. 讨论公平性、错误和用途；5. 设计一个改进建议。
+【产出】活动截图、输入输出记录和改进建议。
+【评价】看学生是否能从技术和社会两个角度解释AI。
+【注意】把编程任务与AI伦理讨论放在同一节课里。","课程资源","官方/学校","https://code.org/artificial-intelligence","2023","2026-06-11"
+"case-133","Understanding Teacher Perspectives and Experiences after Deployment of AI Literacy Curriculum in Middle-school Classrooms","MIT RAICA：中学AI素养课程部署后的教师经验","AI Literacy","Responsible AI","AI素养课程实施","中学","英文","美国","Curriculum","研究访谈7名实施 MIT RAICA 课程模块的教师，呈现他们如何把AI基础、伦理与社会影响融入课堂，并指出教师支持和时间安排的重要性。","【案例】AI素养模块教师共备
+【适用】中学AI素养、跨学科项目课
+【目标】让教师把AI概念和伦理议题转化成可执行课堂活动。
+【流程】1. 选一个AI日常应用；2. 学生拆解数据、模型和决策；3. 小组讨论潜在偏见；4. 设计一个负责任AI改进方案；5. 教师收集学习困难并调整下一轮。
+【产出】AI系统拆解图和负责任AI建议。
+【评价】看学生是否能同时说出技术机制和社会影响。
+【注意】给教师留出熟悉技术和改编材料的时间。","研究论文","论文/研究","https://arxiv.org/abs/2312.04839","2023-12-08","2026-06-11"
+"case-134","The Role of AI in Human-AI Creative Writing for Hong Kong Secondary Students","香港中学生人机协作创意写作案例","AI+Humanities","Language","创意写作","中学","英文","香港","Generative AI","研究探讨香港中学生在创意写作构思阶段如何使用语言模型，发现AI可扮演协作者、挑衅者等不同角色，帮助学生拓展想法。","【案例】人机协作创意写作
+【适用】中文、英文、创意写作课
+【目标】让学生用AI扩展构思，但保留个人声音。
+【流程】1. 学生先写一个故事种子；2. 让AI提供3种冲突或角色变化；3. 学生选择并解释取舍；4. 完成第一稿；5. 标注哪些想法来自AI、哪些由自己改写。
+【产出】故事构思表、第一稿和AI贡献说明。
+【评价】看原创选择、结构完整度和修订说明。
+【注意】AI可以激发想法，但最终语言和价值判断由学生负责。","研究论文","论文/研究","https://arxiv.org/abs/2304.11276","2023-04-21","2026-06-11"
+"case-135","Student-AI Interaction: A Case Study of CS1 students","CS1学生与ChatGPT协作完成Python任务案例","AI+STEM","Coding / CS","Python编程学习","大学","英文","美国","Coding Assistant","研究观察15名CS1学生使用ChatGPT解决Python任务，分析他们何时寻求帮助、是否直接提交题目、以及是否验证AI答案。","【案例】编程课AI协作规范
+【适用】大学或高中Python入门
+【目标】训练学生把AI当调试伙伴，而不是代写工具。
+【流程】1. 学生先写自己的初稿；2. 只把错误信息或局部代码给AI；3. 要求AI解释原因而非给完整答案；4. 学生手动修改并运行测试；5. 提交AI使用说明。
+【产出】代码、测试截图、AI对话摘要和自我解释。
+【评价】看学生是否理解修改原因并能独立复现。
+【注意】禁止直接粘贴完整作业要求换取成品代码。","研究论文","论文/研究","https://arxiv.org/abs/2407.00305","2024-06-29","2026-06-11"
+"case-136","Why AI is no substitute for human teachers","Wharton生成式AI数学练习研究：会做练习不等于会考试","AI+STEM","Math","数学AI导师风险","高中","英文","美国","AI Tutor","Axios 报道 Wharton 研究中近千名9至11年级学生使用生成式AI准备数学考试；AI可提高练习表现，但不当使用可能降低无AI考试表现。","【案例】AI数学练习的反依赖设计
+【适用】高中数学复习
+【目标】让学生用AI练习，但必须形成可迁移的独立解题能力。
+【流程】1. 学生先无AI完成一道题；2. 用AI请求提示而非答案；3. 再做一道同类题但禁用AI；4. 比较两次表现；5. 写出自己能独立迁移的策略。
+【产出】两道题的解题稿和迁移策略卡。
+【评价】重点看无AI题是否进步。
+【注意】如果学生只是复制AI过程，练习成绩会虚高。","媒体报道","媒体报道","https://www.axios.com/2024/08/15/ai-tutors-learning-education-khan-academy-wharton","2024-08-15","2026-06-11"
+"case-137","Can computers ever replace the classroom?","Squirrel AI：人机结合的自适应学习中心","AI+STEM","Math","自适应数学辅导","中小学","英文","中国内地","Adaptive Learning","The Guardian 报道 Squirrel AI 将知识点细分并用诊断推荐学习路径，结合线下学习中心和教师支持，反映2019年前后中国AI个性化学习实践。","【案例】知识点诊断式补救学习
+【适用】数学补习、课后支持、个性化学习
+【目标】用AI诊断学生薄弱知识点，再由教师安排补救任务。
+【流程】1. 学生完成诊断题；2. AI生成薄弱点列表；3. 教师选择2个优先知识点；4. 学生完成微任务和讲解；5. 再测并调整路径。
+【产出】知识点画像、补救任务单和再测记录。
+【评价】看薄弱点是否缩小，以及学生能否解释错误原因。
+【注意】诊断不能替代教师对情绪、动机和学习习惯的判断。","媒体报道","媒体报道","https://www.theguardian.com/technology/2020/mar/19/can-computers-ever-replace-the-classroom","2020-03-19","2026-06-11"
+"case-138","ActiveAI: Introducing AI Literacy for Middle School Learners with Goal-based Scenario Learning","ActiveAI：基于情境任务的初中AI素养学习","AI Literacy","AI Literacy Basics","情境式AI素养","初中","英文","美国","AI Tutor","ActiveAI 面向7至9年级学生，用社交媒体情感分析等真实情境和即时反馈帮助学生理解AI系统并评价AI输出。","【案例】情境式AI素养任务
+【适用】初中AI素养、信息科技
+【目标】让学生在真实情境中判断AI输出是否可信。
+【流程】1. 给出一个社交媒体评论分析任务；2. 学生预测AI可能如何分类；3. 使用工具查看输出；4. 找出误判样例；5. 修改规则或数据并说明原因。
+【产出】误判样例表和改进建议。
+【评价】看学生是否能解释AI为什么会错。
+【注意】选择低风险、匿名化文本样例。","研究论文","论文/研究","https://arxiv.org/abs/2309.12337","2023-08-21","2026-06-11"
+"case-139","AI Literacy for All: Adjustable Interdisciplinary Socio-technical Curriculum","AI Literacy for All：跨学科社会技术AI素养课程","AI Literacy","Responsible AI","跨学科AI素养","混合","英文","美国","Curriculum","论文提出可调节的跨学科AI素养课程框架，强调技术理解、生成式AI互动、伦理责任和社会影响，适合非CS学生和高中夏令营等场景。","【案例】跨学科AI素养四支柱课程
+【适用】通识课、高中项目周、教师培训
+【目标】让学生同时理解AI技术、互动方法、伦理责任和社会影响。
+【流程】1. 选择一个AI工具；2. 分析它的技术输入输出；3. 设计一个有效提示；4. 识别偏见、隐私和责任问题；5. 讨论它对未来工作的影响。
+【产出】四支柱分析表和一份使用建议。
+【评价】看学生是否能跨越技术和社会两个层面分析。
+【注意】非CS学生也可以完成，避免把AI素养等同于编程。","研究论文","论文/研究","https://arxiv.org/abs/2409.10552","2024-09-02","2026-06-11"
+"case-140","Elements of AI","Elements of AI：芬兰面向公众的AI基础课程","AI Literacy","AI Literacy Basics","公民AI素养","混合","英文","芬兰","Curriculum","芬兰赫尔辛基大学与 MinnaLearn 推出的 Elements of AI 面向公众普及AI基础，并在2019年芬兰欧盟轮值主席国期间扩展到欧洲语境，适合作为AI素养全民学习案例。","【案例】Elements of AI公民AI素养课程
+【适用】高中通识、大学通识、教师或成人学习
+【目标】让学习者不写代码也能理解AI基本概念、应用边界和社会影响。
+【流程】1. 选择一个生活中的AI应用；2. 学生完成一段入门阅读或微课；3. 小组判断它使用了哪些数据和推断；4. 讨论可能的误差、偏见和责任；5. 写一份面向公众的AI解释卡。
+【产出】AI应用解释卡和风险提醒。
+【评价】看解释是否准确、清楚，并能面向非技术读者。
+【注意】不要把AI素养课程变成纯技术名词背诵。","课程资源","官方/学校","https://www.elementsofai.com/","2019","2026-06-11"
+"case-141","AI for Oceans","Code.org AI for Oceans：用海洋清理活动理解机器学习","AI+STEM","Coding / CS","机器学习入门活动","中小学","英文","全球","Machine Learning","Code.org 的 AI for Oceans 活动让学生通过训练模型区分海洋中的鱼和垃圾，理解训练数据、分类错误和机器学习偏差。","【案例】AI for Oceans机器学习活动
+【适用】小学高年级至初中信息科技、科学或STEAM
+【目标】让学生通过训练分类器理解机器学习依赖数据。
+【流程】1. 学生完成AI for Oceans互动任务；2. 记录AI把哪些图片分错；3. 讨论训练数据为什么影响结果；4. 小组提出改进数据集的方法；5. 连接到环保或分类任务。
+【产出】错误案例表、数据改进建议和一句机器学习解释。
+【评价】看学生是否能说明“训练数据—模型输出—错误”的关系。
+【注意】把游戏化活动后的概念总结做足，否则学生只会记得闯关。","课程资源","官方/学校","https://studio.code.org/s/oceans/lessons/1/levels/1","2019","2026-06-11"
