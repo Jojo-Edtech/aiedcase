@@ -5,6 +5,8 @@
   --muted: #626a73;
   --line: #d9ded7;
   --green: #2d6a4f;
+  --green-dark: #174f37;
+  --green-soft: #edf7ef;
   --blue: #2563a8;
   --coral: #c75246;
   --gold: #9a6b18;
@@ -63,10 +65,10 @@ main,
 
 .header-inner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
-  padding: 30px 0 24px;
+  padding: 30px 0 28px;
 }
 
 .eyebrow {
@@ -101,32 +103,65 @@ h1 {
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 16px;
+  gap: 6px;
+  width: fit-content;
+  margin-top: 22px;
+  padding: 6px;
+  background: #f1f6f0;
+  border: 1px solid #bfd9c7;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(23, 79, 55, 0.08);
 }
 
 .site-nav a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 38px;
-  padding: 0 13px;
-  border: 1px solid var(--line);
+  position: relative;
+  display: grid;
+  align-content: center;
+  min-width: 158px;
+  min-height: 66px;
+  padding: 9px 16px 10px;
+  border: 1px solid transparent;
   border-radius: 8px;
   background: #fff;
   color: var(--ink);
   font-weight: 700;
   text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
+    box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.site-nav a:hover {
+  border-color: #a9cdb7;
+  transform: translateY(-1px);
 }
 
 .site-nav a[aria-current="page"] {
-  background: #edf7ef;
-  border-color: #9ac7ad;
-  color: var(--green);
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: #fff;
+  box-shadow: 0 10px 22px rgba(23, 79, 55, 0.24);
+}
+
+.nav-tab-title {
+  font-size: 1.04rem;
+  line-height: 1.2;
+}
+
+.nav-tab-meta {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.site-nav a[aria-current="page"] .nav-tab-meta {
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .header-actions {
   display: flex;
   flex-wrap: wrap;
+  align-self: center;
   justify-content: flex-end;
   gap: 10px;
 }
@@ -548,11 +583,17 @@ code {
 
   .header-actions {
     width: 100%;
+    align-self: stretch;
     justify-content: flex-start;
   }
 
   .site-nav {
     width: 100%;
+  }
+
+  .site-nav a {
+    flex: 1 1 150px;
+    min-width: 0;
   }
 
   .dashboard,

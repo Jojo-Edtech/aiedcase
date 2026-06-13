@@ -61,6 +61,9 @@ const promptState = {
 const viewElements = {
   tabs: [...document.querySelectorAll("[data-view]")],
   panels: [...document.querySelectorAll("[data-view-panel]")],
+  caseTabCount: document.querySelector("#caseTabCount"),
+  resourceTabCount: document.querySelector("#resourceTabCount"),
+  promptTabCount: document.querySelector("#promptTabCount"),
 };
 
 const caseEls = {
@@ -286,7 +289,11 @@ function setActiveView(view, updateHash = true) {
   viewState.active = nextView;
   viewElements.tabs.forEach((tab) => {
     const active = tab.dataset.view === nextView;
-    tab.setAttribute("aria-current", active ? "page" : "false");
+    if (active) {
+      tab.setAttribute("aria-current", "page");
+    } else {
+      tab.removeAttribute("aria-current");
+    }
   });
   viewElements.panels.forEach((panel) => {
     panel.hidden = panel.dataset.viewPanel !== nextView;
@@ -459,6 +466,7 @@ function renderCaseTabs() {
 function renderCaseStats() {
   const accessedDates = caseState.items.map((item) => item.accessed_date).filter(Boolean).sort();
   caseEls.total.textContent = caseState.items.length;
+  viewElements.caseTabCount.textContent = `${caseState.items.length} 条案例`;
   caseEls.hongKong.textContent = caseState.items.filter((item) => item.region === "香港").length;
   caseEls.categoryCount.textContent = CATEGORIES.length;
   caseEls.lastAccessed.textContent = accessedDates.at(-1) || "--";
@@ -641,6 +649,7 @@ function renderResourceCards(items) {
 function renderResourceStats() {
   const accessedDates = resourceState.items.map((item) => item.accessed_date).filter(Boolean).sort();
   resourceEls.total.textContent = resourceState.items.length;
+  viewElements.resourceTabCount.textContent = `${resourceState.items.length} 条资源`;
   resourceEls.regionCount.textContent = uniqueValues(resourceState.items, "region").length;
   resourceEls.resourceTypeCount.textContent = uniqueValues(resourceState.items, "resource_type").length;
   resourceEls.lastAccessed.textContent = accessedDates.at(-1) || "--";
@@ -814,6 +823,7 @@ function renderPromptCards(items) {
 function renderPromptStats() {
   const accessedDates = promptState.items.map((item) => item.accessed_date).filter(Boolean).sort();
   promptEls.total.textContent = promptState.items.length;
+  viewElements.promptTabCount.textContent = `${promptState.items.length} 个 Prompt`;
   promptEls.subjectCount.textContent = uniqueValues(promptState.items, "subject").length;
   promptEls.promptTypeCount.textContent = uniqueValues(promptState.items, "prompt_type").length;
   promptEls.lastAccessed.textContent = accessedDates.at(-1) || "--";
