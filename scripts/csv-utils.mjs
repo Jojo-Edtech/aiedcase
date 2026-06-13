@@ -38,6 +38,23 @@ export const RESOURCE_FIELDS = [
   'access_type',
 ];
 
+export const PROMPT_FIELDS = [
+  'id',
+  'title_cn',
+  'prompt_type',
+  'category',
+  'subject',
+  'education_level',
+  'audience',
+  'output_format',
+  'ai_tool_or_method',
+  'prompt_cn',
+  'use_case_cn',
+  'source_title',
+  'source_url',
+  'accessed_date',
+];
+
 export function parseCsv(text) {
   const rows = [];
   let row = [];

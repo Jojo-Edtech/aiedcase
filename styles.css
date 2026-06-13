@@ -164,6 +164,10 @@ main {
   padding: 22px 0 48px;
 }
 
+.view-panel[hidden] {
+  display: none;
+}
+
 .dashboard {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -413,6 +417,10 @@ a:focus-visible {
   margin: 0;
   color: #343a40;
   font-size: 0.9rem;
+}
+
+.prompt-block pre {
+  max-height: 260px;
 }
 
 .meta-list div {

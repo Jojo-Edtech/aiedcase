@@ -1,6 +1,6 @@
 import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
-import { CASE_FIELDS, RESOURCE_FIELDS, parseCsv } from './csv-utils.mjs';
+import { CASE_FIELDS, PROMPT_FIELDS, RESOURCE_FIELDS, parseCsv } from './csv-utils.mjs';
 
 const files = ['data/cases.csv', 'data/candidate_cases.csv'];
 const categories = new Set([
@@ -21,6 +21,17 @@ const resourceTypes = new Set([
   '研究报告',
 ]);
 const accessTypes = new Set(['免费', '需注册', '付费/订阅', '未知']);
+const promptTypes = new Set([
+  '备课设计',
+  '教材生成',
+  '练习与作业',
+  '评价反馈',
+  '差异化支持',
+  '项目学习',
+  '课堂活动',
+  '家校沟通',
+  '学生支持',
+]);
 
 let failures = 0;
 
@@ -127,6 +138,53 @@ for (const file of files) {
 
     if (record.access_type && !accessTypes.has(record.access_type)) {
       console.error(`${label} has unsupported access_type ${record.access_type}.`);
+      failures += 1;
+    }
+
+    if (record.source_url && !/^https?:\/\//.test(record.source_url)) {
+      console.error(`${label} has invalid source_url ${record.source_url}.`);
+      failures += 1;
+    }
+  });
+
+  const duplicateSummary =
+    duplicateUrlCount > 0 ? `, ${duplicateUrlCount} reused source URL(s)` : '';
+  console.log(`${file}: ${records.length} row(s) validated${duplicateSummary}.`);
+}
+
+{
+  const file = 'data/prompts.csv';
+  const records = await readCsvFile(file, PROMPT_FIELDS);
+  let duplicateUrlCount = 0;
+  const ids = new Set();
+  const urls = new Set();
+
+  records.forEach((record, index) => {
+    const label = `${file} row ${index + 2}`;
+    const missing = PROMPT_FIELDS.filter((field) => !record[field]);
+    if (missing.length > 0) {
+      console.error(`${label} is missing: ${missing.join(', ')}`);
+      failures += 1;
+    }
+
+    if (ids.has(record.id)) {
+      console.error(`${label} duplicates id ${record.id}.`);
+      failures += 1;
+    }
+    ids.add(record.id);
+
+    if (urls.has(record.source_url)) {
+      duplicateUrlCount += 1;
+    }
+    urls.add(record.source_url);
+
+    if (record.category && !categories.has(record.category)) {
+      console.error(`${label} has unsupported category ${record.category}.`);
+      failures += 1;
+    }
+
+    if (record.prompt_type && !promptTypes.has(record.prompt_type)) {
+      console.error(`${label} has unsupported prompt_type ${record.prompt_type}.`);
       failures += 1;
     }
 
