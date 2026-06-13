@@ -72,13 +72,15 @@ const practiceTerms = [
   'course',
   'project',
   'workshop',
-  'implementation',
-  'trial',
   'classroom',
   'activity',
+  'assignment',
+  'challenge',
+  'tutoring',
+  'translation',
+  'feedback',
+  'rubric',
   '案例',
-  '实践',
-  '實踐',
   '课堂',
   '課堂',
   '活动',
@@ -87,8 +89,12 @@ const practiceTerms = [
   '課程',
   '项目',
   '項目',
-  '试点',
-  '試點',
+  '任务',
+  '任務',
+  '作业',
+  '作業',
+  '反馈',
+  '回饋',
 ];
 
 async function main() {
@@ -115,7 +121,7 @@ async function main() {
   for (const feed of feeds) {
     try {
       const feedText = await fetchText(feed.url);
-      const items = parseFeedItems(feedText);
+      const items = parseFeedItems(feedText, feed.item_limit);
       let matched = 0;
 
       for (const item of items) {
@@ -127,9 +133,12 @@ async function main() {
         if (!sourceUrl || knownUrls.has(sourceUrl)) {
           continue;
         }
+        if (shouldSkipByFeedRules(item, feed)) {
+          continue;
+        }
 
         const searchableText = `${item.title} ${item.description}`;
-        if (!hasAiInTitle(item.title, feed) || !looksLikeTeachingPractice(searchableText)) {
+        if (!hasAiInTitle(item.title, feed) || !looksLikeTeachingPractice(searchableText, item.title)) {
           continue;
         }
 
@@ -183,7 +192,7 @@ async function fetchText(url) {
   }
 }
 
-function parseFeedItems(xml) {
+function parseFeedItems(xml, itemLimit = 0) {
   const itemBlocks = [...xml.matchAll(/<item\b[\s\S]*?<\/item>/gi)].map((match) => match[0]);
   const entryBlocks = [...xml.matchAll(/<entry\b[\s\S]*?<\/entry>/gi)].map((match) => match[0]);
   const blocks = itemBlocks.length > 0 ? itemBlocks : entryBlocks;
@@ -192,14 +201,15 @@ function parseFeedItems(xml) {
     throw new Error('No RSS/Atom items found');
   }
 
-  return blocks.map((block) => {
-    const title = cleanText(readTag(block, 'title'));
-    const description = cleanText(
-      readTag(block, 'description') ||
-        readTag(block, 'summary') ||
-        readTag(block, 'content:encoded') ||
-        readTag(block, 'content'),
-    );
+  return blocks.slice(0, itemLimit || blocks.length).map((block) => {
+    const title = firstNonEmptyText([readTag(block, 'title'), readTag(block, 'media:title')]);
+    const description = longestText([
+      readTag(block, 'description'),
+      readTag(block, 'summary'),
+      readTag(block, 'content:encoded'),
+      readTag(block, 'content'),
+      readTag(block, 'media:description'),
+    ]);
     const url = readTag(block, 'link') || readHref(block, 'link') || readTag(block, 'guid');
     const published =
       readTag(block, 'pubDate') || readTag(block, 'published') || readTag(block, 'updated');
@@ -233,8 +243,23 @@ function cleanText(value) {
     .trim();
 }
 
+function firstNonEmptyText(values) {
+  for (const value of values) {
+    const text = cleanText(value || '');
+    if (text) return text;
+  }
+  return '';
+}
+
+function longestText(values) {
+  return values
+    .map((value) => cleanText(value || ''))
+    .sort((a, b) => b.length - a.length)[0] || '';
+}
+
 function decodeEntities(value) {
   return value
+    .replaceAll('&nbsp;', ' ')
     .replaceAll('&amp;', '&')
     .replaceAll('&lt;', '<')
     .replaceAll('&gt;', '>')
@@ -244,18 +269,58 @@ function decodeEntities(value) {
     .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCodePoint(parseInt(code, 16)));
 }
 
-function looksLikeTeachingPractice(text) {
+function looksLikeTeachingPractice(text, title = '') {
   const normalized = text.toLowerCase();
+  if (looksLikeAdministrativeOnly(title)) {
+    return false;
+  }
+
   return (
     includesAny(normalized, aiTerms) &&
     includesAny(normalized, educationTerms) &&
-    includesAny(normalized, practiceTerms) &&
+    (includesAny(normalized, practiceTerms) || hasStrongClassroomSignal(normalized)) &&
     !looksLikeAiResearchOnly(normalized)
   );
 }
 
 function hasAiInTitle(title, feed) {
   return Boolean(feed.ai_focused) || includesAny(title.toLowerCase(), aiTerms);
+}
+
+function shouldSkipByFeedRules(item, feed) {
+  const title = item.title.toLowerCase();
+  const excluded = feed.exclude_title_terms || [];
+  if (excluded.some((term) => title.includes(String(term).toLowerCase()))) {
+    return true;
+  }
+
+  const required = feed.require_title_terms || [];
+  if (required.length > 0 && !required.some((term) => title.includes(String(term).toLowerCase()))) {
+    return true;
+  }
+
+  return false;
+}
+
+function looksLikeAdministrativeOnly(title) {
+  const normalized = title.toLowerCase();
+  return [
+    /cybersecurity|zero trust|security/i,
+    /governance|policy|lawmakers|guardrails/i,
+    /afford|budget|funding|procurement/i,
+    /college degrees?|hiring managers?/i,
+    /foundations? for reshaping|future of education/i,
+    /school it officials?/i,
+  ].some((pattern) => pattern.test(normalized));
+}
+
+function hasStrongClassroomSignal(text) {
+  return [
+    /teachers?\s+(use|uses|using|used|bring|brings|brought|ask|asks|asked|assign|assigns|assigned|embed|embeds|embedded)/i,
+    /students?\s+(use|uses|using|used|build|builds|built|create|creates|created|write|writes|wrote|revise|revises|revised|complete|completes|completed)/i,
+    /classroom-ready|lesson plan|student project|project showcase|hour of ai|ai literacy project/i,
+    /教师.*(使用|应用|設計|设计|布置)|教師.*(使用|應用|設計|布置)|学生.*(使用|创作|完成|修改)|學生.*(使用|創作|完成|修改)/i,
+  ].some((pattern) => pattern.test(text));
 }
 
 function looksLikeAiResearchOnly(text) {

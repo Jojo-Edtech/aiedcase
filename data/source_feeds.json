@@ -5,7 +5,8 @@
     "language": "英文",
     "region": "美国",
     "source_type": "媒体报道",
-    "credibility": "媒体报道"
+    "credibility": "媒体报道",
+    "item_limit": 50
   },
   {
     "name": "The Keyword - Education",
@@ -13,7 +14,8 @@
     "language": "英文",
     "region": "全球",
     "source_type": "学校案例",
-    "credibility": "官方/学校"
+    "credibility": "官方/学校",
+    "item_limit": 30
   },
   {
     "name": "Microsoft Education Blog",
@@ -21,7 +23,8 @@
     "language": "英文",
     "region": "全球",
     "source_type": "学校案例",
-    "credibility": "官方/学校"
+    "credibility": "官方/学校",
+    "item_limit": 30
   },
   {
     "name": "AI4K12",
@@ -30,6 +33,125 @@
     "region": "美国",
     "source_type": "课程资源",
     "credibility": "官方/学校",
-    "ai_focused": true
+    "ai_focused": true,
+    "item_limit": 30
+  },
+  {
+    "name": "AI for Education Blog",
+    "url": "https://www.aiforeducation.io/blog?format=rss",
+    "language": "英文",
+    "region": "美国",
+    "source_type": "教师实践",
+    "credibility": "教师实践",
+    "ai_focused": true,
+    "item_limit": 30,
+    "exclude_title_terms": [
+      "weekly update",
+      "cbs news",
+      "confidence trap",
+      "one million educators"
+    ],
+    "require_title_terms": [
+      "project",
+      "student resource",
+      "prompt-a-thon",
+      "where does",
+      "classroom",
+      "lesson"
+    ]
+  },
+  {
+    "name": "The 74",
+    "url": "https://www.the74million.org/feed/",
+    "language": "英文",
+    "region": "美国",
+    "source_type": "媒体报道",
+    "credibility": "媒体报道",
+    "item_limit": 50
+  },
+  {
+    "name": "eSchool News",
+    "url": "https://www.eschoolnews.com/feed/",
+    "language": "英文",
+    "region": "美国",
+    "source_type": "媒体报道",
+    "credibility": "媒体报道",
+    "item_limit": 60,
+    "exclude_title_terms": [
+      "shared ai structure",
+      "charting a path"
+    ]
+  },
+  {
+    "name": "Tech & Learning",
+    "url": "https://www.techlearning.com/feeds.xml",
+    "language": "英文",
+    "region": "美国/全球",
+    "source_type": "媒体报道",
+    "credibility": "媒体报道",
+    "item_limit": 50
+  },
+  {
+    "name": "Faculty Focus",
+    "url": "https://www.facultyfocus.com/feed/",
+    "language": "英文",
+    "region": "美国/全球",
+    "source_type": "教师实践",
+    "credibility": "教师实践",
+    "item_limit": 30
+  },
+  {
+    "name": "EDUCAUSE Review",
+    "url": "https://er.educause.edu/rss",
+    "language": "英文",
+    "region": "美国/全球",
+    "source_type": "研究/实践报道",
+    "credibility": "媒体报道",
+    "item_limit": 50
+  },
+  {
+    "name": "Inside Higher Ed",
+    "url": "https://www.insidehighered.com/rss.xml",
+    "language": "英文",
+    "region": "美国/全球",
+    "source_type": "媒体报道",
+    "credibility": "媒体报道",
+    "item_limit": 30
+  },
+  {
+    "name": "YouTube - Google for Education",
+    "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCt84aUC9OG6di8kSdKzEHTQ",
+    "language": "英文",
+    "region": "全球",
+    "source_type": "视频资源",
+    "credibility": "官方/学校",
+    "item_limit": 15
+  },
+  {
+    "name": "YouTube - Microsoft Education",
+    "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCG_FV4WjnZqtm6sux2g069Q",
+    "language": "英文",
+    "region": "全球",
+    "source_type": "视频资源",
+    "credibility": "官方/学校",
+    "item_limit": 15
+  },
+  {
+    "name": "YouTube - ISTE",
+    "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCP7TnhcyFNxaZglIVWCswYg",
+    "language": "英文",
+    "region": "美国/全球",
+    "source_type": "视频资源",
+    "credibility": "官方/学校",
+    "item_limit": 15
+  },
+  {
+    "name": "YouTube - Edutopia",
+    "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCdksaQxXH13BMeHo09MorBg",
+    "language": "英文",
+    "region": "美国",
+    "source_type": "视频资源",
+    "credibility": "媒体报道",
+    "item_limit": 15
   }
 ]

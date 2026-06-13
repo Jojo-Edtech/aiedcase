@@ -34,8 +34,8 @@ id,title_original,title_cn,category,subcategory,subject,education_level,language
 
 自动任务采用审核优先流程：
 
-1. 从 `data/source_feeds.json` 中列出的教育与 AI 信息源抓取最新内容。
-2. 用保守关键词规则筛出可能属于课堂、课程、活动或学习任务的 AI 教育案例，新闻报道、官方博客、研究论文和视频来源都可以进入候选池。
+1. 从 `data/source_feeds.json` 中列出的教育与 AI 信息源抓取最新内容。当前支持 RSS、Atom 和 YouTube channel feed。
+2. 用保守关键词规则筛出可能属于课堂、课程、活动或学习任务的 AI 教育案例，新闻报道、官方博客、研究论文、教师实践和视频来源都可以进入候选池。
 3. 把新增候选写入 `data/candidate_cases.csv`。
 4. 自动创建或更新 `Daily AIED candidate case update` Pull Request。
 5. 人工审核候选后，把通过的行移动到 `data/cases.csv`，再合并 PR。
@@ -48,6 +48,8 @@ id,title_original,title_cn,category,subcategory,subject,education_level,language
 npm run update:candidates
 npm run validate:data
 ```
+
+Bilibili 搜索源目前不放入每日无人值守任务，因为常见公开 RSSHub 搜索接口在 GitHub Actions 环境中容易返回 403/503。相关视频案例可以先人工审核后加入 `data/cases.csv`。
 
 ## GitHub Pages
 
