@@ -8,6 +8,7 @@
       name="description"
       content="AIED Case Hub 收集 AI 教育教学案例、全球教材资源和教师可复制 Prompt 模板，支持按学科、学段、语言、地区和类型筛选。"
     >
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -31,6 +32,10 @@
             <a href="#prompts" data-view="prompts">
               <span class="nav-tab-title">Prompt 模板</span>
               <span class="nav-tab-meta" id="promptTabCount">0 个 Prompt</span>
+            </a>
+            <a href="#assistant" data-view="assistant">
+              <span class="nav-tab-title">AI 助手</span>
+              <span class="nav-tab-meta" id="assistantTabStatus">有限额试用</span>
             </a>
           </nav>
         </div>
@@ -307,6 +312,35 @@
           <p>试试减少筛选条件，或换一个关键词。</p>
         </section>
         <nav class="pagination" id="promptPagination" aria-label="Prompt 分页" hidden></nav>
+      </section>
+
+      <section class="view-panel" id="assistantPanel" data-view-panel="assistant" hidden>
+        <section class="assistant-shell" aria-label="AI 助手">
+          <div class="assistant-header">
+            <div>
+              <p class="eyebrow">RAG Research Assistant</p>
+              <h2>AIED Case Hub AI 助手</h2>
+            </div>
+            <a class="button button-primary" id="assistantDirectLink" href="#" target="_blank" rel="noreferrer" hidden>
+              打开魔搭应用
+            </a>
+          </div>
+
+          <div class="assistant-frame-wrap" id="assistantFrameWrap" hidden>
+            <iframe
+              id="assistantFrame"
+              title="AIED Case Hub AI 助手"
+              loading="lazy"
+              referrerpolicy="no-referrer"
+              allow="clipboard-write"
+            ></iframe>
+          </div>
+
+          <section class="empty-state assistant-empty" id="assistantEmptyState">
+            <h2 id="assistantEmptyTitle">AI 助手待连接</h2>
+            <p id="assistantEmptyCopy">魔搭 Studio 应用地址配置后，这里会显示有限额 RAG 问答窗口。</p>
+          </section>
+        </section>
       </section>
     </main>
 

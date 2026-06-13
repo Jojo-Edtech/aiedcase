@@ -544,6 +544,49 @@ a:focus-visible {
   text-align: center;
 }
 
+.assistant-shell {
+  display: grid;
+  gap: 14px;
+}
+
+.assistant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.assistant-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.assistant-frame-wrap {
+  min-height: 680px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.assistant-frame-wrap iframe {
+  display: block;
+  width: 100%;
+  height: min(78vh, 860px);
+  min-height: 680px;
+  border: 0;
+}
+
+.assistant-empty {
+  background: #fff;
+}
+
 .site-footer {
   padding: 24px 0 34px;
   border-top: 1px solid var(--line);
@@ -608,6 +651,16 @@ code {
 
   .toolbar {
     padding: 12px;
+  }
+
+  .assistant-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .assistant-frame-wrap,
+  .assistant-frame-wrap iframe {
+    min-height: 620px;
   }
 
   .meta-list {

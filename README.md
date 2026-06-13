@@ -48,6 +48,33 @@ Prompt 类型固定为：`备课设计`、`教材生成`、`练习与作业`、`
 
 三个选项卡都默认每页显示 24 张卡片；筛选或搜索变化后会自动回到第 1 页。
 
+## AI 助手 / RAG
+
+首页包含一个 `AI 助手` 选项卡，用来嵌入部署在 ModelScope Studio 或 Notebook 上的有限额 RAG 应用。
+
+RAG 应用代码在 `modelscope_rag/`：
+
+- `app.py`：Gradio 应用，启动时读取公开的案例、资源和 Prompt CSV。
+- `requirements.txt`：ModelScope Studio 需要安装的依赖。
+- `README.md`：部署到魔搭创空间或 Notebook 的步骤。
+
+部署后，把魔搭 Studio 的公开访问地址填入 `data/rag-config.json` 的 `studio_url`。不要把 `MODELSCOPE_API_TOKEN`、阿里云 API Key 或其它密钥写入本仓库；密钥只应放在魔搭 Studio/Notebook 的环境变量中。
+
+推荐在魔搭环境变量里设置：
+
+```text
+MODELSCOPE_API_TOKEN=你的魔搭访问令牌
+RAG_DAILY_GENERATION_LIMIT=50
+```
+
+`RAG_DAILY_GENERATION_LIMIT` 是公开试用的每日生成上限。超过后，AI 助手会停止调用模型，只返回检索到的引用来源，避免继续消耗免费额度。
+
+本地检查 RAG 检索：
+
+```bash
+python3 modelscope_rag/app.py --self-test
+```
+
 ## 每日自动更新
 
 仓库已配置 GitHub Actions：每天香港时间 06:00 自动运行一次候选案例收集任务，也可以在 GitHub 的 `Actions -> Daily AIED Candidate Update -> Run workflow` 手动触发。

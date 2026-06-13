@@ -4,6 +4,8 @@ const DATA_URLS = {
   resources: "data/resources.csv",
   prompts: "data/prompts.csv",
 };
+const RAG_CONFIG_URL = "data/rag-config.json";
+const VIEWS = ["cases", "resources", "prompts", "assistant"];
 
 const CATEGORIES = [
   "AI Literacy",
@@ -64,6 +66,7 @@ const viewElements = {
   caseTabCount: document.querySelector("#caseTabCount"),
   resourceTabCount: document.querySelector("#resourceTabCount"),
   promptTabCount: document.querySelector("#promptTabCount"),
+  assistantTabStatus: document.querySelector("#assistantTabStatus"),
 };
 
 const caseEls = {
@@ -129,6 +132,15 @@ const promptEls = {
   resultsTitle: document.querySelector("#promptResultsTitle"),
   resultsMeta: document.querySelector("#promptResultsMeta"),
   pagination: document.querySelector("#promptPagination"),
+};
+
+const assistantEls = {
+  frameWrap: document.querySelector("#assistantFrameWrap"),
+  frame: document.querySelector("#assistantFrame"),
+  empty: document.querySelector("#assistantEmptyState"),
+  emptyTitle: document.querySelector("#assistantEmptyTitle"),
+  emptyCopy: document.querySelector("#assistantEmptyCopy"),
+  directLink: document.querySelector("#assistantDirectLink"),
 };
 
 function parseCsv(text) {
@@ -285,7 +297,7 @@ function pageSlice(items, state) {
 }
 
 function setActiveView(view, updateHash = true) {
-  const nextView = ["cases", "resources", "prompts"].includes(view) ? view : "cases";
+  const nextView = VIEWS.includes(view) ? view : "cases";
   viewState.active = nextView;
   viewElements.tabs.forEach((tab) => {
     const active = tab.dataset.view === nextView;
@@ -300,6 +312,42 @@ function setActiveView(view, updateHash = true) {
   });
   if (updateHash && window.location.hash !== `#${nextView}`) {
     history.replaceState(null, "", `#${nextView}`);
+  }
+}
+
+function showAssistantEmpty(title, copy) {
+  assistantEls.frameWrap.hidden = true;
+  assistantEls.frame.removeAttribute("src");
+  assistantEls.empty.hidden = false;
+  assistantEls.emptyTitle.textContent = title;
+  assistantEls.emptyCopy.textContent = copy;
+  assistantEls.directLink.hidden = true;
+  viewElements.assistantTabStatus.textContent = "待连接";
+}
+
+function renderAssistant(studioUrl) {
+  const url = (studioUrl || "").trim();
+  if (!url) {
+    showAssistantEmpty("AI 助手待连接", "魔搭 Studio 应用地址配置后，这里会显示有限额 RAG 问答窗口。");
+    return;
+  }
+
+  assistantEls.frame.src = url;
+  assistantEls.frameWrap.hidden = false;
+  assistantEls.empty.hidden = true;
+  assistantEls.directLink.href = url;
+  assistantEls.directLink.hidden = false;
+  viewElements.assistantTabStatus.textContent = "已连接";
+}
+
+async function initAssistant() {
+  try {
+    const response = await fetch(RAG_CONFIG_URL, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const config = await response.json();
+    renderAssistant(config.studio_url);
+  } catch (error) {
+    showAssistantEmpty("AI 助手配置读取失败", `请确认 ${RAG_CONFIG_URL} 可以访问。`);
   }
 }
 
@@ -941,3 +989,4 @@ setupViewTabs();
 initCases();
 initResources();
 initPrompts();
+initAssistant();
