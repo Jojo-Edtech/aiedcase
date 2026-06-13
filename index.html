@@ -19,6 +19,10 @@
           <p class="eyebrow">AI Education Case Library</p>
           <h1>AIED Case Hub</h1>
           <p class="subtitle">全球 AI 教育与 AI 辅助教学实践案例库</p>
+          <nav class="site-nav" aria-label="主导航">
+            <a href="index.html" aria-current="page">教学案例</a>
+            <a href="resources.html">全球资源与教材</a>
+          </nav>
         </div>
         <div class="header-actions" aria-label="数据操作">
           <a class="button button-secondary" href="data/cases.csv" download>下载 CSV</a>
@@ -112,10 +116,11 @@
         <h2>没有找到匹配案例</h2>
         <p>试试减少筛选条件，或换一个关键词。</p>
       </section>
+      <nav class="pagination" id="casePagination" aria-label="案例分页" hidden></nav>
     </main>
 
     <footer class="site-footer">
-      <p>数据维护：编辑 <code>data/cases.csv</code> 后提交到 GitHub Pages 即可更新。</p>
+      <p>数据维护：编辑 <code>data/cases.csv</code> 或 <code>data/resources.csv</code> 后提交到 GitHub Pages 即可更新。</p>
     </footer>
 
     <script src="script.js"></script>

@@ -1,4 +1,5 @@
 const DATA_URL = "data/cases.csv";
+const PAGE_SIZE = 24;
 
 const CATEGORIES = [
   "AI Literacy",
@@ -19,6 +20,7 @@ const state = {
   source: "全部",
   method: "全部",
   sort: "date-desc",
+  page: 1,
 };
 
 const elements = {
@@ -40,6 +42,7 @@ const elements = {
   lastAccessed: document.querySelector("#lastAccessed"),
   resultsTitle: document.querySelector("#resultsTitle"),
   resultsMeta: document.querySelector("#resultsMeta"),
+  pagination: document.querySelector("#casePagination"),
 };
 
 function parseCsv(text) {
@@ -286,6 +289,43 @@ function renderCards(items) {
   });
 }
 
+function resetPage() {
+  state.page = 1;
+}
+
+function setPage(page) {
+  state.page = page;
+  render();
+  elements.cases.scrollIntoView({ block: "start", behavior: "smooth" });
+}
+
+function renderPagination(totalItems) {
+  elements.pagination.innerHTML = "";
+  const totalPages = Math.max(1, Math.ceil(totalItems / PAGE_SIZE));
+  elements.pagination.hidden = totalItems <= PAGE_SIZE;
+  if (totalItems <= PAGE_SIZE) return;
+
+  const previous = document.createElement("button");
+  previous.className = "page-button";
+  previous.type = "button";
+  previous.textContent = "上一页";
+  previous.disabled = state.page === 1;
+  previous.addEventListener("click", () => setPage(state.page - 1));
+
+  const status = document.createElement("span");
+  status.className = "page-status";
+  status.textContent = `第 ${state.page} / ${totalPages} 页`;
+
+  const next = document.createElement("button");
+  next.className = "page-button";
+  next.type = "button";
+  next.textContent = "下一页";
+  next.disabled = state.page === totalPages;
+  next.addEventListener("click", () => setPage(state.page + 1));
+
+  elements.pagination.append(previous, status, next);
+}
+
 function renderTabs() {
   elements.tabs.innerHTML = "";
   ["全部", ...CATEGORIES].forEach((category) => {
@@ -297,6 +337,7 @@ function renderTabs() {
     button.addEventListener("click", () => {
       state.category = category;
       state.subcategory = "全部";
+      resetPage();
       fillSelect(elements.subcategory, getSubcategoryValues());
       render();
     });
@@ -315,10 +356,21 @@ function renderStats() {
 
 function render() {
   const items = getFilteredCases();
+  const totalPages = Math.max(1, Math.ceil(items.length / PAGE_SIZE));
+  if (state.page > totalPages) state.page = totalPages;
+  const start = (state.page - 1) * PAGE_SIZE;
+  const pageItems = items.slice(start, start + PAGE_SIZE);
+  const firstItem = items.length === 0 ? 0 : start + 1;
+  const lastItem = Math.min(start + PAGE_SIZE, items.length);
+
   renderTabs();
-  renderCards(items);
+  renderCards(pageItems);
+  renderPagination(items.length);
   elements.resultsTitle.textContent = state.category === "全部" ? "全部案例" : state.category;
-  elements.resultsMeta.textContent = `显示 ${items.length} / ${state.cases.length} 条案例`;
+  elements.resultsMeta.textContent =
+    items.length === 0
+      ? `显示 0 / ${state.cases.length} 条案例`
+      : `显示 ${firstItem}-${lastItem} / ${items.length} 条案例（总库 ${state.cases.length} 条）`;
 }
 
 function setupControls() {
@@ -331,41 +383,49 @@ function setupControls() {
 
   elements.search.addEventListener("input", (event) => {
     state.search = event.target.value;
+    resetPage();
     render();
   });
 
   elements.subcategory.addEventListener("change", (event) => {
     state.subcategory = event.target.value;
+    resetPage();
     render();
   });
 
   elements.level.addEventListener("change", (event) => {
     state.level = event.target.value;
+    resetPage();
     render();
   });
 
   elements.language.addEventListener("change", (event) => {
     state.language = event.target.value;
+    resetPage();
     render();
   });
 
   elements.region.addEventListener("change", (event) => {
     state.region = event.target.value;
+    resetPage();
     render();
   });
 
   elements.source.addEventListener("change", (event) => {
     state.source = event.target.value;
+    resetPage();
     render();
   });
 
   elements.method.addEventListener("change", (event) => {
     state.method = event.target.value;
+    resetPage();
     render();
   });
 
   elements.sort.addEventListener("change", (event) => {
     state.sort = event.target.value;
+    resetPage();
     render();
   });
 
@@ -379,6 +439,7 @@ function setupControls() {
     state.source = "全部";
     state.method = "全部";
     state.sort = "date-desc";
+    resetPage();
     elements.search.value = "";
     fillSelect(elements.subcategory, getSubcategoryValues());
     elements.subcategory.value = "全部";

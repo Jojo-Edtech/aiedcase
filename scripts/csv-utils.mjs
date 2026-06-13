@@ -18,6 +18,26 @@ export const CASE_FIELDS = [
   'accessed_date',
 ];
 
+export const RESOURCE_FIELDS = [
+  'id',
+  'title_original',
+  'title_cn',
+  'resource_type',
+  'category',
+  'subject',
+  'education_level',
+  'audience',
+  'language',
+  'region',
+  'publisher',
+  'summary_cn',
+  'use_case_cn',
+  'source_url',
+  'published_date',
+  'accessed_date',
+  'access_type',
+];
+
 export function parseCsv(text) {
   const rows = [];
   let row = [];
