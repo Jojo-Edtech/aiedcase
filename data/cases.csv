@@ -986,3 +986,51 @@
 【产出】错误案例表、数据改进建议和一句机器学习解释。
 【评价】看学生是否能说明“训练数据—模型输出—错误”的关系。
 【注意】把游戏化活动后的概念总结做足，否则学生只会记得闯关。","课程资源","官方/学校","https://studio.code.org/s/oceans/lessons/1/levels/1","2019","2026-06-11"
+"case-142","What to Do About AI? Begin by Talking About It","和学生直接谈 AI：把学校 AI 规则变成课堂讨论","AI Literacy","Responsible AI","AI素养","中小学","英文","美国","Generative AI / AI Policy Discussion","EdSurge 文章把 AI 政策讨论转化为可在课堂使用的提问清单：教师先让学生说明自己知道什么、担心什么、希望怎样使用 AI，再围绕学术诚信、学校价值、批判性思维和公平使用建立共识。适合作为 AI 素养或班会中的“AI 使用规则共创”活动。","【可复制工作流】
+1. 开场：让学生写下“我已经如何使用 AI / 我担心什么 / 我希望学校允许什么”。
+2. 共读学校或班级 AI 规则；没有规则时，先列出现有模糊地带。
+3. 小组讨论四个问题：AI 能增加哪些学习价值？会削弱哪些学习价值？什么算诚信？什么时候必须标注 AI 帮助？
+4. 全班把讨论结果整理成“允许、谨慎、禁止、必须说明”四栏。
+5. 教师把四栏转成一页班级 AI 使用协议，并安排两周后复盘。
+【产出】班级 AI 使用协议、学生个人承诺、一条示例标注语。
+【评价】看学生是否能说明规则背后的学习价值，而不是只背诵禁令。","媒体报道/实践建议","媒体报道","https://edsurge.com/news/2026-06-03-what-to-do-about-ai-begin-by-talking-about-it","2026-06-03","2026-06-13"
+"case-143","From “Hello, World!” to AI: What Skills Actually Prepare Students for the Future?","从“Hello, World!”到 AI：用计算思维理解 AI 输出","AI+STEM","Computational Thinking","计算思维","中小学","英文","美国","Chatbot / Computational Thinking","EdSurge 研究评论总结教师正在采用的 AI 素养做法：不只教学生操作某个工具，而是让学生分析聊天机器人错误、比较训练数据与算法、评估自动系统输出。案例适合放入 STEM、计算思维或 AI literacy 课程，用 AI 作为“可被分析的系统”。","【可复制工作流】
+1. 给学生一个 AI 生成回答，刻意选择其中包含事实错误、偏见或逻辑跳跃的版本。
+2. 学生用三色标注：事实、推论、需要核查的内容。
+3. 小组倒推：AI 可能依赖了什么数据？用了什么模式？为什么会出错？
+4. 教师引入计算思维词汇：分解、模式、算法、输出评估。
+5. 学生重写提示词或补充资料，再比较新旧输出。
+【产出】错误诊断表、改进提示词、计算思维解释卡。
+【评价】看学生能否把“AI 答错了”解释为数据、算法和任务边界的问题。","媒体报道/研究评论","媒体报道","https://edsurge.com/news/2026-03-30-from-hello-world-to-ai-what-skills-actually-prepare-students-for-the-future","2026-03-30","2026-06-13"
+"case-144","The AI Use Case Question Teachers Are Still Asking","教师仍在追问的 AI 用例：写作修订、错误训练与事实核查","AI for Teaching & Assessment","Assessment / Feedback","写作与AI素养","中小学","英文","美国/全球","ChatGPT / Chatbot","EdSurge 采访与研究中出现了多个具体课堂做法：科学教师让学生先写初稿，再用 ChatGPT 作为第二轮修订伙伴；特殊教育教师故意把聊天机器人“训练错”，让学生理解数据质量；教师还用提示词与事实核查训练学生识别偏差。","【可复制工作流】
+1. 学生先独立完成初稿或解题说明，禁止直接从 AI 开始。
+2. 学生把初稿交给聊天机器人，请它提出三条修改建议，而不是代写全文。
+3. 学生判断每条建议：采纳、部分采纳、拒绝，并写明理由。
+4. 教师加入 AI literacy 环节：展示一个被错误数据影响的 AI 输出，让学生追问训练数据和偏差。
+5. 学生提交最终稿、AI 对话记录和修改说明。
+【产出】初稿、AI 反馈摘录、最终稿、修改决策表。
+【评价】看学生是否保留自己的判断，并能解释 AI 建议为什么可用或不可用。","媒体报道/教师实践","媒体报道","https://edsurge.com/news/2026-03-27-the-ai-use-case-question-teachers-are-still-asking","2026-03-27","2026-06-13"
+"case-145","What’s new in the Microsoft Education AI Toolkit","Microsoft Education AI Toolkit：从个人试点到团队级 AI 教学实施","AI for Teaching & Assessment","Teacher Workflow","教师协作与教学实施","混合","英文","全球","Microsoft Education AI Toolkit / Reading Coach / Copilot","Microsoft Education AI Toolkit 更新介绍了从个人教师试用到团队级实施的做法，例如 K-3 识字团队用 Reading Coach 和 Reading Progress 支持早期阅读，教师用 Copilot 生成可访问内容，学校团队把 AI 用例扩展为可治理、可复盘的实施方案。","【可复制工作流】
+1. 选一个具体学习问题，例如 K-3 阅读流利度、反馈速度或多语言材料制作。
+2. 先做个人级 Snapshot：一名教师用 AI 生成材料、反馈或练习，并记录节省时间与风险。
+3. 再做团队级 Spark：同年级或同学科教师统一任务、工具、数据保护和评价指标。
+4. 每周比较学生作品、教师工作量和误用风险，保留有效做法。
+5. 把流程写成校本指南：适用场景、禁用场景、标注方式、审核责任。
+【产出】团队 AI 用例卡、样例材料、风险清单、复盘记录。
+【评价】看 AI 是否改善学习支持或教师反馈，而不是只增加新工具。","官方资源/实施案例","官方/学校","https://www.microsoft.com/en-us/education/blog/2026/04/whats-new-in-the-microsoft-education-ai-toolkit/","2026-04-22","2026-06-13"
+"case-146","GenAI Chatbot Prompt Library for Educators","AI4K12 教师生成式 AI 提示词库：备课与行政工作流","AI for Teaching & Assessment","Teacher Workflow","教师备课","教师教育","英文","美国","ChatGPT / Claude / Gemini / Perplexity","AI4K12 收录 AI for Education 的教师提示词库，面向 K-12 教师和教育者，提供用于备课、课堂材料生成和行政任务的生成式 AI 提示词。该资源适合作为教师专业发展中的“提示词改写与质量审核”练习。","【可复制工作流】
+1. 教师选择一个真实任务：设计导入问题、改写阅读材料、生成分层练习或写家校沟通草稿。
+2. 从提示词库选一个模板，替换年级、学科、学习目标、学生需要和限制条件。
+3. 让 AI 生成第一版材料，但教师必须检查事实、语气、难度和偏见。
+4. 用第二轮提示词要求 AI 按本班学生特点重写。
+5. 教师保留最终版，并记录“原提示词—修改提示词—人工修改”。
+【产出】可用课堂材料、提示词迭代记录、质量审核清单。
+【评价】看教师是否能把通用提示词改成符合本班情境的专业指令。","课程资源","官方/学校","https://ai4k12.org/genai-chatbot-prompt-library-for-educators/","2025-11-20","2026-06-13"
+"case-147","CRAFT (Classroom-Ready Resources About AI for Teaching)","Stanford CRAFT：用 AI 辅助故事创作并讨论取舍","AI+Humanities","Language","写作与故事创作","中小学/混合","英文","美国","Generative AI / Storytelling","AI4K12 收录 Stanford CRAFT 的课堂资源，主题是 AI 与故事创作。学生探索 AI 如何帮助构思、结构化和修改故事，同时讨论把 AI 纳入创作过程的好处与代价，适合语言、人文、创意写作或 AI literacy 课程。","【可复制工作流】
+1. 学生先写一个故事核心：人物、冲突、场景和想表达的情感。
+2. 让 AI 生成三个故事走向或开头，学生标注哪些有创意、哪些不符合自己的意图。
+3. 学生选择一个 AI 建议进行人工改写，必须保留自己的主题和声音。
+4. 小组讨论：AI 帮助了哪些环节？削弱了哪些原创判断？哪些内容不能直接采用？
+5. 最后提交故事片段和一段“AI 参与说明”。
+【产出】故事草稿、AI 建议对照表、AI 参与说明。
+【评价】看学生是否能把 AI 当作创意伙伴，而不是让 AI 替代作者选择。","课程资源","官方/学校","https://ai4k12.org/craft-classroom-ready-resources-about-ai-for-teaching/","2025-09-03","2026-06-13"
