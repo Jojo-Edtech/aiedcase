@@ -1034,3 +1034,99 @@
 5. 最后提交故事片段和一段“AI 参与说明”。
 【产出】故事草稿、AI 建议对照表、AI 参与说明。
 【评价】看学生是否能把 AI 当作创意伙伴，而不是让 AI 替代作者选择。","课程资源","官方/学校","https://ai4k12.org/craft-classroom-ready-resources-about-ai-for-teaching/","2025-09-03","2026-06-13"
+"case-148","Safer Internet Day 2026: Helping students become AI-aware, safe, and smart online","Safer Internet Day 2026：帮助学生成为安全、清醒的 AI 使用者","AI Literacy","Responsible AI","AI安全与数字公民","中小学","英文","全球","AI Safety / Generative AI","Microsoft Education 围绕 Safer Internet Day 提供 AI-aware 学习方向，强调学生需要识别 AI 生成内容、操纵性互动、错误信息、个人数据与数字身份风险。适合在数字公民、班会或 AI literacy 课程中设计“安全使用 AI”课堂活动。","【可复制工作流】
+1. 让学生列出最近接触过的 AI 生成内容、聊天机器人或推荐系统。
+2. 小组把案例分为“信息判断、隐私数据、互动操纵、身份安全”四类。
+3. 教师展示一段 AI 生成内容，让学生标注可信证据、可疑线索和需要核查之处。
+4. 学生为一个真实学习任务写出三条 AI 安全使用规则。
+5. 全班共创一页“AI-aware 安全清单”，用于之后的作业和项目。
+【产出】AI 安全清单、风险分类表、个人使用承诺。
+【评价】看学生是否能把安全规则连接到具体使用情境。","官方资源","官方/学校","https://www.microsoft.com/en-us/education/blog/2026/02/safer-internet-day-2026-helping-students-become-ai%e2%80%91aware-safe-and-smart-online/","2026-02-10","2026-06-13"
+"case-149","Introducing Microsoft innovations and programs to support AI-powered teaching and learning","Microsoft AI 教学创新项目：把教师培训、工具与课堂支持连成流程","AI for Teaching & Assessment","Teacher Workflow","教师专业发展","教师教育","英文","全球","Copilot / Reading Coach / Microsoft Elevate","Microsoft Education 汇总面向教育系统的 AI-powered teaching and learning 项目，包括教师 AI 培训、面向课堂的学习工具、可访问内容生成和教育领导者资源。可作为学校从“单个工具试用”过渡到“教师培训+课堂试点+风险复盘”的实施案例。","【可复制工作流】
+1. 选定一个教师共同痛点，如阅读支持、材料改写、形成性反馈或可访问内容制作。
+2. 教师先用一个 AI 工具完成小任务，并记录节省时间、错误和人工修改。
+3. 教研组把任务标准化：输入资料、提示词、输出格式、审核责任。
+4. 在一个班级或一个单元试点，收集学生作品与教师反馈。
+5. 复盘后形成校内 AI 教学工作流，并标明适用和禁用场景。
+【产出】教师提示词模板、样例材料、风险记录、复盘表。
+【评价】看流程是否真正改善教学支持，而不是只增加工具数量。","官方资源/实施案例","官方/学校","https://www.microsoft.com/en-us/education/blog/2026/01/introducing-microsoft-innovations-and-programs-to-support-ai-powered-teaching-and-learning/","2026-01-15","2026-06-13"
+"case-150","Solve coding puzzles to survive the night in the new Minecraft Hour of AI","Minecraft Hour of AI：用编程谜题体验 AI 基础","AI+STEM","Coding / CS","编程与AI启蒙","中小学","英文","全球","Minecraft Education / Hour of AI","Minecraft Education 的 Hour of AI 活动把 AI 基础与游戏化编程谜题结合，学生通过解决任务、探索夜晚生存情境，理解计算机科学与 AI 概念。适合计算机科学、STEAM 或项目周中的低门槛 AI 入门。","【可复制工作流】
+1. 教师先说明游戏任务与 AI/计算思维目标，而不是只把它当游戏。
+2. 学生两人一组完成 Minecraft Hour of AI 编程谜题。
+3. 每完成一个谜题，记录“输入、规则/代码、结果、调试方式”。
+4. 小组选择一个失败案例，解释程序或策略为什么没有达到目标。
+5. 课末把游戏经验转成 AI/CS 概念卡，如模式、规则、自动化、调试。
+【产出】谜题记录表、失败分析、AI/CS 概念卡。
+【评价】看学生是否能从游戏操作迁移到计算思维解释。","课程资源","官方/学校","https://education.minecraft.net/en-us/blog/hour-of-ai-the-first-night","2025-11-12","2026-06-13"
+"case-151","Teaching AI Starting in (Pre)K-2 (Vicky Sedgwick)","K-2 低龄 AI 启蒙：从感知、表示与规则开始","AI Literacy","AI Literacy Basics","低龄AI素养","幼儿园/小学低年级","英文","美国","Unplugged AI / Early CS","AI4K12 收录 Vicky Sedgwick 关于在 PreK-2 阶段开展 AI 启蒙的资源，强调可从计算机科学基础、机器学习和大模型概念的低龄表达开始，不一定依赖复杂工具。适合幼儿园和小学低年级的 unplugged AI 活动。","【可复制工作流】
+1. 用“人如何识别图片/声音”导入，让学生说出观察线索。
+2. 准备若干图片卡片，让学生按规则分类，并讨论规则是否足够清楚。
+3. 教师把“很多例子帮助机器学习”解释成低龄可懂的训练概念。
+4. 学生尝试添加新卡片，观察原规则是否会出错。
+5. 最后用一句话解释：AI 需要例子、规则和人的检查。
+【产出】分类卡片、规则海报、AI 一句话解释。
+【评价】看学生能否用自己的语言说明“例子影响判断”。","课程资源","官方/学校","https://ai4k12.org/teaching-ai-starting-in-prek-2-vicky-sedgwick/","2026-02-18","2026-06-13"
+"case-152","Presidential Artificial Intelligence Challenge","Presidential AI Challenge：学生用 AI 方案回应社区问题","AI Literacy","Generative AI Literacy","项目式AI素养","K-12","英文","美国","AI Project Challenge","Presidential Artificial Intelligence Challenge 鼓励 K-12 学生和教育者围绕社区真实问题提出 AI-powered solutions，并展示解决方案。它适合作为项目式学习、AI literacy 或跨学科创新挑战的案例。","【可复制工作流】
+1. 学生观察社区或学校中的一个真实问题，并写出受影响对象。
+2. 小组判断 AI 是否适合介入：需要什么数据？可能有什么风险？
+3. 设计一个 AI-powered solution 原型，可以是提示词流程、分类器想法、应用草图或服务方案。
+4. 用“价值、可行性、公平性、安全性”四项检查方案。
+5. 小组用海报或短视频展示方案，并说明 AI 的边界。
+【产出】问题陈述、AI 方案草图、风险检查表、展示材料。
+【评价】看学生是否能把 AI 用在真实问题上，并说明限制。","课程资源/学生挑战","官方/学校","https://ai4k12.org/presidential-artificial-intelligence-challenge/","2025-09-24","2026-06-13"
+"case-153","Analog Inspiration","Analog Inspiration：用价值卡片设计以人为本的 AI 学习活动","AI Literacy","Responsible AI","AI伦理与创意设计","混合","英文","美国","AI Reflection Card Deck","AI4K12 收录 Analog Inspiration 卡片资源，每张卡把一个人的价值、担忧或技能与一两个 AI 融合教学想法配对，既有教师使用卡，也有学生使用卡。适合用来启动 AI 伦理、创意设计和课堂对话。","【可复制工作流】
+1. 每组抽取一张价值卡，如公平、好奇、隐私、表达或协作。
+2. 学生解释这个价值在 AI 使用中为什么重要。
+3. 小组设计一个 15 分钟 AI 学习活动，必须让该价值成为活动规则的一部分。
+4. 另一组从风险角度提问：谁可能被忽略？数据是否安全？学生声音是否保留？
+5. 修改活动并写成一张可复用的课堂活动卡。
+【产出】AI 价值活动卡、风险提问、修改版活动说明。
+【评价】看活动是否把价值落实到具体步骤，而不是停在口号。","课程资源","官方/学校","https://ai4k12.org/analog-inspiration/","2025-09-19","2026-06-13"
+"case-154","AI Literacy Project Showcase","AI Literacy Project Showcase：用 SEE Framework 展示校本 AI 素养项目","AI Literacy","Responsible AI","校本AI素养项目","教师教育/中小学","英文","美国","SEE Framework / Generative AI","AI for Education 展示多种 AI literacy 项目，包括围绕 SEE Framework 的教师用例展示、区级 AI Fellowship、管理员提示词工作坊等。资源适合学校把零散 AI 尝试整理成校本项目和教师专业学习路径。","【可复制工作流】
+1. 学校收集教师已有 AI 用例，按学习支持、评估反馈、行政效率、学生素养分类。
+2. 用 SEE Framework 或类似框架检查每个用例：是否安全、有效、合乎伦理。
+3. 选择 3 个代表项目做展示卡：背景、流程、学生影响、风险控制。
+4. 安排教师互评，重点问“这个项目可复制吗？需要哪些条件？”
+5. 把优秀项目纳入校本 AI literacy 路线图。
+【产出】AI 项目展示卡、教师互评记录、校本路线图。
+【评价】看项目是否从个人尝试变成可复盘的学校实践。","教师实践","教师实践","https://www.aiforeducation.io/blog/ai-literacy-project-showcase","2026-05-27","2026-06-13"
+"case-155","New Student Resource Release","学生 GenAI 素养自评清单：设定目标并追踪 AI 使用习惯","AI Literacy","Generative AI Literacy","学生AI自评","中学/大学","英文","美国","Student GenAI Checklist / Google Form","AI for Education 发布面向学生的 GenAI 素养资源，包含日常练习计划和可编辑 Google Form，可用于课堂讨论、小组活动、师生会议或学生独立反思，帮助学生设定目标并追踪 AI literacy 发展。","【可复制工作流】
+1. 学生先完成 GenAI 使用自评：我会不会提问、核查、标注、保护隐私。
+2. 教师把结果汇总成班级热力图，找出共同薄弱点。
+3. 学生选择一个个人目标，如更好地核查事实或更清楚标注 AI 帮助。
+4. 在两周内完成一次 AI 辅助学习任务，并记录使用过程。
+5. 回到清单复盘：目标是否达成？下一步要改什么？
+【产出】自评表、个人 AI 目标、使用记录、复盘说明。
+【评价】看学生是否能形成可持续的 GenAI 学习习惯。","学生资源","教师实践","https://www.aiforeducation.io/blog/new-student-resource-release","2025-12-05","2026-06-13"
+"case-156","ABC 7: Prompt-a-thon with Dwight School","Dwight School Prompt-a-thon：用设计思维和 GenAI 解决社区挑战","AI Literacy","Generative AI Literacy","Prompt工程与项目学习","中学","英文","美国","GenAI / Prompt-a-thon / Design Thinking","AI for Education 报道其与 Dwight School 举办的 Prompt-a-thon：约 70 名学生和教师先学习 AI literacy 基础，再用设计思维和生成式 AI 处理真实社区挑战，学生最终获得培训完成证书。","【可复制工作流】
+1. 用 20 分钟讲清生成式 AI、提示词、风险和标注规则。
+2. 学生小组选一个社区挑战，如资源获取、校园服务、环保或健康。
+3. 用设计思维写出用户、痛点、成功标准和限制条件。
+4. 小组用 GenAI 生成方案草图，再人工筛选、修改和补证据。
+5. 进行 3 分钟展示，说明提示词如何帮助，以及哪些判断必须由人完成。
+【产出】提示词记录、方案原型、展示稿、AI 使用说明。
+【评价】看学生是否能把 GenAI 用于问题澄清和方案迭代。","教师实践/学校活动","教师实践","https://www.aiforeducation.io/blog/abc7-promptathon-with-dwight-school","2025-12-03","2026-06-13"
+"case-157","How AI helps teachers spend less time on assessments and more time on impactful instruction","Westmont AI 评估工作流：让教师少整理数据、多看教学决策","AI for Teaching & Assessment","Assessment / Feedback","形成性评估","K-12","英文","美国","AI Assessment Platform / Data Analysis","eSchool News 报道 Westmont 教师使用增强型评估平台，通过 AI chat 工具按教师、题目和学生拆分数据，并自动生成图表，帮助教师快速发现趋势、风险学生群体和表现问题，把时间从整理数据转向教学决策。","【可复制工作流】
+1. 教师完成一次形成性测验，并确保题目对应清楚的学习目标。
+2. 将测验数据导入评估平台或表格分析工具。
+3. 用 AI 提问：按题目、学生群体、班级目标拆分表现并生成可视化。
+4. 教师选择两个最关键的薄弱点，设计再教学或小组补救任务。
+5. 一周后再测，比较 AI 发现的薄弱点是否改善。
+【产出】评估图表、风险学生清单、补救任务、再测记录。
+【评价】看 AI 分析是否转化为具体教学调整。","媒体报道/学校实践","媒体报道","https://www.eschoolnews.com/digital-learning/2026/05/27/how-ai-helps-teachers-spend-less-time-on-assessments-and-more-time-on-impactful-instruction/","2026-05-27","2026-06-13"
+"case-158","3 ways students can use AI tools to improve their literacy skills","学生用 AI 提升读写能力的三种课堂路径","AI+Humanities","Language","读写能力","中小学","英文","美国","Generative AI / Literacy Support","eSchool News 文章聚焦学生如何用 AI 工具提升 literacy skills，适合转化为语言课堂中的阅读理解、词汇扩展、写作反馈与修订活动。关键是让学生保留判断权，并记录 AI 帮助了哪一步。","【可复制工作流】
+1. 学生先独立阅读一段文本或写一段初稿。
+2. 选择一个 AI 支持任务：解释难词、生成理解问题、提出写作修改建议。
+3. 学生检查 AI 输出，标注“有帮助、需要修改、不可信”三类。
+4. 根据可信建议修改阅读笔记或写作初稿。
+5. 提交前写一句说明：AI 帮助了哪一步，我保留了哪些个人判断。
+【产出】阅读/写作初稿、AI 建议标注、修订稿、AI 使用说明。
+【评价】看读写质量是否提升，以及学生是否能批判性使用 AI。","媒体报道/教学建议","媒体报道","https://www.eschoolnews.com/digital-learning/2026/04/22/3-ways-students-can-use-ai-tools-to-improve-their-literacy-skills/","2026-04-22","2026-06-13"
+"case-159","A new need-to-know for the AI classroom","AI 课堂新能力：用聊天机器人澄清任务需求","AI for Teaching & Assessment","Teaching Support","任务澄清与项目学习","中学/大学","英文","美国","Chatbot / Project Planning","eSchool News 文章提出一个课堂可转化的 AI 用法：在开始项目之前，让聊天机器人像访谈者一样追问学生，直到学生更清楚自己真正想完成什么、需要什么资源、有哪些约束。适合项目学习、写作任务和设计任务。","【可复制工作流】
+1. 学生拿到项目说明后，先写下自己理解的目标、受众、限制和成功标准。
+2. 把项目说明和初步理解交给聊天机器人，请它通过问题访谈澄清需求。
+3. 学生回答 5 到 8 个追问，并记录哪些问题让自己重新思考。
+4. 根据访谈结果修改项目计划：目标、步骤、材料、评价标准。
+5. 教师检查计划是否更具体，并要求学生说明 AI 访谈的作用和局限。
+【产出】项目需求澄清表、AI 访谈记录、修订后项目计划。
+【评价】看学生是否更准确理解任务，而不是让 AI 代做项目。","媒体报道/教学建议","媒体报道","https://www.eschoolnews.com/featured/2026/04/10/a-new-need-to-know-for-the-ai-classroom/","2026-04-10","2026-06-13"
