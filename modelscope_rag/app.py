@@ -8,6 +8,7 @@ import os
 import re
 import sys
 import tempfile
+import time
 from collections import Counter
 from dataclasses import dataclass
 from datetime import date
@@ -86,8 +87,20 @@ def data_url(base_url: str, filename: str) -> str:
 def read_text(source: str) -> str:
     if source.startswith(("http://", "https://")):
         request = Request(source, headers={"User-Agent": "aied-case-hub-rag/0.1"})
-        with urlopen(request, timeout=25) as response:
-            return response.read().decode("utf-8-sig")
+        last_error: Exception | None = None
+        for attempt in range(3):
+            try:
+                with urlopen(request, timeout=25) as response:
+                    return response.read().decode("utf-8-sig")
+            except (OSError, HTTPError, URLError) as error:
+                last_error = error
+                time.sleep(1.5 * (attempt + 1))
+        if Path("data").exists():
+            local_source = str(Path("data") / source.rstrip("/").split("/")[-1])
+            return Path(local_source).read_text(encoding="utf-8-sig")
+        if last_error:
+            raise last_error
+        raise RuntimeError(f"无法读取 {source}")
     return Path(source).read_text(encoding="utf-8-sig")
 
 
@@ -424,8 +437,6 @@ def answer_question(question: str, top_k: int = DEFAULT_TOP_K) -> tuple[str, str
 def build_demo():
     import gradio as gr
 
-    get_index()
-
     with gr.Blocks(
         title="AIED Case Hub RAG 助手",
         css="""
@@ -435,6 +446,8 @@ def build_demo():
     ) as demo:
         gr.Markdown("# AIED Case Hub RAG 助手")
         gr.Markdown(f"公开有限额试用。{quota_label()}；额度用完后只返回检索引用，不继续调用模型。")
+        if _INDEX_ERROR:
+            gr.Markdown(f"知识库会在首次提问时重新加载。最近一次加载错误：{_INDEX_ERROR}")
         with gr.Row():
             question = gr.Textbox(
                 label="问题",
