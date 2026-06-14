@@ -1,0 +1,101 @@
+name: Deploy Static Site to Aliyun OSS
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/deploy-aliyun-oss.yml"
+      - ".nojekyll"
+      - "index.html"
+      - "resources.html"
+      - "script.js"
+      - "styles.css"
+      - "data/cases.csv"
+      - "data/prompts.csv"
+      - "data/rag-config.json"
+      - "data/resources.csv"
+      - "scripts/build-static-site.mjs"
+      - "scripts/validate-data.mjs"
+      - "scripts/csv-utils.mjs"
+      - "package.json"
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy to Aliyun OSS
+    if: ${{ vars.ALIYUN_DEPLOY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    env:
+      ALIYUN_ACCESS_KEY_ID: ${{ secrets.ALIYUN_ACCESS_KEY_ID }}
+      ALIYUN_ACCESS_KEY_SECRET: ${{ secrets.ALIYUN_ACCESS_KEY_SECRET }}
+      ALIYUN_OSS_BUCKET: ${{ secrets.ALIYUN_OSS_BUCKET }}
+      ALIYUN_OSS_ENDPOINT: ${{ secrets.ALIYUN_OSS_ENDPOINT }}
+      ALIYUN_OSS_PREFIX: ${{ secrets.ALIYUN_OSS_PREFIX }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Validate data
+        run: npm run validate:data
+
+      - name: Prepare static files
+        run: npm run build:static
+
+      - name: Check Aliyun configuration
+        run: |
+          set -euo pipefail
+          required=(
+            ALIYUN_ACCESS_KEY_ID
+            ALIYUN_ACCESS_KEY_SECRET
+            ALIYUN_OSS_BUCKET
+            ALIYUN_OSS_ENDPOINT
+          )
+
+          for name in "${required[@]}"; do
+            if [ -z "${!name}" ]; then
+              echo "::error::$name is not configured in GitHub Secrets."
+              exit 1
+            fi
+          done
+
+      - name: Install ossutil
+        run: |
+          set -euo pipefail
+          sudo -v
+          curl -fsSL https://gosspublic.alicdn.com/ossutil/install.sh | sudo bash
+          command -v ossutil
+
+      - name: Configure ossutil
+        run: |
+          set -euo pipefail
+          umask 077
+          cat > "$HOME/.ossutilconfig" <<EOF
+          [Credentials]
+          language = EN
+          endpoint = $ALIYUN_OSS_ENDPOINT
+          accessKeyID = $ALIYUN_ACCESS_KEY_ID
+          accessKeySecret = $ALIYUN_ACCESS_KEY_SECRET
+          EOF
+
+      - name: Upload static site
+        run: |
+          set -euo pipefail
+          target="oss://${ALIYUN_OSS_BUCKET}/"
+
+          if [ -n "$ALIYUN_OSS_PREFIX" ]; then
+            prefix="${ALIYUN_OSS_PREFIX#/}"
+            prefix="${prefix%/}"
+            target="oss://${ALIYUN_OSS_BUCKET}/${prefix}/"
+          fi
+
+          ossutil cp -r dist/ "$target" -u --disable-dir-object
+          echo "Uploaded static site to $target"

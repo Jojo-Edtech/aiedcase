@@ -114,3 +114,51 @@ git push -u origin main
 ```
 
 然后进入 GitHub 仓库的 `Settings -> Pages`，选择 `Deploy from a branch`，分支选择 `main`，目录选择 `/root`。
+
+## 阿里云 OSS 镜像部署
+
+仓库已加入 `.github/workflows/deploy-aliyun-oss.yml`，用于把同一份静态网站同步到阿里云 OSS。默认不会自动运行，等阿里云 Bucket 和 GitHub Secrets 配好后再开启。
+
+推荐阿里云结构：
+
+- OSS Bucket：存放当前静态网页。
+- CDN：面向中国内地用户加速访问。
+- 自定义域名：例如 `aied.yourdomain.com`，后续也方便在同一域名下挂更多网页。
+
+阿里云侧先完成：
+
+1. 创建 OSS Bucket，建议选择中国内地地域，例如华东 1（杭州）、华南 1（深圳）等。
+2. 在 Bucket 中开启静态网站托管，默认首页设为 `index.html`。
+3. 如果要使用中国内地 CDN 或中国内地 Bucket 绑定自定义域名，需要先完成 ICP 备案。
+4. 创建一个 RAM 用户或 RAM 角色，只给目标 Bucket 的上传/读取权限，不要使用主账号 AccessKey。
+
+GitHub 仓库中配置：
+
+在 `Settings -> Secrets and variables -> Actions` 中加入 Secrets：
+
+```text
+ALIYUN_ACCESS_KEY_ID=你的 RAM AccessKey ID
+ALIYUN_ACCESS_KEY_SECRET=你的 RAM AccessKey Secret
+ALIYUN_OSS_BUCKET=你的 OSS Bucket 名称
+ALIYUN_OSS_ENDPOINT=https://oss-cn-hangzhou.aliyuncs.com
+ALIYUN_OSS_PREFIX=
+```
+
+`ALIYUN_OSS_PREFIX` 可以留空，表示部署到 Bucket 根目录；如果想放在子目录，例如 `aied-case-hub/`，就填 `aied-case-hub`。
+
+再加入 Repository Variable：
+
+```text
+ALIYUN_DEPLOY_ENABLED=true
+```
+
+开启后，每次 `main` 分支更新网页文件或数据 CSV，GitHub Pages 会继续更新，同时会把 `dist/` 中的静态文件同步到阿里云 OSS。也可以在 GitHub 的 `Actions -> Deploy Static Site to Aliyun OSS -> Run workflow` 手动触发。
+
+本地检查即将上传的静态文件：
+
+```bash
+npm run validate:data
+npm run build:static
+```
+
+不要把阿里云 AccessKey 写入代码、README 或 CSV；只放在 GitHub Secrets 或阿里云环境变量中。
