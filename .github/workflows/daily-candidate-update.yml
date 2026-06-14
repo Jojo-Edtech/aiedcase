@@ -120,101 +120,23 @@ jobs:
           git push --force-with-lease --set-upstream origin "$CANDIDATE_BRANCH"
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Open or update pull request
+      - name: Report candidate branch
         if: steps.changes.outputs.changed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          node <<'NODE'
-          import { appendFile, readFile } from 'node:fs/promises';
+          compare_url="https://github.com/${GITHUB_REPOSITORY}/compare/main...${GITHUB_REPOSITORY_OWNER}:${CANDIDATE_BRANCH}?quick_pull=1"
 
-          const repo = process.env.GITHUB_REPOSITORY;
-          const token = process.env.GH_TOKEN;
-          const branch = process.env.CANDIDATE_BRANCH;
-          const summaryPath = process.env.SUMMARY_FILE;
-          const stepSummaryPath = process.env.GITHUB_STEP_SUMMARY;
+          {
+            echo "## Candidate branch updated"
+            echo
+            echo "Candidate branch: \`$CANDIDATE_BRANCH\`"
+            echo
+            echo "Open candidate PR: $compare_url"
+            echo
+            if [ -f "$SUMMARY_FILE" ]; then
+              cat "$SUMMARY_FILE"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
 
-          if (!repo || !token || !branch || !summaryPath) {
-            throw new Error('Missing GitHub repository context, token, candidate branch, or summary path.');
-          }
-
-          const [owner] = repo.split('/');
-
-          async function github(path, options = {}) {
-            const response = await fetch(`https://api.github.com${path}`, {
-              method: options.method || 'GET',
-              headers: {
-                authorization: `Bearer ${token}`,
-                accept: 'application/vnd.github+json',
-                'content-type': 'application/json',
-                'user-agent': 'AIED Case Hub updater',
-                'x-github-api-version': '2022-11-28',
-              },
-              body: options.body ? JSON.stringify(options.body) : undefined,
-            });
-
-            const text = await response.text();
-            const data = text ? JSON.parse(text) : null;
-            if (!response.ok) {
-              const message = data?.message || text || `GitHub API ${response.status}`;
-              throw new Error(message);
-            }
-            return data;
-          }
-
-          const summary = await readFile(summaryPath, 'utf8');
-          const compareUrl = `https://github.com/${repo}/compare/main...${owner}:${branch}?quick_pull=1`;
-
-          try {
-            const pulls = await github(`/repos/${repo}/pulls?state=open&base=main&per_page=100`);
-            const existing = pulls.find(
-              (pull) => pull.head?.repo?.full_name === repo && pull.head?.ref === branch,
-            );
-
-            if (existing) {
-              await github(`/repos/${repo}/issues/${existing.number}/comments`, {
-                method: 'POST',
-                body: { body: summary },
-              });
-              console.log(`Updated existing candidate PR #${existing.number}.`);
-              if (stepSummaryPath) {
-                await appendFile(stepSummaryPath, `\\nUpdated candidate PR: ${existing.html_url}\\n`);
-              }
-            } else {
-              const pull = await github(`/repos/${repo}/pulls`, {
-                method: 'POST',
-                body: {
-                  title: 'Daily AIED candidate case update',
-                  head: `${owner}:${branch}`,
-                  base: 'main',
-                  body: summary,
-                  maintainer_can_modify: true,
-                },
-              });
-              console.log(`Created candidate PR #${pull.number}.`);
-              if (stepSummaryPath) {
-                await appendFile(stepSummaryPath, `\\nCreated candidate PR: ${pull.html_url}\\n`);
-              }
-            }
-          } catch (error) {
-            console.warn(`Candidate branch was pushed, but PR creation/update failed: ${error.message}`);
-            console.warn(`Open the candidate PR manually: ${compareUrl}`);
-            if (stepSummaryPath) {
-              await appendFile(
-                stepSummaryPath,
-                [
-                  '',
-                  '## Candidate branch updated',
-                  '',
-                  `Candidate branch: \\`${branch}\\``,
-                  '',
-                  `Automatic PR creation/update failed: ${error.message}`,
-                  '',
-                  `Open the PR manually: ${compareUrl}`,
-                  '',
-                ].join('\\n'),
-              );
-            }
-          }
-          NODE
+          echo "Candidate branch: $CANDIDATE_BRANCH"
+          echo "Open candidate PR: $compare_url"

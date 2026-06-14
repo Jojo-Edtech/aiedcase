@@ -84,8 +84,8 @@ python3 modelscope_rag/app.py --self-test
 1. 从 `data/source_feeds.json` 中列出的教育与 AI 信息源抓取最新内容。当前支持 RSS、Atom 和 YouTube channel feed。
 2. 用保守关键词规则筛出可能属于课堂、课程、活动或学习任务的 AI 教育案例，新闻报道、官方博客、研究论文、教师实践和视频来源都可以进入候选池。
 3. 把新增候选写入 `data/candidate_cases.csv`。
-4. 自动创建或更新 `Daily AIED candidate case update` Pull Request。若已有打开的候选 PR，会继续更新同一个 PR；若没有打开的候选 PR，会用当天运行编号创建新的候选分支，避免和旧的已合并 PR 分支冲突。
-5. 人工审核候选后，把通过的行移动到 `data/cases.csv`，再合并 PR。
+4. 自动推送候选分支，并在 Actions 运行摘要里生成“打开候选 PR”的链接。若仓库之后开启 Actions 自动创建 PR 权限，这一步也可以再改成全自动开 PR。
+5. 人工打开候选 PR，审核候选后，把通过的行移动到 `data/cases.csv`，再合并 PR。
 
 合并到 `main` 后，GitHub Pages 会自动刷新正式网页。这样前端页面和数据源都会保持同步，但不会让未经审核的候选案例直接上线。
 
