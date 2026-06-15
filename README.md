@@ -77,7 +77,10 @@ python3 modelscope_rag/app.py --self-test
 
 ## 每日自动更新
 
-仓库已配置 GitHub Actions：每天香港时间 06:00 自动运行一次候选案例收集任务，也可以在 GitHub 的 `Actions -> Daily AIED Candidate Update -> Run workflow` 手动触发。
+仓库已配置两类 GitHub Actions：
+
+- 每天香港时间 06:00 自动运行一次候选案例收集任务，也可以在 GitHub 的 `Actions -> Daily AIED Candidate Update -> Run workflow` 手动触发。
+- 每天香港时间 06:05 自动刷新正式数据的 `accessed_date`，并推送到 `main`，让 GitHub Pages 上的“最近访问日期”保持为当天日期；也可以在 `Actions -> Daily Site Data Refresh -> Run workflow` 手动触发。
 
 自动任务采用审核优先流程：
 
