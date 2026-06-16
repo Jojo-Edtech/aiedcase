@@ -12,37 +12,45 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <a class="skip-link" href="#cases">跳到内容列表</a>
+    <a class="skip-link" href="#cases" data-i18n="skipLink">跳到内容列表</a>
 
     <header class="site-header">
       <div class="header-inner">
         <div>
-          <p class="eyebrow">AI Education Library</p>
+          <p class="eyebrow" data-i18n="eyebrow">AI Education Library</p>
           <h1>AIED Case Hub</h1>
-          <p class="subtitle">AI 教育教学案例、教材资源与 Prompt 模板库</p>
-          <nav class="site-nav" id="mainTabs" aria-label="内容选项卡">
+          <p class="subtitle" data-i18n="subtitle">AI 教育教学案例、教材资源与 Prompt 模板库</p>
+          <nav class="site-nav" id="mainTabs" aria-label="内容选项卡" data-i18n-aria-label="mainTabsAria">
             <a href="#cases" data-view="cases" aria-current="page">
-              <span class="nav-tab-title">教学案例</span>
+              <span class="nav-tab-title" data-i18n="tabCases">教学案例</span>
               <span class="nav-tab-meta" id="caseTabCount">0 条案例</span>
             </a>
             <a href="#resources" data-view="resources">
-              <span class="nav-tab-title">教材资源</span>
+              <span class="nav-tab-title" data-i18n="tabResources">教材资源</span>
               <span class="nav-tab-meta" id="resourceTabCount">0 条资源</span>
             </a>
             <a href="#prompts" data-view="prompts">
-              <span class="nav-tab-title">Prompt 模板</span>
+              <span class="nav-tab-title" data-i18n="tabPrompts">Prompt 模板</span>
               <span class="nav-tab-meta" id="promptTabCount">0 个 Prompt</span>
             </a>
             <a href="#assistant" data-view="assistant">
-              <span class="nav-tab-title">AI 助手</span>
+              <span class="nav-tab-title" data-i18n="tabAssistant">AI 助手</span>
               <span class="nav-tab-meta" id="assistantTabStatus">有限额试用</span>
             </a>
           </nav>
         </div>
-        <div class="header-actions" aria-label="数据操作">
-          <a class="button button-secondary" href="data/cases.csv" download>案例 CSV</a>
-          <a class="button button-secondary" href="data/resources.csv" download>资源 CSV</a>
-          <a class="button button-secondary" href="data/prompts.csv" download>Prompt CSV</a>
+        <div class="header-actions" aria-label="数据操作" data-i18n-aria-label="dataActionsAria">
+          <label class="language-switcher" for="languageSelect">
+            <span data-i18n="languageLabel">语言</span>
+            <select id="languageSelect" aria-label="选择界面语言" data-i18n-aria-label="languageSelectAria">
+              <option value="zh-Hans">简体中文</option>
+              <option value="zh-Hant">繁體中文</option>
+              <option value="en">English</option>
+            </select>
+          </label>
+          <a class="button button-secondary" href="data/cases.csv" download data-i18n="casesCsv">案例 CSV</a>
+          <a class="button button-secondary" href="data/resources.csv" download data-i18n="resourcesCsv">资源 CSV</a>
+          <a class="button button-secondary" href="data/prompts.csv" download data-i18n="promptsCsv">Prompt CSV</a>
           <a class="button button-primary" href="https://github.com/Jojo-Edtech/aied-case-hub" target="_blank" rel="noreferrer">GitHub</a>
         </div>
       </div>
@@ -50,66 +58,66 @@
 
     <main>
       <section class="view-panel" id="casesPanel" data-view-panel="cases">
-        <section class="dashboard" aria-label="案例库概览">
+        <section class="dashboard" aria-label="案例库概览" data-i18n-aria-label="caseDashboardAria">
           <div class="dashboard-stat">
             <span class="stat-value" id="totalCases">0</span>
-            <span class="stat-label">已收录案例</span>
+            <span class="stat-label" data-i18n="casesCollected">已收录案例</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="hongKongCases">0</span>
-            <span class="stat-label">香港优先案例</span>
+            <span class="stat-label" data-i18n="hkPriorityCases">香港优先案例</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="categoryCount">5</span>
-            <span class="stat-label">一级栏目</span>
+            <span class="stat-label" data-i18n="topCategories">一级栏目</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="lastAccessed">--</span>
-            <span class="stat-label">最近访问日期</span>
+            <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
           </div>
         </section>
 
-        <section class="toolbar" aria-label="案例检索和筛选">
-          <nav class="tabs" id="categoryTabs" aria-label="案例栏目"></nav>
+        <section class="toolbar" aria-label="案例检索和筛选" data-i18n-aria-label="caseToolbarAria">
+          <nav class="tabs" id="categoryTabs" aria-label="案例栏目" data-i18n-aria-label="caseCategoryAria"></nav>
 
           <div class="controls">
             <label class="field field-wide" for="searchInput">
-              <span>关键词</span>
-              <input id="searchInput" type="search" placeholder="搜索标题、摘要、工作流、地区、工具或来源">
+              <span data-i18n="keyword">关键词</span>
+              <input id="searchInput" type="search" placeholder="搜索标题、摘要、工作流、地区、工具或来源" data-i18n-placeholder="caseSearchPlaceholder">
             </label>
 
             <label class="field" for="subcategoryFilter">
-              <span>细分方向</span>
+              <span data-i18n="subcategory">细分方向</span>
               <select id="subcategoryFilter"></select>
             </label>
 
             <label class="field" for="levelFilter">
-              <span>学段</span>
+              <span data-i18n="educationLevel">学段</span>
               <select id="levelFilter"></select>
             </label>
 
             <label class="field" for="languageFilter">
-              <span>语言</span>
+              <span data-i18n="language">语言</span>
               <select id="languageFilter"></select>
             </label>
 
             <label class="field" for="regionFilter">
-              <span>地区</span>
+              <span data-i18n="region">地区</span>
               <select id="regionFilter"></select>
             </label>
 
             <label class="field" for="sourceFilter">
-              <span>来源</span>
+              <span data-i18n="source">来源</span>
               <select id="sourceFilter"></select>
             </label>
 
             <label class="field" for="methodFilter">
-              <span>AI类型</span>
+              <span data-i18n="aiType">AI类型</span>
               <select id="methodFilter"></select>
             </label>
 
             <label class="field" for="sortSelect">
-              <span>排序</span>
+              <span data-i18n="sort">排序</span>
               <select id="sortSelect">
                 <option value="date-desc">发布日期：新到旧</option>
                 <option value="date-asc">发布日期：旧到新</option>
@@ -118,89 +126,89 @@
               </select>
             </label>
 
-            <button class="button button-secondary" id="resetFilters" type="button">重置</button>
+            <button class="button button-secondary" id="resetFilters" type="button" data-i18n="reset">重置</button>
           </div>
         </section>
 
         <section class="results-header" aria-live="polite">
           <div>
             <h2 id="resultsTitle">全部案例</h2>
-            <p id="resultsMeta">正在读取案例数据...</p>
+            <p id="resultsMeta" data-i18n="loadingCases">正在读取案例数据...</p>
           </div>
         </section>
 
-        <section class="case-grid" id="cases" aria-label="案例列表"></section>
+        <section class="case-grid" id="cases" aria-label="案例列表" data-i18n-aria-label="caseListAria"></section>
         <section class="empty-state" id="emptyState" hidden>
-          <h2>没有找到匹配案例</h2>
-          <p>试试减少筛选条件，或换一个关键词。</p>
+          <h2 data-i18n="noCasesTitle">没有找到匹配案例</h2>
+          <p data-i18n="noCasesCopy">试试减少筛选条件，或换一个关键词。</p>
         </section>
-        <nav class="pagination" id="casePagination" aria-label="案例分页" hidden></nav>
+        <nav class="pagination" id="casePagination" aria-label="案例分页" data-i18n-aria-label="casePaginationAria" hidden></nav>
       </section>
 
       <section class="view-panel" id="resourcesPanel" data-view-panel="resources" hidden>
-        <section class="dashboard" aria-label="资源库概览">
+        <section class="dashboard" aria-label="资源库概览" data-i18n-aria-label="resourceDashboardAria">
           <div class="dashboard-stat">
             <span class="stat-value" id="totalResources">0</span>
-            <span class="stat-label">已收录资源</span>
+            <span class="stat-label" data-i18n="resourcesCollected">已收录资源</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="regionCount">0</span>
-            <span class="stat-label">地区/组织来源</span>
+            <span class="stat-label" data-i18n="regionsOrOrgs">地区/组织来源</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="resourceTypeCount">0</span>
-            <span class="stat-label">资源类型</span>
+            <span class="stat-label" data-i18n="resourceTypes">资源类型</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="resourceLastAccessed">--</span>
-            <span class="stat-label">最近访问日期</span>
+            <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
           </div>
         </section>
 
-        <section class="toolbar" aria-label="资源检索和筛选">
+        <section class="toolbar" aria-label="资源检索和筛选" data-i18n-aria-label="resourceToolbarAria">
           <div class="controls controls-resources">
             <label class="field field-wide" for="resourceSearchInput">
-              <span>关键词</span>
-              <input id="resourceSearchInput" type="search" placeholder="搜索标题、简介、适用方式、发布机构或地区">
+              <span data-i18n="keyword">关键词</span>
+              <input id="resourceSearchInput" type="search" placeholder="搜索标题、简介、适用方式、发布机构或地区" data-i18n-placeholder="resourceSearchPlaceholder">
             </label>
 
             <label class="field" for="resourceRegionFilter">
-              <span>地区</span>
+              <span data-i18n="region">地区</span>
               <select id="resourceRegionFilter"></select>
             </label>
 
             <label class="field" for="resourceLevelFilter">
-              <span>学段</span>
+              <span data-i18n="educationLevel">学段</span>
               <select id="resourceLevelFilter"></select>
             </label>
 
             <label class="field" for="resourceAudienceFilter">
-              <span>受众</span>
+              <span data-i18n="audience">受众</span>
               <select id="resourceAudienceFilter"></select>
             </label>
 
             <label class="field" for="resourceTypeFilter">
-              <span>资源类型</span>
+              <span data-i18n="resourceType">资源类型</span>
               <select id="resourceTypeFilter"></select>
             </label>
 
             <label class="field" for="resourceCategoryFilter">
-              <span>类别</span>
+              <span data-i18n="category">类别</span>
               <select id="resourceCategoryFilter"></select>
             </label>
 
             <label class="field" for="resourceLanguageFilter">
-              <span>语言</span>
+              <span data-i18n="language">语言</span>
               <select id="resourceLanguageFilter"></select>
             </label>
 
             <label class="field" for="resourceAccessFilter">
-              <span>访问方式</span>
+              <span data-i18n="accessType">访问方式</span>
               <select id="resourceAccessFilter"></select>
             </label>
 
             <label class="field" for="resourceSortSelect">
-              <span>排序</span>
+              <span data-i18n="sort">排序</span>
               <select id="resourceSortSelect">
                 <option value="title-asc">标题：A-Z</option>
                 <option value="region-asc">地区：A-Z</option>
@@ -210,84 +218,84 @@
               </select>
             </label>
 
-            <button class="button button-secondary" id="resourceResetFilters" type="button">重置</button>
+            <button class="button button-secondary" id="resourceResetFilters" type="button" data-i18n="reset">重置</button>
           </div>
         </section>
 
         <section class="results-header" aria-live="polite">
           <div>
             <h2 id="resourceResultsTitle">全部资源</h2>
-            <p id="resourceResultsMeta">正在读取资源数据...</p>
+            <p id="resourceResultsMeta" data-i18n="loadingResources">正在读取资源数据...</p>
           </div>
         </section>
 
-        <section class="case-grid resource-grid" id="resources" aria-label="资源列表"></section>
+        <section class="case-grid resource-grid" id="resources" aria-label="资源列表" data-i18n-aria-label="resourceListAria"></section>
         <section class="empty-state" id="resourceEmptyState" hidden>
-          <h2>没有找到匹配资源</h2>
-          <p>试试减少筛选条件，或换一个关键词。</p>
+          <h2 data-i18n="noResourcesTitle">没有找到匹配资源</h2>
+          <p data-i18n="noResourcesCopy">试试减少筛选条件，或换一个关键词。</p>
         </section>
-        <nav class="pagination" id="resourcePagination" aria-label="资源分页" hidden></nav>
+        <nav class="pagination" id="resourcePagination" aria-label="资源分页" data-i18n-aria-label="resourcePaginationAria" hidden></nav>
       </section>
 
       <section class="view-panel" id="promptsPanel" data-view-panel="prompts" hidden>
-        <section class="dashboard" aria-label="Prompt 模板库概览">
+        <section class="dashboard" aria-label="Prompt 模板库概览" data-i18n-aria-label="promptDashboardAria">
           <div class="dashboard-stat">
             <span class="stat-value" id="totalPrompts">0</span>
-            <span class="stat-label">Prompt 模板</span>
+            <span class="stat-label" data-i18n="promptTemplates">Prompt 模板</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="promptSubjectCount">0</span>
-            <span class="stat-label">学科/主题</span>
+            <span class="stat-label" data-i18n="subjectsOrTopics">学科/主题</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="promptTypeCount">0</span>
-            <span class="stat-label">Prompt 类型</span>
+            <span class="stat-label" data-i18n="promptTypes">Prompt 类型</span>
           </div>
           <div class="dashboard-stat">
             <span class="stat-value" id="promptLastAccessed">--</span>
-            <span class="stat-label">最近访问日期</span>
+            <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
           </div>
         </section>
 
-        <section class="toolbar" aria-label="Prompt 检索和筛选">
+        <section class="toolbar" aria-label="Prompt 检索和筛选" data-i18n-aria-label="promptToolbarAria">
           <div class="controls controls-prompts">
             <label class="field field-wide" for="promptSearchInput">
-              <span>关键词</span>
-              <input id="promptSearchInput" type="search" placeholder="搜索学科、用途、Prompt 内容或来源">
+              <span data-i18n="keyword">关键词</span>
+              <input id="promptSearchInput" type="search" placeholder="搜索学科、用途、Prompt 内容或来源" data-i18n-placeholder="promptSearchPlaceholder">
             </label>
 
             <label class="field" for="promptSubjectFilter">
-              <span>学科</span>
+              <span data-i18n="subject">学科</span>
               <select id="promptSubjectFilter"></select>
             </label>
 
             <label class="field" for="promptLevelFilter">
-              <span>学段</span>
+              <span data-i18n="educationLevel">学段</span>
               <select id="promptLevelFilter"></select>
             </label>
 
             <label class="field" for="promptTypeFilter">
-              <span>Prompt 类型</span>
+              <span data-i18n="promptType">Prompt 类型</span>
               <select id="promptTypeFilter"></select>
             </label>
 
             <label class="field" for="promptCategoryFilter">
-              <span>类别</span>
+              <span data-i18n="category">类别</span>
               <select id="promptCategoryFilter"></select>
             </label>
 
             <label class="field" for="promptAudienceFilter">
-              <span>受众</span>
+              <span data-i18n="audience">受众</span>
               <select id="promptAudienceFilter"></select>
             </label>
 
             <label class="field" for="promptOutputFilter">
-              <span>输出格式</span>
+              <span data-i18n="outputFormat">输出格式</span>
               <select id="promptOutputFilter"></select>
             </label>
 
             <label class="field" for="promptSortSelect">
-              <span>排序</span>
+              <span data-i18n="sort">排序</span>
               <select id="promptSortSelect">
                 <option value="subject-asc">学科：A-Z</option>
                 <option value="type-asc">类型：A-Z</option>
@@ -295,34 +303,34 @@
               </select>
             </label>
 
-            <button class="button button-secondary" id="promptResetFilters" type="button">重置</button>
+            <button class="button button-secondary" id="promptResetFilters" type="button" data-i18n="reset">重置</button>
           </div>
         </section>
 
         <section class="results-header" aria-live="polite">
           <div>
             <h2 id="promptResultsTitle">全部 Prompt</h2>
-            <p id="promptResultsMeta">正在读取 Prompt 数据...</p>
+            <p id="promptResultsMeta" data-i18n="loadingPrompts">正在读取 Prompt 数据...</p>
           </div>
         </section>
 
-        <section class="case-grid prompt-grid" id="prompts" aria-label="Prompt 模板列表"></section>
+        <section class="case-grid prompt-grid" id="prompts" aria-label="Prompt 模板列表" data-i18n-aria-label="promptListAria"></section>
         <section class="empty-state" id="promptEmptyState" hidden>
-          <h2>没有找到匹配 Prompt</h2>
-          <p>试试减少筛选条件，或换一个关键词。</p>
+          <h2 data-i18n="noPromptsTitle">没有找到匹配 Prompt</h2>
+          <p data-i18n="noPromptsCopy">试试减少筛选条件，或换一个关键词。</p>
         </section>
-        <nav class="pagination" id="promptPagination" aria-label="Prompt 分页" hidden></nav>
+        <nav class="pagination" id="promptPagination" aria-label="Prompt 分页" data-i18n-aria-label="promptPaginationAria" hidden></nav>
       </section>
 
       <section class="view-panel" id="assistantPanel" data-view-panel="assistant" hidden>
-        <section class="assistant-shell" aria-label="AI 助手">
+        <section class="assistant-shell" aria-label="AI 助手" data-i18n-aria-label="assistantAria">
           <div class="assistant-header">
             <div>
-              <p class="eyebrow">RAG Research Assistant</p>
+              <p class="eyebrow" data-i18n="assistantEyebrow">RAG Research Assistant</p>
               <h2>AIED Case Hub AI 助手</h2>
             </div>
             <a class="button button-primary" id="assistantDirectLink" href="#" target="_blank" rel="noreferrer" hidden>
-              打开魔搭应用
+              <span data-i18n="openModelScope">打开魔搭应用</span>
             </a>
           </div>
 
@@ -337,15 +345,15 @@
           </div>
 
           <section class="empty-state assistant-empty" id="assistantEmptyState">
-            <h2 id="assistantEmptyTitle">AI 助手待连接</h2>
-            <p id="assistantEmptyCopy">魔搭 Studio 应用地址配置后，这里会显示有限额 RAG 问答窗口。</p>
+            <h2 id="assistantEmptyTitle" data-i18n="assistantEmptyTitle">AI 助手待连接</h2>
+            <p id="assistantEmptyCopy" data-i18n="assistantEmptyCopy">魔搭 Studio 应用地址配置后，这里会显示有限额 RAG 问答窗口。</p>
           </section>
         </section>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>数据维护：编辑 <code>data/cases.csv</code>、<code>data/resources.csv</code> 或 <code>data/prompts.csv</code> 后提交到 GitHub Pages 即可更新。</p>
+      <p data-i18n="footerNote">数据维护：编辑 data/cases.csv、data/resources.csv 或 data/prompts.csv 后提交到 GitHub Pages 即可更新。</p>
     </footer>
 
     <script src="script.js"></script>

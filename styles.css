@@ -166,6 +166,30 @@ h1 {
   gap: 10px;
 }
 
+.language-switcher {
+  display: inline-grid;
+  grid-template-columns: auto minmax(118px, 1fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 10px;
+  background: #f8faf7;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.language-switcher select {
+  min-height: 32px;
+  padding: 0 28px 0 8px;
+  border-color: transparent;
+  background-color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -615,6 +639,21 @@ code {
 
   .case-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .header-inner {
+    display: grid;
+  }
+
+  .header-actions {
+    justify-content: flex-start;
+  }
+
+  .language-switcher {
+    width: 100%;
+    grid-template-columns: auto 1fr;
   }
 }
 

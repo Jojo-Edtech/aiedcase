@@ -1,6 +1,6 @@
 # AIED Case Hub
 
-AIED Case Hub 是一个可部署到 GitHub Pages 的静态 AI 教育资料库。首页顶部使用醒目的三栏选项卡展示三类内容：教学案例、教材资源、Prompt 模板。页面分别读取 `data/cases.csv`、`data/resources.csv` 和 `data/prompts.csv`。
+AIED Case Hub 是一个可部署到 GitHub Pages 的静态 AI 教育资料库。首页顶部使用醒目的选项卡展示教学案例、教材资源、Prompt 模板和 AI 助手，并在右上角提供英文、简体中文、繁体中文界面切换。页面分别读取 `data/cases.csv`、`data/resources.csv` 和 `data/prompts.csv`。
 
 ## 本地预览
 
