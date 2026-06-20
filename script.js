@@ -59,13 +59,25 @@ const TEXT = {
     keyword: "关键词",
     caseSearchPlaceholder: "搜索标题、摘要、工作流、地区、工具或来源",
     subcategory: "细分方向",
+    teacherTask: "教师任务",
+    favorites: "收藏",
+    favoritesOnly: "只看收藏",
     educationLevel: "学段",
     language: "语言",
     region: "地区",
     source: "来源",
+    credibility: "可信度",
     aiType: "AI类型",
     sort: "排序",
     reset: "重置",
+    addFavorite: "收藏",
+    removeFavorite: "已收藏",
+    details: "详情",
+    backToCases: "返回案例列表",
+    caseDetailHeading: "案例详情",
+    teacherTasks: "教师任务",
+    copyDetailLink: "复制详情链接",
+    detailLinkCopied: "详情链接已复制",
     loadingCases: "正在读取案例数据...",
     caseListAria: "案例列表",
     noCasesTitle: "没有找到匹配案例",
@@ -192,13 +204,25 @@ const TEXT = {
     keyword: "Keyword",
     caseSearchPlaceholder: "Search titles, summaries, workflows, regions, tools or sources",
     subcategory: "Subcategory",
+    teacherTask: "Teacher task",
+    favorites: "Saved",
+    favoritesOnly: "Saved only",
     educationLevel: "Level",
     language: "Language",
     region: "Region",
     source: "Source",
+    credibility: "Credibility",
     aiType: "AI type",
     sort: "Sort",
     reset: "Reset",
+    addFavorite: "Save",
+    removeFavorite: "Saved",
+    details: "Details",
+    backToCases: "Back to cases",
+    caseDetailHeading: "Case details",
+    teacherTasks: "Teacher tasks",
+    copyDetailLink: "Copy detail link",
+    detailLinkCopied: "Detail link copied",
     loadingCases: "Loading case data...",
     caseListAria: "Case list",
     noCasesTitle: "No matching cases",
@@ -346,6 +370,7 @@ const VALUE_EN = {
   未知: "Unknown",
   备课设计: "Lesson planning",
   教材生成: "Material generation",
+  "学习单/教材": "Worksheets / materials",
   练习与作业: "Practice and homework",
   评价反馈: "Assessment feedback",
   差异化支持: "Differentiated support",
@@ -353,6 +378,13 @@ const VALUE_EN = {
   课堂活动: "Classroom activity",
   家校沟通: "Family-school communication",
   学生支持: "Student support",
+  AI素养: "AI literacy",
+  语言学习: "Language learning",
+  STEM探究: "STEM inquiry",
+  艺术创作: "Arts creation",
+  资源规划: "Resource planning",
+  "行政与教学管理": "Admin and teaching management",
+  "研究与政策": "Research and policy",
   通用备课: "General lesson planning",
   通用单元设计: "General unit design",
   通用课堂活动: "General classroom activity",
@@ -2477,6 +2509,42 @@ const SORT_OPTIONS = {
   ],
 };
 
+const FAVORITES_KEY = "aied-case-hub-favorites-v1";
+
+const TASK_LABELS = [
+  "备课设计",
+  "课堂活动",
+  "学习单/教材",
+  "评价反馈",
+  "AI素养",
+  "项目学习",
+  "语言学习",
+  "STEM探究",
+  "艺术创作",
+  "资源规划",
+  "行政与教学管理",
+  "研究与政策",
+  "家校沟通",
+  "学生支持",
+];
+
+const TASK_RULES = [
+  ["备课设计", ["备课", "教案", "课时", "lesson plan", "unit design", "planning"]],
+  ["课堂活动", ["课堂", "活动", "讨论", "classroom", "activity", "workshop", "lesson"]],
+  ["学习单/教材", ["学习单", "教材", "材料", "worksheet", "material", "curriculum", "resource book"]],
+  ["评价反馈", ["评价", "评估", "反馈", "rubric", "assessment", "feedback", "批改"]],
+  ["AI素养", ["ai literacy", "素养", "伦理", "responsible", "competency", "framework", "安全"]],
+  ["项目学习", ["项目", "project", "challenge", "pbl", "探究"]],
+  ["语言学习", ["英文", "中文", "language", "writing", "reading", "listening", "speaking", "作文", "阅读"]],
+  ["STEM探究", ["stem", "steam", "science", "math", "coding", "编程", "数学", "科学", "机器人"]],
+  ["艺术创作", ["arts", "art", "design", "visual", "music", "image", "艺术", "设计", "创作"]],
+  ["资源规划", ["资源", "指南", "课程", "目录", "toolkit", "guide", "policy", "framework"]],
+  ["行政与教学管理", ["管理", "行政", "教师培训", "professional development", "school leader"]],
+  ["研究与政策", ["研究", "报告", "论文", "policy", "research", "report", "unesco"]],
+  ["家校沟通", ["家校", "家长", "parent", "沟通"]],
+  ["学生支持", ["学生支持", "分层", "差异化", "tutoring", "support", "scaffold"]],
+];
+
 const viewState = {
   active: "cases",
 };
@@ -2489,12 +2557,14 @@ const caseState = {
   items: [],
   category: "全部",
   subcategory: "全部",
+  task: "全部",
   search: "",
   level: "全部",
   language: "全部",
   region: "全部",
   source: "全部",
   method: "全部",
+  favoritesOnly: false,
   sort: "date-desc",
   page: 1,
 };
@@ -2503,12 +2573,14 @@ const resourceState = {
   items: [],
   search: "",
   region: "全部",
+  task: "全部",
   level: "全部",
   audience: "全部",
   resourceType: "全部",
   category: "全部",
   language: "全部",
   accessType: "全部",
+  favoritesOnly: false,
   sort: "title-asc",
   page: 1,
 };
@@ -2517,13 +2589,23 @@ const promptState = {
   items: [],
   search: "",
   subject: "全部",
+  task: "全部",
   level: "全部",
   promptType: "全部",
   category: "全部",
   audience: "全部",
   outputFormat: "全部",
+  favoritesOnly: false,
   sort: "subject-asc",
   page: 1,
+};
+
+const caseDetailState = {
+  activeId: "",
+};
+
+const favoriteState = {
+  keys: readFavoriteKeys(),
 };
 
 const assistantState = {
@@ -2542,16 +2624,20 @@ const viewElements = {
 };
 
 const caseEls = {
+  listBlocks: [...document.querySelectorAll("[data-case-list-block]")],
+  detail: document.querySelector("#caseDetail"),
   tabs: document.querySelector("#categoryTabs"),
   cards: document.querySelector("#cases"),
   empty: document.querySelector("#emptyState"),
   search: document.querySelector("#searchInput"),
   subcategory: document.querySelector("#subcategoryFilter"),
+  task: document.querySelector("#caseTaskFilter"),
   level: document.querySelector("#levelFilter"),
   language: document.querySelector("#languageFilter"),
   region: document.querySelector("#regionFilter"),
   source: document.querySelector("#sourceFilter"),
   method: document.querySelector("#methodFilter"),
+  favoritesOnly: document.querySelector("#favoriteCasesOnly"),
   sort: document.querySelector("#sortSelect"),
   reset: document.querySelector("#resetFilters"),
   total: document.querySelector("#totalCases"),
@@ -2568,12 +2654,14 @@ const resourceEls = {
   empty: document.querySelector("#resourceEmptyState"),
   search: document.querySelector("#resourceSearchInput"),
   region: document.querySelector("#resourceRegionFilter"),
+  task: document.querySelector("#resourceTaskFilter"),
   level: document.querySelector("#resourceLevelFilter"),
   audience: document.querySelector("#resourceAudienceFilter"),
   resourceType: document.querySelector("#resourceTypeFilter"),
   category: document.querySelector("#resourceCategoryFilter"),
   language: document.querySelector("#resourceLanguageFilter"),
   accessType: document.querySelector("#resourceAccessFilter"),
+  favoritesOnly: document.querySelector("#favoriteResourcesOnly"),
   sort: document.querySelector("#resourceSortSelect"),
   reset: document.querySelector("#resourceResetFilters"),
   total: document.querySelector("#totalResources"),
@@ -2590,11 +2678,13 @@ const promptEls = {
   empty: document.querySelector("#promptEmptyState"),
   search: document.querySelector("#promptSearchInput"),
   subject: document.querySelector("#promptSubjectFilter"),
+  task: document.querySelector("#promptTaskFilter"),
   level: document.querySelector("#promptLevelFilter"),
   promptType: document.querySelector("#promptTypeFilter"),
   category: document.querySelector("#promptCategoryFilter"),
   audience: document.querySelector("#promptAudienceFilter"),
   outputFormat: document.querySelector("#promptOutputFilter"),
+  favoritesOnly: document.querySelector("#favoritePromptsOnly"),
   sort: document.querySelector("#promptSortSelect"),
   reset: document.querySelector("#promptResetFilters"),
   total: document.querySelector("#totalPrompts"),
@@ -2736,6 +2826,110 @@ function setupLanguageControl() {
     localStorage.setItem("aied-language", languageState.current);
     refreshLanguage();
   });
+}
+
+function readFavoriteKeys() {
+  try {
+    const value = JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]");
+    return new Set(Array.isArray(value) ? value : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveFavoriteKeys() {
+  localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favoriteState.keys].sort()));
+}
+
+function favoriteKey(type, item) {
+  return `${type}:${item.id}`;
+}
+
+function isFavorite(type, item) {
+  return favoriteState.keys.has(favoriteKey(type, item));
+}
+
+function toggleFavorite(type, item) {
+  const key = favoriteKey(type, item);
+  if (favoriteState.keys.has(key)) {
+    favoriteState.keys.delete(key);
+  } else {
+    favoriteState.keys.add(key);
+  }
+  saveFavoriteKeys();
+
+  if (type === "case") {
+    renderCases();
+  } else if (type === "resource") {
+    renderResources();
+  } else if (type === "prompt") {
+    renderPrompts();
+  }
+}
+
+function createFavoriteButton(type, item) {
+  const button = document.createElement("button");
+  button.className = `favorite-button ${isFavorite(type, item) ? "is-saved" : ""}`.trim();
+  button.type = "button";
+  button.setAttribute("aria-pressed", isFavorite(type, item) ? "true" : "false");
+  button.textContent = isFavorite(type, item) ? t("removeFavorite") : t("addFavorite");
+  button.addEventListener("click", () => toggleFavorite(type, item));
+  return button;
+}
+
+function itemText(item) {
+  return Object.values(item).join(" ").toLowerCase();
+}
+
+function tasksForItem(type, item) {
+  const text = itemText(item);
+  const tasks = new Set();
+
+  TASK_RULES.forEach(([label, keywords]) => {
+    if (keywords.some((keyword) => text.includes(keyword.toLowerCase()))) {
+      tasks.add(label);
+    }
+  });
+
+  if (type === "case") {
+    if (item.category === "AI Literacy") tasks.add("AI素养");
+    if (item.category === "AI+STEM") tasks.add("STEM探究");
+    if (item.category === "AI+Humanities") tasks.add("语言学习");
+    if (item.category === "AI+Social Sciences") tasks.add("研究与政策");
+    if (item.category === "AI for Teaching & Assessment") tasks.add("备课设计");
+    tasks.add("课堂活动");
+  }
+
+  if (type === "resource") {
+    if (item.resource_type === "政策框架" || item.resource_type === "研究报告") tasks.add("研究与政策");
+    if (item.resource_type === "教师指南" || item.resource_type === "资源目录") tasks.add("资源规划");
+    if (item.resource_type === "课堂工具包" || item.resource_type === "课程/教材") tasks.add("学习单/教材");
+  }
+
+  if (type === "prompt") {
+    if (TASK_LABELS.includes(item.prompt_type)) tasks.add(item.prompt_type);
+    if (item.prompt_type === "教材生成") tasks.add("学习单/教材");
+  }
+
+  if (tasks.size === 0) {
+    tasks.add(type === "resource" ? "资源规划" : "备课设计");
+  }
+
+  return [...tasks].filter((task) => TASK_LABELS.includes(task));
+}
+
+function uniqueTaskValues(items, type) {
+  return [...new Set(items.flatMap((item) => tasksForItem(type, item)))].sort((a, b) =>
+    localizeValue(a).localeCompare(localizeValue(b), LANGUAGE_META[languageState.current].locale)
+  );
+}
+
+function matchesTask(type, item, selected) {
+  return selected === "全部" || tasksForItem(type, item).includes(selected);
+}
+
+function matchesFavorite(type, item, onlyFavorites) {
+  return !onlyFavorites || isFavorite(type, item);
 }
 
 function parseCsv(text) {
@@ -2962,15 +3156,27 @@ function setupViewTabs() {
   viewElements.tabs.forEach((tab) => {
     tab.addEventListener("click", (event) => {
       event.preventDefault();
+      caseDetailState.activeId = "";
       setActiveView(tab.dataset.view);
+      if (tab.dataset.view === "cases") renderCases();
     });
   });
 
-  window.addEventListener("hashchange", () => {
-    setActiveView(window.location.hash.replace("#", ""), false);
-  });
+  window.addEventListener("hashchange", handleHashChange);
 
-  setActiveView(window.location.hash.replace("#", "") || "cases", false);
+  handleHashChange();
+}
+
+function handleHashChange() {
+  const hash = window.location.hash.replace("#", "");
+  if (hash.startsWith("case=")) {
+    openCaseDetail(hash.slice("case=".length), false);
+    return;
+  }
+
+  caseDetailState.activeId = "";
+  setActiveView(hash || "cases", false);
+  if (viewState.active === "cases") renderCases();
 }
 
 function caseSearchText(item) {
@@ -2988,6 +3194,7 @@ function caseSearchText(item) {
     item.workflow_cn,
     item.source_type,
     item.credibility,
+    tasksForItem("case", item).join(" "),
   ]
     .join(" ")
     .toLowerCase();
@@ -3000,6 +3207,8 @@ function filteredCases() {
       return (
         (caseState.category === "全部" || item.category === caseState.category) &&
         (caseState.subcategory === "全部" || item.subcategory === caseState.subcategory) &&
+        matchesTask("case", item, caseState.task) &&
+        matchesFavorite("case", item, caseState.favoritesOnly) &&
         (!query || caseSearchText(item).includes(query)) &&
         matchesField(item.education_level, caseState.level) &&
         matchesField(item.language, caseState.language) &&
@@ -3036,6 +3245,141 @@ function workflowText(item) {
   ].join("\n");
 }
 
+function detailLinkForCase(item) {
+  return `${window.location.origin}${window.location.pathname}${window.location.search}#case=${encodeURIComponent(
+    item.id
+  )}`;
+}
+
+function openCaseDetail(caseId, updateHash = true) {
+  caseDetailState.activeId = decodeURIComponent(caseId || "");
+  setActiveView("cases", false);
+  renderCaseDetail(caseDetailState.activeId);
+  if (updateHash) {
+    history.replaceState(null, "", `#case=${encodeURIComponent(caseDetailState.activeId)}`);
+  }
+  caseEls.detail.scrollIntoView({ block: "start", behavior: "smooth" });
+}
+
+function closeCaseDetail(updateHash = true) {
+  caseDetailState.activeId = "";
+  caseEls.detail.hidden = true;
+  caseEls.detail.innerHTML = "";
+  caseEls.listBlocks.forEach((block) => {
+    block.hidden = false;
+  });
+  if (updateHash) {
+    history.replaceState(null, "", "#cases");
+  }
+  renderCases();
+}
+
+function renderCaseDetail(caseId) {
+  caseEls.listBlocks.forEach((block) => {
+    block.hidden = true;
+  });
+  caseEls.detail.hidden = false;
+  caseEls.detail.innerHTML = "";
+
+  const item = caseState.items.find((record) => record.id === caseId);
+
+  const header = document.createElement("div");
+  header.className = "detail-header";
+  const headerText = document.createElement("div");
+  const eyebrow = document.createElement("p");
+  eyebrow.className = "eyebrow";
+  eyebrow.textContent = t("caseDetailHeading");
+  const headerTitle = document.createElement("h2");
+  headerTitle.textContent = item ? localizeTitle(item) : t("noCasesTitle");
+  headerText.append(eyebrow, headerTitle);
+
+  const headerActions = document.createElement("div");
+  headerActions.className = "detail-actions";
+  const backButton = document.createElement("button");
+  backButton.className = "button button-secondary";
+  backButton.type = "button";
+  backButton.textContent = t("backToCases");
+  backButton.addEventListener("click", () => closeCaseDetail());
+  headerActions.append(backButton);
+  if (item) headerActions.append(createFavoriteButton("case", item));
+  header.append(headerText, headerActions);
+
+  if (!item) {
+    const empty = document.createElement("section");
+    empty.className = "empty-state";
+    const title = document.createElement("h2");
+    title.textContent = t("noCasesTitle");
+    const copy = document.createElement("p");
+    copy.textContent = t("noCasesCopy");
+    empty.append(title, copy);
+    caseEls.detail.append(header, empty);
+    return;
+  }
+
+  const article = document.createElement("article");
+  article.className = "detail-card";
+
+  const topline = document.createElement("div");
+  topline.className = "case-topline";
+  topline.append(createTag(item.category, "category"));
+  if (item.region === "香港") topline.append(createTag("香港", "hk"));
+  topline.append(createTag(item.credibility, "source"));
+
+  const original = document.createElement("p");
+  original.className = "original-title";
+  original.textContent = localizeSecondaryTitle(item);
+
+  const summary = document.createElement("p");
+  summary.className = "summary detail-summary";
+  summary.textContent = localizeText(item.summary_cn);
+
+  const taskLine = document.createElement("div");
+  taskLine.className = "task-line";
+  tasksForItem("case", item).forEach((task) => taskLine.append(createTag(task)));
+
+  const meta = document.createElement("dl");
+  meta.className = "meta-list detail-meta";
+  meta.append(
+    createMeta(t("category"), item.category),
+    createMeta(t("subcategory"), item.subcategory),
+    createMeta(t("subjectTopic"), item.subject),
+    createMeta(t("educationLevel"), item.education_level),
+    createMeta(t("language"), item.language),
+    createMeta(t("region"), item.region),
+    createMeta(t("aiTool"), item.ai_tool_or_method),
+    createMeta(t("source"), item.source_type),
+    createMeta(t("credibility"), item.credibility),
+    createMeta(t("published"), item.published_date),
+    createMeta(t("accessed"), item.accessed_date),
+    createMeta(t("teacherTasks"), tasksForItem("case", item).join(" / "))
+  );
+
+  const workflow = workflowText(item);
+  const workflowBlock = document.createElement("div");
+  workflowBlock.className = "workflow-block detail-workflow";
+  const workflowHeader = document.createElement("div");
+  workflowHeader.className = "workflow-header";
+  const workflowTitle = document.createElement("h4");
+  workflowTitle.textContent = t("workflowTitle");
+  workflowHeader.append(workflowTitle, createCopyButton(workflow, t("copyWorkflow")));
+  const workflowContent = document.createElement("pre");
+  workflowContent.textContent = workflow;
+  workflowBlock.append(workflowHeader, workflowContent);
+
+  const footer = document.createElement("div");
+  footer.className = "detail-actions detail-footer-actions";
+  const sourceLink = document.createElement("a");
+  sourceLink.className = "button button-primary";
+  sourceLink.href = item.source_url;
+  sourceLink.target = "_blank";
+  sourceLink.rel = "noreferrer";
+  sourceLink.textContent = t("viewSource");
+  footer.append(sourceLink, createCopyButton(detailLinkForCase(item), t("copyDetailLink")));
+
+  article.append(topline, original, summary, taskLine, meta, workflowBlock, footer);
+  caseEls.detail.append(header, article);
+}
+
 function renderCaseCards(items) {
   caseEls.cards.innerHTML = "";
   caseEls.empty.hidden = items.length > 0;
@@ -3049,6 +3393,10 @@ function renderCaseCards(items) {
     if (item.region === "香港") topline.append(createTag("香港", "hk"));
     topline.append(createTag(item.credibility, "source"));
 
+    const cardActions = document.createElement("div");
+    cardActions.className = "card-actions";
+    cardActions.append(createFavoriteButton("case", item));
+
     const title = document.createElement("h3");
     title.textContent = localizeTitle(item);
 
@@ -3059,6 +3407,12 @@ function renderCaseCards(items) {
     const summary = document.createElement("p");
     summary.className = "summary";
     summary.textContent = localizeText(item.summary_cn);
+
+    const taskLine = document.createElement("div");
+    taskLine.className = "task-line";
+    tasksForItem("case", item)
+      .slice(0, 4)
+      .forEach((task) => taskLine.append(createTag(task)));
 
     const meta = document.createElement("dl");
     meta.className = "meta-list";
@@ -3095,9 +3449,17 @@ function renderCaseCards(items) {
     link.target = "_blank";
     link.rel = "noreferrer";
     link.textContent = t("viewSource");
+    const detailLink = document.createElement("a");
+    detailLink.className = "source-link detail-link";
+    detailLink.href = `#case=${encodeURIComponent(item.id)}`;
+    detailLink.textContent = t("details");
+    detailLink.addEventListener("click", (event) => {
+      event.preventDefault();
+      openCaseDetail(item.id);
+    });
 
-    footer.append(date, link);
-    card.append(topline, title, original, summary, meta, workflowBlock, footer);
+    footer.append(date, detailLink, link);
+    card.append(topline, cardActions, title, original, summary, taskLine, meta, workflowBlock, footer);
     caseEls.cards.append(card);
   });
 }
@@ -3131,6 +3493,14 @@ function renderCaseStats() {
 }
 
 function renderCases() {
+  if (caseDetailState.activeId) {
+    renderCaseDetail(caseDetailState.activeId);
+    return;
+  }
+  caseEls.detail.hidden = true;
+  caseEls.listBlocks.forEach((block) => {
+    block.hidden = false;
+  });
   const items = filteredCases();
   const page = pageSlice(items, caseState);
   renderCaseTabs();
@@ -3150,17 +3520,20 @@ function renderCases() {
 
 function populateCaseControls() {
   fillSelect(caseEls.subcategory, caseSubcategories());
+  fillSelect(caseEls.task, uniqueTaskValues(caseState.items, "case"));
   fillSelect(caseEls.level, uniqueValues(caseState.items, "education_level"));
   fillSelect(caseEls.language, uniqueValues(caseState.items, "language"));
   fillSelect(caseEls.region, uniqueValues(caseState.items, "region"));
   fillSelect(caseEls.source, uniqueValues(caseState.items, "source_type"));
   fillSelect(caseEls.method, uniqueValues(caseState.items, "ai_tool_or_method"));
   caseEls.subcategory.value = caseState.subcategory;
+  caseEls.task.value = caseState.task;
   caseEls.level.value = caseState.level;
   caseEls.language.value = caseState.language;
   caseEls.region.value = caseState.region;
   caseEls.source.value = caseState.source;
   caseEls.method.value = caseState.method;
+  caseEls.favoritesOnly.checked = caseState.favoritesOnly;
   caseEls.sort.value = caseState.sort;
 }
 
@@ -3169,6 +3542,7 @@ function setupCaseControls() {
   [
     [caseEls.search, "input", "search"],
     [caseEls.subcategory, "change", "subcategory"],
+    [caseEls.task, "change", "task"],
     [caseEls.level, "change", "level"],
     [caseEls.language, "change", "language"],
     [caseEls.region, "change", "region"],
@@ -3193,12 +3567,20 @@ function setupCaseControls() {
       region: "全部",
       source: "全部",
       method: "全部",
+      task: "全部",
+      favoritesOnly: false,
       sort: "date-desc",
       page: 1,
     });
     caseEls.search.value = "";
     populateCaseControls();
     caseEls.sort.value = "date-desc";
+    renderCases();
+  });
+
+  caseEls.favoritesOnly.addEventListener("change", (event) => {
+    caseState.favoritesOnly = event.target.checked;
+    caseState.page = 1;
     renderCases();
   });
 }
@@ -3218,6 +3600,7 @@ function resourceSearchText(item) {
     item.summary_cn,
     item.use_case_cn,
     item.access_type,
+    tasksForItem("resource", item).join(" "),
   ]
     .join(" ")
     .toLowerCase();
@@ -3230,6 +3613,8 @@ function filteredResources() {
       return (
         (!query || resourceSearchText(item).includes(query)) &&
         matchesField(item.region, resourceState.region) &&
+        matchesTask("resource", item, resourceState.task) &&
+        matchesFavorite("resource", item, resourceState.favoritesOnly) &&
         matchesField(item.education_level, resourceState.level) &&
         matchesField(item.audience, resourceState.audience) &&
         matchesField(item.resource_type, resourceState.resourceType) &&
@@ -3262,6 +3647,10 @@ function renderResourceCards(items) {
       createTag(item.access_type, "source")
     );
 
+    const cardActions = document.createElement("div");
+    cardActions.className = "card-actions";
+    cardActions.append(createFavoriteButton("resource", item));
+
     const title = document.createElement("h3");
     title.textContent = localizeTitle(item);
 
@@ -3272,6 +3661,12 @@ function renderResourceCards(items) {
     const summary = document.createElement("p");
     summary.className = "summary";
     summary.textContent = localizeText(item.summary_cn);
+
+    const taskLine = document.createElement("div");
+    taskLine.className = "task-line";
+    tasksForItem("resource", item)
+      .slice(0, 4)
+      .forEach((task) => taskLine.append(createTag(task)));
 
     const meta = document.createElement("dl");
     meta.className = "meta-list";
@@ -3310,7 +3705,7 @@ function renderResourceCards(items) {
     link.textContent = t("openResource");
 
     footer.append(date, link);
-    card.append(topline, title, original, summary, meta, useBlock, footer);
+    card.append(topline, cardActions, title, original, summary, taskLine, meta, useBlock, footer);
     resourceEls.cards.append(card);
   });
 }
@@ -3346,6 +3741,7 @@ function renderResources() {
 
 function populateResourceControls() {
   fillSelect(resourceEls.region, uniqueValues(resourceState.items, "region"));
+  fillSelect(resourceEls.task, uniqueTaskValues(resourceState.items, "resource"));
   fillSelect(resourceEls.level, uniqueValues(resourceState.items, "education_level"));
   fillSelect(resourceEls.audience, uniqueValues(resourceState.items, "audience"));
   fillSelect(resourceEls.resourceType, uniqueValues(resourceState.items, "resource_type"));
@@ -3353,12 +3749,14 @@ function populateResourceControls() {
   fillSelect(resourceEls.language, uniqueValues(resourceState.items, "language"));
   fillSelect(resourceEls.accessType, uniqueValues(resourceState.items, "access_type"));
   resourceEls.region.value = resourceState.region;
+  resourceEls.task.value = resourceState.task;
   resourceEls.level.value = resourceState.level;
   resourceEls.audience.value = resourceState.audience;
   resourceEls.resourceType.value = resourceState.resourceType;
   resourceEls.category.value = resourceState.category;
   resourceEls.language.value = resourceState.language;
   resourceEls.accessType.value = resourceState.accessType;
+  resourceEls.favoritesOnly.checked = resourceState.favoritesOnly;
   resourceEls.sort.value = resourceState.sort;
 }
 
@@ -3367,6 +3765,7 @@ function setupResourceControls() {
   [
     [resourceEls.search, "input", "search"],
     [resourceEls.region, "change", "region"],
+    [resourceEls.task, "change", "task"],
     [resourceEls.level, "change", "level"],
     [resourceEls.audience, "change", "audience"],
     [resourceEls.resourceType, "change", "resourceType"],
@@ -3386,18 +3785,26 @@ function setupResourceControls() {
     Object.assign(resourceState, {
       search: "",
       region: "全部",
+      task: "全部",
       level: "全部",
       audience: "全部",
       resourceType: "全部",
       category: "全部",
       language: "全部",
       accessType: "全部",
+      favoritesOnly: false,
       sort: "title-asc",
       page: 1,
     });
     resourceEls.search.value = "";
     populateResourceControls();
     resourceEls.sort.value = "title-asc";
+    renderResources();
+  });
+
+  resourceEls.favoritesOnly.addEventListener("change", (event) => {
+    resourceState.favoritesOnly = event.target.checked;
+    resourceState.page = 1;
     renderResources();
   });
 }
@@ -3415,6 +3822,7 @@ function promptSearchText(item) {
     item.prompt_cn,
     item.use_case_cn,
     item.source_title,
+    tasksForItem("prompt", item).join(" "),
   ]
     .join(" ")
     .toLowerCase();
@@ -3427,6 +3835,8 @@ function filteredPrompts() {
       return (
         (!query || promptSearchText(item).includes(query)) &&
         matchesField(item.subject, promptState.subject) &&
+        matchesTask("prompt", item, promptState.task) &&
+        matchesFavorite("prompt", item, promptState.favoritesOnly) &&
         matchesField(item.education_level, promptState.level) &&
         matchesField(item.prompt_type, promptState.promptType) &&
         matchesField(item.category, promptState.category) &&
@@ -3452,12 +3862,22 @@ function renderPromptCards(items) {
     topline.className = "case-topline";
     topline.append(createTag(item.prompt_type, "category"), createTag(item.subject), createTag(item.category, "source"));
 
+    const cardActions = document.createElement("div");
+    cardActions.className = "card-actions";
+    cardActions.append(createFavoriteButton("prompt", item));
+
     const title = document.createElement("h3");
     title.textContent = localizeText(item.title_cn);
 
     const summary = document.createElement("p");
     summary.className = "summary";
     summary.textContent = localizeText(item.use_case_cn);
+
+    const taskLine = document.createElement("div");
+    taskLine.className = "task-line";
+    tasksForItem("prompt", item)
+      .slice(0, 4)
+      .forEach((task) => taskLine.append(createTag(task)));
 
     const meta = document.createElement("dl");
     meta.className = "meta-list";
@@ -3495,7 +3915,7 @@ function renderPromptCards(items) {
     link.textContent = t("sourceLink");
 
     footer.append(source, link);
-    card.append(topline, title, summary, meta, promptBlock, footer);
+    card.append(topline, cardActions, title, summary, taskLine, meta, promptBlock, footer);
     promptEls.cards.append(card);
   });
 }
@@ -3531,17 +3951,20 @@ function renderPrompts() {
 
 function populatePromptControls() {
   fillSelect(promptEls.subject, uniqueValues(promptState.items, "subject"));
+  fillSelect(promptEls.task, uniqueTaskValues(promptState.items, "prompt"));
   fillSelect(promptEls.level, uniqueValues(promptState.items, "education_level"));
   fillSelect(promptEls.promptType, uniqueValues(promptState.items, "prompt_type"));
   fillSelect(promptEls.category, uniqueValues(promptState.items, "category"));
   fillSelect(promptEls.audience, uniqueValues(promptState.items, "audience"));
   fillSelect(promptEls.outputFormat, uniqueValues(promptState.items, "output_format"));
   promptEls.subject.value = promptState.subject;
+  promptEls.task.value = promptState.task;
   promptEls.level.value = promptState.level;
   promptEls.promptType.value = promptState.promptType;
   promptEls.category.value = promptState.category;
   promptEls.audience.value = promptState.audience;
   promptEls.outputFormat.value = promptState.outputFormat;
+  promptEls.favoritesOnly.checked = promptState.favoritesOnly;
   promptEls.sort.value = promptState.sort;
 }
 
@@ -3550,6 +3973,7 @@ function setupPromptControls() {
   [
     [promptEls.search, "input", "search"],
     [promptEls.subject, "change", "subject"],
+    [promptEls.task, "change", "task"],
     [promptEls.level, "change", "level"],
     [promptEls.promptType, "change", "promptType"],
     [promptEls.category, "change", "category"],
@@ -3568,17 +3992,25 @@ function setupPromptControls() {
     Object.assign(promptState, {
       search: "",
       subject: "全部",
+      task: "全部",
       level: "全部",
       promptType: "全部",
       category: "全部",
       audience: "全部",
       outputFormat: "全部",
+      favoritesOnly: false,
       sort: "subject-asc",
       page: 1,
     });
     promptEls.search.value = "";
     populatePromptControls();
     promptEls.sort.value = "subject-asc";
+    renderPrompts();
+  });
+
+  promptEls.favoritesOnly.addEventListener("change", (event) => {
+    promptState.favoritesOnly = event.target.checked;
+    promptState.page = 1;
     renderPrompts();
   });
 }

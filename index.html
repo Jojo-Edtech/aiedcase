@@ -58,7 +58,7 @@
 
     <main>
       <section class="view-panel" id="casesPanel" data-view-panel="cases">
-        <section class="dashboard" aria-label="案例库概览" data-i18n-aria-label="caseDashboardAria">
+        <section class="dashboard" aria-label="案例库概览" data-i18n-aria-label="caseDashboardAria" data-case-list-block>
           <div class="dashboard-stat">
             <span class="stat-value" id="totalCases">0</span>
             <span class="stat-label" data-i18n="casesCollected">已收录案例</span>
@@ -77,7 +77,7 @@
           </div>
         </section>
 
-        <section class="toolbar" aria-label="案例检索和筛选" data-i18n-aria-label="caseToolbarAria">
+        <section class="toolbar" aria-label="案例检索和筛选" data-i18n-aria-label="caseToolbarAria" data-case-list-block>
           <nav class="tabs" id="categoryTabs" aria-label="案例栏目" data-i18n-aria-label="caseCategoryAria"></nav>
 
           <div class="controls">
@@ -89,6 +89,11 @@
             <label class="field" for="subcategoryFilter">
               <span data-i18n="subcategory">细分方向</span>
               <select id="subcategoryFilter"></select>
+            </label>
+
+            <label class="field" for="caseTaskFilter">
+              <span data-i18n="teacherTask">教师任务</span>
+              <select id="caseTaskFilter"></select>
             </label>
 
             <label class="field" for="levelFilter">
@@ -126,23 +131,33 @@
               </select>
             </label>
 
+            <label class="field checkbox-field" for="favoriteCasesOnly">
+              <span data-i18n="favorites">收藏</span>
+              <span class="toggle-field">
+                <input id="favoriteCasesOnly" type="checkbox">
+                <span data-i18n="favoritesOnly">只看收藏</span>
+              </span>
+            </label>
+
             <button class="button button-secondary" id="resetFilters" type="button" data-i18n="reset">重置</button>
           </div>
         </section>
 
-        <section class="results-header" aria-live="polite">
+        <section class="case-detail" id="caseDetail" aria-live="polite" hidden></section>
+
+        <section class="results-header" aria-live="polite" data-case-list-block>
           <div>
             <h2 id="resultsTitle">全部案例</h2>
             <p id="resultsMeta" data-i18n="loadingCases">正在读取案例数据...</p>
           </div>
         </section>
 
-        <section class="case-grid" id="cases" aria-label="案例列表" data-i18n-aria-label="caseListAria"></section>
-        <section class="empty-state" id="emptyState" hidden>
+        <section class="case-grid" id="cases" aria-label="案例列表" data-i18n-aria-label="caseListAria" data-case-list-block></section>
+        <section class="empty-state" id="emptyState" hidden data-case-list-block>
           <h2 data-i18n="noCasesTitle">没有找到匹配案例</h2>
           <p data-i18n="noCasesCopy">试试减少筛选条件，或换一个关键词。</p>
         </section>
-        <nav class="pagination" id="casePagination" aria-label="案例分页" data-i18n-aria-label="casePaginationAria" hidden></nav>
+        <nav class="pagination" id="casePagination" aria-label="案例分页" data-i18n-aria-label="casePaginationAria" hidden data-case-list-block></nav>
       </section>
 
       <section class="view-panel" id="resourcesPanel" data-view-panel="resources" hidden>
@@ -175,6 +190,11 @@
             <label class="field" for="resourceRegionFilter">
               <span data-i18n="region">地区</span>
               <select id="resourceRegionFilter"></select>
+            </label>
+
+            <label class="field" for="resourceTaskFilter">
+              <span data-i18n="teacherTask">教师任务</span>
+              <select id="resourceTaskFilter"></select>
             </label>
 
             <label class="field" for="resourceLevelFilter">
@@ -216,6 +236,14 @@
                 <option value="date-asc">发布日期：旧到新</option>
                 <option value="publisher-asc">发布机构：A-Z</option>
               </select>
+            </label>
+
+            <label class="field checkbox-field" for="favoriteResourcesOnly">
+              <span data-i18n="favorites">收藏</span>
+              <span class="toggle-field">
+                <input id="favoriteResourcesOnly" type="checkbox">
+                <span data-i18n="favoritesOnly">只看收藏</span>
+              </span>
             </label>
 
             <button class="button button-secondary" id="resourceResetFilters" type="button" data-i18n="reset">重置</button>
@@ -269,6 +297,11 @@
               <select id="promptSubjectFilter"></select>
             </label>
 
+            <label class="field" for="promptTaskFilter">
+              <span data-i18n="teacherTask">教师任务</span>
+              <select id="promptTaskFilter"></select>
+            </label>
+
             <label class="field" for="promptLevelFilter">
               <span data-i18n="educationLevel">学段</span>
               <select id="promptLevelFilter"></select>
@@ -301,6 +334,14 @@
                 <option value="type-asc">类型：A-Z</option>
                 <option value="title-asc">标题：A-Z</option>
               </select>
+            </label>
+
+            <label class="field checkbox-field" for="favoritePromptsOnly">
+              <span data-i18n="favorites">收藏</span>
+              <span class="toggle-field">
+                <input id="favoritePromptsOnly" type="checkbox">
+                <span data-i18n="favoritesOnly">只看收藏</span>
+              </span>
             </label>
 
             <button class="button button-secondary" id="promptResetFilters" type="button" data-i18n="reset">重置</button>
