@@ -3157,6 +3157,8 @@ function setupViewTabs() {
     tab.addEventListener("click", (event) => {
       event.preventDefault();
       caseDetailState.activeId = "";
+      document.body.classList.remove("detail-open");
+      caseEls.detail.hidden = true;
       setActiveView(tab.dataset.view);
       if (tab.dataset.view === "cases") renderCases();
     });
@@ -3175,6 +3177,8 @@ function handleHashChange() {
   }
 
   caseDetailState.activeId = "";
+  document.body.classList.remove("detail-open");
+  caseEls.detail.hidden = true;
   setActiveView(hash || "cases", false);
   if (viewState.active === "cases") renderCases();
 }
@@ -3258,11 +3262,11 @@ function openCaseDetail(caseId, updateHash = true) {
   if (updateHash) {
     history.replaceState(null, "", `#case=${encodeURIComponent(caseDetailState.activeId)}`);
   }
-  caseEls.detail.scrollIntoView({ block: "start", behavior: "smooth" });
 }
 
 function closeCaseDetail(updateHash = true) {
   caseDetailState.activeId = "";
+  document.body.classList.remove("detail-open");
   caseEls.detail.hidden = true;
   caseEls.detail.innerHTML = "";
   caseEls.listBlocks.forEach((block) => {
@@ -3275,6 +3279,7 @@ function closeCaseDetail(updateHash = true) {
 }
 
 function renderCaseDetail(caseId) {
+  document.body.classList.add("detail-open");
   caseEls.listBlocks.forEach((block) => {
     block.hidden = true;
   });
@@ -3457,8 +3462,11 @@ function renderCaseCards(items) {
       event.preventDefault();
       openCaseDetail(item.id);
     });
+    const links = document.createElement("div");
+    links.className = "card-links";
+    links.append(detailLink, link);
 
-    footer.append(date, detailLink, link);
+    footer.append(date, links);
     card.append(topline, cardActions, title, original, summary, taskLine, meta, workflowBlock, footer);
     caseEls.cards.append(card);
   });
@@ -3497,6 +3505,7 @@ function renderCases() {
     renderCaseDetail(caseDetailState.activeId);
     return;
   }
+  document.body.classList.remove("detail-open");
   caseEls.detail.hidden = true;
   caseEls.listBlocks.forEach((block) => {
     block.hidden = false;
@@ -3703,8 +3712,11 @@ function renderResourceCards(items) {
     link.target = "_blank";
     link.rel = "noreferrer";
     link.textContent = t("openResource");
+    const links = document.createElement("div");
+    links.className = "card-links";
+    links.append(link);
 
-    footer.append(date, link);
+    footer.append(date, links);
     card.append(topline, cardActions, title, original, summary, taskLine, meta, useBlock, footer);
     resourceEls.cards.append(card);
   });
@@ -3913,8 +3925,11 @@ function renderPromptCards(items) {
     link.target = "_blank";
     link.rel = "noreferrer";
     link.textContent = t("sourceLink");
+    const links = document.createElement("div");
+    links.className = "card-links";
+    links.append(link);
 
-    footer.append(source, link);
+    footer.append(source, links);
     card.append(topline, cardActions, title, summary, taskLine, meta, promptBlock, footer);
     promptEls.cards.append(card);
   });

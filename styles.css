@@ -101,10 +101,10 @@ h1 {
 }
 
 .site-nav {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 6px;
-  width: fit-content;
+  width: min(100%, 860px);
   margin-top: 22px;
   padding: 6px;
   background: #f1f6f0;
@@ -117,7 +117,7 @@ h1 {
   position: relative;
   display: grid;
   align-content: center;
-  min-width: 158px;
+  min-width: 0;
   min-height: 66px;
   padding: 9px 16px 10px;
   border: 1px solid transparent;
@@ -145,6 +145,7 @@ h1 {
 .nav-tab-title {
   font-size: 1.04rem;
   line-height: 1.2;
+  white-space: nowrap;
 }
 
 .nav-tab-meta {
@@ -152,6 +153,7 @@ h1 {
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 750;
+  white-space: nowrap;
 }
 
 .site-nav a[aria-current="page"] .nav-tab-meta {
@@ -555,10 +557,10 @@ a:focus-visible {
 }
 
 .card-footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 12px;
   margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid var(--line);
@@ -566,12 +568,26 @@ a:focus-visible {
 
 .date {
   color: var(--muted);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  min-width: 0;
+  word-break: keep-all;
+}
+
+.card-links {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
 }
 
 .source-link {
+  display: inline-flex;
+  align-items: center;
   font-weight: 750;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .source-link:hover {
@@ -580,15 +596,29 @@ a:focus-visible {
 
 .case-detail {
   display: grid;
+  align-content: start;
   gap: 14px;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  padding: 24px;
+  overflow: auto;
+  background: rgba(247, 246, 240, 0.96);
+  backdrop-filter: blur(4px);
 }
 
 .case-detail[hidden] {
   display: none;
 }
 
+.detail-open {
+  overflow: hidden;
+}
+
 .detail-header,
 .detail-card {
+  width: min(980px, 100%);
+  margin: 0 auto;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -790,12 +820,13 @@ code {
   }
 
   .site-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     width: 100%;
   }
 
   .site-nav a {
-    flex: 1 1 150px;
-    min-width: 0;
+    min-height: 62px;
+    padding-inline: 12px;
   }
 
   .dashboard,
@@ -844,7 +875,25 @@ code {
   }
 
   .card-footer {
+    grid-template-columns: 1fr;
     align-items: flex-start;
-    flex-direction: column;
+  }
+
+  .card-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .case-detail {
+    padding: 12px;
+  }
+
+  .nav-tab-title {
+    font-size: 0.96rem;
+  }
+
+  .nav-tab-meta {
+    font-size: 0.74rem;
   }
 }
