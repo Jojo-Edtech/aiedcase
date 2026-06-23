@@ -102,6 +102,9 @@ const TEXT = {
     promptTemplates: "Prompt 模板",
     subjectsOrTopics: "学科/主题",
     promptTypes: "Prompt 类型",
+    promptTaskLauncherAria: "教师任务入口",
+    promptTaskLauncherEyebrow: "Teacher Workflows",
+    promptTaskLauncherTitle: "我要做什么",
     promptToolbarAria: "Prompt 检索和筛选",
     promptSearchPlaceholder: "搜索学科、用途、Prompt 内容或来源",
     subject: "学科",
@@ -133,6 +136,7 @@ const TEXT = {
     useCase: "适用方式",
     promptCopyTitle: "可复制 Prompt",
     copyPrompt: "复制 Prompt",
+    promptVariables: "输入变量",
     published: "发布",
     accessed: "访问",
     viewSource: "查看来源",
@@ -247,6 +251,9 @@ const TEXT = {
     promptTemplates: "Prompt templates",
     subjectsOrTopics: "Subjects / topics",
     promptTypes: "Prompt types",
+    promptTaskLauncherAria: "Teacher task entry",
+    promptTaskLauncherEyebrow: "Teacher Workflows",
+    promptTaskLauncherTitle: "What do you want to make?",
     promptToolbarAria: "Prompt search and filters",
     promptSearchPlaceholder: "Search subjects, uses, prompt text or sources",
     subject: "Subject",
@@ -278,6 +285,7 @@ const TEXT = {
     useCase: "How to use",
     promptCopyTitle: "Copy-ready prompt",
     copyPrompt: "Copy prompt",
+    promptVariables: "Inputs",
     published: "Published",
     accessed: "Accessed",
     viewSource: "View source",
@@ -385,6 +393,16 @@ const VALUE_EN = {
   资源规划: "Resource planning",
   "行政与教学管理": "Admin and teaching management",
   "研究与政策": "Research and policy",
+  生成学习单: "Create worksheets",
+  设计课堂活动: "Design activities",
+  制作评价量规: "Make rubrics",
+  改写分层材料: "Differentiate materials",
+  设计AI素养课: "Plan AI literacy",
+  做项目学习: "Plan projects",
+  支持个别学生: "Support students",
+  写家校沟通: "Family messages",
+  找教学案例: "Find cases",
+  找教材资源: "Find resources",
   通用备课: "General lesson planning",
   通用单元设计: "General unit design",
   通用课堂活动: "General classroom activity",
@@ -2545,6 +2563,19 @@ const TASK_RULES = [
   ["学生支持", ["学生支持", "分层", "差异化", "tutoring", "support", "scaffold"]],
 ];
 
+const PROMPT_SHORTCUTS = [
+  { label: "生成学习单", promptType: "教材生成", task: "学习单/教材" },
+  { label: "设计课堂活动", promptType: "课堂活动", task: "课堂活动" },
+  { label: "制作评价量规", promptType: "评价反馈", task: "评价反馈" },
+  { label: "改写分层材料", promptType: "差异化支持", task: "学生支持" },
+  { label: "设计AI素养课", category: "AI Literacy", subject: "AI素养" },
+  { label: "做项目学习", promptType: "项目学习", task: "项目学习" },
+  { label: "支持个别学生", promptType: "学生支持", task: "学生支持" },
+  { label: "写家校沟通", promptType: "家校沟通", task: "家校沟通" },
+  { label: "找教学案例", view: "cases" },
+  { label: "找教材资源", view: "resources" },
+];
+
 const viewState = {
   active: "cases",
 };
@@ -2676,6 +2707,7 @@ const resourceEls = {
 const promptEls = {
   cards: document.querySelector("#prompts"),
   empty: document.querySelector("#promptEmptyState"),
+  shortcuts: document.querySelector("#promptTaskShortcuts"),
   search: document.querySelector("#promptSearchInput"),
   subject: document.querySelector("#promptSubjectFilter"),
   task: document.querySelector("#promptTaskFilter"),
@@ -2800,6 +2832,7 @@ function refreshLanguage() {
   updateLanguageOptions();
   applyStaticTranslations();
   renderSortOptions();
+  renderPromptShortcuts();
   if (caseState.items.length > 0) {
     populateCaseControls();
     renderCaseStats();
@@ -3181,6 +3214,71 @@ function handleHashChange() {
   caseEls.detail.hidden = true;
   setActiveView(hash || "cases", false);
   if (viewState.active === "cases") renderCases();
+}
+
+function resetPromptFilters(overrides = {}) {
+  Object.assign(promptState, {
+    search: "",
+    subject: "全部",
+    task: "全部",
+    level: "全部",
+    promptType: "全部",
+    category: "全部",
+    audience: "全部",
+    outputFormat: "全部",
+    favoritesOnly: false,
+    sort: "subject-asc",
+    page: 1,
+    ...overrides,
+  });
+  promptEls.search.value = "";
+  populatePromptControls();
+  promptEls.sort.value = promptState.sort;
+}
+
+function applyPromptShortcut(shortcut) {
+  if (shortcut.view === "cases") {
+    caseDetailState.activeId = "";
+    document.body.classList.remove("detail-open");
+    caseEls.detail.hidden = true;
+    setActiveView("cases");
+    renderCases();
+    caseEls.cards.scrollIntoView({ block: "start", behavior: "smooth" });
+    return;
+  }
+
+  if (shortcut.view === "resources") {
+    setActiveView("resources");
+    renderResources();
+    resourceEls.cards.scrollIntoView({ block: "start", behavior: "smooth" });
+    return;
+  }
+
+  resetPromptFilters({
+    subject: shortcut.subject || "全部",
+    task: shortcut.task || "全部",
+    promptType: shortcut.promptType || "全部",
+    category: shortcut.category || "全部",
+  });
+  renderPrompts();
+  promptEls.cards.scrollIntoView({ block: "start", behavior: "smooth" });
+}
+
+function renderPromptShortcuts() {
+  promptEls.shortcuts.innerHTML = "";
+  PROMPT_SHORTCUTS.forEach((shortcut) => {
+    const button = document.createElement("button");
+    button.className = "task-shortcut";
+    button.type = "button";
+    button.textContent = localizeValue(shortcut.label);
+    button.addEventListener("click", () => applyPromptShortcut(shortcut));
+    promptEls.shortcuts.append(button);
+  });
+}
+
+function promptVariables(text) {
+  return [...new Set([...String(text || "").matchAll(/\[([^\]]+)\]/g)].map((match) => match[1].trim()).filter(Boolean))]
+    .slice(0, 8);
 }
 
 function caseSearchText(item) {
@@ -3885,6 +3983,14 @@ function renderPromptCards(items) {
     summary.className = "summary";
     summary.textContent = localizeText(item.use_case_cn);
 
+    const variableLine = document.createElement("div");
+    variableLine.className = "prompt-variable-line";
+    const variableLabel = document.createElement("span");
+    variableLabel.className = "prompt-variable-label";
+    variableLabel.textContent = t("promptVariables");
+    variableLine.append(variableLabel);
+    promptVariables(item.prompt_cn).forEach((variable) => variableLine.append(createTag(localizeText(variable))));
+
     const taskLine = document.createElement("div");
     taskLine.className = "task-line";
     tasksForItem("prompt", item)
@@ -3930,7 +4036,7 @@ function renderPromptCards(items) {
     links.append(link);
 
     footer.append(source, links);
-    card.append(topline, cardActions, title, summary, taskLine, meta, promptBlock, footer);
+    card.append(topline, cardActions, title, summary, variableLine, taskLine, meta, promptBlock, footer);
     promptEls.cards.append(card);
   });
 }
@@ -4004,22 +4110,7 @@ function setupPromptControls() {
   });
 
   promptEls.reset.addEventListener("click", () => {
-    Object.assign(promptState, {
-      search: "",
-      subject: "全部",
-      task: "全部",
-      level: "全部",
-      promptType: "全部",
-      category: "全部",
-      audience: "全部",
-      outputFormat: "全部",
-      favoritesOnly: false,
-      sort: "subject-asc",
-      page: 1,
-    });
-    promptEls.search.value = "";
-    populatePromptControls();
-    promptEls.sort.value = "subject-asc";
+    resetPromptFilters();
     renderPrompts();
   });
 
