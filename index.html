@@ -493,6 +493,49 @@
                 <pre id="agreementOutput"></pre>
               </div>
             </article>
+
+            <article class="tool-card">
+              <div class="tool-card-header">
+                <div>
+                  <p class="eyebrow" data-i18n="toolSpecialistEyebrow">Quick Tools</p>
+                  <h3 data-i18n="toolSpecialistTitle">专项模板生成器</h3>
+                </div>
+              </div>
+              <div class="tool-form">
+                <label>
+                  <span data-i18n="toolSpecialistType">专项任务</span>
+                  <select id="specialToolType"></select>
+                </label>
+                <label>
+                  <span data-i18n="toolSubjectInput">学科</span>
+                  <input id="specialSubject" type="text" value="英语">
+                </label>
+                <label>
+                  <span data-i18n="toolLevelInput">学段</span>
+                  <input id="specialLevel" type="text" value="中学">
+                </label>
+                <label>
+                  <span data-i18n="toolSpecialistGoal">学习目标</span>
+                  <input id="specialGoal" type="text" placeholder="例如：能用证据支持观点" data-i18n-placeholder="toolSpecialistGoalPlaceholder">
+                </label>
+                <label class="tool-form-wide">
+                  <span data-i18n="toolSpecialistMaterial">原始材料 / 学生作品</span>
+                  <textarea id="specialMaterial" rows="3" placeholder="粘贴课文、题目、学生作品片段或任务说明" data-i18n-placeholder="toolSpecialistMaterialPlaceholder"></textarea>
+                </label>
+                <label class="tool-form-wide">
+                  <span data-i18n="toolSpecialistConstraints">约束条件</span>
+                  <textarea id="specialConstraints" rows="2" placeholder="例如：语气鼓励、三档难度、不要直接给答案" data-i18n-placeholder="toolSpecialistConstraintsPlaceholder"></textarea>
+                </label>
+                <button class="button button-primary tool-form-wide" id="toolGenerateSpecial" type="button" data-i18n="toolGenerateSpecial">生成专项 Prompt</button>
+              </div>
+              <div class="tool-output">
+                <div class="workflow-header">
+                  <h4 data-i18n="toolOutputTitle">可复制结果</h4>
+                  <button class="copy-button" id="toolCopySpecial" type="button" data-i18n="toolCopySpecial">复制专项 Prompt</button>
+                </div>
+                <pre id="specialOutput"></pre>
+              </div>
+            </article>
           </div>
         </section>
       </section>

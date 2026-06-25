@@ -150,6 +150,17 @@ const TEXT = {
     toolPrivacyRule: "隐私规则",
     toolGenerateAgreement: "生成守则",
     toolCopyAgreement: "复制守则",
+    toolSpecialistEyebrow: "Quick Tools",
+    toolSpecialistTitle: "专项模板生成器",
+    toolSpecialistType: "专项任务",
+    toolSpecialistGoal: "学习目标",
+    toolSpecialistMaterial: "原始材料 / 学生作品",
+    toolSpecialistConstraints: "约束条件",
+    toolSpecialistGoalPlaceholder: "例如：能用证据支持观点",
+    toolSpecialistMaterialPlaceholder: "粘贴课文、题目、学生作品片段或任务说明",
+    toolSpecialistConstraintsPlaceholder: "例如：语气鼓励、三档难度、不要直接给答案",
+    toolGenerateSpecial: "生成专项 Prompt",
+    toolCopySpecial: "复制专项 Prompt",
     assistantAria: "AI 助手",
     assistantEyebrow: "RAG Research Assistant",
     openModelScope: "打开魔搭应用",
@@ -334,6 +345,17 @@ const TEXT = {
     toolPrivacyRule: "Privacy rule",
     toolGenerateAgreement: "Generate rules",
     toolCopyAgreement: "Copy rules",
+    toolSpecialistEyebrow: "Quick Tools",
+    toolSpecialistTitle: "Specialized Template Generator",
+    toolSpecialistType: "Task type",
+    toolSpecialistGoal: "Learning goal",
+    toolSpecialistMaterial: "Source material / student work",
+    toolSpecialistConstraints: "Constraints",
+    toolSpecialistGoalPlaceholder: "e.g. support claims with evidence",
+    toolSpecialistMaterialPlaceholder: "Paste a text, question, student work sample or task brief",
+    toolSpecialistConstraintsPlaceholder: "e.g. encouraging tone, three difficulty levels, do not give direct answers",
+    toolGenerateSpecial: "Generate specialized prompt",
+    toolCopySpecial: "Copy specialized prompt",
     assistantAria: "AI assistant",
     assistantEyebrow: "RAG Research Assistant",
     openModelScope: "Open ModelScope app",
@@ -474,6 +496,12 @@ const VALUE_EN = {
   不输入个人资料: "No personal data",
   只输入匿名资料: "Anonymous data only",
   可输入课堂材料: "Classroom materials allowed",
+  评价量规: "Rubric",
+  分层改写: "Differentiated rewrite",
+  反馈语: "Feedback comments",
+  家校沟通: "Family-school message",
+  课堂提问: "Classroom questions",
+  "退出卡/小测": "Exit ticket / quiz",
   生成学习单: "Create worksheets",
   设计课堂活动: "Design activities",
   制作评价量规: "Make rubrics",
@@ -2673,6 +2701,7 @@ const TOOL_LANGUAGE_OPTIONS = ["中文", "英文", "双语"];
 const AGREEMENT_ALLOWED_OPTIONS = ["保守使用", "开放使用"];
 const AGREEMENT_ASSESSMENT_OPTIONS = ["只作过程支持", "可计入过程证据", "不计入成绩"];
 const AGREEMENT_PRIVACY_OPTIONS = ["不输入个人资料", "只输入匿名资料", "可输入课堂材料"];
+const SPECIAL_TOOL_OPTIONS = ["评价量规", "分层改写", "反馈语", "家校沟通", "课堂提问", "退出卡/小测"];
 
 const viewState = {
   active: "cases",
@@ -2860,6 +2889,15 @@ const toolkitEls = {
   generateAgreement: document.querySelector("#toolGenerateAgreement"),
   copyAgreement: document.querySelector("#toolCopyAgreement"),
   agreementOutput: document.querySelector("#agreementOutput"),
+  specialType: document.querySelector("#specialToolType"),
+  specialSubject: document.querySelector("#specialSubject"),
+  specialLevel: document.querySelector("#specialLevel"),
+  specialGoal: document.querySelector("#specialGoal"),
+  specialMaterial: document.querySelector("#specialMaterial"),
+  specialConstraints: document.querySelector("#specialConstraints"),
+  generateSpecial: document.querySelector("#toolGenerateSpecial"),
+  copySpecial: document.querySelector("#toolCopySpecial"),
+  specialOutput: document.querySelector("#specialOutput"),
 };
 
 function initialLanguage() {
@@ -2959,6 +2997,7 @@ function renderToolkitOptions() {
   fillOptions(toolkitEls.agreementAllowed, AGREEMENT_ALLOWED_OPTIONS);
   fillOptions(toolkitEls.agreementAssessment, AGREEMENT_ASSESSMENT_OPTIONS);
   fillOptions(toolkitEls.agreementPrivacy, AGREEMENT_PRIVACY_OPTIONS);
+  fillOptions(toolkitEls.specialType, SPECIAL_TOOL_OPTIONS);
 }
 
 function refreshLanguage() {
@@ -2971,6 +3010,7 @@ function refreshLanguage() {
   renderTeacherPrompt();
   renderSavedPack();
   renderAgreement();
+  renderSpecialistPrompt();
   if (caseState.items.length > 0) {
     populateCaseControls();
     renderCaseStats();
@@ -3539,6 +3579,61 @@ function renderAgreement() {
   toolkitEls.agreementOutput.textContent = buildAgreement();
 }
 
+function specialistInstruction(type) {
+  const instructions = {
+    评价量规:
+      "请生成一个 4 档评价量规表，包含评价维度、优秀、良好、达标、需改进四列；每个描述都要可观察、可判断。最后补充 3 条学生自评问题。",
+    分层改写:
+      "请把任务改写成基础版、标准版和挑战版三档，每一档都保留同一个核心目标。每档给出任务说明、支架提示、预期产出和教师巡视关注点。",
+    反馈语:
+      "请生成可直接给学生的反馈语，按“肯定亮点、指出一个可改进点、给出下一步行动”组织。语气要具体、鼓励、不替学生完成答案。",
+    家校沟通:
+      "请生成一段可发给家长的沟通文字，结构为：学习表现、AI 使用说明、家庭支持建议、需要家长配合的一件小事。语气简洁、专业、不制造焦虑。",
+    课堂提问:
+      "请设计一组课堂提问，按回忆理解、分析比较、应用迁移、反思判断四层排列。每个问题都给一个追问和一个可能的学生困难提示。",
+    "退出卡/小测":
+      "请设计一个 5 分钟退出卡或小测，包含 3-5 题、参考答案、常见误区和教师下一节课可采取的跟进动作。",
+  };
+  return instructions[type] || instructions.评价量规;
+}
+
+function buildSpecialistPrompt() {
+  const type = valueOrPlaceholder(toolkitEls.specialType.value, "评价量规");
+  const subject = valueOrPlaceholder(toolkitEls.specialSubject.value, "你的学科");
+  const level = valueOrPlaceholder(toolkitEls.specialLevel.value, "你的学段");
+  const goal = valueOrPlaceholder(toolkitEls.specialGoal.value, "你的学习目标");
+  const material = valueOrPlaceholder(toolkitEls.specialMaterial.value, "我会在这里粘贴原始材料、题目、学生作品或任务说明。");
+  const constraints = valueOrPlaceholder(toolkitEls.specialConstraints.value, "请保证内容适合真实课堂使用，语言清楚，不直接代替学生完成学习任务。");
+
+  return localizeText(
+    [
+      "你是一名有经验的一线教师和教学设计顾问。请根据以下信息生成可直接使用的教学支持材料。",
+      "",
+      `专项任务：${type}`,
+      `学科：${subject}`,
+      `学段：${level}`,
+      `学习目标：${goal}`,
+      `约束条件：${constraints}`,
+      "",
+      "原始材料 / 学生作品 / 任务说明：",
+      material,
+      "",
+      "输出要求：",
+      specialistInstruction(type),
+      "",
+      "请额外给出：",
+      "1. 教师使用建议：说明这份材料适合放在课前、课中还是课后。",
+      "2. AI 使用边界：提醒哪些部分可以让学生借助 AI，哪些部分必须由学生自己完成。",
+      "3. 快速修改入口：列出 3 个老师可以替换的变量，方便改成其他班级或主题。",
+    ].join("\n")
+  );
+}
+
+function renderSpecialistPrompt() {
+  if (!toolkitEls.specialOutput) return;
+  toolkitEls.specialOutput.textContent = buildSpecialistPrompt();
+}
+
 function setupDynamicCopy(button, output, defaultLabelKey) {
   if (!button || !output) return;
   button.addEventListener("click", async () => {
@@ -3560,6 +3655,7 @@ function setupToolkit() {
   renderTeacherPrompt();
   renderSavedPack();
   renderAgreement();
+  renderSpecialistPrompt();
 
   [
     toolkitEls.task,
@@ -3586,9 +3682,22 @@ function setupToolkit() {
     element?.addEventListener("change", renderAgreement);
   });
   toolkitEls.generateAgreement?.addEventListener("click", renderAgreement);
+  [
+    toolkitEls.specialType,
+    toolkitEls.specialSubject,
+    toolkitEls.specialLevel,
+    toolkitEls.specialGoal,
+    toolkitEls.specialMaterial,
+    toolkitEls.specialConstraints,
+  ].forEach((element) => {
+    element?.addEventListener("input", renderSpecialistPrompt);
+    element?.addEventListener("change", renderSpecialistPrompt);
+  });
+  toolkitEls.generateSpecial?.addEventListener("click", renderSpecialistPrompt);
   setupDynamicCopy(toolkitEls.copyPrompt, toolkitEls.promptOutput, "copyPrompt");
   setupDynamicCopy(toolkitEls.copySaved, toolkitEls.savedOutput, "toolCopySaved");
   setupDynamicCopy(toolkitEls.copyAgreement, toolkitEls.agreementOutput, "toolCopyAgreement");
+  setupDynamicCopy(toolkitEls.copySpecial, toolkitEls.specialOutput, "toolCopySpecial");
 }
 
 function resetPromptFilters(overrides = {}) {
