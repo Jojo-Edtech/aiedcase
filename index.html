@@ -33,6 +33,10 @@
               <span class="nav-tab-title" data-i18n="tabPrompts">Prompt 模板</span>
               <span class="nav-tab-meta" id="promptTabCount">0 个 Prompt</span>
             </a>
+            <a href="#toolkit" data-view="toolkit">
+              <span class="nav-tab-title" data-i18n="tabToolkit">教师工具</span>
+              <span class="nav-tab-meta" data-i18n="toolkitTabStatus">可复制</span>
+            </a>
             <a href="#assistant" data-view="assistant">
               <span class="nav-tab-title" data-i18n="tabAssistant">AI 助手</span>
               <span class="nav-tab-meta" id="assistantTabStatus">有限额试用</span>
@@ -369,6 +373,128 @@
           <p data-i18n="noPromptsCopy">试试减少筛选条件，或换一个关键词。</p>
         </section>
         <nav class="pagination" id="promptPagination" aria-label="Prompt 分页" data-i18n-aria-label="promptPaginationAria" hidden></nav>
+      </section>
+
+      <section class="view-panel" id="toolkitPanel" data-view-panel="toolkit" hidden>
+        <section class="toolkit-shell" aria-label="教师 AI 工具箱" data-i18n-aria-label="toolkitAria">
+          <div class="toolkit-hero">
+            <div>
+              <p class="eyebrow" data-i18n="toolkitEyebrow">Teacher AI Toolkit</p>
+              <h2 data-i18n="toolkitTitle">教师 AI 工具箱</h2>
+            </div>
+            <span class="toolkit-status" data-i18n="toolkitStatusNoApi">本地生成，不消耗 API</span>
+          </div>
+
+          <div class="toolkit-grid">
+            <article class="tool-card">
+              <div class="tool-card-header">
+                <div>
+                  <p class="eyebrow" data-i18n="toolPromptMakerEyebrow">Prompt Builder</p>
+                  <h3 data-i18n="toolPromptMakerTitle">教学 Prompt 生成器</h3>
+                </div>
+              </div>
+              <div class="tool-form">
+                <label>
+                  <span data-i18n="toolTask">教师任务</span>
+                  <select id="toolTask"></select>
+                </label>
+                <label>
+                  <span data-i18n="toolSubjectInput">学科</span>
+                  <input id="toolSubject" type="text" value="英语">
+                </label>
+                <label>
+                  <span data-i18n="toolLevelInput">学段</span>
+                  <input id="toolLevel" type="text" value="中学">
+                </label>
+                <label>
+                  <span data-i18n="toolTopicInput">主题</span>
+                  <input id="toolTopic" type="text" placeholder="例如：二次函数、英文议论文、生态系统" data-i18n-placeholder="toolTopicPlaceholder">
+                </label>
+                <label>
+                  <span data-i18n="toolDuration">课堂时间</span>
+                  <input id="toolDuration" type="text" value="40 分钟">
+                </label>
+                <label>
+                  <span data-i18n="toolOutputLanguage">输出语言</span>
+                  <select id="toolLanguage"></select>
+                </label>
+                <label>
+                  <span data-i18n="toolAiTool">AI 工具</span>
+                  <input id="toolAiTool" type="text" value="通用生成式 AI">
+                </label>
+                <label class="tool-form-wide">
+                  <span data-i18n="toolStudentNeeds">学生情况</span>
+                  <textarea id="toolStudentNeeds" rows="3" placeholder="例如：基础差异大、需要双语支持、班上有高能力学生" data-i18n-placeholder="toolNeedsPlaceholder"></textarea>
+                </label>
+                <button class="button button-primary tool-form-wide" id="toolGeneratePrompt" type="button" data-i18n="toolGenerate">生成</button>
+              </div>
+              <div class="tool-output">
+                <div class="workflow-header">
+                  <h4 data-i18n="toolOutputTitle">可复制结果</h4>
+                  <button class="copy-button" id="toolCopyPrompt" type="button" data-i18n="copyPrompt">复制 Prompt</button>
+                </div>
+                <pre id="toolPromptOutput"></pre>
+              </div>
+            </article>
+
+            <article class="tool-card">
+              <div class="tool-card-header">
+                <div>
+                  <p class="eyebrow" data-i18n="toolSavedPackEyebrow">Lesson Pack</p>
+                  <h3 data-i18n="toolSavedPackTitle">收藏备课包导出</h3>
+                </div>
+              </div>
+              <div class="saved-pack-stats">
+                <span><strong id="savedCasesCount">0</strong><span data-i18n="toolSavedCases">案例</span></span>
+                <span><strong id="savedResourcesCount">0</strong><span data-i18n="toolSavedResources">资源</span></span>
+                <span><strong id="savedPromptsCount">0</strong><span data-i18n="toolSavedPrompts">Prompt</span></span>
+              </div>
+              <button class="button button-secondary" id="toolExportSaved" type="button" data-i18n="toolExportSaved">生成收藏清单</button>
+              <div class="tool-output">
+                <div class="workflow-header">
+                  <h4 data-i18n="toolOutputTitle">可复制结果</h4>
+                  <button class="copy-button" id="toolCopySaved" type="button" data-i18n="toolCopySaved">复制清单</button>
+                </div>
+                <pre id="savedPackOutput"></pre>
+              </div>
+            </article>
+
+            <article class="tool-card">
+              <div class="tool-card-header">
+                <div>
+                  <p class="eyebrow" data-i18n="toolAgreementEyebrow">AI Rules</p>
+                  <h3 data-i18n="toolAgreementTitle">课堂 AI 使用守则</h3>
+                </div>
+              </div>
+              <div class="tool-form">
+                <label>
+                  <span data-i18n="toolLevelInput">学段</span>
+                  <input id="agreementLevel" type="text" value="中学">
+                </label>
+                <label>
+                  <span data-i18n="toolAllowedUse">允许用途</span>
+                  <select id="agreementAllowed"></select>
+                </label>
+                <label>
+                  <span data-i18n="toolAssessmentRule">评价规则</span>
+                  <select id="agreementAssessment"></select>
+                </label>
+                <label>
+                  <span data-i18n="toolPrivacyRule">隐私规则</span>
+                  <select id="agreementPrivacy"></select>
+                </label>
+                <button class="button button-primary tool-form-wide" id="toolGenerateAgreement" type="button" data-i18n="toolGenerateAgreement">生成守则</button>
+              </div>
+              <div class="tool-output">
+                <div class="workflow-header">
+                  <h4 data-i18n="toolOutputTitle">可复制结果</h4>
+                  <button class="copy-button" id="toolCopyAgreement" type="button" data-i18n="toolCopyAgreement">复制守则</button>
+                </div>
+                <pre id="agreementOutput"></pre>
+              </div>
+            </article>
+          </div>
+        </section>
       </section>
 
       <section class="view-panel" id="assistantPanel" data-view-panel="assistant" hidden>

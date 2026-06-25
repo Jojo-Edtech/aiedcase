@@ -5,7 +5,7 @@ const DATA_URLS = {
   prompts: "data/prompts.csv",
 };
 const RAG_CONFIG_URL = "data/rag-config.json";
-const VIEWS = ["cases", "resources", "prompts", "assistant"];
+const VIEWS = ["cases", "resources", "prompts", "toolkit", "assistant"];
 
 const CATEGORIES = [
   "AI Literacy",
@@ -45,6 +45,8 @@ const TEXT = {
     tabCases: "教学案例",
     tabResources: "教材资源",
     tabPrompts: "Prompt 模板",
+    tabToolkit: "教师工具",
+    toolkitTabStatus: "可复制",
     tabAssistant: "AI 助手",
     assistantStatusTrial: "有限额试用",
     assistantStatusPending: "待连接",
@@ -115,6 +117,39 @@ const TEXT = {
     noPromptsTitle: "没有找到匹配 Prompt",
     noPromptsCopy: "试试减少筛选条件，或换一个关键词。",
     promptPaginationAria: "Prompt 分页",
+    toolkitAria: "教师 AI 工具箱",
+    toolkitEyebrow: "Teacher AI Toolkit",
+    toolkitTitle: "教师 AI 工具箱",
+    toolkitStatusNoApi: "本地生成，不消耗 API",
+    toolPromptMakerEyebrow: "Prompt Builder",
+    toolPromptMakerTitle: "教学 Prompt 生成器",
+    toolTask: "教师任务",
+    toolSubjectInput: "学科",
+    toolLevelInput: "学段",
+    toolTopicInput: "主题",
+    toolStudentNeeds: "学生情况",
+    toolDuration: "课堂时间",
+    toolOutputLanguage: "输出语言",
+    toolAiTool: "AI 工具",
+    toolGenerate: "生成",
+    toolOutputTitle: "可复制结果",
+    toolTopicPlaceholder: "例如：二次函数、英文议论文、生态系统",
+    toolNeedsPlaceholder: "例如：基础差异大、需要双语支持、班上有高能力学生",
+    toolSavedPackEyebrow: "Lesson Pack",
+    toolSavedPackTitle: "收藏备课包导出",
+    toolSavedCases: "案例",
+    toolSavedResources: "资源",
+    toolSavedPrompts: "Prompt",
+    toolExportSaved: "生成收藏清单",
+    toolCopySaved: "复制清单",
+    toolSavedEmpty: "还没有收藏内容。可以先在案例、资源或 Prompt 卡片点击收藏。",
+    toolAgreementEyebrow: "AI Rules",
+    toolAgreementTitle: "课堂 AI 使用守则",
+    toolAllowedUse: "允许用途",
+    toolAssessmentRule: "评价规则",
+    toolPrivacyRule: "隐私规则",
+    toolGenerateAgreement: "生成守则",
+    toolCopyAgreement: "复制守则",
     assistantAria: "AI 助手",
     assistantEyebrow: "RAG Research Assistant",
     openModelScope: "打开魔搭应用",
@@ -194,6 +229,8 @@ const TEXT = {
     tabCases: "Teaching Cases",
     tabResources: "Resources",
     tabPrompts: "Prompt Templates",
+    tabToolkit: "Teacher Tools",
+    toolkitTabStatus: "Copy-ready",
     tabAssistant: "AI Assistant",
     assistantStatusTrial: "Trial quota",
     assistantStatusPending: "Not connected",
@@ -264,6 +301,39 @@ const TEXT = {
     noPromptsTitle: "No matching prompts",
     noPromptsCopy: "Try fewer filters or a different keyword.",
     promptPaginationAria: "Prompt pagination",
+    toolkitAria: "Teacher AI toolkit",
+    toolkitEyebrow: "Teacher AI Toolkit",
+    toolkitTitle: "Teacher AI Toolkit",
+    toolkitStatusNoApi: "Generated locally, no API needed",
+    toolPromptMakerEyebrow: "Prompt Builder",
+    toolPromptMakerTitle: "Teaching Prompt Generator",
+    toolTask: "Teacher task",
+    toolSubjectInput: "Subject",
+    toolLevelInput: "Level",
+    toolTopicInput: "Topic",
+    toolStudentNeeds: "Student context",
+    toolDuration: "Class time",
+    toolOutputLanguage: "Output language",
+    toolAiTool: "AI tool",
+    toolGenerate: "Generate",
+    toolOutputTitle: "Copy-ready output",
+    toolTopicPlaceholder: "e.g. quadratic functions, argumentative writing, ecosystems",
+    toolNeedsPlaceholder: "e.g. mixed readiness, bilingual support, high-ability students",
+    toolSavedPackEyebrow: "Lesson Pack",
+    toolSavedPackTitle: "Export Saved Lesson Pack",
+    toolSavedCases: "cases",
+    toolSavedResources: "resources",
+    toolSavedPrompts: "prompts",
+    toolExportSaved: "Generate saved list",
+    toolCopySaved: "Copy list",
+    toolSavedEmpty: "No saved items yet. Save case, resource or prompt cards first.",
+    toolAgreementEyebrow: "AI Rules",
+    toolAgreementTitle: "Classroom AI Use Rules",
+    toolAllowedUse: "Allowed use",
+    toolAssessmentRule: "Assessment rule",
+    toolPrivacyRule: "Privacy rule",
+    toolGenerateAgreement: "Generate rules",
+    toolCopyAgreement: "Copy rules",
     assistantAria: "AI assistant",
     assistantEyebrow: "RAG Research Assistant",
     openModelScope: "Open ModelScope app",
@@ -341,6 +411,8 @@ const VALUE_EN = {
   澳大利亚: "Australia",
   全球: "Global",
   全球组织: "Global organization",
+  中文: "Chinese",
+  双语: "Bilingual",
   中文简体: "Simplified Chinese",
   中文繁体: "Traditional Chinese",
   英文: "English",
@@ -393,6 +465,15 @@ const VALUE_EN = {
   资源规划: "Resource planning",
   "行政与教学管理": "Admin and teaching management",
   "研究与政策": "Research and policy",
+  "通用生成式 AI": "General generative AI",
+  开放使用: "Open use",
+  保守使用: "Limited use",
+  只作过程支持: "Process support only",
+  可计入过程证据: "Can count as process evidence",
+  不计入成绩: "Not counted in grades",
+  不输入个人资料: "No personal data",
+  只输入匿名资料: "Anonymous data only",
+  可输入课堂材料: "Classroom materials allowed",
   生成学习单: "Create worksheets",
   设计课堂活动: "Design activities",
   制作评价量规: "Make rubrics",
@@ -2576,6 +2657,23 @@ const PROMPT_SHORTCUTS = [
   { label: "找教材资源", view: "resources" },
 ];
 
+const TOOL_TASK_OPTIONS = [
+  "备课设计",
+  "课堂活动",
+  "学习单/教材",
+  "评价反馈",
+  "差异化支持",
+  "项目学习",
+  "AI素养",
+  "家校沟通",
+  "学生支持",
+];
+
+const TOOL_LANGUAGE_OPTIONS = ["中文", "英文", "双语"];
+const AGREEMENT_ALLOWED_OPTIONS = ["保守使用", "开放使用"];
+const AGREEMENT_ASSESSMENT_OPTIONS = ["只作过程支持", "可计入过程证据", "不计入成绩"];
+const AGREEMENT_PRIVACY_OPTIONS = ["不输入个人资料", "只输入匿名资料", "可输入课堂材料"];
+
 const viewState = {
   active: "cases",
 };
@@ -2737,6 +2835,33 @@ const assistantEls = {
   directLink: document.querySelector("#assistantDirectLink"),
 };
 
+const toolkitEls = {
+  task: document.querySelector("#toolTask"),
+  subject: document.querySelector("#toolSubject"),
+  level: document.querySelector("#toolLevel"),
+  topic: document.querySelector("#toolTopic"),
+  duration: document.querySelector("#toolDuration"),
+  language: document.querySelector("#toolLanguage"),
+  aiTool: document.querySelector("#toolAiTool"),
+  needs: document.querySelector("#toolStudentNeeds"),
+  generatePrompt: document.querySelector("#toolGeneratePrompt"),
+  copyPrompt: document.querySelector("#toolCopyPrompt"),
+  promptOutput: document.querySelector("#toolPromptOutput"),
+  savedCasesCount: document.querySelector("#savedCasesCount"),
+  savedResourcesCount: document.querySelector("#savedResourcesCount"),
+  savedPromptsCount: document.querySelector("#savedPromptsCount"),
+  exportSaved: document.querySelector("#toolExportSaved"),
+  copySaved: document.querySelector("#toolCopySaved"),
+  savedOutput: document.querySelector("#savedPackOutput"),
+  agreementLevel: document.querySelector("#agreementLevel"),
+  agreementAllowed: document.querySelector("#agreementAllowed"),
+  agreementAssessment: document.querySelector("#agreementAssessment"),
+  agreementPrivacy: document.querySelector("#agreementPrivacy"),
+  generateAgreement: document.querySelector("#toolGenerateAgreement"),
+  copyAgreement: document.querySelector("#toolCopyAgreement"),
+  agreementOutput: document.querySelector("#agreementOutput"),
+};
+
 function initialLanguage() {
   const urlLanguage = new URLSearchParams(window.location.search).get("lang");
   const savedLanguage = localStorage.getItem("aied-language");
@@ -2828,11 +2953,24 @@ function renderSortOptions() {
   setSortOptions(promptEls.sort, SORT_OPTIONS.prompts, promptState.sort);
 }
 
+function renderToolkitOptions() {
+  fillOptions(toolkitEls.task, TOOL_TASK_OPTIONS);
+  fillOptions(toolkitEls.language, TOOL_LANGUAGE_OPTIONS);
+  fillOptions(toolkitEls.agreementAllowed, AGREEMENT_ALLOWED_OPTIONS);
+  fillOptions(toolkitEls.agreementAssessment, AGREEMENT_ASSESSMENT_OPTIONS);
+  fillOptions(toolkitEls.agreementPrivacy, AGREEMENT_PRIVACY_OPTIONS);
+}
+
 function refreshLanguage() {
   updateLanguageOptions();
   applyStaticTranslations();
   renderSortOptions();
+  renderToolkitOptions();
   renderPromptShortcuts();
+  renderToolkitSavedCounts();
+  renderTeacherPrompt();
+  renderSavedPack();
+  renderAgreement();
   if (caseState.items.length > 0) {
     populateCaseControls();
     renderCaseStats();
@@ -2898,6 +3036,7 @@ function toggleFavorite(type, item) {
   } else if (type === "prompt") {
     renderPrompts();
   }
+  renderToolkitSavedCounts();
 }
 
 function createFavoriteButton(type, item) {
@@ -3027,6 +3166,19 @@ function fillSelect(select, values) {
   if ([...select.options].some((option) => option.value === currentValue)) {
     select.value = currentValue;
   }
+}
+
+function fillOptions(select, values) {
+  if (!select) return;
+  const currentValue = select.value;
+  select.innerHTML = "";
+  values.forEach((value) => {
+    const option = document.createElement("option");
+    option.value = value;
+    option.textContent = localizeValue(value);
+    select.append(option);
+  });
+  select.value = values.includes(currentValue) ? currentValue : values[0];
 }
 
 function dateValue(value) {
@@ -3214,6 +3366,229 @@ function handleHashChange() {
   caseEls.detail.hidden = true;
   setActiveView(hash || "cases", false);
   if (viewState.active === "cases") renderCases();
+}
+
+function valueOrPlaceholder(value, placeholder) {
+  return String(value || "").trim() || placeholder;
+}
+
+function languageInstruction(value) {
+  if (value === "英文") return "请使用英文输出，必要时保留关键中文术语。";
+  if (value === "双语") return "请使用中英双语输出，中文先行，英文紧随其后。";
+  return "请使用简体中文输出。";
+}
+
+function buildTeacherPrompt() {
+  const task = valueOrPlaceholder(toolkitEls.task.value, "备课设计");
+  const subject = valueOrPlaceholder(toolkitEls.subject.value, "你的学科");
+  const level = valueOrPlaceholder(toolkitEls.level.value, "你的学段");
+  const topic = valueOrPlaceholder(toolkitEls.topic.value, "你的教学主题");
+  const duration = valueOrPlaceholder(toolkitEls.duration.value, "一节课");
+  const aiTool = valueOrPlaceholder(toolkitEls.aiTool.value, "通用生成式 AI");
+  const needs = valueOrPlaceholder(toolkitEls.needs.value, "学生水平存在差异，需要清晰步骤和可操作产出");
+  const outputLanguage = valueOrPlaceholder(toolkitEls.language.value, "中文");
+
+  return localizeText([
+    "你是一名有经验的一线教师、课程设计师和教育技术教练。请根据以下信息，为我生成可以直接用于教学的方案。",
+    "",
+    `教师任务：${task}`,
+    `学科：${subject}`,
+    `学段：${level}`,
+    `主题：${topic}`,
+    `课堂时间：${duration}`,
+    `可用 AI 工具：${aiTool}`,
+    `学生情况：${needs}`,
+    `输出语言：${outputLanguage}`,
+    "",
+    "请输出以下内容：",
+    "1. 教学目标：用学生能理解的语言写出 2-3 条。",
+    "2. 教学流程：按导入、探究/练习、产出、反馈四个阶段组织，并标明每一步教师做什么、学生做什么、AI 做什么。",
+    "3. 可复制材料：给出学习单、提问卡、评价量规或反馈语句，按本任务最合适的格式输出。",
+    "4. 差异化支持：给基础薄弱、普通水平和高能力学生各提供一个支持方式。",
+    "5. AI 使用提醒：说明学生可以怎样使用 AI，哪些地方不能直接让 AI 代做。",
+    "6. 快速检查清单：给教师上课前确认用。",
+    "",
+    languageInstruction(outputLanguage),
+    "请避免空泛口号，所有步骤都要能在真实课堂中执行。",
+  ].join("\n"));
+}
+
+function renderTeacherPrompt() {
+  if (!toolkitEls.promptOutput) return;
+  toolkitEls.promptOutput.textContent = buildTeacherPrompt();
+}
+
+function savedItems(type, items) {
+  return items.filter((item) => favoriteState.keys.has(`${type}:${item.id}`));
+}
+
+function savedGroups() {
+  return {
+    cases: savedItems("case", caseState.items),
+    resources: savedItems("resource", resourceState.items),
+    prompts: savedItems("prompt", promptState.items),
+  };
+}
+
+function renderToolkitSavedCounts() {
+  if (!toolkitEls.savedCasesCount) return;
+  const groups = savedGroups();
+  toolkitEls.savedCasesCount.textContent = groups.cases.length;
+  toolkitEls.savedResourcesCount.textContent = groups.resources.length;
+  toolkitEls.savedPromptsCount.textContent = groups.prompts.length;
+}
+
+function savedLineForCase(item, index) {
+  return [
+    `${index + 1}. ${localizeTitle(item)}`,
+    `   - ${t("category")}：${localizeValue(item.category)} / ${localizeValue(item.subcategory || item.subject)}`,
+    `   - ${t("useCase")}：${localizeText(item.summary_cn)}`,
+    `   - ${t("workflowTitle")}：${workflowText(item).replace(/\n/g, " ")}`,
+    `   - ${t("sourceLink")}：${item.source_url}`,
+  ].join("\n");
+}
+
+function savedLineForResource(item, index) {
+  return [
+    `${index + 1}. ${localizeTitle(item)}`,
+    `   - ${t("resourceType")}：${localizeValue(item.resource_type)} / ${localizeValue(item.region)}`,
+    `   - ${t("publisher")}：${localizeValue(item.publisher)}`,
+    `   - ${t("useCase")}：${localizeText(item.use_case_cn || item.summary_cn)}`,
+    `   - ${t("sourceLink")}：${item.source_url}`,
+  ].join("\n");
+}
+
+function savedLineForPrompt(item, index) {
+  return [
+    `${index + 1}. ${localizeText(item.title_cn)}`,
+    `   - ${t("subject")}：${localizeValue(item.subject)} / ${localizeValue(item.prompt_type)}`,
+    `   - ${t("useCase")}：${localizeText(item.use_case_cn)}`,
+    `   - ${t("promptCopyTitle")}：${localizeText(item.prompt_cn).replace(/\n/g, " ")}`,
+    `   - ${t("sourceLink")}：${item.source_url}`,
+  ].join("\n");
+}
+
+function buildSavedPack() {
+  const groups = savedGroups();
+  const total = groups.cases.length + groups.resources.length + groups.prompts.length;
+  if (total === 0) return t("toolSavedEmpty");
+
+  const lines = [
+    "# AIED Case Hub 收藏备课包",
+    "",
+    `生成日期：${new Date().toISOString().slice(0, 10)}`,
+    "",
+  ];
+
+  if (groups.cases.length) {
+    lines.push("## 教学案例", ...groups.cases.map(savedLineForCase), "");
+  }
+  if (groups.resources.length) {
+    lines.push("## 教材资源", ...groups.resources.map(savedLineForResource), "");
+  }
+  if (groups.prompts.length) {
+    lines.push("## Prompt 模板", ...groups.prompts.map(savedLineForPrompt), "");
+  }
+
+  return localizeText(lines.join("\n"));
+}
+
+function renderSavedPack() {
+  if (!toolkitEls.savedOutput) return;
+  renderToolkitSavedCounts();
+  toolkitEls.savedOutput.textContent = buildSavedPack();
+}
+
+function buildAgreement() {
+  const level = valueOrPlaceholder(toolkitEls.agreementLevel.value, "中学");
+  const allowed = valueOrPlaceholder(toolkitEls.agreementAllowed.value, "保守使用");
+  const assessment = valueOrPlaceholder(toolkitEls.agreementAssessment.value, "只作过程支持");
+  const privacy = valueOrPlaceholder(toolkitEls.agreementPrivacy.value, "不输入个人资料");
+  const allowedText =
+    allowed === "开放使用"
+      ? "学生可以在构思、资料整理、语言润色、练习反馈和自我检查中使用 AI。"
+      : "学生只可以在教师指定的环节使用 AI，例如构思、提问、修改建议和自我检查。";
+  const assessmentText = {
+    只作过程支持: "AI 生成内容只作为学习过程支持，最终作品必须体现学生自己的判断、修改和解释。",
+    可计入过程证据: "学生可以把 AI 对话、修改记录和反思作为过程证据，但最终评分看学习目标达成与个人贡献。",
+    不计入成绩: "AI 辅助内容不直接计入成绩，评分以课堂表现、个人作品和教师确认的学习证据为准。",
+  }[assessment];
+  const privacyText = {
+    不输入个人资料: "不得输入姓名、电话、地址、账号、照片、同学信息或其他个人资料。",
+    只输入匿名资料: "如需输入学习材料，请先匿名化，不出现学生姓名、班级编号或可识别信息。",
+    可输入课堂材料: "可以输入教师提供的课堂材料，但不得上传未获授权的个人资料、试卷答案或受版权限制内容。",
+  }[privacy];
+
+  return localizeText(
+    [
+      `# ${level}课堂 AI 使用守则`,
+      "",
+      "1. 使用目的：AI 是学习助手，不是代写工具。你需要理解、判断、修改并能解释自己的作品。",
+      `2. 允许范围：${allowedText}`,
+      `3. 评价方式：${assessmentText}`,
+      `4. 隐私安全：${privacyText}`,
+      "5. 标注要求：凡是使用 AI 生成、修改或反馈的重要内容，都要在作品末尾注明“我如何使用了 AI”。",
+      "6. 课堂底线：不得让 AI 代写整份作业、编造资料、冒充个人经历、攻击他人或绕过教师要求。",
+      "7. 反思问题：提交前请回答一句话：AI 帮了我什么？我自己做出的关键判断是什么？",
+    ].join("\n")
+  );
+}
+
+function renderAgreement() {
+  if (!toolkitEls.agreementOutput) return;
+  toolkitEls.agreementOutput.textContent = buildAgreement();
+}
+
+function setupDynamicCopy(button, output, defaultLabelKey) {
+  if (!button || !output) return;
+  button.addEventListener("click", async () => {
+    const defaultLabel = t(defaultLabelKey);
+    try {
+      await navigator.clipboard.writeText(output.textContent || "");
+      button.textContent = t("copied");
+    } catch {
+      button.textContent = t("copyFailed");
+    }
+    window.setTimeout(() => {
+      button.textContent = defaultLabel;
+    }, 1600);
+  });
+}
+
+function setupToolkit() {
+  renderToolkitOptions();
+  renderTeacherPrompt();
+  renderSavedPack();
+  renderAgreement();
+
+  [
+    toolkitEls.task,
+    toolkitEls.subject,
+    toolkitEls.level,
+    toolkitEls.topic,
+    toolkitEls.duration,
+    toolkitEls.language,
+    toolkitEls.aiTool,
+    toolkitEls.needs,
+  ].forEach((element) => {
+    element?.addEventListener("input", renderTeacherPrompt);
+    element?.addEventListener("change", renderTeacherPrompt);
+  });
+  toolkitEls.generatePrompt?.addEventListener("click", renderTeacherPrompt);
+  toolkitEls.exportSaved?.addEventListener("click", renderSavedPack);
+  [
+    toolkitEls.agreementLevel,
+    toolkitEls.agreementAllowed,
+    toolkitEls.agreementAssessment,
+    toolkitEls.agreementPrivacy,
+  ].forEach((element) => {
+    element?.addEventListener("input", renderAgreement);
+    element?.addEventListener("change", renderAgreement);
+  });
+  toolkitEls.generateAgreement?.addEventListener("click", renderAgreement);
+  setupDynamicCopy(toolkitEls.copyPrompt, toolkitEls.promptOutput, "copyPrompt");
+  setupDynamicCopy(toolkitEls.copySaved, toolkitEls.savedOutput, "toolCopySaved");
+  setupDynamicCopy(toolkitEls.copyAgreement, toolkitEls.agreementOutput, "toolCopyAgreement");
 }
 
 function resetPromptFilters(overrides = {}) {
@@ -4141,6 +4516,7 @@ async function initCases() {
     setupCaseControls();
     renderCaseStats();
     renderCases();
+    renderToolkitSavedCounts();
   } catch (error) {
     showLoadError(caseEls, DATA_URLS.cases, error);
   }
@@ -4152,6 +4528,7 @@ async function initResources() {
     setupResourceControls();
     renderResourceStats();
     renderResources();
+    renderToolkitSavedCounts();
   } catch (error) {
     showLoadError(resourceEls, DATA_URLS.resources, error);
   }
@@ -4163,6 +4540,7 @@ async function initPrompts() {
     setupPromptControls();
     renderPromptStats();
     renderPrompts();
+    renderToolkitSavedCounts();
   } catch (error) {
     showLoadError(promptEls, DATA_URLS.prompts, error);
   }
@@ -4171,6 +4549,7 @@ async function initPrompts() {
 setupLanguageControl();
 refreshLanguage();
 setupViewTabs();
+setupToolkit();
 initCases();
 initResources();
 initPrompts();
