@@ -11,7 +11,7 @@
   --coral: #c75246;
   --gold: #9a6b18;
   --focus: #1d4ed8;
-  --shadow: 0 14px 34px rgba(34, 38, 42, 0.08);
+  --shadow: 0 10px 26px rgba(34, 38, 42, 0.06);
 }
 
 * {
@@ -65,16 +65,15 @@ main,
 }
 
 .header-inner {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 24px;
-  padding: 30px 0 28px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 18px 24px;
+  padding: 28px 0 24px;
 }
 
-.header-inner > div:first-child {
+.header-title {
   min-width: 0;
-  flex: 1 1 auto;
 }
 
 .eyebrow {
@@ -95,7 +94,7 @@ p {
 
 h1 {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-size: clamp(2rem, 3.6vw, 3rem);
   line-height: 1.05;
   letter-spacing: 0;
 }
@@ -110,8 +109,9 @@ h1 {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 6px;
-  width: min(100%, 980px);
-  margin-top: 22px;
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 2px;
   padding: 6px;
   background: #f1f6f0;
   border: 1px solid #bfd9c7;
@@ -124,8 +124,8 @@ h1 {
   display: grid;
   align-content: center;
   min-width: 0;
-  min-height: 66px;
-  padding: 9px 16px 10px;
+  min-height: 62px;
+  padding: 9px 14px 10px;
   border: 1px solid transparent;
   border-radius: 8px;
   background: #fff;
@@ -149,7 +149,7 @@ h1 {
 }
 
 .nav-tab-title {
-  font-size: 1.04rem;
+  font-size: 1rem;
   line-height: 1.2;
   white-space: nowrap;
 }
@@ -171,7 +171,7 @@ h1 {
   flex-wrap: wrap;
   align-self: center;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 8px;
 }
 
 .language-switcher {
@@ -202,8 +202,8 @@ h1 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 42px;
-  padding: 0 16px;
+  min-height: 40px;
+  padding: 0 14px;
   border: 1px solid var(--line);
   border-radius: 8px;
   cursor: pointer;
@@ -242,8 +242,8 @@ main {
 }
 
 .dashboard-stat {
-  min-height: 92px;
-  padding: 16px;
+  min-height: 84px;
+  padding: 14px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -252,7 +252,7 @@ main {
 
 .stat-value {
   display: block;
-  font-size: 1.8rem;
+  font-size: 1.65rem;
   font-weight: 800;
   line-height: 1.1;
 }
@@ -435,14 +435,14 @@ a:focus-visible {
 .case-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: 16px;
 }
 
 .case-card {
   display: grid;
-  gap: 12px;
+  gap: 11px;
   min-height: 328px;
-  padding: 18px;
+  padding: 16px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -505,12 +505,12 @@ a:focus-visible {
 .tag {
   display: inline-flex;
   align-items: center;
-  min-height: 24px;
+  min-height: 25px;
   padding: 0 8px;
   border-radius: 999px;
   background: #f1f4ef;
   color: var(--muted);
-  font-size: 0.76rem;
+  font-size: 0.78rem;
   font-weight: 650;
 }
 
@@ -531,7 +531,7 @@ a:focus-visible {
 
 .case-card h3 {
   margin: 0;
-  font-size: 1.04rem;
+  font-size: 1rem;
   line-height: 1.35;
 }
 
@@ -544,6 +544,7 @@ a:focus-visible {
 .summary {
   margin: 0;
   color: #3f454b;
+  font-size: 0.94rem;
 }
 
 .meta-list {
@@ -552,7 +553,7 @@ a:focus-visible {
   gap: 8px 12px;
   margin: 0;
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
 }
 
 .workflow-block {
@@ -625,9 +626,9 @@ a:focus-visible {
 
 .card-footer {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) max-content;
-  align-items: center;
-  gap: 12px;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: 8px;
   margin-top: auto;
   padding-top: 8px;
   border-top: 1px solid var(--line);
@@ -638,16 +639,17 @@ a:focus-visible {
   font-size: 0.8rem;
   line-height: 1.45;
   min-width: 0;
-  word-break: keep-all;
+  word-break: normal;
+  overflow-wrap: anywhere;
 }
 
 .card-links {
   display: inline-flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: flex-end;
-  gap: 14px;
-  min-width: max-content;
+  justify-content: flex-start;
+  gap: 10px 14px;
+  min-width: 0;
 }
 
 .source-link {
@@ -824,23 +826,29 @@ a:focus-visible {
 
 .toolkit-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 14px;
   align-items: start;
 }
 
 .tool-card {
   display: grid;
-  gap: 14px;
-  padding: 18px;
+  gap: 12px;
+  padding: 16px;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
   box-shadow: 0 8px 24px rgba(34, 38, 42, 0.04);
 }
 
-.tool-card:first-child {
-  grid-row: span 2;
+.tool-card:first-child,
+.tool-card:nth-child(4) {
+  grid-column: 1 / -1;
+}
+
+.tool-card:first-child .tool-form,
+.tool-card:nth-child(4) .tool-form {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .tool-card-header {
@@ -852,7 +860,7 @@ a:focus-visible {
 
 .tool-card-header h3 {
   margin: 0;
-  font-size: 1.12rem;
+  font-size: 1.06rem;
   line-height: 1.25;
 }
 
@@ -887,8 +895,8 @@ a:focus-visible {
 }
 
 .tool-output pre {
-  max-height: 360px;
-  min-height: 140px;
+  max-height: 240px;
+  min-height: 104px;
   margin: 0;
   overflow: auto;
   white-space: pre-wrap;
@@ -1004,22 +1012,31 @@ code {
   .case-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
 
+@media (max-width: 900px) {
   .toolkit-grid {
     grid-template-columns: 1fr;
   }
 
-  .tool-card:first-child {
-    grid-row: auto;
+  .tool-card:first-child,
+  .tool-card:nth-child(4) {
+    grid-column: auto;
+  }
+
+  .tool-card:first-child .tool-form,
+  .tool-card:nth-child(4) .tool-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 760px) {
   .header-inner {
-    display: grid;
+    grid-template-columns: 1fr;
   }
 
   .header-actions {
+    width: 100%;
     justify-content: flex-start;
   }
 
@@ -1032,7 +1049,6 @@ code {
 @media (max-width: 720px) {
   .header-inner {
     align-items: flex-start;
-    flex-direction: column;
   }
 
   .header-actions {
@@ -1057,7 +1073,8 @@ code {
 
   .dashboard,
   .controls,
-  .case-grid {
+  .case-grid,
+  .toolkit-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1067,6 +1084,8 @@ code {
   }
 
   .tool-form,
+  .tool-card:first-child .tool-form,
+  .tool-card:nth-child(4) .tool-form,
   .saved-pack-stats {
     grid-template-columns: 1fr;
   }
