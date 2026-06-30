@@ -28,10 +28,12 @@ jobs:
     env:
       TZ: Asia/Hong_Kong
       SUMMARY_FILE: .tmp/candidate_update_summary.md
-      MAX_NEW_CANDIDATES: '12'
+      MAX_NEW_CANDIDATES: '40'
+      AUTO_PUBLISH_CASES: 'true'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
       FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
       FIRECRAWL_ENABLED: ${{ vars.FIRECRAWL_ENABLED || 'true' }}
+      FIRECRAWL_PRIMARY: ${{ vars.FIRECRAWL_PRIMARY || 'true' }}
       FIRECRAWL_SEARCH_ENABLED: ${{ vars.FIRECRAWL_SEARCH_ENABLED || 'true' }}
       ARTICLE_ENRICHMENT_ENABLED: ${{ vars.ARTICLE_ENRICHMENT_ENABLED || 'true' }}
     steps:
@@ -51,43 +53,43 @@ jobs:
       - name: Validate case data
         run: npm run validate:data
 
-      - name: Commit candidate changes
+      - name: Commit case data changes
         id: changes
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/candidate_cases.csv; then
+          if git diff --quiet -- data/cases.csv data/candidate_cases.csv; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/candidate_cases.csv
-          git commit -m "Update daily AIED candidate pool"
+          git add data/cases.csv data/candidate_cases.csv
+          git commit -m "Add daily AIED cases"
           git pull --rebase origin main
           git push origin main
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Report candidate update
+      - name: Report case update
         if: steps.changes.outputs.changed == 'true'
         run: |
           set -euo pipefail
 
           {
-            echo "## Candidate pool updated"
+            echo "## Case library updated"
             echo
-            echo "The public site now shows these rows as pending-review candidates. Move approved rows from \`data/candidate_cases.csv\` into \`data/cases.csv\` to count them as official cases."
+            echo "New crawler matches were appended directly to \`data/cases.csv\` and will count as official site cases."
             echo
             if [ -f "$SUMMARY_FILE" ]; then
               cat "$SUMMARY_FILE"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Report no candidate changes
+      - name: Report no case changes
         if: steps.changes.outputs.changed != 'true'
         run: |
           {
-            echo "## Candidate pool unchanged"
+            echo "## Case library unchanged"
             echo
             if [ -f "$SUMMARY_FILE" ]; then
               cat "$SUMMARY_FILE"

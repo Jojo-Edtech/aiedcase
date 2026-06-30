@@ -8,11 +8,13 @@ const CANDIDATES_PATH = process.env.CANDIDATES_PATH || 'data/candidate_cases.csv
 const FEEDS_PATH = process.env.FEEDS_PATH || 'data/source_feeds.json';
 const SUMMARY_PATH = process.env.SUMMARY_FILE || '.tmp/candidate_update_summary.md';
 const MAX_NEW_CANDIDATES = Number(process.env.MAX_NEW_CANDIDATES || 30);
+const AUTO_PUBLISH_CASES = process.env.AUTO_PUBLISH_CASES !== 'false';
 const ARTICLE_ENRICHMENT_ENABLED = process.env.ARTICLE_ENRICHMENT_ENABLED !== 'false';
 const ARTICLE_ENRICHMENT_MAX_PER_RUN = Number(process.env.ARTICLE_ENRICHMENT_MAX_PER_RUN || 18);
 const ARTICLE_MIN_TEXT_CHARS = Number(process.env.ARTICLE_MIN_TEXT_CHARS || 450);
 const ARTICLE_TEXT_MAX_CHARS = Number(process.env.ARTICLE_TEXT_MAX_CHARS || 4500);
 const FIRECRAWL_ENABLED = process.env.FIRECRAWL_ENABLED !== 'false';
+const FIRECRAWL_PRIMARY = process.env.FIRECRAWL_PRIMARY === 'true';
 const FIRECRAWL_API_BASE = (process.env.FIRECRAWL_API_BASE || 'https://api.firecrawl.dev/v2').replace(/\/+$/, '');
 const FIRECRAWL_MAX_PER_RUN = Number(process.env.FIRECRAWL_MAX_PER_RUN || 6);
 const FIRECRAWL_SEARCH_ENABLED = process.env.FIRECRAWL_SEARCH_ENABLED !== 'false';
@@ -124,7 +126,9 @@ async function main() {
       .filter(Boolean),
   );
 
-  const nextCandidateId = createCandidateIdFactory(candidates);
+  const nextRecordId = AUTO_PUBLISH_CASES
+    ? createCaseIdFactory(existingCases)
+    : createCandidateIdFactory(candidates);
   const newCandidates = [];
   const feedReports = [];
   const enrichmentState = createEnrichmentState();
@@ -155,10 +159,11 @@ async function main() {
         }
 
         const record = buildCandidateRecord({
-          id: nextCandidateId(),
+          id: nextRecordId(),
           item: enrichedItem,
           feed,
           sourceUrl,
+          autoPublish: AUTO_PUBLISH_CASES,
         });
 
         knownUrls.add(sourceUrl);
@@ -166,7 +171,7 @@ async function main() {
         matched += 1;
       }
 
-      feedReports.push(`- ${feed.name}: 读取 ${items.length} 条，新增 ${matched} 条候选`);
+      feedReports.push(`- ${feed.name}: 读取 ${items.length} 条，新增 ${matched} 条${AUTO_PUBLISH_CASES ? '正式案例' : '候选'}`);
     } catch (error) {
       feedReports.push(`- ${feed.name}: 读取失败，${error.message}`);
     }
@@ -175,7 +180,7 @@ async function main() {
   if (newCandidates.length < MAX_NEW_CANDIDATES) {
     const searchReport = await collectFirecrawlSearchCandidates({
       knownUrls,
-      nextCandidateId,
+      nextRecordId,
       remaining: MAX_NEW_CANDIDATES - newCandidates.length,
       enrichmentState,
     });
@@ -184,12 +189,19 @@ async function main() {
   }
 
   if (newCandidates.length > 0) {
-    await mkdir(dirname(CANDIDATES_PATH), { recursive: true });
-    await writeFile(CANDIDATES_PATH, toCsv([...candidates, ...newCandidates], CASE_FIELDS));
+    if (AUTO_PUBLISH_CASES) {
+      await mkdir(dirname(CASES_PATH), { recursive: true });
+      await writeFile(CASES_PATH, toCsv([...existingCases, ...newCandidates], CASE_FIELDS));
+      await mkdir(dirname(CANDIDATES_PATH), { recursive: true });
+      await writeFile(CANDIDATES_PATH, toCsv(candidates, CASE_FIELDS));
+    } else {
+      await mkdir(dirname(CANDIDATES_PATH), { recursive: true });
+      await writeFile(CANDIDATES_PATH, toCsv([...candidates, ...newCandidates], CASE_FIELDS));
+    }
   }
 
   await writeSummary({ newCandidates, feedReports, enrichmentState });
-  console.log(`Added ${newCandidates.length} candidate case(s).`);
+  console.log(`Added ${newCandidates.length} ${AUTO_PUBLISH_CASES ? 'published case' : 'candidate case'}(s).`);
 }
 
 async function fetchText(
@@ -289,6 +301,18 @@ function appendArticleText(item, articleText, method) {
 }
 
 async function fetchReadableArticleText(url, state) {
+  if (FIRECRAWL_PRIMARY && canUseFirecrawl(state)) {
+    try {
+      const firecrawlText = await fetchFirecrawlScrape(url, state);
+      if (firecrawlText.length >= ARTICLE_MIN_TEXT_CHARS) {
+        state.firecrawlScrapes += 1;
+        return { text: firecrawlText, method: 'firecrawl' };
+      }
+    } catch {
+      // Fall back to ordinary HTML extraction if Firecrawl is unavailable or returns too little text.
+    }
+  }
+
   try {
     const htmlText = await fetchHtmlArticleText(url);
     if (htmlText.length >= ARTICLE_MIN_TEXT_CHARS) {
@@ -448,7 +472,7 @@ function formatFirecrawlError(path, status, text) {
   return `Firecrawl ${path} HTTP ${status}: ${truncate(text, 160)}`;
 }
 
-async function collectFirecrawlSearchCandidates({ knownUrls, nextCandidateId, remaining, enrichmentState }) {
+async function collectFirecrawlSearchCandidates({ knownUrls, nextRecordId, remaining, enrichmentState }) {
   const records = [];
   const reports = [];
 
@@ -508,10 +532,11 @@ async function collectFirecrawlSearchCandidates({ knownUrls, nextCandidateId, re
         }
 
         const record = buildCandidateRecord({
-          id: nextCandidateId(),
+          id: nextRecordId(),
           item: enrichedItem,
           feed: searchFeed,
           sourceUrl,
+          autoPublish: AUTO_PUBLISH_CASES,
         });
 
         knownUrls.add(sourceUrl);
@@ -524,7 +549,7 @@ async function collectFirecrawlSearchCandidates({ knownUrls, nextCandidateId, re
   }
 
   if (totalResults > 0 || totalMatched > 0) {
-    reports.push(`- Firecrawl Search: 读取 ${totalResults} 条搜索结果，新增 ${totalMatched} 条候选`);
+    reports.push(`- Firecrawl Search: 读取 ${totalResults} 条搜索结果，新增 ${totalMatched} 条${AUTO_PUBLISH_CASES ? '正式案例' : '候选'}`);
   } else if (enrichmentState.firecrawlDisabledReason) {
     reports.push(`- Firecrawl Search: 已自动跳过，${enrichmentState.firecrawlDisabledReason}`);
   }
@@ -704,7 +729,7 @@ function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function buildCandidateRecord({ id, item, feed, sourceUrl }) {
+function buildCandidateRecord({ id, item, feed, sourceUrl, autoPublish = false }) {
   const text = `${item.title} ${item.description}`;
   const category = inferCategory(text);
   const subcategory = inferSubcategory(text, category);
@@ -714,7 +739,7 @@ function buildCandidateRecord({ id, item, feed, sourceUrl }) {
   const record = {
     id,
     title_original: item.title,
-    title_cn: `待审核：${item.title}`,
+    title_cn: autoPublish ? item.title : `待审核：${item.title}`,
     category,
     subcategory,
     subject,
@@ -722,7 +747,9 @@ function buildCandidateRecord({ id, item, feed, sourceUrl }) {
     language: feed.language || '英文',
     region: inferRegion(text, feed.region || '全球'),
     ai_tool_or_method: inferMethod(text),
-    summary_cn: `自动候选：${truncate(summarySource, 140)}。请审核是否为真实教学实践案例，并补充正式简体中文摘要。`,
+    summary_cn: autoPublish
+      ? `自动收录：${truncate(summarySource, 180)}。原文包含 AI 教育、课堂实践、教师工作流或学生学习任务相关信息，可打开来源进一步查看。`
+      : `自动候选：${truncate(summarySource, 140)}。请审核是否为真实教学实践案例，并补充正式简体中文摘要。`,
     workflow_cn: '',
     source_type: feed.source_type || '媒体报道',
     credibility: feed.credibility || '媒体报道',
@@ -730,7 +757,7 @@ function buildCandidateRecord({ id, item, feed, sourceUrl }) {
     published_date: item.publishedDate,
     accessed_date: todayInHongKong(),
   };
-  record.workflow_cn = workflowFor(record);
+  record.workflow_cn = workflowFor(record, autoPublish);
   return record;
 }
 
@@ -783,7 +810,7 @@ function inferSubject(text, category, subcategory) {
   return subcategory;
 }
 
-function workflowFor(record) {
+function workflowFor(record, autoPublish = false) {
   return [
     `【案例】${record.title_cn || record.title_original}`,
     `【适用】${record.education_level || '学生'}；方向：${record.subcategory || record.category}`,
@@ -791,7 +818,9 @@ function workflowFor(record) {
     '【流程】1. 用真实问题导入；2. 教师示范提示、生成或反馈；3. 学生完成任务并记录AI对话；4. 核查事实与偏差；5. 修改作品并反思。',
     '【产出】学习作品、AI使用记录和简短反思。',
     '【评价】看任务完成度、证据质量、修改过程、AI透明度和反思深度。',
-    '【注意】候选案例需人工审核来源与课堂场景后再上线。',
+    autoPublish
+      ? '【注意】使用前请结合本校AI政策、学生年龄和资料私隐要求调整。'
+      : '【注意】候选案例需人工审核来源与课堂场景后再上线。',
   ].join('\\n');
 }
 
@@ -837,6 +866,21 @@ function inferMethod(text) {
   if (/(coding|programming|code|编程|程式)/i.test(lower)) return 'Coding Assistant';
   if (/(adaptive|personalized|個人化|个性化|自适应|自適應)/i.test(lower)) return 'Adaptive Learning';
   return 'Generative AI';
+}
+
+function createCaseIdFactory(cases) {
+  let max = 0;
+  for (const item of cases) {
+    const match = String(item.id).match(/^case-(\d+)$/);
+    if (match) {
+      max = Math.max(max, Number(match[1]));
+    }
+  }
+
+  return () => {
+    max += 1;
+    return `case-${String(max).padStart(3, '0')}`;
+  };
 }
 
 function createCandidateIdFactory(candidates) {
@@ -896,11 +940,11 @@ function truncate(value, maxLength) {
 
 async function writeSummary({ newCandidates, feedReports, enrichmentState }) {
   const lines = [
-    '# Daily AIED Candidate Update',
+    `# Daily AIED ${AUTO_PUBLISH_CASES ? 'Case' : 'Candidate'} Update`,
     '',
     `Run date: ${todayInHongKong()} HKT`,
     '',
-    `New candidates: ${newCandidates.length}`,
+    `${AUTO_PUBLISH_CASES ? 'New published cases' : 'New candidates'}: ${newCandidates.length}`,
     '',
     '## Crawler enrichment',
     '',
@@ -912,8 +956,8 @@ async function writeSummary({ newCandidates, feedReports, enrichmentState }) {
     `- Firecrawl search results read: ${enrichmentState.firecrawlSearchResults}`,
     `- Article enrichment failures: ${enrichmentState.articleFailed}`,
     enrichmentState.firecrawlDisabledReason
-      ? `- Firecrawl fallback status: ${enrichmentState.firecrawlDisabledReason}`
-      : '- Firecrawl fallback status: available or not needed',
+      ? `- Firecrawl status: ${enrichmentState.firecrawlDisabledReason}`
+      : '- Firecrawl status: available or not needed',
     '',
     '## Feed report',
     '',
@@ -923,17 +967,23 @@ async function writeSummary({ newCandidates, feedReports, enrichmentState }) {
 
   if (newCandidates.length > 0) {
     lines.push('## Review checklist', '');
-    lines.push('- Confirm each source is a real classroom, course, activity, or learning task.');
-    lines.push('- Replace `待审核` titles and automatic notes with polished Simplified Chinese copy.');
-    lines.push('- Move approved rows from `data/candidate_cases.csv` into `data/cases.csv`.');
-    lines.push('- Remove rejected candidate rows before merging.');
+    if (AUTO_PUBLISH_CASES) {
+      lines.push('- Newly matched rows were appended directly to `data/cases.csv`.');
+      lines.push('- Spot-check links and summaries when convenient.');
+      lines.push('- Use source filters on the site if any broad news item should be removed later.');
+    } else {
+      lines.push('- Confirm each source is a real classroom, course, activity, or learning task.');
+      lines.push('- Replace `待审核` titles and automatic notes with polished Simplified Chinese copy.');
+      lines.push('- Move approved rows from `data/candidate_cases.csv` into `data/cases.csv`.');
+      lines.push('- Remove rejected candidate rows before merging.');
+    }
     lines.push('');
-    lines.push('## New candidate links', '');
+    lines.push(AUTO_PUBLISH_CASES ? '## New published case links' : '## New candidate links', '');
     for (const candidate of newCandidates) {
       lines.push(`- ${candidate.title_original}: ${candidate.source_url}`);
     }
   } else {
-    lines.push('No new candidate cases matched the conservative filters.');
+    lines.push(`No new ${AUTO_PUBLISH_CASES ? 'published' : 'candidate'} cases matched the filters.`);
   }
 
   await mkdir(dirname(SUMMARY_PATH), { recursive: true });
