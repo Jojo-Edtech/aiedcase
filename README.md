@@ -105,10 +105,11 @@ python3 modelscope_rag/app.py --self-test
 自动任务采用审核优先流程：
 
 1. 从 `data/source_feeds.json` 中列出的教育与 AI 信息源抓取最新内容。当前支持 RSS、Atom 和 YouTube channel feed。
-2. 用保守关键词规则筛出可能属于课堂、课程、活动或学习任务的 AI 教育案例，新闻报道、官方博客、研究论文、教师实践和视频来源都可以进入候选池。
-3. 把新增候选写入 `data/candidate_cases.csv`。
-4. 自动推送候选分支，并在 Actions 运行摘要里生成“打开候选 PR”的链接。若仓库之后开启 Actions 自动创建 PR 权限，这一步也可以再改成全自动开 PR。
-5. 人工打开候选 PR，审核候选后，把通过的行移动到 `data/cases.csv`，再合并 PR。
+2. 对可能相关但摘要不足的条目，自动尝试打开原文页抽取正文；普通 HTML 抽取不足时，会尝试 Firecrawl 的轻量 `scrape/search` 接口作为 fallback。Firecrawl 失败、限流或 keyless 访问被拦截时不会中断任务。
+3. 用保守关键词规则筛出可能属于课堂、课程、活动或学习任务的 AI 教育案例，新闻报道、官方博客、研究论文、教师实践和视频来源都可以进入候选池。
+4. 把新增候选写入 `data/candidate_cases.csv`。
+5. 自动推送候选分支，并在 Actions 运行摘要里生成“打开候选 PR”的链接。若仓库之后开启 Actions 自动创建 PR 权限，这一步也可以再改成全自动开 PR。
+6. 人工打开候选 PR，审核候选后，把通过的行移动到 `data/cases.csv`，再合并 PR。
 
 合并到 `main` 后，GitHub Pages 会自动刷新正式网页。这样前端页面和数据源都会保持同步，但不会让未经审核的候选案例直接上线。
 
@@ -118,6 +119,20 @@ python3 modelscope_rag/app.py --self-test
 npm run update:candidates
 npm run validate:data
 ```
+
+可选爬虫增强环境变量：
+
+```text
+ARTICLE_ENRICHMENT_ENABLED=false      # 关闭原文页正文抽取
+ARTICLE_ENRICHMENT_MAX_PER_RUN=18     # 每次最多抽取多少篇原文
+FIRECRAWL_ENABLED=false               # 关闭 Firecrawl fallback
+FIRECRAWL_SEARCH_ENABLED=false        # 关闭 Firecrawl 搜索发现
+FIRECRAWL_MAX_PER_RUN=6               # 每次最多调用 Firecrawl 多少次
+FIRECRAWL_API_KEY=你的免费或付费 Key       # 可选；不写时尝试 keyless，用不了会自动降级
+FIRECRAWL_SEARCH_QUERIES="query1||query2"
+```
+
+Actions 运行摘要会显示正文抽取数量、Firecrawl 调用数量、搜索结果数量和失败原因，方便判断当天自动更新是否真的抓到了新候选。
 
 Bilibili 搜索源目前不放入每日无人值守任务，因为常见公开 RSSHub 搜索接口在 GitHub Actions 环境中容易返回 403/503。相关视频案例可以先人工审核后加入 `data/cases.csv`。
 

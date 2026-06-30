@@ -8,6 +8,16 @@ const CANDIDATES_PATH = process.env.CANDIDATES_PATH || 'data/candidate_cases.csv
 const FEEDS_PATH = process.env.FEEDS_PATH || 'data/source_feeds.json';
 const SUMMARY_PATH = process.env.SUMMARY_FILE || '.tmp/candidate_update_summary.md';
 const MAX_NEW_CANDIDATES = Number(process.env.MAX_NEW_CANDIDATES || 30);
+const ARTICLE_ENRICHMENT_ENABLED = process.env.ARTICLE_ENRICHMENT_ENABLED !== 'false';
+const ARTICLE_ENRICHMENT_MAX_PER_RUN = Number(process.env.ARTICLE_ENRICHMENT_MAX_PER_RUN || 18);
+const ARTICLE_MIN_TEXT_CHARS = Number(process.env.ARTICLE_MIN_TEXT_CHARS || 450);
+const ARTICLE_TEXT_MAX_CHARS = Number(process.env.ARTICLE_TEXT_MAX_CHARS || 4500);
+const FIRECRAWL_ENABLED = process.env.FIRECRAWL_ENABLED !== 'false';
+const FIRECRAWL_API_BASE = (process.env.FIRECRAWL_API_BASE || 'https://api.firecrawl.dev/v2').replace(/\/+$/, '');
+const FIRECRAWL_MAX_PER_RUN = Number(process.env.FIRECRAWL_MAX_PER_RUN || 6);
+const FIRECRAWL_SEARCH_ENABLED = process.env.FIRECRAWL_SEARCH_ENABLED !== 'false';
+const FIRECRAWL_SEARCH_MAX_QUERIES = Number(process.env.FIRECRAWL_SEARCH_MAX_QUERIES || 4);
+const FIRECRAWL_SEARCH_RESULTS_PER_QUERY = Number(process.env.FIRECRAWL_SEARCH_RESULTS_PER_QUERY || 5);
 
 const categories = [
   'AI Literacy',
@@ -117,6 +127,7 @@ async function main() {
   const nextCandidateId = createCandidateIdFactory(candidates);
   const newCandidates = [];
   const feedReports = [];
+  const enrichmentState = createEnrichmentState();
 
   for (const feed of feeds) {
     try {
@@ -137,14 +148,15 @@ async function main() {
           continue;
         }
 
-        const searchableText = `${item.title} ${item.description}`;
-        if (!hasAiInTitle(item.title, feed) || !looksLikeTeachingPractice(searchableText, item.title)) {
+        const enrichedItem = await maybeEnrichItem(item, sourceUrl, feed, enrichmentState);
+        const searchableText = `${enrichedItem.title} ${enrichedItem.description}`;
+        if (!hasAiInTitle(enrichedItem.title, feed) || !looksLikeTeachingPractice(searchableText, enrichedItem.title)) {
           continue;
         }
 
         const record = buildCandidateRecord({
           id: nextCandidateId(),
-          item,
+          item: enrichedItem,
           feed,
           sourceUrl,
         });
@@ -160,25 +172,40 @@ async function main() {
     }
   }
 
+  if (newCandidates.length < MAX_NEW_CANDIDATES) {
+    const searchReport = await collectFirecrawlSearchCandidates({
+      knownUrls,
+      nextCandidateId,
+      remaining: MAX_NEW_CANDIDATES - newCandidates.length,
+      enrichmentState,
+    });
+    newCandidates.push(...searchReport.records);
+    feedReports.push(...searchReport.reports);
+  }
+
   if (newCandidates.length > 0) {
     await mkdir(dirname(CANDIDATES_PATH), { recursive: true });
     await writeFile(CANDIDATES_PATH, toCsv([...candidates, ...newCandidates], CASE_FIELDS));
   }
 
-  await writeSummary({ newCandidates, feedReports });
+  await writeSummary({ newCandidates, feedReports, enrichmentState });
   console.log(`Added ${newCandidates.length} candidate case(s).`);
 }
 
-async function fetchText(url) {
+async function fetchText(
+  url,
+  accept = 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*',
+  timeoutMs = 20000,
+) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 20000);
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
     const response = await fetch(url, {
       signal: controller.signal,
       headers: {
         'user-agent': 'AIED Case Hub updater (https://github.com/Jojo-Edtech/aied-case-hub)',
-        accept: 'application/rss+xml, application/atom+xml, application/xml, text/xml, */*',
+        accept,
       },
     });
 
@@ -190,6 +217,334 @@ async function fetchText(url) {
   } finally {
     clearTimeout(timeout);
   }
+}
+
+function createEnrichmentState() {
+  return {
+    articleAttempts: 0,
+    articleHtmlExtracted: 0,
+    articleFailed: 0,
+    firecrawlCalls: 0,
+    firecrawlScrapes: 0,
+    firecrawlSearchQueries: 0,
+    firecrawlSearchResults: 0,
+    firecrawlDisabledReason: '',
+    cache: new Map(),
+  };
+}
+
+async function maybeEnrichItem(item, sourceUrl, feed, state) {
+  if (!shouldEnrichArticle(item, sourceUrl, feed, state)) {
+    return item;
+  }
+
+  if (state.cache.has(sourceUrl)) {
+    const cached = state.cache.get(sourceUrl);
+    return appendArticleText(item, cached.text, cached.method);
+  }
+
+  state.articleAttempts += 1;
+
+  try {
+    const article = await fetchReadableArticleText(sourceUrl, state);
+    state.cache.set(sourceUrl, article);
+    return appendArticleText(item, article.text, article.method);
+  } catch (error) {
+    state.articleFailed += 1;
+    state.cache.set(sourceUrl, { text: '', method: 'failed' });
+    return item;
+  }
+}
+
+function shouldEnrichArticle(item, sourceUrl, feed, state) {
+  if (!ARTICLE_ENRICHMENT_ENABLED || state.articleAttempts >= ARTICLE_ENRICHMENT_MAX_PER_RUN) {
+    return false;
+  }
+  if (!sourceUrl || isLikelyVideoUrl(sourceUrl)) {
+    return false;
+  }
+  if (!hasAiInTitle(item.title, feed)) {
+    return false;
+  }
+
+  const baseText = `${item.title} ${item.description}`;
+  return item.description.length < ARTICLE_MIN_TEXT_CHARS || !looksLikeTeachingPractice(baseText, item.title);
+}
+
+function appendArticleText(item, articleText, method) {
+  if (!articleText) {
+    return item;
+  }
+
+  const compactArticleText = truncate(articleText, ARTICLE_TEXT_MAX_CHARS);
+  const description = [item.description, compactArticleText].filter(Boolean).join('\n\n');
+
+  return {
+    ...item,
+    description,
+    enrichmentMethod: method,
+  };
+}
+
+async function fetchReadableArticleText(url, state) {
+  try {
+    const htmlText = await fetchHtmlArticleText(url);
+    if (htmlText.length >= ARTICLE_MIN_TEXT_CHARS) {
+      state.articleHtmlExtracted += 1;
+      return { text: htmlText, method: 'html' };
+    }
+  } catch {
+    // Some news and school sites block ordinary HTML fetches. Firecrawl is the optional fallback.
+  }
+
+  if (!canUseFirecrawl(state)) {
+    throw new Error('Article text was too short and Firecrawl fallback is unavailable.');
+  }
+
+  const firecrawlText = await fetchFirecrawlScrape(url, state);
+  if (firecrawlText.length < ARTICLE_MIN_TEXT_CHARS) {
+    throw new Error('Firecrawl scrape returned too little readable text.');
+  }
+
+  state.firecrawlScrapes += 1;
+  return { text: firecrawlText, method: 'firecrawl' };
+}
+
+async function fetchHtmlArticleText(url) {
+  const html = await fetchText(url, 'text/html, application/xhtml+xml, */*', 15000);
+  return extractReadableText(html);
+}
+
+function extractReadableText(html) {
+  const withoutNoise = html
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<noscript\b[\s\S]*?<\/noscript>/gi, ' ')
+    .replace(/<svg\b[\s\S]*?<\/svg>/gi, ' ');
+
+  const preferredBlocks = [
+    ...withoutNoise.matchAll(/<article\b[^>]*>([\s\S]*?)<\/article>/gi),
+    ...withoutNoise.matchAll(/<main\b[^>]*>([\s\S]*?)<\/main>/gi),
+  ].map((match) => match[1]);
+
+  const bodyMatch = withoutNoise.match(/<body\b[^>]*>([\s\S]*?)<\/body>/i);
+  const candidates = preferredBlocks.length > 0 ? preferredBlocks : [bodyMatch?.[1] || withoutNoise];
+  const text = longestText(
+    candidates.map((candidate) =>
+      decodeEntities(candidate)
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim(),
+    ),
+  );
+
+  return removeCommonBoilerplate(text);
+}
+
+function removeCommonBoilerplate(text) {
+  return text
+    .replace(/\b(subscribe|sign up|cookie policy|privacy policy|terms of use|advertisement)\b/gi, ' ')
+    .replace(/\b(accept all cookies|manage cookies|skip to content|share this article)\b/gi, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function isLikelyVideoUrl(url) {
+  return /(?:youtube\.com|youtu\.be|bilibili\.com|vimeo\.com)/i.test(url);
+}
+
+function canUseFirecrawl(state) {
+  return FIRECRAWL_ENABLED && !state.firecrawlDisabledReason && state.firecrawlCalls < FIRECRAWL_MAX_PER_RUN;
+}
+
+async function fetchFirecrawlScrape(url, state) {
+  const payload = {
+    url,
+    formats: ['markdown'],
+    onlyMainContent: true,
+  };
+  const data = await firecrawlRequest('/scrape', payload, state);
+  return cleanText(
+    data?.data?.markdown ||
+      data?.data?.content ||
+      data?.data?.html ||
+      data?.markdown ||
+      data?.content ||
+      '',
+  );
+}
+
+async function fetchFirecrawlSearch(query, state) {
+  const data = await firecrawlRequest(
+    '/search',
+    {
+      query,
+      limit: FIRECRAWL_SEARCH_RESULTS_PER_QUERY,
+      sources: [{ type: 'web' }],
+    },
+    state,
+  );
+  const results =
+    data?.data?.web ||
+    data?.data?.results ||
+    data?.data ||
+    data?.results ||
+    [];
+
+  return Array.isArray(results) ? results : [];
+}
+
+async function firecrawlRequest(path, body, state) {
+  if (!canUseFirecrawl(state)) {
+    throw new Error(state.firecrawlDisabledReason || 'Firecrawl call limit reached.');
+  }
+
+  state.firecrawlCalls += 1;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 20000);
+  const headers = {
+    'content-type': 'application/json',
+    accept: 'application/json',
+  };
+  if (process.env.FIRECRAWL_API_KEY) {
+    headers.authorization = `Bearer ${process.env.FIRECRAWL_API_KEY}`;
+  }
+
+  try {
+    const response = await fetch(`${FIRECRAWL_API_BASE}${path}`, {
+      method: 'POST',
+      signal: controller.signal,
+      headers,
+      body: JSON.stringify(body),
+    });
+    const text = await response.text();
+
+    if (!response.ok) {
+      const message = formatFirecrawlError(path, response.status, text);
+      if ([401, 403, 429].includes(response.status)) {
+        state.firecrawlDisabledReason = message;
+      }
+      throw new Error(message);
+    }
+
+    return JSON.parse(text);
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+function formatFirecrawlError(path, status, text) {
+  if (status === 403 && /suspicious|api key/i.test(text)) {
+    return `Firecrawl ${path} HTTP 403: keyless access was blocked from this runner; continuing with RSS/HTML only.`;
+  }
+  if (status === 401) {
+    return `Firecrawl ${path} HTTP 401: API key missing or invalid; continuing with RSS/HTML only.`;
+  }
+  if (status === 429) {
+    return `Firecrawl ${path} HTTP 429: rate limit reached; continuing with RSS/HTML only.`;
+  }
+  return `Firecrawl ${path} HTTP ${status}: ${truncate(text, 160)}`;
+}
+
+async function collectFirecrawlSearchCandidates({ knownUrls, nextCandidateId, remaining, enrichmentState }) {
+  const records = [];
+  const reports = [];
+
+  if (!FIRECRAWL_ENABLED || !FIRECRAWL_SEARCH_ENABLED || remaining <= 0) {
+    return { records, reports };
+  }
+
+  const queries = getFirecrawlSearchQueries().slice(0, FIRECRAWL_SEARCH_MAX_QUERIES);
+  if (queries.length === 0) {
+    return { records, reports };
+  }
+
+  let totalResults = 0;
+  let totalMatched = 0;
+
+  for (const query of queries) {
+    if (records.length >= remaining || !canUseFirecrawl(enrichmentState)) {
+      break;
+    }
+
+    try {
+      enrichmentState.firecrawlSearchQueries += 1;
+      const results = await fetchFirecrawlSearch(query, enrichmentState);
+      totalResults += results.length;
+      enrichmentState.firecrawlSearchResults += results.length;
+
+      for (const result of results) {
+        if (records.length >= remaining) {
+          break;
+        }
+
+        const sourceUrl = normalizeUrl(result.url || result.link);
+        if (!sourceUrl || knownUrls.has(sourceUrl) || isLikelyVideoUrl(sourceUrl)) {
+          continue;
+        }
+
+        const item = {
+          title: cleanText(result.title || result.name || ''),
+          description: cleanText(result.description || result.snippet || result.markdown || ''),
+          url: sourceUrl,
+          publishedDate: normalizeDate(result.publishedDate || result.published_date || ''),
+        };
+
+        const searchFeed = {
+          name: `Firecrawl Search: ${query}`,
+          language: inferLanguage(`${item.title} ${item.description}`),
+          region: inferRegion(`${item.title} ${item.description}`, '全球'),
+          source_type: '媒体报道',
+          credibility: '媒体报道',
+          ai_focused: true,
+        };
+
+        const enrichedItem = await maybeEnrichItem(item, sourceUrl, searchFeed, enrichmentState);
+        const searchableText = `${enrichedItem.title} ${enrichedItem.description}`;
+        if (!looksLikeTeachingPractice(searchableText, enrichedItem.title)) {
+          continue;
+        }
+
+        const record = buildCandidateRecord({
+          id: nextCandidateId(),
+          item: enrichedItem,
+          feed: searchFeed,
+          sourceUrl,
+        });
+
+        knownUrls.add(sourceUrl);
+        records.push(record);
+        totalMatched += 1;
+      }
+    } catch (error) {
+      reports.push(`- Firecrawl Search「${query}」: 读取失败，${error.message}`);
+    }
+  }
+
+  if (totalResults > 0 || totalMatched > 0) {
+    reports.push(`- Firecrawl Search: 读取 ${totalResults} 条搜索结果，新增 ${totalMatched} 条候选`);
+  } else if (enrichmentState.firecrawlDisabledReason) {
+    reports.push(`- Firecrawl Search: 已自动跳过，${enrichmentState.firecrawlDisabledReason}`);
+  }
+
+  return { records, reports };
+}
+
+function getFirecrawlSearchQueries() {
+  const customQueries = process.env.FIRECRAWL_SEARCH_QUERIES;
+  if (customQueries) {
+    return customQueries
+      .split(/\n|\|\|/g)
+      .map((query) => query.trim())
+      .filter(Boolean);
+  }
+
+  return [
+    'AI education classroom case teacher students',
+    'generative AI lesson classroom project students',
+    'ChatGPT classroom teaching practice school students',
+    'AI literacy lesson plan classroom case study',
+  ];
 }
 
 function parseFeedItems(xml, itemLimit = 0) {
@@ -460,6 +815,16 @@ function inferRegion(text, fallback) {
   return fallback;
 }
 
+function inferLanguage(text) {
+  if (/[\u4e00-\u9fff]/.test(text)) {
+    if (/(學|習|課|教師|學生|評|臺|台灣|香港|澳門)/.test(text)) {
+      return '繁体中文';
+    }
+    return '简体中文';
+  }
+  return '英文';
+}
+
 function inferMethod(text) {
   const lower = text.toLowerCase();
   if (/(chatgpt|chatbot|聊天机器人|聊天機器人)/i.test(lower)) return 'Chatbot';
@@ -527,13 +892,26 @@ function truncate(value, maxLength) {
   return `${clean.slice(0, maxLength - 1)}…`;
 }
 
-async function writeSummary({ newCandidates, feedReports }) {
+async function writeSummary({ newCandidates, feedReports, enrichmentState }) {
   const lines = [
     '# Daily AIED Candidate Update',
     '',
     `Run date: ${todayInHongKong()} HKT`,
     '',
     `New candidates: ${newCandidates.length}`,
+    '',
+    '## Crawler enrichment',
+    '',
+    `- Article pages checked: ${enrichmentState.articleAttempts}`,
+    `- Readable HTML pages extracted: ${enrichmentState.articleHtmlExtracted}`,
+    `- Firecrawl calls used: ${enrichmentState.firecrawlCalls}`,
+    `- Firecrawl scrape successes: ${enrichmentState.firecrawlScrapes}`,
+    `- Firecrawl search queries: ${enrichmentState.firecrawlSearchQueries}`,
+    `- Firecrawl search results read: ${enrichmentState.firecrawlSearchResults}`,
+    `- Article enrichment failures: ${enrichmentState.articleFailed}`,
+    enrichmentState.firecrawlDisabledReason
+      ? `- Firecrawl fallback status: ${enrichmentState.firecrawlDisabledReason}`
+      : '- Firecrawl fallback status: available or not needed',
     '',
     '## Feed report',
     '',
