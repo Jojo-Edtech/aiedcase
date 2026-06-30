@@ -31,6 +31,7 @@
             </select>
           </label>
           <a class="button button-secondary" href="data/cases.csv" download data-i18n="casesCsv">案例 CSV</a>
+          <a class="button button-secondary" href="data/candidate_cases.csv" download data-i18n="candidateCsv">候选 CSV</a>
           <a class="button button-secondary" href="data/resources.csv" download data-i18n="resourcesCsv">资源 CSV</a>
           <a class="button button-secondary" href="data/prompts.csv" download data-i18n="promptsCsv">Prompt CSV</a>
           <a class="button button-primary" href="https://github.com/Jojo-Edtech/aied-case-hub" target="_blank" rel="noreferrer">GitHub</a>
@@ -80,6 +81,19 @@
             <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
           </div>
         </section>
+
+        <section class="candidate-notice" id="candidateNotice" hidden>
+          <div>
+            <span class="notice-kicker" data-i18n="candidatePool">自动候选池</span>
+            <strong id="candidateCountLabel">0 条待审核候选</strong>
+            <p id="candidateNote">候选由每日爬虫生成，需人工确认后才会计入正式案例总数。</p>
+          </div>
+          <div class="candidate-actions">
+            <button class="button button-secondary" id="candidatePreviewToggle" type="button">查看候选</button>
+            <a class="button button-secondary" href="data/candidate_cases.csv" download data-i18n="candidateCsv">候选 CSV</a>
+          </div>
+        </section>
+        <section class="candidate-preview" id="candidatePreview" hidden></section>
 
         <section class="toolbar" aria-label="案例检索和筛选" data-i18n-aria-label="caseToolbarAria" data-case-list-block>
           <nav class="tabs" id="categoryTabs" aria-label="案例栏目" data-i18n-aria-label="caseCategoryAria"></nav>

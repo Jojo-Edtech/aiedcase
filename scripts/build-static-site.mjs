@@ -11,6 +11,7 @@ const rootFiles = [
 ];
 
 const dataFiles = [
+  "candidate_cases.csv",
   "cases.csv",
   "prompts.csv",
   "rag-config.json",

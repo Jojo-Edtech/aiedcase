@@ -111,7 +111,7 @@ python3 modelscope_rag/app.py --self-test
 5. 自动推送候选分支，并在 Actions 运行摘要里生成“打开候选 PR”的链接。若仓库之后开启 Actions 自动创建 PR 权限，这一步也可以再改成全自动开 PR。
 6. 人工打开候选 PR，审核候选后，把通过的行移动到 `data/cases.csv`，再合并 PR。
 
-合并到 `main` 后，GitHub Pages 会自动刷新正式网页。这样前端页面和数据源都会保持同步，但不会让未经审核的候选案例直接上线。
+网页会显示正式案例数量和“自动候选池”数量。候选池用于查看爬虫当天找到的新来源，但不会计入正式案例总数；只有人工确认后移入 `data/cases.csv` 的内容才算正式案例。这样前端页面和数据源都会保持同步，但不会让未经审核的候选案例直接上线。
 
 本地运行：
 
@@ -133,6 +133,14 @@ FIRECRAWL_SEARCH_QUERIES="query1||query2"
 ```
 
 Actions 运行摘要会显示正文抽取数量、Firecrawl 调用数量、搜索结果数量和失败原因，方便判断当天自动更新是否真的抓到了新候选。
+
+如果 Firecrawl keyless 在 GitHub Actions 或本机返回 `HTTP 403` / `suspicious IP`，通常是因为共享云服务器、代理或自动化运行器 IP 被 Firecrawl 风控拦截。这不是网站代码问题。解决办法：
+
+1. 到 Firecrawl 注册免费 API Key。
+2. 在 GitHub 仓库 `Settings -> Secrets and variables -> Actions -> Secrets` 新增 `FIRECRAWL_API_KEY`。
+3. 重新运行 `Daily AIED Candidate Update`。
+
+如果暂时不想使用 Firecrawl，可以把 Repository Variable `FIRECRAWL_ENABLED` 设为 `false`，脚本会只使用 RSS 和普通 HTML 正文抽取。
 
 Bilibili 搜索源目前不放入每日无人值守任务，因为常见公开 RSSHub 搜索接口在 GitHub Actions 环境中容易返回 403/503。相关视频案例可以先人工审核后加入 `data/cases.csv`。
 

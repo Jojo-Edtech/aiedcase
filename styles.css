@@ -264,6 +264,108 @@ main {
   font-size: 0.9rem;
 }
 
+.candidate-notice {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 14px;
+  padding: 16px;
+  background: #fffaf0;
+  border: 1px solid #e8c879;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(34, 38, 42, 0.04);
+}
+
+.candidate-notice[hidden],
+.candidate-preview[hidden] {
+  display: none;
+}
+
+.candidate-notice strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.08rem;
+}
+
+.candidate-notice p {
+  max-width: 760px;
+  margin: 5px 0 0;
+  color: #6e5618;
+}
+
+.notice-kicker {
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.candidate-actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.candidate-preview {
+  margin-top: 12px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.candidate-preview h2 {
+  margin: 0 0 12px;
+  font-size: 1.16rem;
+}
+
+.candidate-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.candidate-card {
+  display: grid;
+  gap: 8px;
+  padding: 13px;
+  background: #fbfcf8;
+  border: 1px solid #e1e4dc;
+  border-radius: 8px;
+}
+
+.candidate-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.candidate-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.candidate-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.candidate-badge {
+  width: fit-content;
+  min-height: 24px;
+  padding: 2px 8px;
+  background: #fff1df;
+  border: 1px solid #e4be7a;
+  border-radius: 999px;
+  color: #7a4f08;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
 .task-launcher {
   display: grid;
   grid-template-columns: minmax(160px, 0.35fr) minmax(0, 1fr);
@@ -1074,8 +1176,23 @@ code {
   .dashboard,
   .controls,
   .case-grid,
+  .candidate-list,
   .toolkit-grid {
     grid-template-columns: 1fr;
+  }
+
+  .candidate-notice {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .candidate-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .candidate-actions .button {
+    flex: 1 1 150px;
   }
 
   .toolkit-hero {

@@ -228,7 +228,9 @@ function createEnrichmentState() {
     firecrawlScrapes: 0,
     firecrawlSearchQueries: 0,
     firecrawlSearchResults: 0,
-    firecrawlDisabledReason: '',
+    firecrawlDisabledReason: FIRECRAWL_ENABLED
+      ? ''
+      : 'Firecrawl disabled by FIRECRAWL_ENABLED=false; using RSS/HTML only.',
     cache: new Map(),
   };
 }

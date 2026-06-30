@@ -30,6 +30,10 @@ jobs:
       SUMMARY_FILE: .tmp/candidate_update_summary.md
       MAX_NEW_CANDIDATES: '12'
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: 'true'
+      FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+      FIRECRAWL_ENABLED: ${{ vars.FIRECRAWL_ENABLED || 'true' }}
+      FIRECRAWL_SEARCH_ENABLED: ${{ vars.FIRECRAWL_SEARCH_ENABLED || 'true' }}
+      ARTICLE_ENRICHMENT_ENABLED: ${{ vars.ARTICLE_ENRICHMENT_ENABLED || 'true' }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -40,63 +44,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '24'
-
-      - name: Prepare candidate branch
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          base_branch="main"
-          branch_prefix="auto/daily-case-candidates"
-          git fetch origin "$base_branch"
-
-          open_branch="$(
-            node <<'NODE'
-          const repo = process.env.GITHUB_REPOSITORY;
-          const token = process.env.GH_TOKEN;
-          const branchPrefix = 'auto/daily-case-candidates';
-
-          if (!repo || !token) {
-            throw new Error('Missing GitHub repository context or token.');
-          }
-
-          const response = await fetch(
-            `https://api.github.com/repos/${repo}/pulls?state=open&base=main&per_page=100`,
-            {
-              headers: {
-                authorization: `Bearer ${token}`,
-                accept: 'application/vnd.github+json',
-                'user-agent': 'AIED Case Hub updater',
-                'x-github-api-version': '2022-11-28',
-              },
-            },
-          );
-
-          if (!response.ok) {
-            throw new Error(`GitHub API ${response.status} while listing open pull requests`);
-          }
-
-          const pulls = await response.json();
-          const existing = pulls.find(
-            (pull) => pull.head?.repo?.full_name === repo && pull.head?.ref?.startsWith(branchPrefix),
-          );
-
-          if (existing) {
-            process.stdout.write(existing.head.ref);
-          }
-          NODE
-          )"
-
-          if [ -n "$open_branch" ]; then
-            branch="$open_branch"
-            git fetch origin "$branch"
-            git checkout -B "$branch" "origin/$branch"
-          else
-            branch="${branch_prefix}-$(date +%Y%m%d)-${GITHUB_RUN_NUMBER}"
-            git checkout -B "$branch" "origin/$base_branch"
-          fi
-
-          echo "CANDIDATE_BRANCH=$branch" >> "$GITHUB_ENV"
 
       - name: Collect candidate cases
         run: npm run update:candidates
@@ -116,27 +63,33 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/candidate_cases.csv
-          git commit -m "Add daily AIED candidate cases"
-          git push --force-with-lease --set-upstream origin "$CANDIDATE_BRANCH"
+          git commit -m "Update daily AIED candidate pool"
+          git pull --rebase origin main
+          git push origin main
           echo "changed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Report candidate branch
+      - name: Report candidate update
         if: steps.changes.outputs.changed == 'true'
         run: |
           set -euo pipefail
-          compare_url="https://github.com/${GITHUB_REPOSITORY}/compare/main...${GITHUB_REPOSITORY_OWNER}:${CANDIDATE_BRANCH}?quick_pull=1"
 
           {
-            echo "## Candidate branch updated"
+            echo "## Candidate pool updated"
             echo
-            echo "Candidate branch: \`$CANDIDATE_BRANCH\`"
-            echo
-            echo "Open candidate PR: $compare_url"
+            echo "The public site now shows these rows as pending-review candidates. Move approved rows from \`data/candidate_cases.csv\` into \`data/cases.csv\` to count them as official cases."
             echo
             if [ -f "$SUMMARY_FILE" ]; then
               cat "$SUMMARY_FILE"
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-          echo "Candidate branch: $CANDIDATE_BRANCH"
-          echo "Open candidate PR: $compare_url"
+      - name: Report no candidate changes
+        if: steps.changes.outputs.changed != 'true'
+        run: |
+          {
+            echo "## Candidate pool unchanged"
+            echo
+            if [ -f "$SUMMARY_FILE" ]; then
+              cat "$SUMMARY_FILE"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
