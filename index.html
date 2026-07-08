@@ -31,11 +31,20 @@
               <option value="en">English</option>
             </select>
           </label>
-          <a class="button button-secondary" href="data/cases.csv" download data-i18n="casesCsv">案例 CSV</a>
-          <a class="button button-secondary" href="data/candidate_cases.csv" download data-i18n="candidateCsv">候选 CSV</a>
-          <a class="button button-secondary" href="data/resources.csv" download data-i18n="resourcesCsv">资源 CSV</a>
-          <a class="button button-secondary" href="data/prompts.csv" download data-i18n="promptsCsv">Prompt CSV</a>
-          <a class="button button-primary" href="https://github.com/Jojo-Edtech/aied-case-hub" target="_blank" rel="noreferrer">GitHub</a>
+          <details class="data-drawer" data-mobile-collapsible>
+            <summary class="data-summary">
+              <span data-i18n="dataMenu">数据与链接</span>
+              <span class="filter-state filter-state-closed" data-i18n="expandMenu">展开</span>
+              <span class="filter-state filter-state-open" data-i18n="collapseMenu">收起</span>
+            </summary>
+            <div class="data-links">
+              <a class="button button-secondary" href="data/cases.csv" download data-i18n="casesCsv">案例 CSV</a>
+              <a class="button button-secondary" href="data/candidate_cases.csv" download data-i18n="candidateCsv">候选 CSV</a>
+              <a class="button button-secondary" href="data/resources.csv" download data-i18n="resourcesCsv">资源 CSV</a>
+              <a class="button button-secondary" href="data/prompts.csv" download data-i18n="promptsCsv">Prompt CSV</a>
+              <a class="button button-primary" href="https://github.com/Jojo-Edtech/aiedcase" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </details>
         </div>
         <nav class="site-nav" id="mainTabs" aria-label="内容选项卡" data-i18n-aria-label="mainTabsAria">
           <a href="#cases" data-view="cases" aria-current="page">
@@ -64,24 +73,31 @@
 
     <main>
       <section class="view-panel" id="casesPanel" data-view-panel="cases">
-        <section class="dashboard" aria-label="案例库概览" data-i18n-aria-label="caseDashboardAria" data-case-list-block>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="totalCases">0</span>
-            <span class="stat-label" data-i18n="casesCollected">已收录案例</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="hongKongCases">0</span>
-            <span class="stat-label" data-i18n="hkPriorityCases">香港优先案例</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="categoryCount">5</span>
-            <span class="stat-label" data-i18n="topCategories">一级栏目</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="lastAccessed">--</span>
-            <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
-          </div>
-        </section>
+        <details class="dashboard-details" data-mobile-collapsible data-case-list-block>
+          <summary class="dashboard-summary">
+            <span data-i18n="dashboardSummary">数据概览</span>
+            <span class="filter-state filter-state-closed" data-i18n="expandMenu">展开</span>
+            <span class="filter-state filter-state-open" data-i18n="collapseMenu">收起</span>
+          </summary>
+          <section class="dashboard" aria-label="案例库概览" data-i18n-aria-label="caseDashboardAria">
+            <div class="dashboard-stat">
+              <span class="stat-value" id="totalCases">0</span>
+              <span class="stat-label" data-i18n="casesCollected">已收录案例</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="hongKongCases">0</span>
+              <span class="stat-label" data-i18n="hkPriorityCases">香港优先案例</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="categoryCount">5</span>
+              <span class="stat-label" data-i18n="topCategories">一级栏目</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="lastAccessed">--</span>
+              <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
+            </div>
+          </section>
+        </details>
 
         <section class="candidate-notice" id="candidateNotice" hidden>
           <div>
@@ -189,24 +205,31 @@
       </section>
 
       <section class="view-panel" id="resourcesPanel" data-view-panel="resources" hidden>
-        <section class="dashboard" aria-label="资源库概览" data-i18n-aria-label="resourceDashboardAria">
-          <div class="dashboard-stat">
-            <span class="stat-value" id="totalResources">0</span>
-            <span class="stat-label" data-i18n="resourcesCollected">已收录资源</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="regionCount">0</span>
-            <span class="stat-label" data-i18n="regionsOrOrgs">地区/组织来源</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="resourceTypeCount">0</span>
-            <span class="stat-label" data-i18n="resourceTypes">资源类型</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="resourceLastAccessed">--</span>
-            <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
-          </div>
-        </section>
+        <details class="dashboard-details" data-mobile-collapsible>
+          <summary class="dashboard-summary">
+            <span data-i18n="dashboardSummary">数据概览</span>
+            <span class="filter-state filter-state-closed" data-i18n="expandMenu">展开</span>
+            <span class="filter-state filter-state-open" data-i18n="collapseMenu">收起</span>
+          </summary>
+          <section class="dashboard" aria-label="资源库概览" data-i18n-aria-label="resourceDashboardAria">
+            <div class="dashboard-stat">
+              <span class="stat-value" id="totalResources">0</span>
+              <span class="stat-label" data-i18n="resourcesCollected">已收录资源</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="regionCount">0</span>
+              <span class="stat-label" data-i18n="regionsOrOrgs">地区/组织来源</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="resourceTypeCount">0</span>
+              <span class="stat-label" data-i18n="resourceTypes">资源类型</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="resourceLastAccessed">--</span>
+              <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
+            </div>
+          </section>
+        </details>
 
         <section class="toolbar" aria-label="资源检索和筛选" data-i18n-aria-label="resourceToolbarAria">
           <details class="filter-details" data-mobile-collapsible>
@@ -303,24 +326,31 @@
       </section>
 
       <section class="view-panel" id="promptsPanel" data-view-panel="prompts" hidden>
-        <section class="dashboard" aria-label="Prompt 模板库概览" data-i18n-aria-label="promptDashboardAria">
-          <div class="dashboard-stat">
-            <span class="stat-value" id="totalPrompts">0</span>
-            <span class="stat-label" data-i18n="promptTemplates">Prompt 模板</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="promptSubjectCount">0</span>
-            <span class="stat-label" data-i18n="subjectsOrTopics">学科/主题</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="promptTypeCount">0</span>
-            <span class="stat-label" data-i18n="promptTypes">Prompt 类型</span>
-          </div>
-          <div class="dashboard-stat">
-            <span class="stat-value" id="promptLastAccessed">--</span>
-            <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
-          </div>
-        </section>
+        <details class="dashboard-details" data-mobile-collapsible>
+          <summary class="dashboard-summary">
+            <span data-i18n="dashboardSummary">数据概览</span>
+            <span class="filter-state filter-state-closed" data-i18n="expandMenu">展开</span>
+            <span class="filter-state filter-state-open" data-i18n="collapseMenu">收起</span>
+          </summary>
+          <section class="dashboard" aria-label="Prompt 模板库概览" data-i18n-aria-label="promptDashboardAria">
+            <div class="dashboard-stat">
+              <span class="stat-value" id="totalPrompts">0</span>
+              <span class="stat-label" data-i18n="promptTemplates">Prompt 模板</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="promptSubjectCount">0</span>
+              <span class="stat-label" data-i18n="subjectsOrTopics">学科/主题</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="promptTypeCount">0</span>
+              <span class="stat-label" data-i18n="promptTypes">Prompt 类型</span>
+            </div>
+            <div class="dashboard-stat">
+              <span class="stat-value" id="promptLastAccessed">--</span>
+              <span class="stat-label" data-i18n="latestAccessed">最近访问日期</span>
+            </div>
+          </section>
+        </details>
 
         <section class="task-launcher" aria-label="教师任务入口" data-i18n-aria-label="promptTaskLauncherAria">
           <div>

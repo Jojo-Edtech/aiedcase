@@ -18,7 +18,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 
-DEFAULT_DATA_BASE_URL = "https://jojo-edtech.github.io/aied-case-hub/data"
+DEFAULT_DATA_BASE_URL = "https://jojo-edtech.github.io/aiedcase/data"
 DEFAULT_MODEL = "Qwen/Qwen3-235B-A22B-Instruct-2507"
 DEFAULT_API_BASE = "https://api-inference.modelscope.cn/v1/chat/completions"
 
@@ -86,7 +86,7 @@ def data_url(base_url: str, filename: str) -> str:
 
 def read_text(source: str) -> str:
     if source.startswith(("http://", "https://")):
-        request = Request(source, headers={"User-Agent": "aied-case-hub-rag/0.1"})
+        request = Request(source, headers={"User-Agent": "aiedcase-rag/0.1"})
         last_error: Exception | None = None
         for attempt in range(3):
             try:
@@ -376,7 +376,7 @@ def call_modelscope(question: str, results: list[tuple[Document, float]]) -> tup
         headers={
             "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
-            "User-Agent": "aied-case-hub-rag/0.1",
+            "User-Agent": "aiedcase-rag/0.1",
         },
         method="POST",
     )

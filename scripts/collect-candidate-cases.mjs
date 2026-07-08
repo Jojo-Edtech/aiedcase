@@ -216,7 +216,7 @@ async function fetchText(
     const response = await fetch(url, {
       signal: controller.signal,
       headers: {
-        'user-agent': 'AIED Case Hub updater (https://github.com/Jojo-Edtech/aied-case-hub)',
+        'user-agent': 'AIED Case Hub updater (https://github.com/Jojo-Edtech/aiedcase)',
         accept,
       },
     });

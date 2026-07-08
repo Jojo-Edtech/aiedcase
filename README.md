@@ -149,14 +149,14 @@ Bilibili 搜索源目前不放入每日无人值守任务，因为常见公开 R
 
 推荐设置：
 
-- Repository name: `aied-case-hub`
+- Repository name: `aiedcase`
 - Pages source: `main` branch, root folder
-- URL: `https://jojo-edtech.github.io/aied-case-hub/`
+- URL: `https://jojo-edtech.github.io/aiedcase/`
 
 如果 GitHub 上已经创建好空仓库，可以在本地运行：
 
 ```bash
-git remote add origin git@github.com:Jojo-Edtech/aied-case-hub.git
+git remote add origin git@github.com:Jojo-Edtech/aiedcase.git
 git push -u origin main
 ```
 
@@ -191,7 +191,7 @@ ALIYUN_OSS_ENDPOINT=https://oss-cn-hangzhou.aliyuncs.com
 ALIYUN_OSS_PREFIX=
 ```
 
-`ALIYUN_OSS_PREFIX` 可以留空，表示部署到 Bucket 根目录；如果想放在子目录，例如 `aied-case-hub/`，就填 `aied-case-hub`。
+`ALIYUN_OSS_PREFIX` 可以留空，表示部署到 Bucket 根目录；如果想放在子目录，例如 `aiedcase/`，就填 `aiedcase`。
 
 再加入 Repository Variable：
 
