@@ -69,7 +69,8 @@ const TEXT = {
     caseToolbarAria: "案例检索和筛选",
     caseCategoryAria: "案例栏目",
     filterSummary: "搜索与筛选",
-    filterSummaryHint: "点开设置条件",
+    filterExpand: "展开筛选",
+    filterCollapse: "收起筛选",
     keyword: "关键词",
     caseSearchPlaceholder: "搜索标题、摘要、工作流、地区、工具或来源",
     subcategory: "细分方向",
@@ -276,7 +277,8 @@ const TEXT = {
     caseToolbarAria: "Case search and filters",
     caseCategoryAria: "Case categories",
     filterSummary: "Search and filters",
-    filterSummaryHint: "Tap to adjust",
+    filterExpand: "Expand filters",
+    filterCollapse: "Collapse filters",
     keyword: "Keyword",
     caseSearchPlaceholder: "Search titles, summaries, workflows, regions, tools or sources",
     subcategory: "Subcategory",
@@ -3451,7 +3453,7 @@ function setupMobileCollapsibleFilters() {
   const details = [...document.querySelectorAll("[data-mobile-collapsible]")];
   if (details.length === 0) return;
 
-  const mobileQuery = window.matchMedia("(max-width: 720px)");
+  const mobileQuery = window.matchMedia("(max-width: 900px)");
   let lastMobileState = null;
   const sync = () => {
     const isMobile = mobileQuery.matches;
