@@ -2809,6 +2809,7 @@ const favoriteState = {
 const assistantState = {
   studioUrl: "",
   hasConfigError: false,
+  frameLoaded: false,
 };
 
 const viewElements = {
@@ -3377,6 +3378,9 @@ function setActiveView(view, updateHash = true) {
   viewElements.panels.forEach((panel) => {
     panel.hidden = panel.dataset.viewPanel !== nextView;
   });
+  if (nextView === "assistant") {
+    mountAssistantFrame();
+  }
   if (updateHash && window.location.hash !== `#${nextView}`) {
     history.replaceState(null, "", `#${nextView}`);
   }
@@ -3385,6 +3389,7 @@ function setActiveView(view, updateHash = true) {
 function showAssistantEmpty(title, copy) {
   assistantEls.frameWrap.hidden = true;
   assistantEls.frame.removeAttribute("src");
+  assistantState.frameLoaded = false;
   assistantEls.empty.hidden = false;
   assistantEls.emptyTitle.textContent = title;
   assistantEls.emptyCopy.textContent = copy;
@@ -3405,12 +3410,26 @@ function renderAssistant(studioUrl) {
   }
 
   assistantState.studioUrl = url;
-  assistantEls.frame.src = url;
-  assistantEls.frameWrap.hidden = false;
+  if (viewState.active === "assistant") {
+    mountAssistantFrame();
+  } else {
+    assistantEls.frameWrap.hidden = true;
+    assistantEls.frame.removeAttribute("src");
+    assistantState.frameLoaded = false;
+  }
   assistantEls.empty.hidden = true;
   assistantEls.directLink.href = url;
   assistantEls.directLink.hidden = false;
   viewElements.assistantTabStatus.textContent = t("assistantStatusConnected");
+}
+
+function mountAssistantFrame() {
+  if (!assistantState.studioUrl || assistantState.hasConfigError) return;
+  if (!assistantState.frameLoaded) {
+    assistantEls.frame.src = assistantState.studioUrl;
+    assistantState.frameLoaded = true;
+  }
+  assistantEls.frameWrap.hidden = false;
 }
 
 async function initAssistant() {
