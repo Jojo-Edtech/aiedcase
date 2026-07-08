@@ -554,6 +554,23 @@ main {
   padding: 18px;
 }
 
+.filter-details {
+  display: grid;
+  gap: 0;
+}
+
+.filter-summary {
+  display: none;
+}
+
+.filter-summary::-webkit-details-marker {
+  display: none;
+}
+
+.filter-content {
+  display: block;
+}
+
 .tabs {
   display: flex;
   gap: 10px;
@@ -1333,36 +1350,54 @@ code {
   }
 
   .header-actions {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: nowrap;
     align-self: stretch;
     gap: 8px;
     max-width: none;
+    margin-inline: -12px;
+    padding: 2px 12px 8px;
+    overflow-x: auto;
+    scroll-padding-inline: 12px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
   }
 
   .language-switcher {
-    grid-column: 1 / -1;
-    width: 100%;
+    flex: 0 0 190px;
+    width: auto;
     grid-template-columns: auto 1fr;
+    scroll-snap-align: start;
   }
 
   .header-actions .button {
-    width: 100%;
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 126px;
     min-height: 42px;
     padding: 0 10px;
     font-size: 0.9rem;
+    scroll-snap-align: start;
   }
 
   .site-nav {
-    grid-template-columns: 1fr;
+    display: flex;
+    grid-template-columns: none;
     gap: 10px;
     margin-top: 6px;
-    padding: 8px;
+    margin-inline: -12px;
+    padding: 8px 12px 10px;
+    overflow-x: auto;
+    scroll-padding-inline: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
   }
 
   .site-nav a {
+    flex: 0 0 min(80vw, 320px);
     min-height: 76px;
     padding: 12px 14px;
+    scroll-snap-align: start;
   }
 
   .site-nav a::before {
@@ -1387,16 +1422,27 @@ code {
   }
 
   .dashboard,
-  .controls,
   .case-grid,
   .candidate-list,
   .toolkit-grid {
     grid-template-columns: 1fr;
   }
 
+  .dashboard {
+    display: flex;
+    margin-inline: -12px;
+    padding: 0 12px 8px;
+    overflow-x: auto;
+    scroll-padding-inline: 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .dashboard-stat {
+    flex: 0 0 min(78vw, 320px);
     min-height: 112px;
     padding: 18px;
+    scroll-snap-align: start;
   }
 
   .stat-value {
@@ -1440,16 +1486,80 @@ code {
   }
 
   .toolbar {
-    padding: 14px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  .filter-details {
+    overflow: hidden;
+    background: rgba(244, 251, 255, 0.96);
+    border: 2px solid rgba(255, 255, 255, 0.95);
+    box-shadow: var(--shadow-blue);
+  }
+
+  .filter-summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto 28px;
+    align-items: center;
+    gap: 10px;
+    min-height: 58px;
+    padding: 0 14px;
+    color: var(--panel-dark);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .filter-summary span:first-child {
+    font-size: 1rem;
+    font-weight: 920;
+  }
+
+  .filter-summary span:nth-child(2) {
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    font-weight: 760;
+    white-space: nowrap;
+  }
+
+  .filter-summary::after {
+    content: "";
+    justify-self: end;
+    width: 11px;
+    height: 11px;
+    border-right: 3px solid var(--panel);
+    border-bottom: 3px solid var(--panel);
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform 0.18s ease;
+  }
+
+  .filter-details[open] .filter-summary::after {
+    transform: rotate(225deg) translateY(-2px);
+  }
+
+  .filter-content {
+    padding: 0 14px 14px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
   }
 
   .tabs {
+    display: flex;
+    margin-inline: -14px;
     margin-bottom: 14px;
+    padding: 2px 14px 10px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
   }
 
   .tab {
+    flex: 0 0 auto;
     min-height: 38px;
     padding: 0 13px;
+    scroll-snap-align: start;
   }
 
   .case-card,
@@ -1499,6 +1609,22 @@ code {
   .detail-actions {
     justify-content: flex-start;
   }
+
+  .task-shortcuts {
+    display: flex;
+    margin-inline: -20px;
+    padding: 0 20px 4px;
+    overflow-x: auto;
+    scroll-padding-inline: 20px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .task-shortcut {
+    flex: 0 0 auto;
+    min-width: 150px;
+    scroll-snap-align: start;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1507,7 +1633,8 @@ code {
   }
 
   .header-actions {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: nowrap;
   }
 
   .header-actions .button,
@@ -1533,6 +1660,6 @@ code {
   }
 
   .task-shortcuts {
-    grid-template-columns: 1fr;
+    grid-template-columns: none;
   }
 }

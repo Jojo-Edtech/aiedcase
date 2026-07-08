@@ -97,69 +97,77 @@
         <section class="candidate-preview" id="candidatePreview" hidden></section>
 
         <section class="toolbar" aria-label="案例检索和筛选" data-i18n-aria-label="caseToolbarAria" data-case-list-block>
-          <nav class="tabs" id="categoryTabs" aria-label="案例栏目" data-i18n-aria-label="caseCategoryAria"></nav>
+          <details class="filter-details" data-mobile-collapsible open>
+            <summary class="filter-summary">
+              <span data-i18n="filterSummary">搜索与筛选</span>
+              <span data-i18n="filterSummaryHint">点开设置条件</span>
+            </summary>
+            <div class="filter-content">
+              <nav class="tabs" id="categoryTabs" aria-label="案例栏目" data-i18n-aria-label="caseCategoryAria"></nav>
 
-          <div class="controls">
-            <label class="field field-wide" for="searchInput">
-              <span data-i18n="keyword">关键词</span>
-              <input id="searchInput" type="search" placeholder="搜索标题、摘要、工作流、地区、工具或来源" data-i18n-placeholder="caseSearchPlaceholder">
-            </label>
+              <div class="controls">
+                <label class="field field-wide" for="searchInput">
+                  <span data-i18n="keyword">关键词</span>
+                  <input id="searchInput" type="search" placeholder="搜索标题、摘要、工作流、地区、工具或来源" data-i18n-placeholder="caseSearchPlaceholder">
+                </label>
 
-            <label class="field" for="subcategoryFilter">
-              <span data-i18n="subcategory">细分方向</span>
-              <select id="subcategoryFilter"></select>
-            </label>
+                <label class="field" for="subcategoryFilter">
+                  <span data-i18n="subcategory">细分方向</span>
+                  <select id="subcategoryFilter"></select>
+                </label>
 
-            <label class="field" for="caseTaskFilter">
-              <span data-i18n="teacherTask">教师任务</span>
-              <select id="caseTaskFilter"></select>
-            </label>
+                <label class="field" for="caseTaskFilter">
+                  <span data-i18n="teacherTask">教师任务</span>
+                  <select id="caseTaskFilter"></select>
+                </label>
 
-            <label class="field" for="levelFilter">
-              <span data-i18n="educationLevel">学段</span>
-              <select id="levelFilter"></select>
-            </label>
+                <label class="field" for="levelFilter">
+                  <span data-i18n="educationLevel">学段</span>
+                  <select id="levelFilter"></select>
+                </label>
 
-            <label class="field" for="languageFilter">
-              <span data-i18n="language">语言</span>
-              <select id="languageFilter"></select>
-            </label>
+                <label class="field" for="languageFilter">
+                  <span data-i18n="language">语言</span>
+                  <select id="languageFilter"></select>
+                </label>
 
-            <label class="field" for="regionFilter">
-              <span data-i18n="region">地区</span>
-              <select id="regionFilter"></select>
-            </label>
+                <label class="field" for="regionFilter">
+                  <span data-i18n="region">地区</span>
+                  <select id="regionFilter"></select>
+                </label>
 
-            <label class="field" for="sourceFilter">
-              <span data-i18n="source">来源</span>
-              <select id="sourceFilter"></select>
-            </label>
+                <label class="field" for="sourceFilter">
+                  <span data-i18n="source">来源</span>
+                  <select id="sourceFilter"></select>
+                </label>
 
-            <label class="field" for="methodFilter">
-              <span data-i18n="aiType">AI类型</span>
-              <select id="methodFilter"></select>
-            </label>
+                <label class="field" for="methodFilter">
+                  <span data-i18n="aiType">AI类型</span>
+                  <select id="methodFilter"></select>
+                </label>
 
-            <label class="field" for="sortSelect">
-              <span data-i18n="sort">排序</span>
-              <select id="sortSelect">
-                <option value="date-desc">发布日期：新到旧</option>
-                <option value="date-asc">发布日期：旧到新</option>
-                <option value="title-asc">标题：A-Z</option>
-                <option value="region-asc">地区：A-Z</option>
-              </select>
-            </label>
+                <label class="field" for="sortSelect">
+                  <span data-i18n="sort">排序</span>
+                  <select id="sortSelect">
+                    <option value="date-desc">发布日期：新到旧</option>
+                    <option value="date-asc">发布日期：旧到新</option>
+                    <option value="title-asc">标题：A-Z</option>
+                    <option value="region-asc">地区：A-Z</option>
+                  </select>
+                </label>
 
-            <label class="field checkbox-field" for="favoriteCasesOnly">
-              <span data-i18n="favorites">收藏</span>
-              <span class="toggle-field">
-                <input id="favoriteCasesOnly" type="checkbox">
-                <span data-i18n="favoritesOnly">只看收藏</span>
-              </span>
-            </label>
+                <label class="field checkbox-field" for="favoriteCasesOnly">
+                  <span data-i18n="favorites">收藏</span>
+                  <span class="toggle-field">
+                    <input id="favoriteCasesOnly" type="checkbox">
+                    <span data-i18n="favoritesOnly">只看收藏</span>
+                  </span>
+                </label>
 
-            <button class="button button-secondary" id="resetFilters" type="button" data-i18n="reset">重置</button>
-          </div>
+                <button class="button button-secondary" id="resetFilters" type="button" data-i18n="reset">重置</button>
+              </div>
+            </div>
+          </details>
         </section>
 
         <section class="case-detail" id="caseDetail" aria-live="polite" hidden></section>
@@ -200,73 +208,81 @@
         </section>
 
         <section class="toolbar" aria-label="资源检索和筛选" data-i18n-aria-label="resourceToolbarAria">
-          <div class="controls controls-resources">
-            <label class="field field-wide" for="resourceSearchInput">
-              <span data-i18n="keyword">关键词</span>
-              <input id="resourceSearchInput" type="search" placeholder="搜索标题、简介、适用方式、发布机构或地区" data-i18n-placeholder="resourceSearchPlaceholder">
-            </label>
+          <details class="filter-details" data-mobile-collapsible open>
+            <summary class="filter-summary">
+              <span data-i18n="filterSummary">搜索与筛选</span>
+              <span data-i18n="filterSummaryHint">点开设置条件</span>
+            </summary>
+            <div class="filter-content">
+              <div class="controls controls-resources">
+                <label class="field field-wide" for="resourceSearchInput">
+                  <span data-i18n="keyword">关键词</span>
+                  <input id="resourceSearchInput" type="search" placeholder="搜索标题、简介、适用方式、发布机构或地区" data-i18n-placeholder="resourceSearchPlaceholder">
+                </label>
 
-            <label class="field" for="resourceRegionFilter">
-              <span data-i18n="region">地区</span>
-              <select id="resourceRegionFilter"></select>
-            </label>
+                <label class="field" for="resourceRegionFilter">
+                  <span data-i18n="region">地区</span>
+                  <select id="resourceRegionFilter"></select>
+                </label>
 
-            <label class="field" for="resourceTaskFilter">
-              <span data-i18n="teacherTask">教师任务</span>
-              <select id="resourceTaskFilter"></select>
-            </label>
+                <label class="field" for="resourceTaskFilter">
+                  <span data-i18n="teacherTask">教师任务</span>
+                  <select id="resourceTaskFilter"></select>
+                </label>
 
-            <label class="field" for="resourceLevelFilter">
-              <span data-i18n="educationLevel">学段</span>
-              <select id="resourceLevelFilter"></select>
-            </label>
+                <label class="field" for="resourceLevelFilter">
+                  <span data-i18n="educationLevel">学段</span>
+                  <select id="resourceLevelFilter"></select>
+                </label>
 
-            <label class="field" for="resourceAudienceFilter">
-              <span data-i18n="audience">受众</span>
-              <select id="resourceAudienceFilter"></select>
-            </label>
+                <label class="field" for="resourceAudienceFilter">
+                  <span data-i18n="audience">受众</span>
+                  <select id="resourceAudienceFilter"></select>
+                </label>
 
-            <label class="field" for="resourceTypeFilter">
-              <span data-i18n="resourceType">资源类型</span>
-              <select id="resourceTypeFilter"></select>
-            </label>
+                <label class="field" for="resourceTypeFilter">
+                  <span data-i18n="resourceType">资源类型</span>
+                  <select id="resourceTypeFilter"></select>
+                </label>
 
-            <label class="field" for="resourceCategoryFilter">
-              <span data-i18n="category">类别</span>
-              <select id="resourceCategoryFilter"></select>
-            </label>
+                <label class="field" for="resourceCategoryFilter">
+                  <span data-i18n="category">类别</span>
+                  <select id="resourceCategoryFilter"></select>
+                </label>
 
-            <label class="field" for="resourceLanguageFilter">
-              <span data-i18n="language">语言</span>
-              <select id="resourceLanguageFilter"></select>
-            </label>
+                <label class="field" for="resourceLanguageFilter">
+                  <span data-i18n="language">语言</span>
+                  <select id="resourceLanguageFilter"></select>
+                </label>
 
-            <label class="field" for="resourceAccessFilter">
-              <span data-i18n="accessType">访问方式</span>
-              <select id="resourceAccessFilter"></select>
-            </label>
+                <label class="field" for="resourceAccessFilter">
+                  <span data-i18n="accessType">访问方式</span>
+                  <select id="resourceAccessFilter"></select>
+                </label>
 
-            <label class="field" for="resourceSortSelect">
-              <span data-i18n="sort">排序</span>
-              <select id="resourceSortSelect">
-                <option value="title-asc">标题：A-Z</option>
-                <option value="region-asc">地区：A-Z</option>
-                <option value="date-desc">发布日期：新到旧</option>
-                <option value="date-asc">发布日期：旧到新</option>
-                <option value="publisher-asc">发布机构：A-Z</option>
-              </select>
-            </label>
+                <label class="field" for="resourceSortSelect">
+                  <span data-i18n="sort">排序</span>
+                  <select id="resourceSortSelect">
+                    <option value="title-asc">标题：A-Z</option>
+                    <option value="region-asc">地区：A-Z</option>
+                    <option value="date-desc">发布日期：新到旧</option>
+                    <option value="date-asc">发布日期：旧到新</option>
+                    <option value="publisher-asc">发布机构：A-Z</option>
+                  </select>
+                </label>
 
-            <label class="field checkbox-field" for="favoriteResourcesOnly">
-              <span data-i18n="favorites">收藏</span>
-              <span class="toggle-field">
-                <input id="favoriteResourcesOnly" type="checkbox">
-                <span data-i18n="favoritesOnly">只看收藏</span>
-              </span>
-            </label>
+                <label class="field checkbox-field" for="favoriteResourcesOnly">
+                  <span data-i18n="favorites">收藏</span>
+                  <span class="toggle-field">
+                    <input id="favoriteResourcesOnly" type="checkbox">
+                    <span data-i18n="favoritesOnly">只看收藏</span>
+                  </span>
+                </label>
 
-            <button class="button button-secondary" id="resourceResetFilters" type="button" data-i18n="reset">重置</button>
-          </div>
+                <button class="button button-secondary" id="resourceResetFilters" type="button" data-i18n="reset">重置</button>
+              </div>
+            </div>
+          </details>
         </section>
 
         <section class="results-header" aria-live="polite">
@@ -313,66 +329,74 @@
         </section>
 
         <section class="toolbar" aria-label="Prompt 检索和筛选" data-i18n-aria-label="promptToolbarAria">
-          <div class="controls controls-prompts">
-            <label class="field field-wide" for="promptSearchInput">
-              <span data-i18n="keyword">关键词</span>
-              <input id="promptSearchInput" type="search" placeholder="搜索学科、用途、Prompt 内容或来源" data-i18n-placeholder="promptSearchPlaceholder">
-            </label>
+          <details class="filter-details" data-mobile-collapsible open>
+            <summary class="filter-summary">
+              <span data-i18n="filterSummary">搜索与筛选</span>
+              <span data-i18n="filterSummaryHint">点开设置条件</span>
+            </summary>
+            <div class="filter-content">
+              <div class="controls controls-prompts">
+                <label class="field field-wide" for="promptSearchInput">
+                  <span data-i18n="keyword">关键词</span>
+                  <input id="promptSearchInput" type="search" placeholder="搜索学科、用途、Prompt 内容或来源" data-i18n-placeholder="promptSearchPlaceholder">
+                </label>
 
-            <label class="field" for="promptSubjectFilter">
-              <span data-i18n="subject">学科</span>
-              <select id="promptSubjectFilter"></select>
-            </label>
+                <label class="field" for="promptSubjectFilter">
+                  <span data-i18n="subject">学科</span>
+                  <select id="promptSubjectFilter"></select>
+                </label>
 
-            <label class="field" for="promptTaskFilter">
-              <span data-i18n="teacherTask">教师任务</span>
-              <select id="promptTaskFilter"></select>
-            </label>
+                <label class="field" for="promptTaskFilter">
+                  <span data-i18n="teacherTask">教师任务</span>
+                  <select id="promptTaskFilter"></select>
+                </label>
 
-            <label class="field" for="promptLevelFilter">
-              <span data-i18n="educationLevel">学段</span>
-              <select id="promptLevelFilter"></select>
-            </label>
+                <label class="field" for="promptLevelFilter">
+                  <span data-i18n="educationLevel">学段</span>
+                  <select id="promptLevelFilter"></select>
+                </label>
 
-            <label class="field" for="promptTypeFilter">
-              <span data-i18n="promptType">Prompt 类型</span>
-              <select id="promptTypeFilter"></select>
-            </label>
+                <label class="field" for="promptTypeFilter">
+                  <span data-i18n="promptType">Prompt 类型</span>
+                  <select id="promptTypeFilter"></select>
+                </label>
 
-            <label class="field" for="promptCategoryFilter">
-              <span data-i18n="category">类别</span>
-              <select id="promptCategoryFilter"></select>
-            </label>
+                <label class="field" for="promptCategoryFilter">
+                  <span data-i18n="category">类别</span>
+                  <select id="promptCategoryFilter"></select>
+                </label>
 
-            <label class="field" for="promptAudienceFilter">
-              <span data-i18n="audience">受众</span>
-              <select id="promptAudienceFilter"></select>
-            </label>
+                <label class="field" for="promptAudienceFilter">
+                  <span data-i18n="audience">受众</span>
+                  <select id="promptAudienceFilter"></select>
+                </label>
 
-            <label class="field" for="promptOutputFilter">
-              <span data-i18n="outputFormat">输出格式</span>
-              <select id="promptOutputFilter"></select>
-            </label>
+                <label class="field" for="promptOutputFilter">
+                  <span data-i18n="outputFormat">输出格式</span>
+                  <select id="promptOutputFilter"></select>
+                </label>
 
-            <label class="field" for="promptSortSelect">
-              <span data-i18n="sort">排序</span>
-              <select id="promptSortSelect">
-                <option value="subject-asc">学科：A-Z</option>
-                <option value="type-asc">类型：A-Z</option>
-                <option value="title-asc">标题：A-Z</option>
-              </select>
-            </label>
+                <label class="field" for="promptSortSelect">
+                  <span data-i18n="sort">排序</span>
+                  <select id="promptSortSelect">
+                    <option value="subject-asc">学科：A-Z</option>
+                    <option value="type-asc">类型：A-Z</option>
+                    <option value="title-asc">标题：A-Z</option>
+                  </select>
+                </label>
 
-            <label class="field checkbox-field" for="favoritePromptsOnly">
-              <span data-i18n="favorites">收藏</span>
-              <span class="toggle-field">
-                <input id="favoritePromptsOnly" type="checkbox">
-                <span data-i18n="favoritesOnly">只看收藏</span>
-              </span>
-            </label>
+                <label class="field checkbox-field" for="favoritePromptsOnly">
+                  <span data-i18n="favorites">收藏</span>
+                  <span class="toggle-field">
+                    <input id="favoritePromptsOnly" type="checkbox">
+                    <span data-i18n="favoritesOnly">只看收藏</span>
+                  </span>
+                </label>
 
-            <button class="button button-secondary" id="promptResetFilters" type="button" data-i18n="reset">重置</button>
-          </div>
+                <button class="button button-secondary" id="promptResetFilters" type="button" data-i18n="reset">重置</button>
+              </div>
+            </div>
+          </details>
         </section>
 
         <section class="results-header" aria-live="polite">

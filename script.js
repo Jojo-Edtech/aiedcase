@@ -68,6 +68,8 @@ const TEXT = {
     candidateReviewBadge: "待审核",
     caseToolbarAria: "案例检索和筛选",
     caseCategoryAria: "案例栏目",
+    filterSummary: "搜索与筛选",
+    filterSummaryHint: "点开设置条件",
     keyword: "关键词",
     caseSearchPlaceholder: "搜索标题、摘要、工作流、地区、工具或来源",
     subcategory: "细分方向",
@@ -273,6 +275,8 @@ const TEXT = {
     candidateReviewBadge: "Pending review",
     caseToolbarAria: "Case search and filters",
     caseCategoryAria: "Case categories",
+    filterSummary: "Search and filters",
+    filterSummaryHint: "Tap to adjust",
     keyword: "Keyword",
     caseSearchPlaceholder: "Search titles, summaries, workflows, regions, tools or sources",
     subcategory: "Subcategory",
@@ -3443,6 +3447,29 @@ function handleHashChange() {
   if (viewState.active === "cases") renderCases();
 }
 
+function setupMobileCollapsibleFilters() {
+  const details = [...document.querySelectorAll("[data-mobile-collapsible]")];
+  if (details.length === 0) return;
+
+  const mobileQuery = window.matchMedia("(max-width: 720px)");
+  let lastMobileState = null;
+  const sync = () => {
+    const isMobile = mobileQuery.matches;
+    if (isMobile === lastMobileState) return;
+    details.forEach((detail) => {
+      detail.open = !isMobile;
+    });
+    lastMobileState = isMobile;
+  };
+
+  sync();
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", sync);
+  } else if (typeof mobileQuery.addListener === "function") {
+    mobileQuery.addListener(sync);
+  }
+}
+
 function valueOrPlaceholder(value, placeholder) {
   return String(value || "").trim() || placeholder;
 }
@@ -4783,6 +4810,7 @@ async function initPrompts() {
 setupLanguageControl();
 refreshLanguage();
 setupViewTabs();
+setupMobileCollapsibleFilters();
 setupToolkit();
 setupCandidateControls();
 initCases();
